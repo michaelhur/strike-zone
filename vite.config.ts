@@ -26,6 +26,7 @@ export default defineConfig({
         environment: 'jsdom',
         setupFiles: './tests/setup.js',
     },
+    envDir: './env',
     resolve: {
         alias: [
             { find: '@public', replacement: path.resolve(__dirname, '/public') },
