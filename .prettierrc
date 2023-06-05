@@ -1,0 +1,26 @@
+{
+    "printWidth": 120,
+    "tabWidth": 4,
+    "singleQuote": true,
+    "trailingComma": "all",
+    "semi": true,
+    "plugins": ["@ianvs/prettier-plugin-sort-imports"],
+    "importOrder": [
+        "^react",
+        "<THIRD_PARTY_MODULES>",
+        "^@public/(.*)$",
+        "^@components/(.*)$",
+        "^@hooks/(.*)$",
+        "^@pages/(.*)$",
+        "^@recoils/(.*)$",
+        "^@styles/(.*)$",
+        "^@typings/(.*)$",
+        "^@utils/(.*)$",
+        "^@src/(.*)",
+        "^@src/apis/(.*)$",
+        "^@src/mocks/(.*)$",
+        "^[./]"
+    ],
+    "importOrderSeparation": true,
+    "importOrderSortSpecifiers": true
+}
