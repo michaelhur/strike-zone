@@ -10,28 +10,28 @@ const getPlayers = async () => {
     const players: Player[] = [];
 
     const teamData = await axios(`${MLB_URL}/api/v1/teams?sportId=1`);
-    const teamResponse = await teamData.data;
-    const teams = await teamResponse.teams;
-    const teamIds = await teams.map((team) => team.id);
+    const teamResponse = teamData.data;
+    const teams = teamResponse.teams;
+    const teamIds = teams.map((team) => team.id);
 
     for await (const teamId of teamIds) {
         const mlbData = await axios(`${MLB_URL}/api/v1/teams/${teamId}/roster`);
-        const data = await mlbData.data;
-        const roster = await data.roster;
+        const data = mlbData.data;
+        const roster = data.roster;
 
         for await (const player of roster) {
-            const person = await player.person;
-            const playerId = await person.id;
-            const name = await person.fullName;
+            const person = player.person;
+            const playerId = person.id;
+            const name = person.fullName;
 
             const personData = await axios(`${MLB_URL}/api/v1/people/${playerId}`);
-            const personDataResponse = await personData.data;
-            const profile = await personDataResponse.people[0];
-            const lastName = await profile.lastName;
-            const batSide = await profile.batSide.code;
-            const pitchSide = await profile.pitchHand.code;
+            const personDataResponse = personData.data;
+            const profile = personDataResponse.people[0];
+            const lastName = profile.lastName;
+            const batSide = profile.batSide.code;
+            const pitchSide = profile.pitchHand.code;
 
-            const body = await {
+            const body = {
                 id: playerId,
                 name,
                 lastName,
@@ -43,9 +43,6 @@ const getPlayers = async () => {
             players.push(body);
         }
     }
-
-    console.log(players);
-
     return players;
 };
 

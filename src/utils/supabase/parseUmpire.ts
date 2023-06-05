@@ -9,9 +9,9 @@ const SUPABASE_KEY = import.meta.env.SUPABASE_KEY;
 const fetchUmpire = async () => {
     const umpires: Umpire[] = [];
 
-    const mlbData = await axios('https://statsapi.mlb.com/api/v1/jobs/umpires');
-    const data = await mlbData.data;
-    const roster = await data.roster;
+    const mlbData = await axios(`${MLB_URL}/api/v1/jobs/umpires`);
+    const data = mlbData.data;
+    const roster = data.roster;
 
     for await (const u of roster) {
         const person = await u.person;

@@ -10,8 +10,8 @@ const fetchTeam = async () => {
     const teams: Team[] = [];
 
     const mlbData = await axios(`${MLB_URL}/api/v1/teams?sportId=1`);
-    const data = await mlbData.data;
-    const teamData = await data.teams;
+    const data = mlbData.data;
+    const teamData = data.teams;
 
     for await (const team of teamData) {
         const body: Team = {

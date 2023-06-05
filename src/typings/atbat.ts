@@ -4,34 +4,24 @@ import { Player } from '@typings/player';
 import { Team } from '@typings/team';
 import { Umpire } from '@typings/umpire';
 
-// 투구 결과
-interface PitchDecision {
-    pitchType: keyof typeof PitchType;
-    velocity: number;
-    isBall: boolean;
-    isStrike: boolean;
-    isInPlay: boolean;
-}
-
 // 좌표
 interface Coordinates {
     x: number;
     y: number;
 }
 
-// 투구 데이터
-interface PitchData {
-    strikeZoneTop: number;
-    strikeZoneBottom: number;
-    coordinates: Coordinates;
-}
-
 // 투구
 export interface Play {
     id: string;
     isPitch: boolean;
-    decision?: PitchDecision;
-    pitchData?: PitchData;
+    pitchType: keyof typeof PitchType;
+    velocity: number;
+    isBall: boolean;
+    isStrike: boolean;
+    isInPlay: boolean;
+    strikeZoneTop: number;
+    strikeZoneBottom: number;
+    coordinates: Coordinates;
 }
 
 interface PlayerMatchup {
@@ -54,4 +44,18 @@ export interface AtBat {
     teamMatchup: TeamMatchup;
     umpire: Umpire;
     plays: Play[];
+}
+
+export interface UpsertAtBat {
+    gameId: number;
+    atBatIndex: number;
+    isTopInning: boolean;
+    inning: number;
+    batterId: number;
+    pitcherId: number;
+    homeId: number;
+    awayId: number;
+    umpireId: number;
+    plays: Play[];
+    gameDate: string;
 }
