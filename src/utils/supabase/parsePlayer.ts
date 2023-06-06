@@ -7,15 +7,15 @@ const SUPABASE_BASE_URL = import.meta.env.SUPABASE_BASE_URL;
 const SUPABASE_KEY = import.meta.env.SUPABASE_KEY;
 
 const getPlayers = async () => {
-    const players: Player[] = [];
-
     const teamData = await axios(`${MLB_URL}/api/v1/teams?sportId=1`);
     const teamResponse = teamData.data;
     const teams = teamResponse.teams;
     const teamIds = teams.map((team) => team.id);
 
     for await (const teamId of teamIds) {
-        const mlbData = await axios(`${MLB_URL}/api/v1/teams/${teamId}/roster`);
+        const players: Player[] = [];
+
+        const mlbData = await axios(`${MLB_URL}/api/v1/teams/${teamId}/roster?rosterType=fullRoster`);
         const data = mlbData.data;
         const roster = data.roster;
 
@@ -43,27 +43,29 @@ const getPlayers = async () => {
             players.push(body);
         }
     }
-    return players;
+
+    return;
 };
 
-const fetchPlayer = async () => {
-    const players = await getPlayers();
+const fetchPlayer = async (players: Player[]) => {
+    try {
+        const HEADER = {
+            'Content-Type': 'application/json',
+            apikey: SUPABASE_KEY,
+            Authorization: `Bearer ${SUPABASE_KEY}`,
+            Prefer: 'resolution=merge-duplicates',
+        };
 
-    const HEADER = {
-        'Content-Type': 'application/json',
-        apikey: SUPABASE_KEY,
-        Authorization: `Bearer ${SUPABASE_KEY}`,
-    };
+        const fetchOptions = {
+            method: 'POST',
+            url: `${SUPABASE_BASE_URL}/player`,
+            headers: HEADER,
+            data: JSON.stringify(players),
+        };
 
-    const fetchOptions = {
-        method: 'POST',
-        url: `${SUPABASE_BASE_URL}/player`,
-        headers: HEADER,
-        data: JSON.stringify(players),
-    };
-
-    const res = await axios(fetchOptions);
-    return res;
+        const res = await axios(fetchOptions);
+        return res;
+    } catch (e) {
+        console.log(`fetch Player failed with ${e}`);
+    }
 };
-
-console.log(fetchPlayer());

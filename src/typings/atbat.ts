@@ -35,7 +35,7 @@ interface TeamMatchup {
 }
 
 export interface AtBat {
-    id: number | string;
+    id: string;
     gameId: number | string;
     atBatIndex: number;
     isTopInning: boolean;
@@ -47,6 +47,7 @@ export interface AtBat {
 }
 
 export interface UpsertAtBat {
+    id: string;
     gameId: number;
     atBatIndex: number;
     isTopInning: boolean;

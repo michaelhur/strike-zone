@@ -31,6 +31,7 @@ const fetchTeam = async () => {
         'Content-Type': 'application/json',
         apikey: SUPABASE_KEY,
         Authorization: `Bearer ${SUPABASE_KEY}`,
+        Prefer: 'resolution=merge-duplicates',
     };
 
     const fetchOptions: AxiosRequestConfig = {
