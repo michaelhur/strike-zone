@@ -12,7 +12,7 @@ interface Coordinates {
 
 // 투구
 export interface Play {
-    id: string;
+    id: number;
     isPitch: boolean;
     pitchType: keyof typeof PitchType;
     velocity: number;
@@ -36,7 +36,7 @@ interface TeamMatchup {
 
 export interface AtBat {
     id: string;
-    gameId: number | string;
+    gameId: number;
     atBatIndex: number;
     isTopInning: boolean;
     inning: number;
@@ -58,5 +58,15 @@ export interface UpsertAtBat {
     awayId: number;
     umpireId: number;
     plays: Play[];
-    gameDate: string;
+    date: string;
+}
+
+export interface Game {
+    id: number;
+    slug: string;
+    date: string;
+    season: number;
+    awayId: number;
+    homeId: number;
+    umpireId: number;
 }

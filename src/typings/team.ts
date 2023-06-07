@@ -1,12 +1,12 @@
 export interface Team {
-    id: number | string;
+    id: number;
     name: string;
     abbreviation: string;
     franchiseName: string;
     teamName: string;
     imageUrl: string;
-    leagueId: number | string;
-    divisionId: number | string;
+    leagueId: number;
+    divisionId: number;
 }
 
 export const Toronto: Team = {

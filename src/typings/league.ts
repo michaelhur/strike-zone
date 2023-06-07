@@ -1,12 +1,12 @@
 export interface League {
-    id: number | string;
+    id: number;
     name: string;
     shortName: string;
 }
 
 export interface Division {
-    id: number | string;
-    leagueId: number | string;
+    id: number;
+    leagueId: number;
     name: string;
     shortName: string;
     abbreviation: string;

@@ -1,19 +1,19 @@
 export type PlayerSide = 'L' | 'R' | 'S';
 
 export interface Player {
-    id: number | string;
+    id: number;
     name: string;
     lastName: string;
     batSide: PlayerSide;
-    pitchSide: PlayerSide;
-    teamId: number | string;
+    pitchHand: PlayerSide;
 }
+
+export type UpsertPlayer = Player;
 
 export const Minter: Player = {
     id: 621345,
     name: 'A. J. Minter',
     lastName: 'Minter',
     batSide: 'L',
-    pitchSide: 'L',
-    teamId: 144,
+    pitchHand: 'L',
 };
