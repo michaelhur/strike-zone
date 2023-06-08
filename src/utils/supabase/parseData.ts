@@ -6,7 +6,7 @@ import { Umpire } from '@typings/umpire';
 
 import { fetchSupabase } from '@utils/supabase/fetchSupabase';
 
-const MLB_URL = import.meta.env.MLB_BASE_URL;
+const MLB_URL = import.meta.env.VITE_MLB_BASE_URL;
 
 const getGames = async () => {
     const mlbData = await axios(`${MLB_URL}/api/v1/schedule/games/?sportId=1&startDate=2023-04-09&endDate=2023-04-30`);

@@ -2,8 +2,8 @@ import axios, { AxiosRequestConfig } from 'axios';
 
 import { AnyOBJ } from '@src/typings';
 
-const SUPABASE_BASE_URL = import.meta.env.SUPABASE_BASE_URL;
-const SUPABASE_KEY = import.meta.env.SUPABASE_KEY;
+const SUPABASE_API_URL = import.meta.env.VITE_SUPABASE_API_URL;
+const SUPABASE_KEY = import.meta.env.VITE_SUPABASE_KEY;
 
 export const fetchSupabase = async (databaseName: string, data: AnyOBJ | AnyOBJ[]) => {
     try {
@@ -18,7 +18,7 @@ export const fetchSupabase = async (databaseName: string, data: AnyOBJ | AnyOBJ[
 
         const fetchOptions: AxiosRequestConfig = {
             method: 'POST',
-            url: `${SUPABASE_BASE_URL}/${databaseName}`,
+            url: `${SUPABASE_API_URL}/${databaseName}`,
             headers: HEADER,
             data: JSON.stringify(data),
         };
