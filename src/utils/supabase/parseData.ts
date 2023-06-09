@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-import { AtBat, Game } from '@typings/atbat';
+import { AtBat } from '@typings/atbat';
+import { Game } from '@typings/game';
 import { Player } from '@typings/player';
 import { Umpire } from '@typings/umpire';
 

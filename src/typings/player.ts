@@ -7,5 +7,3 @@ export interface Player {
     batSide: PlayerSide;
     pitchHand: PlayerSide;
 }
-
-export type UpsertPlayer = Player;

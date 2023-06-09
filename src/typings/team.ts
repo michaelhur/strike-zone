@@ -7,6 +7,8 @@ export interface Team {
     franchiseName: string;
     teamName: string;
     imageUrl: string;
-    league: League;
-    division: Division;
+    leagueId?: number;
+    divisionId?: number;
+    league?: League;
+    division?: Division;
 }

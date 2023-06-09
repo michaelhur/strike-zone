@@ -1,4 +1,4 @@
-import { Game } from '../../src/typings/atbat';
+import { Game } from '../../src/typings/game';
 
 export const gameList: Game[] = [
     {

@@ -1,16 +1,15 @@
 import { PitchType } from '@constants/pitch';
 
+import { Game } from '@typings/game';
 import { Player } from '@typings/player';
 import { Team } from '@typings/team';
 import { Umpire } from '@typings/umpire';
 
-// 좌표
 interface Coordinates {
     x: number;
     y: number;
 }
 
-// 투구
 export interface Play {
     id: string;
     isPitch: boolean;
@@ -37,29 +36,4 @@ export interface AtBat {
     away: Team;
     umpire: Umpire;
     plays: Play[];
-}
-
-export interface UpsertAtBat {
-    id: string;
-    game: number;
-    atBatIndex: number;
-    isTopInning: boolean;
-    inning: number;
-    batterId: number;
-    pitcherId: number;
-    homeId: number;
-    awayId: number;
-    umpireId: number;
-    plays: Play[];
-    date: string;
-}
-
-export interface Game {
-    id: number;
-    slug: string;
-    date: string;
-    season: number;
-    away: Team;
-    home: Team;
-    umpire: Umpire;
 }
