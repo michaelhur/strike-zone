@@ -1,6 +1,6 @@
 import { AtBat } from '../../src/typings/atbat';
 
-export const atBatList: AtBat[] = [
+export const atbatList: AtBat[] = [
     {
         id: '2023-04-01_718758_0',
         date: '2023-04-01',

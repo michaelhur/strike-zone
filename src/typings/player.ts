@@ -9,11 +9,3 @@ export interface Player {
 }
 
 export type UpsertPlayer = Player;
-
-export const Minter: Player = {
-    id: 621345,
-    name: 'A. J. Minter',
-    lastName: 'Minter',
-    batSide: 'L',
-    pitchHand: 'L',
-};

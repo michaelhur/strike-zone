@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { setupServer } from 'msw/node';
 
-import { atBatList } from '../data/atbat';
+import { atbatList } from '../data/atbat';
 import { atBatHandler } from '../handlers/atBatHandler';
 
 // Create a new server instance
@@ -20,7 +20,7 @@ describe('API Tests', () => {
         const data = response.data;
 
         expect(response.status).toBe(200);
-        expect(data).toEqual(atBatList);
+        expect(data).toEqual(atbatList);
     });
 
     it('should mock a GET request to /api/atbats?date=:date', async () => {
@@ -28,7 +28,7 @@ describe('API Tests', () => {
         const response = await axios.get(`/api/atbats?date=${date}`);
         const data = response.data;
 
-        const dateData = atBatList.filter((atbat) => atbat.date === date);
+        const dateData = atbatList.filter((atbat) => atbat.date === date);
 
         expect(response.status).toBe(200);
         expect(data).toEqual(dateData);
@@ -39,7 +39,7 @@ describe('API Tests', () => {
         const response = await axios.get(`/api/atbats?game=${slug}`);
         const data = response.data;
 
-        const gameData = atBatList.filter((atbat) => atbat.game.slug === slug);
+        const gameData = atbatList.filter((atbat) => atbat.game.slug === slug);
 
         expect(response.status).toBe(200);
         expect(data).toEqual(gameData);
@@ -50,7 +50,7 @@ describe('API Tests', () => {
         const response = await axios.get(`/api/atbats?team=${teamId}`);
         const data = response.data;
 
-        const teamData = atBatList.filter(
+        const teamData = atbatList.filter(
             (atbat) => atbat.away.id === Number(teamId) || atbat.home.id === Number(teamId),
         );
         expect(response.status).toBe(200);
@@ -62,7 +62,7 @@ describe('API Tests', () => {
         const response = await axios.get(`/api/atbats?pitcher=${pitcherId}`);
         const data = response.data;
 
-        const pitcherData = atBatList.filter((atbat) => atbat.pitcher.id === Number(pitcherId));
+        const pitcherData = atbatList.filter((atbat) => atbat.pitcher.id === Number(pitcherId));
 
         expect(response.status).toBe(200);
         expect(data).toEqual(pitcherData);
@@ -73,7 +73,7 @@ describe('API Tests', () => {
         const response = await axios.get(`/api/atbats?batter=${batterId}`);
         const data = response.data;
 
-        const batterData = atBatList.filter((atbat) => atbat.batter.id === Number(batterId));
+        const batterData = atbatList.filter((atbat) => atbat.batter.id === Number(batterId));
 
         expect(response.status).toBe(200);
         expect(data).toEqual(batterData);
@@ -84,7 +84,7 @@ describe('API Tests', () => {
         const response = await axios.get(`/api/atbats?umpire=${umpireId}`);
         const data = response.data;
 
-        const umpireData = atBatList.filter((atbat) => atbat.umpire.id === Number(umpireId));
+        const umpireData = atbatList.filter((atbat) => atbat.umpire.id === Number(umpireId));
 
         expect(response.status).toBe(200);
         expect(data).toEqual(umpireData);

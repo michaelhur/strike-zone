@@ -59,7 +59,7 @@ export interface Game {
     slug: string;
     date: string;
     season: number;
-    awayId: number;
-    homeId: number;
-    umpireId: number;
+    away: Team;
+    home: Team;
+    umpire: Umpire;
 }
