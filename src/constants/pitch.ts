@@ -18,5 +18,7 @@ export enum PitchType {
     SC = 'Screwball',
     SI = 'Sinker',
     SL = 'Slider',
+    SV = 'Slurve',
+    ST = 'Sweeper',
     UN = 'Unknown',
 }

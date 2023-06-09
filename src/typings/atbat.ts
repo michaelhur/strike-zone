@@ -12,7 +12,7 @@ interface Coordinates {
 
 // 투구
 export interface Play {
-    id: number;
+    id: string;
     isPitch: boolean;
     pitchType: keyof typeof PitchType;
     velocity: number;
@@ -24,31 +24,23 @@ export interface Play {
     coordinates: Coordinates;
 }
 
-interface PlayerMatchup {
-    batter: Player;
-    pitcher: Player;
-}
-
-interface TeamMatchup {
-    home: Team;
-    away: Team;
-}
-
 export interface AtBat {
     id: string;
-    gameId: number;
     atBatIndex: number;
     isTopInning: boolean;
     inning: number;
-    playerMatchup: PlayerMatchup;
-    teamMatchup: TeamMatchup;
+    game: Game;
+    batter: Player;
+    pitcher: Player;
+    home: Team;
+    away: Team;
     umpire: Umpire;
     plays: Play[];
 }
 
 export interface UpsertAtBat {
     id: string;
-    gameId: number;
+    game: number;
     atBatIndex: number;
     isTopInning: boolean;
     inning: number;

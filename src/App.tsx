@@ -7,9 +7,8 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import Router from '@src/Router';
 import { getClient } from '@src/queryClient';
 
-function App() {
+async function App() {
     const queryClient = getClient();
-
     return (
         <QueryClientProvider client={queryClient}>
             <BrowserRouter>

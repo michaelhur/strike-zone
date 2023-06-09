@@ -1,1 +1,3 @@
-export const handlers = [];
+import { atBatHandler } from './atBatHandler';
+
+export const handlers = [...atBatHandler];
