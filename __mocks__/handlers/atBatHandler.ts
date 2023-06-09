@@ -4,39 +4,25 @@ import { AtBat } from '../../src/typings/atbat';
 import { atBatList } from '../data/atbat';
 
 export const atBatHandler = [
-    rest.get<AtBat[]>('/api/atbats', async (req, res, ctx) => {
-        return res(ctx.status(200), ctx.json(atBatList));
-    }),
+    rest.get<AtBat[], any>('/api/atbats', async (req, res, ctx) => {
+        const date = req.url.searchParams.get('date');
+        const slug = req.url.searchParams.get('game');
+        const teamId = Number(req.url.searchParams.get('team'));
+        const pitcherId = Number(req.url.searchParams.get('pitcher'));
+        const batterId = Number(req.url.searchParams.get('batter'));
+        const umpireId = Number(req.url.searchParams.get('umpire'));
 
-    rest.get<AtBat[]>('/api/games/:slug', async (req, res, ctx) => {
-        const { slug } = req.params;
-        const gameData = atBatList.filter((atbat) => atbat.game.slug === slug);
-        return res(ctx.status(200), ctx.json(gameData));
-    }),
+        const filteredData = atBatList.filter((atbat) => {
+            const dateFilter = date ? atbat.date === date : true;
+            const slugFilter = slug ? atbat.game.slug === slug : true;
+            const teamFilter = teamId ? atbat.away.id === teamId || atbat.home.id === teamId : true;
+            const pitcherFilter = pitcherId ? atbat.pitcher.id === pitcherId : true;
+            const batterFilter = batterId ? atbat.batter.id === batterId : true;
+            const umpireFilter = umpireId ? atbat.umpire.id === umpireId : true;
 
-    rest.get<AtBat[]>('/api/teams/:teamId', async (req, res, ctx) => {
-        const { teamId } = req.params;
-        const teamData = atBatList.filter(
-            (atbat) => atbat.away.id === Number(teamId) || atbat.home.id === Number(teamId),
-        );
-        return res(ctx.status(200), ctx.json(teamData));
-    }),
+            return dateFilter && slugFilter && teamFilter && pitcherFilter && batterFilter && umpireFilter;
+        });
 
-    rest.get<AtBat[]>('/api/pitchers/:pitcherId', async (req, res, ctx) => {
-        const { pitcherId } = req.params;
-        const pitcherData = atBatList.filter((atbat) => atbat.pitcher.id === Number(pitcherId));
-        return res(ctx.status(200), ctx.json(pitcherData));
-    }),
-
-    rest.get<AtBat[]>('/api/batters/:batterId', async (req, res, ctx) => {
-        const { batterId } = req.params;
-        const batterData = atBatList.filter((atbat) => atbat.batter.id === Number(batterId));
-        return res(ctx.status(200), ctx.json(batterData));
-    }),
-
-    rest.get<AtBat[]>('/api/umpires/:umpireId', async (req, res, ctx) => {
-        const { umpireId } = req.params;
-        const umpireData = atBatList.filter((atbat) => atbat.umpire.id === Number(umpireId));
-        return res(ctx.status(200), ctx.json(umpireData));
+        return res(ctx.status(200), ctx.json(filteredData));
     }),
 ];

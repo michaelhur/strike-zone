@@ -26,6 +26,7 @@ export interface Play {
 
 export interface AtBat {
     id: string;
+    date: string;
     atBatIndex: number;
     isTopInning: boolean;
     inning: number;
