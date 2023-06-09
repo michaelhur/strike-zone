@@ -5,7 +5,14 @@ import { playerList } from '../data/player';
 
 export const playerHandler = [
     rest.get<Player[]>('/api/players', async (req, res, ctx) => {
-        return res(ctx.status(200), ctx.json(playerList));
+        const query = req.url.searchParams.get('q');
+
+        const filteredData = playerList.filter((player) => {
+            const queryFilter = query ? player.name.toLowerCase().indexOf(query) !== -1 : true;
+            return queryFilter;
+        });
+
+        return res(ctx.status(200), ctx.json(filteredData));
     }),
 
     rest.get<Player>(`/api/players/:playerId`, async (req, res, ctx) => {

@@ -19,6 +19,19 @@ describe('선수 API', () => {
         expect(data).toEqual(playerList);
     });
 
+    it('GET /api/players?q=:query 요청은 이름에 query가 포함된 선수 리스트를 리턴한다.', async () => {
+        const query = 'Ryu';
+        const response = await axios.get(`/api/players?q=${query}`);
+        const data = response.data;
+
+        const playerListByQuery = playerList.filter((player) => {
+            player.name.toLowerCase().indexOf(query) !== -1;
+        });
+
+        expect(response.status).toBe(200);
+        expect(data).toEqual(playerListByQuery);
+    });
+
     it('GET /api/players/:playerId 요청은 특정 선수의 정보를 리턴한다.', async () => {
         const playerId = 657006;
         const response = await axios.get(`/api/players/${playerId}`);
