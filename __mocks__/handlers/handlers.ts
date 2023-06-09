@@ -1,3 +1,4 @@
 import { atBatHandler } from './atBatHandler';
+import { gameHandler } from './gameHandler';
 
-export const handlers = [...atBatHandler];
+export const handlers = [...atBatHandler, ...gameHandler];

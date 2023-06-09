@@ -1,10 +1,10 @@
 import { rest } from 'msw';
 
 import { AtBat } from '../../src/typings/atbat';
-import { atbatList } from '../data/atbat';
+import { atBatList } from '../data/atBat';
 
 export const atBatHandler = [
-    rest.get<AtBat[], any>('/api/atbats', async (req, res, ctx) => {
+    rest.get<AtBat[]>('/api/atbats', async (req, res, ctx) => {
         const date = req.url.searchParams.get('date');
         const slug = req.url.searchParams.get('game');
         const teamId = Number(req.url.searchParams.get('team'));
@@ -12,7 +12,7 @@ export const atBatHandler = [
         const batterId = Number(req.url.searchParams.get('batter'));
         const umpireId = Number(req.url.searchParams.get('umpire'));
 
-        const filteredData = atbatList.filter((atbat) => {
+        const filteredData = atBatList.filter((atbat) => {
             const dateFilter = date ? atbat.date === date : true;
             const slugFilter = slug ? atbat.game.slug === slug : true;
             const teamFilter = teamId ? atbat.away.id === teamId || atbat.home.id === teamId : true;
