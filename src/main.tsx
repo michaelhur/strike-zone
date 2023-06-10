@@ -8,6 +8,10 @@ import { globalStyle } from '@styles/globalStyle';
 
 import App from './App';
 
+if (import.meta.env.DEV) {
+    import('../__mocks__');
+}
+
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <React.StrictMode>
         <RecoilRoot>
