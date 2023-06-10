@@ -1,6 +1,5 @@
 <p align="middle">
-<a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fmichaelhur%2Freact-vite-template&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false"/></a>
-</p>
+<a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fmichaelhur%2Fstrike-zone&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false"/></a></p>
 
 # React-Typescript Vite Boilerplate
 A React boilerplate with Typescript built using Vite and SWC. Includes React-query, Recoil, Emotion, ESLint + Prettier.
