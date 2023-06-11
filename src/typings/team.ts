@@ -1,4 +1,5 @@
-import { Division, League } from '@typings/league';
+import { Division } from '@typings/division';
+import { League } from '@typings/league';
 
 export interface Team {
     id: number;
