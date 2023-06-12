@@ -17,9 +17,8 @@ export const SidebarContainer = styled.aside(
     {
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'flex-start',
+        justifyContent: 'space-between',
         alignItems: 'flex-start',
-        gap: '2rem',
         padding: '2rem 1rem',
 
         width: '280px',
@@ -30,6 +29,26 @@ export const SidebarContainer = styled.aside(
         width: isSidebarOpen ? '280px' : '6rem',
     }),
 );
+
+export const TopSection = styled.section({
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+    gap: '2rem',
+
+    width: '100%',
+});
+
+export const BottomSection = styled.section({
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'flex-end',
+    alignItems: 'flex-start',
+    gap: '2rem',
+
+    width: '100%',
+});
 
 export const LogoSection = styled.section({
     padding: '1rem',
@@ -81,7 +100,7 @@ export const MenuItem = styled(NavLink)({
     cursor: 'pointer',
 
     '&:hover': {
-        backgroundColor: 'var(--grey500)',
+        backgroundColor: 'var(--grey200)',
         borderRadius: '0.5rem',
     },
 });
