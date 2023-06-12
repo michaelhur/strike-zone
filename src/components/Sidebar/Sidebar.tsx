@@ -62,12 +62,12 @@ export const Sidebar = () => {
 
     const onClickLightMode = () => {
         setTheme('light');
-        localStorage.setItem('theme', 'light');
+        localStorage.setItem('sz-theme', 'light');
     };
 
     const onClickDarkMode = () => {
         setTheme('dark');
-        localStorage.setItem('theme', 'dark');
+        localStorage.setItem('sz-theme', 'dark');
     };
 
     return (
