@@ -1,11 +1,21 @@
-import { useRecoilState } from 'recoil';
+import { NavLink, useNavigate } from 'react-router-dom';
+
+import { useRecoilValue } from 'recoil';
 
 import { CalendarIcon } from '@components/@shared/Icon/CalendarIcon';
 import { IconWrap } from '@components/@shared/Icon/Icon.styles';
 import { PersonIcon } from '@components/@shared/Icon/PersonIcon';
 import { TeamIcon } from '@components/@shared/Icon/TeamIcon';
 import { UmpireIcon } from '@components/@shared/Icon/UmpireIcon';
-import { LogoSection, MenuItem, MenuList, MenuSection, SidebarContainer } from '@components/Sidebar/Sidebar.styles';
+import {
+    Logo,
+    LogoSection,
+    MenuItem,
+    MenuList,
+    MenuSection,
+    SidebarContainer,
+    StyledTitle,
+} from '@components/Sidebar/Sidebar.styles';
 
 import { sidebarCollapseState } from '@recoils/sidebar/atom';
 
@@ -14,33 +24,36 @@ import { Menu } from '@typings/menu';
 const sampleMenu: Menu[] = [
     {
         name: 'Schedule',
-        path: '/',
+        path: '/games',
         iconComponent: <CalendarIcon />,
     },
     {
         name: 'Player',
-        path: '/',
+        path: '/players',
         iconComponent: <PersonIcon />,
     },
     {
         name: 'Team',
-        path: '/',
+        path: '/teams',
         iconComponent: <TeamIcon />,
     },
     {
         name: 'Umpire',
-        path: '/',
+        path: '/umpires',
         iconComponent: <UmpireIcon />,
     },
 ];
 
 export const Sidebar = () => {
-    const [isSidebarOpen, setIsSidebarOpen] = useRecoilState(sidebarCollapseState);
+    const isSidebarOpen = useRecoilValue(sidebarCollapseState);
 
     return (
-        <SidebarContainer>
+        <SidebarContainer isSidebarOpen={isSidebarOpen}>
             <LogoSection>
-                <img src="/sz_logo_full.svg" alt="Logo" width={208} />
+                <Logo to={'/'}>
+                    <img src="/sz_logo.svg" alt="Logo" height={32} width={32} />
+                    {isSidebarOpen && <StyledTitle>스트라이크 존</StyledTitle>}
+                </Logo>
             </LogoSection>
             <MenuSection>
                 <MenuList>
@@ -49,7 +62,7 @@ export const Sidebar = () => {
                             <li key={menu.name}>
                                 <MenuItem to={menu.path}>
                                     {menu.iconComponent && <IconWrap>{menu.iconComponent}</IconWrap>}
-                                    <span>{menu.name}</span>
+                                    {isSidebarOpen && <span>{menu.name}</span>}
                                 </MenuItem>
                             </li>
                         );
