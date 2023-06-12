@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { action } from '@storybook/addon-actions';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { DarkIcon, LightIcon } from '@components/@shared/Icon';
 import { RadioButton, RadioButtonProps } from '@components/@shared/RadioButton/RadioButton';
 
 import { ModeTheme } from '@typings/theme';
@@ -16,20 +15,21 @@ export default meta;
 
 type Story<T> = StoryObj<RadioButtonProps<T>>;
 
-export const DarkModeToggle: Story<ModeTheme> = (args) => {
+export const Template: Story<ModeTheme> = (args) => {
     const [selected, isSelected] = useState<ModeTheme>('light');
-    const onClickLeftButton = () => isSelected('light');
-    const onClickRightButton = () => isSelected('dark');
+    const onClickLeftButton = () => {
+        isSelected('light');
+        action('Left Button Clicked');
+    };
+    const onClickRightButton = () => {
+        isSelected('dark');
+        action('Right Button Clicked');
+    };
 
     return (
         <RadioButton
+            {...args}
             selected={selected}
-            leftIconComponent={<LightIcon color={selected === 'light' ? 'var(--grey900)' : 'var(--grey300)'} />}
-            leftButtonValue={'light'}
-            leftButtonLabel={'Light'}
-            rightIconComponent={<DarkIcon color={selected === 'dark' ? 'var(--grey900)' : 'var(--grey300)'} />}
-            rightButtonValue={'dark'}
-            rightButtonLabel={'Dark'}
             onClickLeftButton={onClickLeftButton}
             onClickRightButton={onClickRightButton}
         />
