@@ -1,7 +1,8 @@
 import type { StorybookConfig } from '@storybook/react-vite';
+import { mergeConfig } from 'vite';
 
 const config: StorybookConfig = {
-    stories: ['@components/**/*.mdx', '@components/**/*.stories.@(js|jsx|ts|tsx)'],
+    stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
     addons: [
         '@storybook/addon-links',
         '@storybook/addon-essentials',
@@ -15,9 +16,17 @@ const config: StorybookConfig = {
     docs: {
         autodocs: 'tag',
     },
+    core: {
+        builder: '@storybook/builder-vite',
+    },
     async viteFinal(config, options) {
         // Add your configuration here
-        return config;
+        return mergeConfig(config, {
+            // Add dependencies to pre-optimization
+            optimizeDeps: {
+                include: ['storybook-dark-mode'],
+            },
+        });
     },
 };
 

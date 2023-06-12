@@ -6,6 +6,7 @@ export const RadioButtonContainer = styled.div({
     justifyContent: 'center',
     alignItems: 'center',
     padding: '0.25rem',
+    gap: '0.25rem',
 
     width: '100%',
 
@@ -34,8 +35,13 @@ export const RadioButtonItem = styled.div(
 
         cursor: 'pointer',
         transition: 'all 0.3s ease-out',
+
+        '&:hover': {
+            borderColor: 'var(--grey200)',
+        },
     },
     ({ isActive }: RadioButtonItemProps) => ({
+        border: isActive ? '1px solid var(--grey200)' : '1px solid transparent',
         color: isActive ? 'var(--grey800)' : 'var(--grey200)',
         background: isActive ? 'var(--grey200)' : 'var(--grey50)',
     }),

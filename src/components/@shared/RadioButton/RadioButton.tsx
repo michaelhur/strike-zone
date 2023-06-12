@@ -3,7 +3,7 @@ import { ReactNode } from 'react';
 import { IconWrap } from '@components/@shared/Icon/Icon.styles';
 import { RadioButtonContainer, RadioButtonItem } from '@components/@shared/RadioButton/RadioButton.styles';
 
-interface RadioButtonProps<T> {
+export interface RadioButtonProps<T> {
     selected: T;
     leftIconComponent?: ReactNode;
     leftButtonLabel?: string;
