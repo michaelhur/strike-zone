@@ -1,12 +1,7 @@
-import { NavLink, useNavigate } from 'react-router-dom';
-
 import { useRecoilValue } from 'recoil';
 
-import { CalendarIcon } from '@components/@shared/Icon/CalendarIcon';
+import { CalendarIcon, PersonIcon, TeamIcon, UmpireIcon } from '@components/@shared/Icon';
 import { IconWrap } from '@components/@shared/Icon/Icon.styles';
-import { PersonIcon } from '@components/@shared/Icon/PersonIcon';
-import { TeamIcon } from '@components/@shared/Icon/TeamIcon';
-import { UmpireIcon } from '@components/@shared/Icon/UmpireIcon';
 import {
     Logo,
     LogoSection,
