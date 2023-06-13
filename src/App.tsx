@@ -1,18 +1,30 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
 import { QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { useRecoilValue } from 'recoil';
+
+import { Sidebar } from '@components/Sidebar/Sidebar';
+
+import { themeState } from '@recoils/atom';
 
 import Router from '@src/Router';
 import { getClient } from '@src/queryClient';
 
-async function App() {
+function App() {
+    const theme = useRecoilValue(themeState);
+    useEffect(() => {
+        if (theme === 'dark') document.body.classList.add('dark-mode');
+        else document.body.classList.remove('dark-mode');
+    }, [theme]);
+
     const queryClient = getClient();
     return (
         <QueryClientProvider client={queryClient}>
             <BrowserRouter>
-                <Router />
+                <Sidebar />
+                {/*<Router />*/}
             </BrowserRouter>
             <ReactQueryDevtools initialIsOpen={false} />
         </QueryClientProvider>
