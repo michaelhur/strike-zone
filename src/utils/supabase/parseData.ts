@@ -16,21 +16,22 @@ const getGames = async () => {
 
     if (!gameCount) return;
 
-    const cancelledGameList: Game[] = dates.flatMap((d) =>
-        d.games
+    const cancelledGameList: Game[] = dates.flatMap((d) => {
+        const date = d.date;
+        return d.games
             .filter((game) => game.status.codedGameState !== 'F')
             .map((game) => ({
                 id: game.gamePk,
                 slug: 'POSTPONED',
-                date: game.officialDate,
+                date: date,
                 season: game.season,
                 awayId: game.teams.away.team.id,
                 homeId: game.teams.home.team.id,
                 isFinal: false,
                 isPostponed: true,
-                initialDate: game.officialDate,
-            })),
-    );
+                initialDate: date,
+            }));
+    });
 
     let j = 0;
     for await (const game of cancelledGameList) {
