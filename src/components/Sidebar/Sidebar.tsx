@@ -1,16 +1,9 @@
 import { useState } from 'react';
 
+import { sidebarMenu } from '@constants/menu';
 import { useRecoilState, useRecoilValue } from 'recoil';
 
-import {
-    CalendarIcon,
-    DarkIcon,
-    HomeIcon,
-    LightIcon,
-    PersonIcon,
-    TeamIcon,
-    UmpireIcon,
-} from '@components/@shared/Icon';
+import { DarkIcon, LightIcon } from '@components/@shared/Icon';
 import { IconWrap } from '@components/@shared/Icon/Icon.styles';
 import { RadioButton } from '@components/@shared/RadioButton/RadioButton';
 import {
@@ -27,36 +20,6 @@ import {
 
 import { themeState } from '@recoils/atom';
 import { sidebarCollapseState } from '@recoils/sidebar/atom';
-
-import { Menu } from '@typings/menu';
-
-const sampleMenu: Menu[] = [
-    {
-        name: 'Home',
-        path: '/',
-        iconComponent: <HomeIcon />,
-    },
-    {
-        name: 'Schedule',
-        path: '/games',
-        iconComponent: <CalendarIcon />,
-    },
-    {
-        name: 'Player',
-        path: '/players',
-        iconComponent: <PersonIcon />,
-    },
-    {
-        name: 'Team',
-        path: '/teams',
-        iconComponent: <TeamIcon />,
-    },
-    {
-        name: 'Umpire',
-        path: '/umpires',
-        iconComponent: <UmpireIcon />,
-    },
-];
 
 export const Sidebar = () => {
     const isSidebarOpen = useRecoilValue(sidebarCollapseState);
@@ -86,7 +49,7 @@ export const Sidebar = () => {
                 </LogoSection>
                 <MenuSection>
                     <MenuList>
-                        {sampleMenu.map((menu) => {
+                        {sidebarMenu.map((menu) => {
                             return (
                                 <li key={menu.name}>
                                     <MenuItem to={menu.path}>

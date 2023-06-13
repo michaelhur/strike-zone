@@ -99,8 +99,8 @@ export const MenuItem = styled(NavLink)({
 
     cursor: 'pointer',
 
-    '&:hover': {
-        backgroundColor: 'var(--grey200)',
+    '&:hover, &:active, &.active': {
+        backgroundColor: 'var(--grey300)',
         borderRadius: '0.5rem',
     },
 });
