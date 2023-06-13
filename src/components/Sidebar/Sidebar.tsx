@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import { useRecoilState, useRecoilValue } from 'recoil';
 
 import {
@@ -59,15 +61,18 @@ const sampleMenu: Menu[] = [
 export const Sidebar = () => {
     const isSidebarOpen = useRecoilValue(sidebarCollapseState);
     const [theme, setTheme] = useRecoilState(themeState);
+    const [selected, setSelected] = useState<boolean>(theme === 'dark');
 
-    const onClickLightMode = () => {
-        setTheme('light');
-        localStorage.setItem('sz-theme', 'light');
-    };
-
-    const onClickDarkMode = () => {
-        setTheme('dark');
-        localStorage.setItem('sz-theme', 'dark');
+    const onClickThemeChanger = () => {
+        if (theme === 'dark') {
+            setSelected(false);
+            setTheme('light');
+            localStorage.setItem('sz-theme', 'light');
+        } else {
+            setSelected(true);
+            setTheme('dark');
+            localStorage.setItem('sz-theme', 'dark');
+        }
     };
 
     return (
@@ -96,15 +101,12 @@ export const Sidebar = () => {
             </TopSection>
             <BottomSection>
                 <RadioButton
-                    selected={theme}
-                    leftIconComponent={<LightIcon color={theme === 'light' ? 'var(--grey900)' : 'var(--grey300)'} />}
-                    leftButtonValue={'light'}
+                    selected={selected}
+                    onClickRadioButton={onClickThemeChanger}
                     leftButtonLabel={'Light'}
-                    onClickLeftButton={onClickLightMode}
-                    rightIconComponent={<DarkIcon color={theme === 'dark' ? 'var(--grey900)' : 'var(--grey300)'} />}
-                    rightButtonValue={'dark'}
                     rightButtonLabel={'Dark'}
-                    onClickRightButton={onClickDarkMode}
+                    leftIconComponent={<LightIcon color={!selected ? 'var(--grey900)' : 'var(--grey300)'} />}
+                    rightIconComponent={<DarkIcon color={selected ? 'var(--grey900)' : 'var(--grey300)'} />}
                 />
             </BottomSection>
         </SidebarContainer>

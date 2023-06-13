@@ -3,41 +3,35 @@ import { ReactNode } from 'react';
 import { IconWrap } from '@components/@shared/Icon/Icon.styles';
 import { RadioButtonContainer, RadioButtonItem } from '@components/@shared/RadioButton/RadioButton.styles';
 
-export interface RadioButtonProps<T> {
-    selected: T;
+export interface RadioButtonProps {
+    selected: boolean;
+    onClickRadioButton: () => void;
+    leftButtonLabel: string;
+    rightButtonLabel: string;
     leftIconComponent?: ReactNode;
-    leftButtonLabel?: string;
-    leftButtonValue: T;
-    onClickLeftButton: () => void;
     rightIconComponent?: ReactNode;
-    rightButtonLabel?: string;
-    rightButtonValue: T;
-    onClickRightButton: () => void;
 }
 export const RadioButton = <T,>({
     selected,
-    leftIconComponent,
+    onClickRadioButton,
     leftButtonLabel,
-    leftButtonValue,
-    onClickLeftButton,
-    rightIconComponent,
     rightButtonLabel,
-    rightButtonValue,
-    onClickRightButton,
-}: RadioButtonProps<T>) => {
-    const isLeftSelected = selected === leftButtonValue;
-    const isRightSelected = selected === rightButtonValue;
+    leftIconComponent,
+    rightIconComponent,
+}: RadioButtonProps) => {
+    const renderRadioButtonItem = (isActive: boolean, iconComponent?: ReactNode, label?: string) => {
+        return (
+            <RadioButtonItem isActive={isActive}>
+                {iconComponent && <IconWrap>{iconComponent}</IconWrap>}
+                {label && <span>{label}</span>}
+            </RadioButtonItem>
+        );
+    };
 
     return (
-        <RadioButtonContainer>
-            <RadioButtonItem isActive={isLeftSelected} onClick={onClickLeftButton}>
-                {leftIconComponent && <IconWrap>{leftIconComponent}</IconWrap>}
-                {leftButtonLabel && <span>{leftButtonLabel}</span>}
-            </RadioButtonItem>
-            <RadioButtonItem isActive={isRightSelected} onClick={onClickRightButton}>
-                {rightIconComponent && <IconWrap>{rightIconComponent}</IconWrap>}
-                {rightButtonLabel && <span>{rightButtonLabel}</span>}
-            </RadioButtonItem>
+        <RadioButtonContainer onClick={onClickRadioButton}>
+            {renderRadioButtonItem(!selected, leftIconComponent, leftButtonLabel)}
+            {renderRadioButtonItem(selected, rightIconComponent, rightButtonLabel)}
         </RadioButtonContainer>
     );
 };
