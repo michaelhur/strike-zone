@@ -104,7 +104,6 @@ const getMLBData = async (gamePk: number, homeScore: number, awayScore: number, 
             homeScore,
             awayScore,
             initialDate: rescheduledFromDate || gameDate,
-            rescheduledDate: rescheduledFromDate ? gameDate : null,
         };
 
         const playerData: Player[] = Object.keys(players)
