@@ -56,6 +56,7 @@ const getGames = async () => {
 
     for await (const game of gameList) {
         const { gamePk, homeScore, awayScore, rescheduledFromDate } = game;
+        console.log(`${i}: ${gamePk}`);
         const response = await getMLBData(gamePk, homeScore, awayScore, rescheduledFromDate);
         await wait(500);
         i++;
