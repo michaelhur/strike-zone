@@ -42,7 +42,17 @@ export const RadioButtonItem = styled.div(
     },
     ({ isActive }: RadioButtonItemProps) => ({
         border: isActive ? '1px solid var(--grey200)' : '1px solid transparent',
-        color: isActive ? 'var(--grey800)' : 'var(--grey200)',
+        color: isActive ? 'var(--grey900)' : 'var(--grey500)',
         background: isActive ? 'var(--grey200)' : 'var(--grey50)',
+
+        '& svg': {
+            color: isActive ? 'var(--grey900)' : 'var(--grey500)',
+            fill: isActive ? 'var(--grey900)' : 'var(--grey500)',
+
+            '& path': {
+                color: isActive ? 'var(--grey900)' : 'var(--grey500)',
+                fill: isActive ? 'var(--grey900)' : 'var(--grey500)',
+            },
+        },
     }),
 );

@@ -22,7 +22,7 @@ export const RadioButton = <T,>({
     const renderRadioButtonItem = (isActive: boolean, iconComponent?: ReactNode, label?: string) => {
         return (
             <RadioButtonItem isActive={isActive}>
-                {iconComponent && <IconWrap>{iconComponent}</IconWrap>}
+                {iconComponent && iconComponent}
                 {label && <span>{label}</span>}
             </RadioButtonItem>
         );

@@ -105,8 +105,8 @@ export const Sidebar = () => {
                     onClickRadioButton={onClickThemeChanger}
                     leftButtonLabel={'Light'}
                     rightButtonLabel={'Dark'}
-                    leftIconComponent={<LightIcon color={!selected ? 'var(--grey900)' : 'var(--grey300)'} />}
-                    rightIconComponent={<DarkIcon color={selected ? 'var(--grey900)' : 'var(--grey300)'} />}
+                    leftIconComponent={<LightIcon color={!selected ? 'var(--grey900)' : 'var(--grey500)'} />}
+                    rightIconComponent={<DarkIcon color={selected ? 'var(--grey900)' : 'var(--grey500)'} />}
                 />
             </BottomSection>
         </SidebarContainer>
