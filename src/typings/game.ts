@@ -12,4 +12,10 @@ export interface Game {
     away?: Team;
     home?: Team;
     umpire?: Umpire;
+    isFinal: boolean;
+    isPostponed?: boolean;
+    initialDate?: string;
+    rescheduledDate?: string;
+    homeScore?: number;
+    awayScore?: number;
 }

@@ -7,7 +7,7 @@ import { ArrowLeftIcon, ArrowRightIcon, DarkIcon, LightIcon } from '@components/
 import { RadioButton, RadioButtonProps } from '@components/@shared/RadioButton/RadioButton';
 
 export default {
-    title: '@shared/RadioButton',
+    title: 'Components/@shared/RadioButton',
     component: RadioButton,
 } as Meta;
 
