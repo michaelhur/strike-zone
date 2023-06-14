@@ -1,3 +1,5 @@
+import { BrowserRouter } from 'react-router-dom';
+
 import type { Meta, Story } from '@storybook/react';
 
 import { MatchCard } from '@components/MatchCard/MatchCard';
@@ -8,8 +10,15 @@ export default {
 } as Meta;
 
 const Template: Story<typeof MatchCard> = (args) => {
-    return <MatchCard {...args} />;
+    return (
+        <BrowserRouter>
+            <MatchCard />;
+        </BrowserRouter>
+    );
 };
 
-export const Default = Template.bind({});
-Default.args = {};
+export const FullTimeGame = Template.bind({});
+FullTimeGame.args = {};
+
+export const PostponedGame = Template.bind({});
+PostponedGame.args = {};

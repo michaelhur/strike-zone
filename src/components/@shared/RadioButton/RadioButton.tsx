@@ -11,7 +11,7 @@ export interface RadioButtonProps {
     leftIconComponent?: ReactNode;
     rightIconComponent?: ReactNode;
 }
-export const RadioButton = <T,>({
+export const RadioButton = ({
     selected,
     onClickRadioButton,
     leftButtonLabel,
