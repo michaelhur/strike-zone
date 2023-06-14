@@ -9,6 +9,13 @@ import { RadioButton, RadioButtonProps } from '@components/@shared/RadioButton/R
 export default {
     title: 'Components/@shared/RadioButton',
     component: RadioButton,
+    decorators: [
+        (Story) => (
+            <div style={{ width: '300px' }}>
+                <Story />
+            </div>
+        ),
+    ],
 } as Meta;
 
 const Template: Story<RadioButtonProps> = (args) => {
