@@ -6,6 +6,7 @@ import { gameList } from '../data/game';
 export const gameHandler = [
     rest.get<Game[]>('/api/games', async (req, res, ctx) => {
         const date = req.url.searchParams.get('date');
+        const initialDate = req.url.searchParams.get('initialDate');
         const season = Number(req.url.searchParams.get('season'));
         const teamId = Number(req.url.searchParams.get('team'));
         const umpireId = Number(req.url.searchParams.get('umpire'));
@@ -13,13 +14,14 @@ export const gameHandler = [
 
         const filteredGameList = gameList.filter((game) => {
             const dateFilter = date ? game.date === date : true;
+            const initialDateFilter = initialDate ? game.initialDate === initialDate : true;
             const seasonFilter = season ? game.season === season : true;
             const teamFilter = teamId ? game.away!.id === teamId || game.home!.id === teamId : true;
             const umpireFilter = umpireId ? game.umpire!.id === umpireId : true;
             const stateCodeFilter =
                 !stateCode || stateCode === 'all' ? true : stateCode === 'final' ? game.isFinal : game.isPostponed;
 
-            return dateFilter && seasonFilter && teamFilter && umpireFilter && stateCodeFilter;
+            return dateFilter && initialDateFilter && seasonFilter && teamFilter && umpireFilter && stateCodeFilter;
         });
 
         return res(ctx.status(200), ctx.json(filteredGameList));

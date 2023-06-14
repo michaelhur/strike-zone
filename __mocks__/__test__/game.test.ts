@@ -20,7 +20,7 @@ describe('경기 API', () => {
     });
 
     it('GET /api/game?date=:date 요청은 특정 날짜의 경기 스케쥴을 리턴한다.', async () => {
-        const date = '2023-04-01';
+        const date = '2023-04-06';
         const response = await axios.get(`/api/games?date=${date}`);
         const data = response.data;
 
@@ -28,6 +28,17 @@ describe('경기 API', () => {
 
         expect(response.status).toBe(200);
         expect(data).toEqual(gameListByDate);
+    });
+
+    it('GET /api/game?initialDate=:initialDate 요청은 특정 날짜 (최초 스케쥴 기준)의 경기 스케쥴을 리턴한다.', async () => {
+        const initialDate = '2023-04-06';
+        const response = await axios.get(`/api/games?initialDate=${initialDate}`);
+        const data = response.data;
+
+        const gameListByInitialDate = gameList.filter((game) => game.initialDate === initialDate);
+
+        expect(response.status).toBe(200);
+        expect(data).toEqual(gameListByInitialDate);
     });
 
     it('GET /api/game?season=:season 요청은 특정 시즌의 경기 스케쥴을 리턴한다', async () => {
