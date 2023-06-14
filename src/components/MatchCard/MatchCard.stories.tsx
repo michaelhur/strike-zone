@@ -1,13 +1,21 @@
 import { BrowserRouter } from 'react-router-dom';
 
 import { gameList } from '@mocks/data/game';
+import { action } from '@storybook/addon-actions';
 import type { Meta, Story } from '@storybook/react';
 
-import { MatchCard, MatchCardProps } from '@components/MatchCard/MatchCard';
+import MatchCard, { MatchCardProps } from '@components/MatchCard/MatchCard';
 
 export default {
     title: 'Components/MatchCard',
     component: MatchCard,
+    decorators: [
+        (Story) => (
+            <div style={{ width: '350px' }}>
+                <Story />
+            </div>
+        ),
+    ],
 } as Meta;
 
 const Template: Story<MatchCardProps> = (args) => {

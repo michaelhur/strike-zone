@@ -27,7 +27,7 @@ const TeamSection = ({ team, homeOrAway }: { team: Team; homeOrAway: 'Home' | 'A
     return (
         <TeamSectionContainer>
             <TeamImage>
-                <img src={imageUrl} alt={abbreviation} />
+                <img src={imageUrl} alt={abbreviation} loading="lazy" />
             </TeamImage>
             <TeamName>{franchiseName}</TeamName>
             <TeamName>{teamName}</TeamName>
@@ -61,7 +61,7 @@ const ScoreSection = ({
     );
 };
 
-export const MatchCard = ({ game }: MatchCardProps) => {
+const MatchCard = ({ game }: MatchCardProps) => {
     const navigate = useNavigate();
     const { id, slug, date, home, away, isFinal, homeScore, awayScore } = game;
     const onClickMatchCard = () => {
@@ -83,3 +83,5 @@ export const MatchCard = ({ game }: MatchCardProps) => {
         </CardContainer>
     );
 };
+
+export default MatchCard;

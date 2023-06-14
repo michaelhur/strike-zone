@@ -9,8 +9,15 @@ export const CardContainer = styled.article({
     width: '100%',
 
     background: 'var(--grey0)',
-    boxShadow: 'var(--shadowUp)',
+    boxShadow: 'var(--shadowStrong)',
     borderRadius: '0.5rem',
+
+    cursor: 'pointer',
+    transition: 'box-shadow 0.25s ease-in 0s, transform 0.25s ease-in 0s',
+
+    '&:hover': {
+        transform: 'translateY(-0.5rem)',
+    },
 });
 
 export const CardTopSection = styled.section({
@@ -49,7 +56,7 @@ export const TeamSectionContainer = styled.section({
     justifyContent: 'center',
     alignItems: 'center',
     gap: '0.25rem',
-    padding: '1rem',
+    // padding: '1rem',
 
     width: '9rem',
 });
@@ -90,7 +97,7 @@ export const ScoreSectionContainer = styled.section({
     alignItems: 'center',
 
     gap: '0.25rem',
-    padding: '1rem',
+    // padding: '1rem',
 });
 
 export const ScoreLine = styled.article({
