@@ -12,3 +12,8 @@ export const requestGetGame = async (slug: string): Promise<Game> => {
     const data = await fetcher({ method: 'get', path: `/api/games/${slug}` });
     return data;
 };
+
+export const requestGetGameById = async (id: number): Promise<Game> => {
+    const data = await fetcher({ method: 'get', path: `/api/games/get-by-id/${id}` });
+    return data;
+};

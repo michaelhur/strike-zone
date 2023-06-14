@@ -104,4 +104,15 @@ describe('경기 API', () => {
         expect(response.status).toBe(200);
         expect(data).toEqual(gameData);
     });
+
+    it('GET /api/games/get-by-id/:id 요청은 특정 경기의 정보를 리턴한다', async () => {
+        const id = 718686;
+        const response = await axios.get(`/api/games/get-by-id/${id}`);
+        const data = response.data;
+
+        const gameData = gameList.find((game) => game.id === id);
+
+        expect(response.status).toBe(200);
+        expect(data).toEqual(gameData);
+    });
 });

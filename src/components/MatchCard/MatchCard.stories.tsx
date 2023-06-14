@@ -12,7 +12,7 @@ export default {
 const Template: Story<typeof MatchCard> = (args) => {
     return (
         <BrowserRouter>
-            <MatchCard />;
+            <MatchCard {...args} />;
         </BrowserRouter>
     );
 };

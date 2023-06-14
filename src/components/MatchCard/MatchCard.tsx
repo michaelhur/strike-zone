@@ -63,9 +63,8 @@ const ScoreSection = ({
     );
 };
 
-export const MatchCard = () => {
+export const MatchCard = ({ game }: MatchCardProps) => {
     const navigate = useNavigate();
-    const game = gameList[0];
 
     const { id, slug, date, home, away, isFinal, homeScore, awayScore } = game;
     const onClickMatchCard = () => navigate(`/games/${slug}`);

@@ -35,4 +35,13 @@ export const gameHandler = [
 
         return res(ctx.status(200), ctx.json(targetGame));
     }),
+
+    rest.get<Game>('/api/games/get-by-id/:id', async (req, res, ctx) => {
+        const { id } = req.params;
+        const targetGame = gameList.find((game) => game.id === Number(id));
+
+        if (!targetGame) return res(ctx.status(400), ctx.json({ message: '해당 경기가 존재하지 않습니다.' }));
+
+        return res(ctx.status(200), ctx.json(targetGame));
+    }),
 ];
