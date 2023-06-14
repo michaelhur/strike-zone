@@ -17,7 +17,7 @@ export const gameHandler = [
             const initialDateFilter = initialDate ? game.initialDate === initialDate : true;
             const seasonFilter = season ? game.season === season : true;
             const teamFilter = teamId ? game.away!.id === teamId || game.home!.id === teamId : true;
-            const umpireFilter = umpireId ? game.umpire!.id === umpireId : true;
+            const umpireFilter = umpireId ? game.umpire && game.umpire.id === umpireId : true;
             const stateCodeFilter =
                 !stateCode || stateCode === 'all' ? true : stateCode === 'final' ? game.isFinal : game.isPostponed;
 
@@ -29,7 +29,7 @@ export const gameHandler = [
 
     rest.get<Game>('/api/games/:slug', async (req, res, ctx) => {
         const { slug } = req.params;
-        const targetGame = gameList.find((game) => game.slug === slug);
+        const targetGame = gameList.find((game) => game.slug && game.slug === slug);
 
         if (!targetGame) return res(ctx.status(400), ctx.json({ message: '해당 경기가 존재하지 않습니다.' }));
 

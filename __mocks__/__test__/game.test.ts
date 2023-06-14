@@ -64,11 +64,11 @@ describe('경기 API', () => {
     });
 
     it('GET /api/games?umpire=:umpireId 요청은 특정 심판의 경기 스케쥴을 리턴한다', async () => {
-        const umpireId = 484183;
+        const umpireId = 594151;
         const response = await axios.get(`/api/games?umpire=${umpireId}`);
         const data = response.data;
 
-        const gameListByUmpire = gameList.filter((game) => game.umpire!.id === umpireId);
+        const gameListByUmpire = gameList.filter((game) => game.umpire && game.umpire.id === umpireId);
 
         expect(response.status).toBe(200);
         expect(data).toEqual(gameListByUmpire);
@@ -95,11 +95,11 @@ describe('경기 API', () => {
     });
 
     it('GET /api/games/:slug 요청은 특정 경기의 정보를 리턴한다', async () => {
-        const slug = '230401-MIL-CHN-1';
+        const slug = '230406-TOR-KCA-1';
         const response = await axios.get(`/api/games/${slug}`);
         const data = response.data;
 
-        const gameData = gameList.find((game) => game.slug === slug);
+        const gameData = gameList.find((game) => game.slug && game.slug === slug);
 
         expect(response.status).toBe(200);
         expect(data).toEqual(gameData);
