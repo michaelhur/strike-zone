@@ -35,7 +35,7 @@ const TeamSection = ({ team, homeOrAway }: { team: Team; homeOrAway: 'Home' | 'A
         </TeamSectionContainer>
     );
 };
-
+[];
 const ScoreSection = ({
     isFinal,
     homeScore,
