@@ -1,7 +1,5 @@
 import { useNavigate } from 'react-router-dom';
 
-import { gameList } from '@mocks/data/game';
-
 import {
     CardContainer,
     CardMatchupSection,
@@ -19,7 +17,7 @@ import {
 import { Game } from '@typings/game';
 import { Team } from '@typings/team';
 
-interface MatchCardProps {
+export interface MatchCardProps {
     game: Game;
 }
 
@@ -65,9 +63,11 @@ const ScoreSection = ({
 
 export const MatchCard = ({ game }: MatchCardProps) => {
     const navigate = useNavigate();
-
     const { id, slug, date, home, away, isFinal, homeScore, awayScore } = game;
-    const onClickMatchCard = () => navigate(`/games/${slug}`);
+    const onClickMatchCard = () => {
+        if (isFinal) navigate(`/games/${slug}`);
+        else alert('취소된 경기의 정보는 열람할 수 없습니다.');
+    };
 
     return (
         <CardContainer key={id} onClick={onClickMatchCard}>

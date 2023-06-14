@@ -46,12 +46,12 @@ export const CardMatchupSection = styled.section({
 export const TeamSectionContainer = styled.section({
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'flex-start',
+    justifyContent: 'center',
     alignItems: 'center',
     gap: '0.25rem',
     padding: '1rem',
 
-    width: '7rem',
+    width: '9rem',
 });
 
 export const TeamImage = styled.div({
