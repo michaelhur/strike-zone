@@ -26,10 +26,10 @@ const Template: Story<typeof MatchListItem> = (args) => {
 };
 
 const mockedFullTimeGame = gameList.find((game) => game.id === 718686);
-const mockedPostPonedGame = gameList.find((game) => game.id === 718700);
+const mockedPostponedGame = gameList.find((game) => game.id === 718700);
 
 export const FullTimeGame = Template.bind({});
 FullTimeGame.args = { game: mockedFullTimeGame };
 
 export const PostponedGame = Template.bind({});
-PostponedGame.args = { game: mockedPostPonedGame };
+PostponedGame.args = { game: mockedPostponedGame };

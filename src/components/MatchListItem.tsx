@@ -1,8 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { gameList } from '@mocks/data/game';
-
 import { MatchCardProps } from '@components/MatchCard/MatchCard';
 import {
     ListViewContainer,
