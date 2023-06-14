@@ -9,14 +9,17 @@ export const gameHandler = [
         const season = Number(req.url.searchParams.get('season'));
         const teamId = Number(req.url.searchParams.get('team'));
         const umpireId = Number(req.url.searchParams.get('umpire'));
+        const stateCode = req.url.searchParams.get('stateCode') || 'all';
 
         const filteredGameList = gameList.filter((game) => {
             const dateFilter = date ? game.date === date : true;
             const seasonFilter = season ? game.season === season : true;
             const teamFilter = teamId ? game.away!.id === teamId || game.home!.id === teamId : true;
             const umpireFilter = umpireId ? game.umpire!.id === umpireId : true;
+            const stateCodeFilter =
+                !stateCode || stateCode === 'all' ? true : stateCode === 'final' ? game.isFinal : game.isPostponed;
 
-            return dateFilter && seasonFilter && teamFilter && umpireFilter;
+            return dateFilter && seasonFilter && teamFilter && umpireFilter && stateCodeFilter;
         });
 
         return res(ctx.status(200), ctx.json(filteredGameList));

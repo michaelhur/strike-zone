@@ -63,6 +63,26 @@ describe('경기 API', () => {
         expect(data).toEqual(gameListByUmpire);
     });
 
+    it('GET /api/games?stateCode=final 요청은 종료된 경기 리스트를 리턴한다', async () => {
+        const response = await axios.get(`/api/games?stateCode=final`);
+        const data = response.data;
+
+        const finalGameList = gameList.filter((game) => game.isFinal);
+
+        expect(response.status).toBe(200);
+        expect(data).toEqual(finalGameList);
+    });
+
+    it('GET /api/games?stateCode=postponed 요청은 취소 경기 리스트를 리턴한다', async () => {
+        const response = await axios.get(`/api/games?stateCode=postponed`);
+        const data = response.data;
+
+        const postponedGameList = gameList.filter((game) => game.isPostponed);
+
+        expect(response.status).toBe(200);
+        expect(data).toEqual(postponedGameList);
+    });
+
     it('GET /api/games/:slug 요청은 특정 경기의 정보를 리턴한다', async () => {
         const slug = '230401-MIL-CHN-1';
         const response = await axios.get(`/api/games/${slug}`);
