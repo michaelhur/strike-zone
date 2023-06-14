@@ -1,6 +1,12 @@
 export const getTodayStr = () => {
     const today = new Date();
-    return new Date(today?.getTime()! - today?.getTimezoneOffset()! * 90000).toISOString().slice(0, 10);
+    return new Date(today.getTime() - today.getTimezoneOffset() * 90000).toISOString().slice(0, 10);
+};
+
+export const getYesterdayStr = () => {
+    const date = new Date();
+    date.setDate(date.getDate() - 1);
+    return new Date(date.getTime() - date.getTimezoneOffset() * 90000).toISOString().slice(0, 10);
 };
 
 export const isBeforeToday = (date: string, inclusive = true) => {
