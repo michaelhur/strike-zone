@@ -108,6 +108,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/ATL_logo.svg',
             leagueId: 104,
             divisionId: 204,
+            venue: 'Truist Park',
         },
         away: {
             id: 135,
@@ -118,6 +119,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/SD_logo.svg',
             leagueId: 104,
             divisionId: 203,
+            venue: 'Petco Park',
         },
         batter: {
             id: 592518,
@@ -144,7 +146,7 @@ export const atBatList: AtBat[] = [
             homeScore: 7,
             awayScore: 6,
             isFinal: true,
-            isPostponed: null,
+            isPostponed: false,
             initialDate: '2023-04-06',
         },
         umpire: {
@@ -229,6 +231,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/ATL_logo.svg',
             leagueId: 104,
             divisionId: 204,
+            venue: 'Truist Park',
         },
         away: {
             id: 135,
@@ -239,6 +242,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/SD_logo.svg',
             leagueId: 104,
             divisionId: 203,
+            venue: 'Petco Park',
         },
         batter: {
             id: 660670,
@@ -265,7 +269,7 @@ export const atBatList: AtBat[] = [
             homeScore: 7,
             awayScore: 6,
             isFinal: true,
-            isPostponed: null,
+            isPostponed: false,
             initialDate: '2023-04-06',
         },
         umpire: {
@@ -305,6 +309,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/ATL_logo.svg',
             leagueId: 104,
             divisionId: 204,
+            venue: 'Truist Park',
         },
         away: {
             id: 135,
@@ -315,6 +320,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/SD_logo.svg',
             leagueId: 104,
             divisionId: 203,
+            venue: 'Petco Park',
         },
         batter: {
             id: 621566,
@@ -341,7 +347,7 @@ export const atBatList: AtBat[] = [
             homeScore: 7,
             awayScore: 6,
             isFinal: true,
-            isPostponed: null,
+            isPostponed: false,
             initialDate: '2023-04-06',
         },
         umpire: {
@@ -426,6 +432,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/ATL_logo.svg',
             leagueId: 104,
             divisionId: 204,
+            venue: 'Truist Park',
         },
         away: {
             id: 135,
@@ -436,6 +443,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/SD_logo.svg',
             leagueId: 104,
             divisionId: 203,
+            venue: 'Petco Park',
         },
         batter: {
             id: 663586,
@@ -462,7 +470,7 @@ export const atBatList: AtBat[] = [
             homeScore: 7,
             awayScore: 6,
             isFinal: true,
-            isPostponed: null,
+            isPostponed: false,
             initialDate: '2023-04-06',
         },
         umpire: {
@@ -577,6 +585,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/ATL_logo.svg',
             leagueId: 104,
             divisionId: 204,
+            venue: 'Truist Park',
         },
         away: {
             id: 135,
@@ -587,6 +596,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/SD_logo.svg',
             leagueId: 104,
             divisionId: 203,
+            venue: 'Petco Park',
         },
         batter: {
             id: 518595,
@@ -613,7 +623,7 @@ export const atBatList: AtBat[] = [
             homeScore: 7,
             awayScore: 6,
             isFinal: true,
-            isPostponed: null,
+            isPostponed: false,
             initialDate: '2023-04-06',
         },
         umpire: {
@@ -728,6 +738,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/ATL_logo.svg',
             leagueId: 104,
             divisionId: 204,
+            venue: 'Truist Park',
         },
         away: {
             id: 135,
@@ -738,6 +749,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/SD_logo.svg',
             leagueId: 104,
             divisionId: 203,
+            venue: 'Petco Park',
         },
         batter: {
             id: 593428,
@@ -764,7 +776,7 @@ export const atBatList: AtBat[] = [
             homeScore: 7,
             awayScore: 6,
             isFinal: true,
-            isPostponed: null,
+            isPostponed: false,
             initialDate: '2023-04-06',
         },
         umpire: {
@@ -804,6 +816,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/ATL_logo.svg',
             leagueId: 104,
             divisionId: 204,
+            venue: 'Truist Park',
         },
         away: {
             id: 135,
@@ -814,6 +827,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/SD_logo.svg',
             leagueId: 104,
             divisionId: 203,
+            venue: 'Petco Park',
         },
         batter: {
             id: 630105,
@@ -840,7 +854,7 @@ export const atBatList: AtBat[] = [
             homeScore: 7,
             awayScore: 6,
             isFinal: true,
-            isPostponed: null,
+            isPostponed: false,
             initialDate: '2023-04-06',
         },
         umpire: {
@@ -925,6 +939,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/ATL_logo.svg',
             leagueId: 104,
             divisionId: 204,
+            venue: 'Truist Park',
         },
         away: {
             id: 135,
@@ -935,6 +950,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/SD_logo.svg',
             leagueId: 104,
             divisionId: 203,
+            venue: 'Petco Park',
         },
         batter: {
             id: 572761,
@@ -961,7 +977,7 @@ export const atBatList: AtBat[] = [
             homeScore: 7,
             awayScore: 6,
             isFinal: true,
-            isPostponed: null,
+            isPostponed: false,
             initialDate: '2023-04-06',
         },
         umpire: {
@@ -1061,6 +1077,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/ATL_logo.svg',
             leagueId: 104,
             divisionId: 204,
+            venue: 'Truist Park',
         },
         away: {
             id: 135,
@@ -1071,6 +1088,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/SD_logo.svg',
             leagueId: 104,
             divisionId: 203,
+            venue: 'Petco Park',
         },
         batter: {
             id: 543592,
@@ -1097,7 +1115,7 @@ export const atBatList: AtBat[] = [
             homeScore: 7,
             awayScore: 6,
             isFinal: true,
-            isPostponed: null,
+            isPostponed: false,
             initialDate: '2023-04-06',
         },
         umpire: {
@@ -1182,6 +1200,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/ATL_logo.svg',
             leagueId: 104,
             divisionId: 204,
+            venue: 'Truist Park',
         },
         away: {
             id: 135,
@@ -1192,6 +1211,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/SD_logo.svg',
             leagueId: 104,
             divisionId: 203,
+            venue: 'Petco Park',
         },
         batter: {
             id: 645277,
@@ -1218,7 +1238,7 @@ export const atBatList: AtBat[] = [
             homeScore: 7,
             awayScore: 6,
             isFinal: true,
-            isPostponed: null,
+            isPostponed: false,
             initialDate: '2023-04-06',
         },
         umpire: {
@@ -1303,6 +1323,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/ATL_logo.svg',
             leagueId: 104,
             divisionId: 204,
+            venue: 'Truist Park',
         },
         away: {
             id: 135,
@@ -1313,6 +1334,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/SD_logo.svg',
             leagueId: 104,
             divisionId: 203,
+            venue: 'Petco Park',
         },
         batter: {
             id: 669221,
@@ -1339,7 +1361,7 @@ export const atBatList: AtBat[] = [
             homeScore: 7,
             awayScore: 6,
             isFinal: true,
-            isPostponed: null,
+            isPostponed: false,
             initialDate: '2023-04-06',
         },
         umpire: {
@@ -1409,6 +1431,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/ATL_logo.svg',
             leagueId: 104,
             divisionId: 204,
+            venue: 'Truist Park',
         },
         away: {
             id: 135,
@@ -1419,6 +1442,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/SD_logo.svg',
             leagueId: 104,
             divisionId: 203,
+            venue: 'Petco Park',
         },
         batter: {
             id: 671739,
@@ -1445,7 +1469,7 @@ export const atBatList: AtBat[] = [
             homeScore: 7,
             awayScore: 6,
             isFinal: true,
-            isPostponed: null,
+            isPostponed: false,
             initialDate: '2023-04-06',
         },
         umpire: {
@@ -1545,6 +1569,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/ATL_logo.svg',
             leagueId: 104,
             divisionId: 204,
+            venue: 'Truist Park',
         },
         away: {
             id: 135,
@@ -1555,6 +1580,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/SD_logo.svg',
             leagueId: 104,
             divisionId: 203,
+            venue: 'Petco Park',
         },
         batter: {
             id: 607680,
@@ -1581,7 +1607,7 @@ export const atBatList: AtBat[] = [
             homeScore: 7,
             awayScore: 6,
             isFinal: true,
-            isPostponed: null,
+            isPostponed: false,
             initialDate: '2023-04-06',
         },
         umpire: {
@@ -1651,6 +1677,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/AZ_logo.svg',
             leagueId: 104,
             divisionId: 203,
+            venue: 'Chase Field',
         },
         away: {
             id: 119,
@@ -1661,6 +1688,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/LAD_logo.svg',
             leagueId: 104,
             divisionId: 203,
+            venue: 'Dodger Stadium',
         },
         batter: {
             id: 668942,
@@ -1687,7 +1715,7 @@ export const atBatList: AtBat[] = [
             homeScore: 2,
             awayScore: 5,
             isFinal: true,
-            isPostponed: null,
+            isPostponed: false,
             initialDate: '2023-04-06',
         },
         umpire: {
@@ -1787,6 +1815,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/AZ_logo.svg',
             leagueId: 104,
             divisionId: 203,
+            venue: 'Chase Field',
         },
         away: {
             id: 119,
@@ -1797,6 +1826,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/LAD_logo.svg',
             leagueId: 104,
             divisionId: 203,
+            venue: 'Dodger Stadium',
         },
         batter: {
             id: 606466,
@@ -1823,7 +1853,7 @@ export const atBatList: AtBat[] = [
             homeScore: 2,
             awayScore: 5,
             isFinal: true,
-            isPostponed: null,
+            isPostponed: false,
             initialDate: '2023-04-06',
         },
         umpire: {
@@ -1908,6 +1938,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/AZ_logo.svg',
             leagueId: 104,
             divisionId: 203,
+            venue: 'Chase Field',
         },
         away: {
             id: 119,
@@ -1918,6 +1949,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/LAD_logo.svg',
             leagueId: 104,
             divisionId: 203,
+            venue: 'Dodger Stadium',
         },
         batter: {
             id: 666971,
@@ -1944,7 +1976,7 @@ export const atBatList: AtBat[] = [
             homeScore: 2,
             awayScore: 5,
             isFinal: true,
-            isPostponed: null,
+            isPostponed: false,
             initialDate: '2023-04-06',
         },
         umpire: {
@@ -2029,6 +2061,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/AZ_logo.svg',
             leagueId: 104,
             divisionId: 203,
+            venue: 'Chase Field',
         },
         away: {
             id: 119,
@@ -2039,6 +2072,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/LAD_logo.svg',
             leagueId: 104,
             divisionId: 203,
+            venue: 'Dodger Stadium',
         },
         batter: {
             id: 571970,
@@ -2065,7 +2099,7 @@ export const atBatList: AtBat[] = [
             homeScore: 2,
             awayScore: 5,
             isFinal: true,
-            isPostponed: null,
+            isPostponed: false,
             initialDate: '2023-04-06',
         },
         umpire: {
@@ -2150,6 +2184,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/AZ_logo.svg',
             leagueId: 104,
             divisionId: 203,
+            venue: 'Chase Field',
         },
         away: {
             id: 119,
@@ -2160,6 +2195,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/LAD_logo.svg',
             leagueId: 104,
             divisionId: 203,
+            venue: 'Dodger Stadium',
         },
         batter: {
             id: 502110,
@@ -2186,7 +2222,7 @@ export const atBatList: AtBat[] = [
             homeScore: 2,
             awayScore: 5,
             isFinal: true,
-            isPostponed: null,
+            isPostponed: false,
             initialDate: '2023-04-06',
         },
         umpire: {
@@ -2286,6 +2322,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/AZ_logo.svg',
             leagueId: 104,
             divisionId: 203,
+            venue: 'Chase Field',
         },
         away: {
             id: 119,
@@ -2296,6 +2333,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/LAD_logo.svg',
             leagueId: 104,
             divisionId: 203,
+            venue: 'Dodger Stadium',
         },
         batter: {
             id: 444482,
@@ -2322,7 +2360,7 @@ export const atBatList: AtBat[] = [
             homeScore: 2,
             awayScore: 5,
             isFinal: true,
-            isPostponed: null,
+            isPostponed: false,
             initialDate: '2023-04-06',
         },
         umpire: {
@@ -2362,6 +2400,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/AZ_logo.svg',
             leagueId: 104,
             divisionId: 203,
+            venue: 'Chase Field',
         },
         away: {
             id: 119,
@@ -2372,6 +2411,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/LAD_logo.svg',
             leagueId: 104,
             divisionId: 203,
+            venue: 'Dodger Stadium',
         },
         batter: {
             id: 681546,
@@ -2398,7 +2438,7 @@ export const atBatList: AtBat[] = [
             homeScore: 2,
             awayScore: 5,
             isFinal: true,
-            isPostponed: null,
+            isPostponed: false,
             initialDate: '2023-04-06',
         },
         umpire: {
@@ -2513,6 +2553,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/AZ_logo.svg',
             leagueId: 104,
             divisionId: 203,
+            venue: 'Chase Field',
         },
         away: {
             id: 119,
@@ -2523,6 +2564,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/LAD_logo.svg',
             leagueId: 104,
             divisionId: 203,
+            venue: 'Dodger Stadium',
         },
         batter: {
             id: 621035,
@@ -2549,7 +2591,7 @@ export const atBatList: AtBat[] = [
             homeScore: 2,
             awayScore: 5,
             isFinal: true,
-            isPostponed: null,
+            isPostponed: false,
             initialDate: '2023-04-06',
         },
         umpire: {
@@ -2604,6 +2646,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/AZ_logo.svg',
             leagueId: 104,
             divisionId: 203,
+            venue: 'Chase Field',
         },
         away: {
             id: 119,
@@ -2614,6 +2657,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/LAD_logo.svg',
             leagueId: 104,
             divisionId: 203,
+            venue: 'Dodger Stadium',
         },
         batter: {
             id: 518792,
@@ -2640,7 +2684,7 @@ export const atBatList: AtBat[] = [
             homeScore: 2,
             awayScore: 5,
             isFinal: true,
-            isPostponed: null,
+            isPostponed: false,
             initialDate: '2023-04-06',
         },
         umpire: {
@@ -2695,6 +2739,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/AZ_logo.svg',
             leagueId: 104,
             divisionId: 203,
+            venue: 'Chase Field',
         },
         away: {
             id: 119,
@@ -2705,6 +2750,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/LAD_logo.svg',
             leagueId: 104,
             divisionId: 203,
+            venue: 'Dodger Stadium',
         },
         batter: {
             id: 572233,
@@ -2731,7 +2777,7 @@ export const atBatList: AtBat[] = [
             homeScore: 2,
             awayScore: 5,
             isFinal: true,
-            isPostponed: null,
+            isPostponed: false,
             initialDate: '2023-04-06',
         },
         umpire: {
@@ -2801,6 +2847,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/AZ_logo.svg',
             leagueId: 104,
             divisionId: 203,
+            venue: 'Chase Field',
         },
         away: {
             id: 119,
@@ -2811,6 +2858,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/LAD_logo.svg',
             leagueId: 104,
             divisionId: 203,
+            venue: 'Dodger Stadium',
         },
         batter: {
             id: 682998,
@@ -2837,7 +2885,7 @@ export const atBatList: AtBat[] = [
             homeScore: 2,
             awayScore: 5,
             isFinal: true,
-            isPostponed: null,
+            isPostponed: false,
             initialDate: '2023-04-06',
         },
         umpire: {
@@ -2907,6 +2955,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/AZ_logo.svg',
             leagueId: 104,
             divisionId: 203,
+            venue: 'Chase Field',
         },
         away: {
             id: 119,
@@ -2917,6 +2966,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/LAD_logo.svg',
             leagueId: 104,
             divisionId: 203,
+            venue: 'Dodger Stadium',
         },
         batter: {
             id: 664983,
@@ -2943,7 +2993,7 @@ export const atBatList: AtBat[] = [
             homeScore: 2,
             awayScore: 5,
             isFinal: true,
-            isPostponed: null,
+            isPostponed: false,
             initialDate: '2023-04-06',
         },
         umpire: {
@@ -2983,6 +3033,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/AZ_logo.svg',
             leagueId: 104,
             divisionId: 203,
+            venue: 'Chase Field',
         },
         away: {
             id: 119,
@@ -2993,6 +3044,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/LAD_logo.svg',
             leagueId: 104,
             divisionId: 203,
+            venue: 'Dodger Stadium',
         },
         batter: {
             id: 672515,
@@ -3019,7 +3071,7 @@ export const atBatList: AtBat[] = [
             homeScore: 2,
             awayScore: 5,
             isFinal: true,
-            isPostponed: null,
+            isPostponed: false,
             initialDate: '2023-04-06',
         },
         umpire: {
@@ -3074,6 +3126,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/PHI_logo.svg',
             leagueId: 104,
             divisionId: 204,
+            venue: 'Citizens Bank Park',
         },
         away: {
             id: 113,
@@ -3084,6 +3137,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/CIN_logo.svg',
             leagueId: 104,
             divisionId: 205,
+            venue: 'Great American Ball Park',
         },
         batter: {
             id: 670770,
@@ -3225,6 +3279,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/PHI_logo.svg',
             leagueId: 104,
             divisionId: 204,
+            venue: 'Citizens Bank Park',
         },
         away: {
             id: 113,
@@ -3235,6 +3290,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/CIN_logo.svg',
             leagueId: 104,
             divisionId: 205,
+            venue: 'Great American Ball Park',
         },
         batter: {
             id: 641584,
@@ -3346,6 +3402,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/PHI_logo.svg',
             leagueId: 104,
             divisionId: 204,
+            venue: 'Citizens Bank Park',
         },
         away: {
             id: 113,
@@ -3356,6 +3413,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/CIN_logo.svg',
             leagueId: 104,
             divisionId: 205,
+            venue: 'Great American Ball Park',
         },
         batter: {
             id: 607208,
@@ -3467,6 +3525,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/PHI_logo.svg',
             leagueId: 104,
             divisionId: 204,
+            venue: 'Citizens Bank Park',
         },
         away: {
             id: 113,
@@ -3477,6 +3536,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/CIN_logo.svg',
             leagueId: 104,
             divisionId: 205,
+            venue: 'Great American Ball Park',
         },
         batter: {
             id: 656941,
@@ -3588,6 +3648,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/PHI_logo.svg',
             leagueId: 104,
             divisionId: 204,
+            venue: 'Citizens Bank Park',
         },
         away: {
             id: 113,
@@ -3598,6 +3659,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/CIN_logo.svg',
             leagueId: 104,
             divisionId: 205,
+            venue: 'Great American Ball Park',
         },
         batter: {
             id: 592663,
@@ -3769,6 +3831,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/PHI_logo.svg',
             leagueId: 104,
             divisionId: 204,
+            venue: 'Citizens Bank Park',
         },
         away: {
             id: 113,
@@ -3779,6 +3842,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/CIN_logo.svg',
             leagueId: 104,
             divisionId: 205,
+            venue: 'Great American Ball Park',
         },
         batter: {
             id: 663886,
@@ -3875,6 +3939,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/PHI_logo.svg',
             leagueId: 104,
             divisionId: 204,
+            venue: 'Citizens Bank Park',
         },
         away: {
             id: 113,
@@ -3885,6 +3950,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/CIN_logo.svg',
             leagueId: 104,
             divisionId: 205,
+            venue: 'Great American Ball Park',
         },
         batter: {
             id: 571976,
@@ -3996,6 +4062,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/PHI_logo.svg',
             leagueId: 104,
             divisionId: 204,
+            venue: 'Citizens Bank Park',
         },
         away: {
             id: 113,
@@ -4006,6 +4073,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/CIN_logo.svg',
             leagueId: 104,
             divisionId: 205,
+            venue: 'Great American Ball Park',
         },
         batter: {
             id: 613564,
@@ -4102,6 +4170,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/PHI_logo.svg',
             leagueId: 104,
             divisionId: 204,
+            venue: 'Citizens Bank Park',
         },
         away: {
             id: 113,
@@ -4112,6 +4181,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/CIN_logo.svg',
             leagueId: 104,
             divisionId: 205,
+            venue: 'Great American Ball Park',
         },
         batter: {
             id: 668715,
@@ -4178,6 +4248,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/PHI_logo.svg',
             leagueId: 104,
             divisionId: 204,
+            venue: 'Citizens Bank Park',
         },
         away: {
             id: 113,
@@ -4188,6 +4259,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/CIN_logo.svg',
             leagueId: 104,
             divisionId: 205,
+            venue: 'Great American Ball Park',
         },
         batter: {
             id: 592206,
@@ -4344,6 +4416,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/PHI_logo.svg',
             leagueId: 104,
             divisionId: 204,
+            venue: 'Citizens Bank Park',
         },
         away: {
             id: 113,
@@ -4354,6 +4427,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/CIN_logo.svg',
             leagueId: 104,
             divisionId: 205,
+            venue: 'Great American Ball Park',
         },
         batter: {
             id: 681082,
@@ -4450,6 +4524,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/PHI_logo.svg',
             leagueId: 104,
             divisionId: 204,
+            venue: 'Citizens Bank Park',
         },
         away: {
             id: 113,
@@ -4460,6 +4535,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/CIN_logo.svg',
             leagueId: 104,
             divisionId: 205,
+            venue: 'Great American Ball Park',
         },
         batter: {
             id: 664761,
@@ -4616,6 +4692,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/PHI_logo.svg',
             leagueId: 104,
             divisionId: 204,
+            venue: 'Citizens Bank Park',
         },
         away: {
             id: 113,
@@ -4626,6 +4703,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/CIN_logo.svg',
             leagueId: 104,
             divisionId: 205,
+            venue: 'Great American Ball Park',
         },
         batter: {
             id: 595909,
@@ -4782,6 +4860,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/PHI_logo.svg',
             leagueId: 104,
             divisionId: 204,
+            venue: 'Citizens Bank Park',
         },
         away: {
             id: 113,
@@ -4792,6 +4871,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/CIN_logo.svg',
             leagueId: 104,
             divisionId: 205,
+            venue: 'Great American Ball Park',
         },
         batter: {
             id: 665019,
@@ -4918,6 +4998,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/PHI_logo.svg',
             leagueId: 104,
             divisionId: 204,
+            venue: 'Citizens Bank Park',
         },
         away: {
             id: 113,
@@ -4928,6 +5009,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/CIN_logo.svg',
             leagueId: 104,
             divisionId: 205,
+            venue: 'Great American Ball Park',
         },
         batter: {
             id: 669016,
@@ -5024,6 +5106,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/PHI_logo.svg',
             leagueId: 104,
             divisionId: 204,
+            venue: 'Citizens Bank Park',
         },
         away: {
             id: 113,
@@ -5034,6 +5117,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/CIN_logo.svg',
             leagueId: 104,
             divisionId: 205,
+            venue: 'Great American Ball Park',
         },
         batter: {
             id: 607208,
@@ -5145,6 +5229,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/MIN_logo.svg',
             leagueId: 103,
             divisionId: 202,
+            venue: 'Target Field',
         },
         away: {
             id: 117,
@@ -5155,6 +5240,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/HOU_logo.svg',
             leagueId: 103,
             divisionId: 200,
+            venue: 'Minute Maid Park',
         },
         batter: {
             id: 670541,
@@ -5266,6 +5352,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/MIN_logo.svg',
             leagueId: 103,
             divisionId: 202,
+            venue: 'Target Field',
         },
         away: {
             id: 117,
@@ -5276,6 +5363,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/HOU_logo.svg',
             leagueId: 103,
             divisionId: 200,
+            venue: 'Minute Maid Park',
         },
         batter: {
             id: 547989,
@@ -5432,6 +5520,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/MIN_logo.svg',
             leagueId: 103,
             divisionId: 202,
+            venue: 'Target Field',
         },
         away: {
             id: 117,
@@ -5442,6 +5531,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/HOU_logo.svg',
             leagueId: 103,
             divisionId: 200,
+            venue: 'Minute Maid Park',
         },
         batter: {
             id: 621439,
@@ -5538,6 +5628,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/MIN_logo.svg',
             leagueId: 103,
             divisionId: 202,
+            venue: 'Target Field',
         },
         away: {
             id: 117,
@@ -5548,6 +5639,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/HOU_logo.svg',
             leagueId: 103,
             divisionId: 200,
+            venue: 'Minute Maid Park',
         },
         batter: {
             id: 621043,
@@ -5689,6 +5781,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/MIN_logo.svg',
             leagueId: 103,
             divisionId: 202,
+            venue: 'Target Field',
         },
         away: {
             id: 117,
@@ -5699,6 +5792,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/HOU_logo.svg',
             leagueId: 103,
             divisionId: 200,
+            venue: 'Minute Maid Park',
         },
         batter: {
             id: 663616,
@@ -5780,6 +5874,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/MIN_logo.svg',
             leagueId: 103,
             divisionId: 202,
+            venue: 'Target Field',
         },
         away: {
             id: 117,
@@ -5790,6 +5885,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/HOU_logo.svg',
             leagueId: 103,
             divisionId: 200,
+            venue: 'Minute Maid Park',
         },
         batter: {
             id: 663656,
@@ -5901,6 +5997,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/MIN_logo.svg',
             leagueId: 103,
             divisionId: 202,
+            venue: 'Target Field',
         },
         away: {
             id: 117,
@@ -5911,6 +6008,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/HOU_logo.svg',
             leagueId: 103,
             divisionId: 200,
+            venue: 'Minute Maid Park',
         },
         batter: {
             id: 682073,
@@ -6052,6 +6150,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/MIN_logo.svg',
             leagueId: 103,
             divisionId: 202,
+            venue: 'Target Field',
         },
         away: {
             id: 117,
@@ -6062,6 +6161,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/HOU_logo.svg',
             leagueId: 103,
             divisionId: 200,
+            venue: 'Minute Maid Park',
         },
         batter: {
             id: 676801,
@@ -6158,6 +6258,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/MIN_logo.svg',
             leagueId: 103,
             divisionId: 202,
+            venue: 'Target Field',
         },
         away: {
             id: 117,
@@ -6168,6 +6269,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/HOU_logo.svg',
             leagueId: 103,
             divisionId: 200,
+            venue: 'Minute Maid Park',
         },
         batter: {
             id: 669304,
@@ -6249,6 +6351,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/MIN_logo.svg',
             leagueId: 103,
             divisionId: 202,
+            venue: 'Target Field',
         },
         away: {
             id: 117,
@@ -6259,6 +6362,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/HOU_logo.svg',
             leagueId: 103,
             divisionId: 200,
+            venue: 'Minute Maid Park',
         },
         batter: {
             id: 456781,
@@ -6400,6 +6504,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/MIN_logo.svg',
             leagueId: 103,
             divisionId: 202,
+            venue: 'Target Field',
         },
         away: {
             id: 117,
@@ -6410,6 +6515,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/HOU_logo.svg',
             leagueId: 103,
             divisionId: 200,
+            venue: 'Minute Maid Park',
         },
         batter: {
             id: 571657,
@@ -6551,6 +6657,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/KC_logo.svg',
             leagueId: 103,
             divisionId: 202,
+            venue: 'Kauffman Stadium',
         },
         away: {
             id: 141,
@@ -6561,6 +6668,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/TOR_logo.svg',
             leagueId: 103,
             divisionId: 201,
+            venue: 'Rogers Centre',
         },
         batter: {
             id: 666182,
@@ -6587,7 +6695,7 @@ export const atBatList: AtBat[] = [
             homeScore: 3,
             awayScore: 6,
             isFinal: true,
-            isPostponed: null,
+            isPostponed: false,
             initialDate: '2023-04-06',
         },
         umpire: {
@@ -6672,6 +6780,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/KC_logo.svg',
             leagueId: 103,
             divisionId: 202,
+            venue: 'Kauffman Stadium',
         },
         away: {
             id: 141,
@@ -6682,6 +6791,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/TOR_logo.svg',
             leagueId: 103,
             divisionId: 201,
+            venue: 'Rogers Centre',
         },
         batter: {
             id: 665489,
@@ -6708,7 +6818,7 @@ export const atBatList: AtBat[] = [
             homeScore: 3,
             awayScore: 6,
             isFinal: true,
-            isPostponed: null,
+            isPostponed: false,
             initialDate: '2023-04-06',
         },
         umpire: {
@@ -6763,6 +6873,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/KC_logo.svg',
             leagueId: 103,
             divisionId: 202,
+            venue: 'Kauffman Stadium',
         },
         away: {
             id: 141,
@@ -6773,6 +6884,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/TOR_logo.svg',
             leagueId: 103,
             divisionId: 201,
+            venue: 'Rogers Centre',
         },
         batter: {
             id: 662139,
@@ -6799,7 +6911,7 @@ export const atBatList: AtBat[] = [
             homeScore: 3,
             awayScore: 6,
             isFinal: true,
-            isPostponed: null,
+            isPostponed: false,
             initialDate: '2023-04-06',
         },
         umpire: {
@@ -6884,6 +6996,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/ATL_logo.svg',
             leagueId: 104,
             divisionId: 204,
+            venue: 'Truist Park',
         },
         away: {
             id: 135,
@@ -6894,6 +7007,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/SD_logo.svg',
             leagueId: 104,
             divisionId: 203,
+            venue: 'Petco Park',
         },
         batter: {
             id: 663757,
@@ -6920,7 +7034,7 @@ export const atBatList: AtBat[] = [
             homeScore: 7,
             awayScore: 6,
             isFinal: true,
-            isPostponed: null,
+            isPostponed: false,
             initialDate: '2023-04-06',
         },
         umpire: {
@@ -7005,6 +7119,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/ATL_logo.svg',
             leagueId: 104,
             divisionId: 204,
+            venue: 'Truist Park',
         },
         away: {
             id: 135,
@@ -7015,6 +7130,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/SD_logo.svg',
             leagueId: 104,
             divisionId: 203,
+            venue: 'Petco Park',
         },
         batter: {
             id: 665742,
@@ -7041,7 +7157,7 @@ export const atBatList: AtBat[] = [
             homeScore: 7,
             awayScore: 6,
             isFinal: true,
-            isPostponed: null,
+            isPostponed: false,
             initialDate: '2023-04-06',
         },
         umpire: {
@@ -7141,6 +7257,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/AZ_logo.svg',
             leagueId: 104,
             divisionId: 203,
+            venue: 'Chase Field',
         },
         away: {
             id: 119,
@@ -7151,6 +7268,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/LAD_logo.svg',
             leagueId: 104,
             divisionId: 203,
+            venue: 'Dodger Stadium',
         },
         batter: {
             id: 605141,
@@ -7177,7 +7295,7 @@ export const atBatList: AtBat[] = [
             homeScore: 2,
             awayScore: 5,
             isFinal: true,
-            isPostponed: null,
+            isPostponed: false,
             initialDate: '2023-04-06',
         },
         umpire: {
@@ -7232,6 +7350,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/AZ_logo.svg',
             leagueId: 104,
             divisionId: 203,
+            venue: 'Chase Field',
         },
         away: {
             id: 119,
@@ -7242,6 +7361,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/LAD_logo.svg',
             leagueId: 104,
             divisionId: 203,
+            venue: 'Dodger Stadium',
         },
         batter: {
             id: 518692,
@@ -7268,7 +7388,7 @@ export const atBatList: AtBat[] = [
             homeScore: 2,
             awayScore: 5,
             isFinal: true,
-            isPostponed: null,
+            isPostponed: false,
             initialDate: '2023-04-06',
         },
         umpire: {
@@ -7338,6 +7458,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/AZ_logo.svg',
             leagueId: 104,
             divisionId: 203,
+            venue: 'Chase Field',
         },
         away: {
             id: 119,
@@ -7348,6 +7469,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/LAD_logo.svg',
             leagueId: 104,
             divisionId: 203,
+            venue: 'Dodger Stadium',
         },
         batter: {
             id: 669257,
@@ -7374,7 +7496,7 @@ export const atBatList: AtBat[] = [
             homeScore: 2,
             awayScore: 5,
             isFinal: true,
-            isPostponed: null,
+            isPostponed: false,
             initialDate: '2023-04-06',
         },
         umpire: {
@@ -7459,6 +7581,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/PHI_logo.svg',
             leagueId: 104,
             divisionId: 204,
+            venue: 'Citizens Bank Park',
         },
         away: {
             id: 113,
@@ -7469,6 +7592,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/CIN_logo.svg',
             leagueId: 104,
             divisionId: 205,
+            venue: 'Great American Ball Park',
         },
         batter: {
             id: 663697,
@@ -7580,6 +7704,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/MIN_logo.svg',
             leagueId: 103,
             divisionId: 202,
+            venue: 'Target Field',
         },
         away: {
             id: 117,
@@ -7590,6 +7715,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/HOU_logo.svg',
             leagueId: 103,
             divisionId: 200,
+            venue: 'Minute Maid Park',
         },
         batter: {
             id: 665161,
@@ -7701,6 +7827,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/MIN_logo.svg',
             leagueId: 103,
             divisionId: 202,
+            venue: 'Target Field',
         },
         away: {
             id: 117,
@@ -7711,6 +7838,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/HOU_logo.svg',
             leagueId: 103,
             divisionId: 200,
+            venue: 'Minute Maid Park',
         },
         batter: {
             id: 608324,
@@ -7807,6 +7935,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/KC_logo.svg',
             leagueId: 103,
             divisionId: 202,
+            venue: 'Kauffman Stadium',
         },
         away: {
             id: 141,
@@ -7817,6 +7946,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/TOR_logo.svg',
             leagueId: 103,
             divisionId: 201,
+            venue: 'Rogers Centre',
         },
         batter: {
             id: 656305,
@@ -7843,7 +7973,7 @@ export const atBatList: AtBat[] = [
             homeScore: 3,
             awayScore: 6,
             isFinal: true,
-            isPostponed: null,
+            isPostponed: false,
             initialDate: '2023-04-06',
         },
         umpire: {
@@ -7883,6 +8013,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/KC_logo.svg',
             leagueId: 103,
             divisionId: 202,
+            venue: 'Kauffman Stadium',
         },
         away: {
             id: 141,
@@ -7893,6 +8024,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/TOR_logo.svg',
             leagueId: 103,
             divisionId: 201,
+            venue: 'Rogers Centre',
         },
         batter: {
             id: 593160,
@@ -7919,7 +8051,7 @@ export const atBatList: AtBat[] = [
             homeScore: 3,
             awayScore: 6,
             isFinal: true,
-            isPostponed: null,
+            isPostponed: false,
             initialDate: '2023-04-06',
         },
         umpire: {
@@ -8049,6 +8181,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/KC_logo.svg',
             leagueId: 103,
             divisionId: 202,
+            venue: 'Kauffman Stadium',
         },
         away: {
             id: 141,
@@ -8059,6 +8192,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/TOR_logo.svg',
             leagueId: 103,
             divisionId: 201,
+            venue: 'Rogers Centre',
         },
         batter: {
             id: 474832,
@@ -8085,7 +8219,7 @@ export const atBatList: AtBat[] = [
             homeScore: 3,
             awayScore: 6,
             isFinal: true,
-            isPostponed: null,
+            isPostponed: false,
             initialDate: '2023-04-06',
         },
         umpire: {
@@ -8200,6 +8334,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/KC_logo.svg',
             leagueId: 103,
             divisionId: 202,
+            venue: 'Kauffman Stadium',
         },
         away: {
             id: 141,
@@ -8210,6 +8345,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/TOR_logo.svg',
             leagueId: 103,
             divisionId: 201,
+            venue: 'Rogers Centre',
         },
         batter: {
             id: 677951,
@@ -8236,7 +8372,7 @@ export const atBatList: AtBat[] = [
             homeScore: 3,
             awayScore: 6,
             isFinal: true,
-            isPostponed: null,
+            isPostponed: false,
             initialDate: '2023-04-06',
         },
         umpire: {
@@ -8351,6 +8487,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/KC_logo.svg',
             leagueId: 103,
             divisionId: 202,
+            venue: 'Kauffman Stadium',
         },
         away: {
             id: 141,
@@ -8361,6 +8498,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/TOR_logo.svg',
             leagueId: 103,
             divisionId: 201,
+            venue: 'Rogers Centre',
         },
         batter: {
             id: 669004,
@@ -8387,7 +8525,7 @@ export const atBatList: AtBat[] = [
             homeScore: 3,
             awayScore: 6,
             isFinal: true,
-            isPostponed: null,
+            isPostponed: false,
             initialDate: '2023-04-06',
         },
         umpire: {
@@ -8427,6 +8565,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/KC_logo.svg',
             leagueId: 103,
             divisionId: 202,
+            venue: 'Kauffman Stadium',
         },
         away: {
             id: 141,
@@ -8437,6 +8576,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/TOR_logo.svg',
             leagueId: 103,
             divisionId: 201,
+            venue: 'Rogers Centre',
         },
         batter: {
             id: 521692,
@@ -8463,7 +8603,7 @@ export const atBatList: AtBat[] = [
             homeScore: 3,
             awayScore: 6,
             isFinal: true,
-            isPostponed: null,
+            isPostponed: false,
             initialDate: '2023-04-06',
         },
         umpire: {
@@ -8533,6 +8673,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/KC_logo.svg',
             leagueId: 103,
             divisionId: 202,
+            venue: 'Kauffman Stadium',
         },
         away: {
             id: 141,
@@ -8543,6 +8684,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/TOR_logo.svg',
             leagueId: 103,
             divisionId: 201,
+            venue: 'Rogers Centre',
         },
         batter: {
             id: 643376,
@@ -8569,7 +8711,7 @@ export const atBatList: AtBat[] = [
             homeScore: 3,
             awayScore: 6,
             isFinal: true,
-            isPostponed: null,
+            isPostponed: false,
             initialDate: '2023-04-06',
         },
         umpire: {
@@ -8669,6 +8811,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/KC_logo.svg',
             leagueId: 103,
             divisionId: 202,
+            venue: 'Kauffman Stadium',
         },
         away: {
             id: 141,
@@ -8679,6 +8822,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/TOR_logo.svg',
             leagueId: 103,
             divisionId: 201,
+            venue: 'Rogers Centre',
         },
         batter: {
             id: 624415,
@@ -8705,7 +8849,7 @@ export const atBatList: AtBat[] = [
             homeScore: 3,
             awayScore: 6,
             isFinal: true,
-            isPostponed: null,
+            isPostponed: false,
             initialDate: '2023-04-06',
         },
         umpire: {
@@ -8805,6 +8949,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/KC_logo.svg',
             leagueId: 103,
             divisionId: 202,
+            venue: 'Kauffman Stadium',
         },
         away: {
             id: 141,
@@ -8815,6 +8960,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/TOR_logo.svg',
             leagueId: 103,
             divisionId: 201,
+            venue: 'Rogers Centre',
         },
         batter: {
             id: 595281,
@@ -8841,7 +8987,7 @@ export const atBatList: AtBat[] = [
             homeScore: 3,
             awayScore: 6,
             isFinal: true,
-            isPostponed: null,
+            isPostponed: false,
             initialDate: '2023-04-06',
         },
         umpire: {
@@ -8926,6 +9072,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/KC_logo.svg',
             leagueId: 103,
             divisionId: 202,
+            venue: 'Kauffman Stadium',
         },
         away: {
             id: 141,
@@ -8936,6 +9083,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/TOR_logo.svg',
             leagueId: 103,
             divisionId: 201,
+            venue: 'Rogers Centre',
         },
         batter: {
             id: 666182,
@@ -8962,7 +9110,7 @@ export const atBatList: AtBat[] = [
             homeScore: 3,
             awayScore: 6,
             isFinal: true,
-            isPostponed: null,
+            isPostponed: false,
             initialDate: '2023-04-06',
         },
         umpire: {
@@ -9002,6 +9150,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/KC_logo.svg',
             leagueId: 103,
             divisionId: 202,
+            venue: 'Kauffman Stadium',
         },
         away: {
             id: 141,
@@ -9012,6 +9161,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/TOR_logo.svg',
             leagueId: 103,
             divisionId: 201,
+            venue: 'Rogers Centre',
         },
         batter: {
             id: 665489,
@@ -9038,7 +9188,7 @@ export const atBatList: AtBat[] = [
             homeScore: 3,
             awayScore: 6,
             isFinal: true,
-            isPostponed: null,
+            isPostponed: false,
             initialDate: '2023-04-06',
         },
         umpire: {
@@ -9153,6 +9303,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/KC_logo.svg',
             leagueId: 103,
             divisionId: 202,
+            venue: 'Kauffman Stadium',
         },
         away: {
             id: 141,
@@ -9163,6 +9314,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/TOR_logo.svg',
             leagueId: 103,
             divisionId: 201,
+            venue: 'Rogers Centre',
         },
         batter: {
             id: 686469,
@@ -9189,7 +9341,7 @@ export const atBatList: AtBat[] = [
             homeScore: 3,
             awayScore: 6,
             isFinal: true,
-            isPostponed: null,
+            isPostponed: false,
             initialDate: '2023-04-06',
         },
         umpire: {
@@ -9274,6 +9426,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/KC_logo.svg',
             leagueId: 103,
             divisionId: 202,
+            venue: 'Kauffman Stadium',
         },
         away: {
             id: 141,
@@ -9284,6 +9437,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/TOR_logo.svg',
             leagueId: 103,
             divisionId: 201,
+            venue: 'Rogers Centre',
         },
         batter: {
             id: 658668,
@@ -9310,7 +9464,7 @@ export const atBatList: AtBat[] = [
             homeScore: 3,
             awayScore: 6,
             isFinal: true,
-            isPostponed: null,
+            isPostponed: false,
             initialDate: '2023-04-06',
         },
         umpire: {
@@ -9425,6 +9579,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/KC_logo.svg',
             leagueId: 103,
             divisionId: 202,
+            venue: 'Kauffman Stadium',
         },
         away: {
             id: 141,
@@ -9435,6 +9590,7 @@ export const atBatList: AtBat[] = [
             imageUrl: 'https://tjbrktyhlzfcdujyevju.supabase.co/storage/v1/object/public/logo/TOR_logo.svg',
             leagueId: 103,
             divisionId: 201,
+            venue: 'Rogers Centre',
         },
         batter: {
             id: 686681,
@@ -9461,7 +9617,7 @@ export const atBatList: AtBat[] = [
             homeScore: 3,
             awayScore: 6,
             isFinal: true,
-            isPostponed: null,
+            isPostponed: false,
             initialDate: '2023-04-06',
         },
         umpire: {

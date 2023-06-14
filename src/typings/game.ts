@@ -11,7 +11,7 @@ export interface Game {
     umpireId?: number;
     away?: Team;
     home?: Team;
-    umpire?: Umpire;
+    umpire?: Umpire | null;
     isFinal: boolean | null;
     isPostponed?: boolean | null;
     initialDate?: string;
