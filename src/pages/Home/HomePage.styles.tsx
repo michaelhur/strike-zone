@@ -35,6 +35,7 @@ export const ContainerTitleWrapper = styled.div({
     padding: '1rem',
 
     '& h2': {
+        fontFamily: 'BMHANNAAir',
         fontSize: '2rem',
     },
 });

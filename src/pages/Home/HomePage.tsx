@@ -16,7 +16,6 @@ const HomePage = () => {
     const { isLoading, data: gameList } = useGetGameList();
 
     if (isLoading) return <Loading />;
-    console.log(`games:`, gameList);
 
     return (
         <HomePageContainer>
