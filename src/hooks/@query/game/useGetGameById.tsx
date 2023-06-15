@@ -5,7 +5,7 @@ import { Game } from '@typings/game';
 
 import { requestGetGameById } from '@src/apis/game';
 
-export const useGetGameById = ({ id, options }: { id: number; options?: UseQueryOptions<Game, AxiosError> }) => {
+export const useGetGameById = (id: number, options?: UseQueryOptions<Game, AxiosError>) => {
     return useQuery<Game, AxiosError>(['GAME', { id }], () => requestGetGameById(id), {
         ...options,
         // Update ['GAME', { slug }] as well

@@ -1,24 +1,28 @@
 import styled from '@emotion/styled';
 
-export const CardViewContainer = styled.article({
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    padding: '1rem',
-    width: '100%',
+export const CardViewContainer = styled.article(
+    {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        padding: '1rem',
 
-    background: 'var(--grey0)',
-    boxShadow: 'var(--shadowStrong)',
-    borderRadius: '0.5rem',
+        background: 'var(--grey0)',
+        boxShadow: 'var(--shadowStrong)',
+        borderRadius: '0.5rem',
 
-    cursor: 'pointer',
-    transition: 'box-shadow 0.25s ease-in 0s, transform 0.25s ease-in 0s',
+        cursor: 'pointer',
+        transition: 'box-shadow 0.25s ease-in 0s, transform 0.25s ease-in 0s',
 
-    '&:hover': {
-        transform: 'translateY(-0.25rem)',
+        '&:hover': {
+            transform: 'translateY(-0.25rem)',
+        },
     },
-});
+    ({ cardCount }: { cardCount: number }) => ({
+        width: `calc((100% - calc(16px * ${cardCount - 1})) / ${cardCount})`,
+    }),
+);
 
 export const CardViewTopSection = styled.section({
     display: 'flex',

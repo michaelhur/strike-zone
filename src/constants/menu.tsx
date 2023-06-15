@@ -7,7 +7,7 @@ import { Menu } from '@typings/menu';
 export const sidebarMenu: Menu[] = [
     {
         name: 'Home',
-        path: PATH.MAIN,
+        path: PATH.HOME,
         iconComponent: <HomeIcon />,
     },
     {

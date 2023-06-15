@@ -6,6 +6,7 @@ export const ListViewContainer = styled.article({
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: '1rem 0.5rem',
+    margin: '0.5rem',
     height: '80px',
     width: '100%',
 

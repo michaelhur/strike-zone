@@ -11,6 +11,7 @@ import { Game } from '@typings/game';
 export interface MatchItemProps {
     game: Game;
     itemViewType: itemViewType;
+    cardCount?: number;
 }
 
 export interface ViewItemProps {
@@ -18,7 +19,7 @@ export interface ViewItemProps {
     onClickItem: () => void;
 }
 
-const MatchItem = ({ game, itemViewType }: MatchItemProps) => {
+const MatchItem = ({ game, itemViewType, cardCount }: MatchItemProps) => {
     const navigate = useNavigate();
     const onClickMatchItem = useCallback(() => {
         if (game.isFinal) navigate(`/games/${game.slug}`);
@@ -26,7 +27,7 @@ const MatchItem = ({ game, itemViewType }: MatchItemProps) => {
     }, [game]);
 
     if (itemViewType === 'LIST') return <ListViewItem game={game} onClickItem={onClickMatchItem} />;
-    return <CardViewItem game={game} onClickItem={onClickMatchItem} />;
+    return <CardViewItem game={game} onClickItem={onClickMatchItem} cardCount={cardCount!} />;
 };
 
 export default MatchItem;

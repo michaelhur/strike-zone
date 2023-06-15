@@ -1,14 +1,17 @@
-import { Suspense } from 'react';
+import { Suspense, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
+import { PATH } from '@constants/routes';
+
 import Loading from '@components/Loading/Loading';
+
+const HomePage = lazy(() => import('@pages/Home/HomePage'));
 
 const Router = () => {
     return (
         <Suspense fallback={<Loading />}>
             <Routes>
-                {/*  여기에 <Route /> 추가  */}
-                <Route path="/" />
+                <Route path={`${PATH.HOME}`} element={<HomePage />} />
             </Routes>
         </Suspense>
     );
