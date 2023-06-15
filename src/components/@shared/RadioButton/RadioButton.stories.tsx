@@ -38,14 +38,14 @@ export const WithIcon = Template.bind({});
 WithIcon.args = {
     leftButtonLabel: 'Left Button',
     rightButtonLabel: 'Right Button',
-    leftIconComponent: <ArrowLeftIcon />,
-    rightIconComponent: <ArrowRightIcon />,
+    leftIconComponent: <ArrowLeftIcon hoverable={false} />,
+    rightIconComponent: <ArrowRightIcon hoverable={false} />,
 };
 
 export const DarkMode = Template.bind({});
 DarkMode.args = {
     leftButtonLabel: 'Light',
     rightButtonLabel: 'Dark',
-    leftIconComponent: <LightIcon />,
-    rightIconComponent: <DarkIcon />,
+    leftIconComponent: <LightIcon hoverable={false} />,
+    rightIconComponent: <DarkIcon hoverable={false} />,
 };
