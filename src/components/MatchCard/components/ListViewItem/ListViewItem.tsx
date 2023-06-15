@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { MatchCardProps } from '@components/MatchCard/MatchCard';
+import { MatchCardProps } from '@components/MatchCard/components/CardViewItem/CardViewItem';
 import {
     ListViewContainer,
     ListViewGameStatus,
@@ -11,7 +11,7 @@ import {
     ListViewTeamImage,
     ListViewTeamName,
     ListViewTeamSectionContainer,
-} from '@components/MatchListItem.styles';
+} from '@components/MatchCard/components/ListViewItem/ListViewItem.styles';
 
 import { Team } from '@typings/team';
 
@@ -56,7 +56,7 @@ const ListViewTeamSection = ({ team, homeOrAway }: { team: Team; homeOrAway: 'Ho
     );
 };
 
-const MatchListItem = ({ game }: MatchCardProps) => {
+export const ListViewItem = ({ game }: MatchCardProps) => {
     const navigate = useNavigate();
     const { id, slug, date, home, away, isFinal, homeScore, awayScore } = game;
     const onClickMatchCard = () => {
@@ -72,5 +72,3 @@ const MatchListItem = ({ game }: MatchCardProps) => {
         </ListViewContainer>
     );
 };
-
-export default MatchListItem;

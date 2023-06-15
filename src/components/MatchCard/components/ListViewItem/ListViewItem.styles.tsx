@@ -17,7 +17,7 @@ export const ListViewContainer = styled.article({
     transition: 'box-shadow 0.25s ease-in 0s, transform 0.25s ease-in 0s',
 
     '&:hover': {
-        transform: 'translateY(-0.5rem)',
+        transform: 'translateY(-0.25rem)',
     },
 });
 

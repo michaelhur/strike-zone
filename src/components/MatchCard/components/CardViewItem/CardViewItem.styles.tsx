@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const CardContainer = styled.article({
+export const CardViewContainer = styled.article({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'flex-start',
@@ -16,11 +16,11 @@ export const CardContainer = styled.article({
     transition: 'box-shadow 0.25s ease-in 0s, transform 0.25s ease-in 0s',
 
     '&:hover': {
-        transform: 'translateY(-0.5rem)',
+        transform: 'translateY(-0.25rem)',
     },
 });
 
-export const CardTopSection = styled.section({
+export const CardViewTopSection = styled.section({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'flex-start',
@@ -41,7 +41,7 @@ export const CardTopSection = styled.section({
     },
 });
 
-export const CardMatchupSection = styled.section({
+export const CardViewMatchupSection = styled.section({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -50,7 +50,7 @@ export const CardMatchupSection = styled.section({
     width: '100%',
 });
 
-export const TeamSectionContainer = styled.section({
+export const CardViewTeamSectionContainer = styled.section({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
@@ -61,7 +61,7 @@ export const TeamSectionContainer = styled.section({
     width: '9rem',
 });
 
-export const TeamImage = styled.div({
+export const CardViewTeamImage = styled.div({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'center',
@@ -79,18 +79,18 @@ export const TeamImage = styled.div({
     },
 });
 
-export const TeamName = styled.span({
+export const CardViewTeamName = styled.span({
     fontSize: '1rem',
     lineHeight: '1rem',
 });
 
-export const HomeOrAway = styled.span({
+export const CardViewHomeOrAway = styled.span({
     fontSize: '0.75rem',
     lineHeight: '1.5rem',
     color: 'var(--grey700)',
 });
 
-export const ScoreSectionContainer = styled.section({
+export const CardViewScoreSectionContainer = styled.section({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
@@ -100,21 +100,21 @@ export const ScoreSectionContainer = styled.section({
     // padding: '1rem',
 });
 
-export const ScoreLine = styled.article({
+export const CardViewScoreLine = styled.article({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
 });
 
-export const Score = styled.h1({
+export const CardViewScore = styled.h1({
     fontSize: '3rem',
     fontWeight: '800',
 
     padding: '0.25rem 0.5rem',
 });
 
-export const GameStatus = styled.h4({
+export const CardViewGameStatus = styled.h4({
     fontSize: '1.5rem',
     color: 'var(--grey700)',
 });
