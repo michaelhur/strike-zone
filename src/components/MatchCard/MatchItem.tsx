@@ -1,3 +1,6 @@
+import { useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import { CardViewItem } from '@components/MatchCard/components/CardViewItem/CardViewItem';
 import { ListViewItem } from '@components/MatchCard/components/ListViewItem/ListViewItem';
 
@@ -10,9 +13,20 @@ export interface MatchItemProps {
     itemViewType: itemViewType;
 }
 
+export interface ViewItemProps {
+    game: Game;
+    onClickItem: () => void;
+}
+
 const MatchItem = ({ game, itemViewType }: MatchItemProps) => {
-    if (itemViewType === 'LIST') return <ListViewItem game={game} />;
-    return <CardViewItem game={game} />;
+    const navigate = useNavigate();
+    const onClickMatchItem = useCallback(() => {
+        if (game.isFinal) navigate(`/games/${game.slug}`);
+        else alert('취소된 경기의 정보는 열람할 수 없습니다.');
+    }, [game]);
+
+    if (itemViewType === 'LIST') return <ListViewItem game={game} onClickItem={onClickMatchItem} />;
+    return <CardViewItem game={game} onClickItem={onClickMatchItem} />;
 };
 
 export default MatchItem;

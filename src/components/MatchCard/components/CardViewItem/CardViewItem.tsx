@@ -1,5 +1,4 @@
-import { useNavigate } from 'react-router-dom';
-
+import { ViewItemProps } from '@components/MatchCard/MatchItem';
 import {
     CardViewContainer,
     CardViewGameStatus,
@@ -14,12 +13,7 @@ import {
     CardViewTopSection,
 } from '@components/MatchCard/components/CardViewItem/CardViewItem.styles';
 
-import { Game } from '@typings/game';
 import { Team } from '@typings/team';
-
-export interface MatchCardProps {
-    game: Game;
-}
 
 const CardViewTeamSection = ({ team, homeOrAway }: { team: Team; homeOrAway: 'Home' | 'Away' }) => {
     const { franchiseName, teamName, abbreviation, imageUrl } = team;
@@ -61,16 +55,11 @@ const CardViewScoreSection = ({
     );
 };
 
-export const CardViewItem = ({ game }: MatchCardProps) => {
-    const navigate = useNavigate();
-    const { id, slug, date, home, away, isFinal, homeScore, awayScore } = game;
-    const onClickMatchCard = () => {
-        if (isFinal) navigate(`/games/${slug}`);
-        else alert('취소된 경기의 정보는 열람할 수 없습니다.');
-    };
+export const CardViewItem = ({ game, onClickItem }: ViewItemProps) => {
+    const { id, date, home, away, isFinal, homeScore, awayScore } = game;
 
     return (
-        <CardViewContainer key={id} onClick={onClickMatchCard}>
+        <CardViewContainer key={id} onClick={onClickItem}>
             <CardViewTopSection>
                 <h3>{home!.venue}</h3>
                 <span>{date}</span>

@@ -1,7 +1,4 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-
-import { MatchCardProps } from '@components/MatchCard/components/CardViewItem/CardViewItem';
+import { ViewItemProps } from '@components/MatchCard/MatchItem';
 import {
     ListViewContainer,
     ListViewGameStatus,
@@ -56,16 +53,11 @@ const ListViewTeamSection = ({ team, homeOrAway }: { team: Team; homeOrAway: 'Ho
     );
 };
 
-export const ListViewItem = ({ game }: MatchCardProps) => {
-    const navigate = useNavigate();
-    const { id, slug, date, home, away, isFinal, homeScore, awayScore } = game;
-    const onClickMatchCard = () => {
-        if (isFinal) navigate(`/games/${slug}`);
-        else alert('취소된 경기의 정보는 열람할 수 없습니다.');
-    };
+export const ListViewItem = ({ game, onClickItem }: ViewItemProps) => {
+    const { id, home, away, isFinal, homeScore, awayScore } = game;
 
     return (
-        <ListViewContainer key={id} onClick={onClickMatchCard}>
+        <ListViewContainer key={id} onClick={onClickItem}>
             <ListViewTeamSection team={home!} homeOrAway={'Home'} />
             <ListViewScoreSection isFinal={isFinal!} homeScore={homeScore} awayScore={awayScore} />
             <ListViewTeamSection team={away!} homeOrAway={'Away'} />
