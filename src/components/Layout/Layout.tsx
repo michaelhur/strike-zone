@@ -20,9 +20,17 @@ export const LayoutWrapper = styled.main({
     // width: 'min(100vw, 1400px)',
 });
 
-export const PageContainer = styled.section({
+export const ColumnPageContainer = styled.section({
     display: 'flex',
     flexDirection: 'column',
 
+    flex: '1',
+});
+
+export const RowPageContainer = styled.section({
+    display: 'flex',
+    flexDirection: 'row',
+
+    minHeight: '100vh',
     flex: '1',
 });

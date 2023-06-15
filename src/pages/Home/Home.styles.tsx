@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
 
-import { PageContainer } from '@components/Layout/Layout';
+import { ColumnPageContainer } from '@components/Layout/Layout';
 
-export const HomePageContainer = styled(PageContainer)({
+export const HomePageContainer = styled(ColumnPageContainer)({
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
     padding: '2rem',

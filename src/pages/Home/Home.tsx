@@ -3,9 +3,9 @@ import Loading from '@components/Loading/Loading';
 
 import { useGetGameList } from '@hooks/@query/game/useGetGameList';
 
-import { HomePageContainer } from '@pages/Home/HomePage.styles';
+import { HomePageContainer } from '@pages/Home/Home.styles';
 
-const HomePage = () => {
+const Home = () => {
     // const todayStr = '2023-04-06';
     // const { isLoading, data: gameList } = useGetGameList(`date=${todayStr}`);
     const { isLoading, data: gameList } = useGetGameList();
@@ -19,4 +19,4 @@ const HomePage = () => {
     );
 };
 
-export default HomePage;
+export default Home;
