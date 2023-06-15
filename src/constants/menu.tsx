@@ -1,3 +1,5 @@
+import { PATH } from '@constants/routes';
+
 import { CalendarIcon, HomeIcon, PersonIcon, TeamIcon, UmpireIcon } from '@components/@shared/Icon';
 
 import { Menu } from '@typings/menu';
@@ -5,27 +7,27 @@ import { Menu } from '@typings/menu';
 export const sidebarMenu: Menu[] = [
     {
         name: 'Home',
-        path: '/',
+        path: PATH.MAIN,
         iconComponent: <HomeIcon />,
     },
     {
         name: 'Schedule',
-        path: '/games',
+        path: PATH.FIXTURE,
         iconComponent: <CalendarIcon />,
     },
     {
         name: 'Player',
-        path: '/players',
+        path: PATH.PLAYER_LIST,
         iconComponent: <PersonIcon />,
     },
     {
         name: 'Team',
-        path: '/teams',
+        path: PATH.TEAM_LIST,
         iconComponent: <TeamIcon />,
     },
     {
         name: 'Umpire',
-        path: '/umpires',
+        path: PATH.UMPIRE_LIST,
         iconComponent: <UmpireIcon />,
     },
 ];
