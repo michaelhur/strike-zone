@@ -11,7 +11,7 @@ export const sidebarMenu: Menu[] = [
         iconComponent: <HomeIcon />,
     },
     {
-        name: 'Schedule',
+        name: 'Fixture',
         path: PATH.FIXTURE,
         iconComponent: <CalendarIcon />,
     },

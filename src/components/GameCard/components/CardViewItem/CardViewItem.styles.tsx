@@ -7,6 +7,7 @@ export const CardViewContainer = styled.article(
         justifyContent: 'flex-start',
         alignItems: 'center',
         padding: '1rem',
+        height: '226px',
 
         background: 'var(--grey0)',
         boxShadow: 'var(--shadowStrong)',

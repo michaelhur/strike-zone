@@ -16,7 +16,8 @@ export const LayoutWrapper = styled.main({
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
 
-    width: 'min(100vw, 1400px)',
+    width: '100%',
+    // width: 'min(100vw, 1400px)',
 });
 
 export const PageContainer = styled.section({

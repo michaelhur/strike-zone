@@ -3,11 +3,11 @@ import { BrowserRouter } from 'react-router-dom';
 import { gameList } from '@mocks/data/game';
 import type { Meta, Story } from '@storybook/react';
 
-import MatchItem, { MatchItemProps } from '@components/MatchCard/MatchItem';
+import GameItem, { GameItemProps } from '@components/GameCard/GameItem';
 
 export default {
-    title: 'Components/MatchItem',
-    component: MatchItem,
+    title: 'Components/GameItem',
+    component: GameItem,
     decorators: [
         (Story) => (
             <div style={{ width: '350px' }}>
@@ -17,10 +17,10 @@ export default {
     ],
 } as Meta;
 
-const Template: Story<MatchItemProps> = (args) => {
+const Template: Story<GameItemProps> = (args) => {
     return (
         <BrowserRouter>
-            <MatchItem {...args} />
+            <GameItem {...args} />
         </BrowserRouter>
     );
 };

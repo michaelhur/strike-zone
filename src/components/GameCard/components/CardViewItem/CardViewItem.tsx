@@ -1,4 +1,4 @@
-import { ViewItemProps } from '@components/MatchCard/MatchItem';
+import { ViewItemProps } from '@components/GameCard/GameItem';
 import {
     CardViewContainer,
     CardViewGameStatus,
@@ -11,7 +11,7 @@ import {
     CardViewTeamName,
     CardViewTeamSectionContainer,
     CardViewTopSection,
-} from '@components/MatchCard/components/CardViewItem/CardViewItem.styles';
+} from '@components/GameCard/components/CardViewItem/CardViewItem.styles';
 
 import { Team } from '@typings/team';
 

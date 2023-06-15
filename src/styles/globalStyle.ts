@@ -120,13 +120,15 @@ export const globalStyle = css`
         background-color: var(--grey50);
         color: var(--grey1000);
 
-        @media (min-width: 1400px) {
-            max-width: 1400px;
-        }
-
-        @media (max-width: 1400px) {
-            max-width: 100vw;
-        }
+        width: 100%;
+        //@media (min-width: 1400px) {
+        //    max-width: 1400px;
+        //}
+        //
+        //@media (max-width: 1400px) {
+        //    max-width: 100vw;
+        //}
+        //max-width: 100vw;
     }
 
     a {
