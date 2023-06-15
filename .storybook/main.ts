@@ -20,13 +20,7 @@ const config: StorybookConfig = {
         builder: '@storybook/builder-vite',
     },
     async viteFinal(config, options) {
-        // Add your configuration here
-        return mergeConfig(config, {
-            // Add dependencies to pre-optimization
-            optimizeDeps: {
-                include: ['storybook-dark-mode'],
-            },
-        });
+        return mergeConfig(config, {});
     },
 };
 

@@ -37,7 +37,13 @@ export const RadioButtonItem = styled.div(
         transition: 'all 0.3s ease-out',
 
         '&:hover': {
+            color: 'var(--grey900)',
             borderColor: 'var(--grey200)',
+            backgroundColor: 'var(--grey200)',
+
+            '& svg path': {
+                fill: 'var(--grey900)',
+            },
         },
     },
     ({ isActive }: RadioButtonItemProps) => ({

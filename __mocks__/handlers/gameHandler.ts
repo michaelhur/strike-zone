@@ -6,17 +6,22 @@ import { gameList } from '../data/game';
 export const gameHandler = [
     rest.get<Game[]>('/api/games', async (req, res, ctx) => {
         const date = req.url.searchParams.get('date');
+        const initialDate = req.url.searchParams.get('initialDate');
         const season = Number(req.url.searchParams.get('season'));
         const teamId = Number(req.url.searchParams.get('team'));
         const umpireId = Number(req.url.searchParams.get('umpire'));
+        const stateCode = req.url.searchParams.get('stateCode') || 'all';
 
         const filteredGameList = gameList.filter((game) => {
             const dateFilter = date ? game.date === date : true;
+            const initialDateFilter = initialDate ? game.initialDate === initialDate : true;
             const seasonFilter = season ? game.season === season : true;
             const teamFilter = teamId ? game.away!.id === teamId || game.home!.id === teamId : true;
-            const umpireFilter = umpireId ? game.umpire!.id === umpireId : true;
+            const umpireFilter = umpireId ? game.umpire && game.umpire.id === umpireId : true;
+            const stateCodeFilter =
+                !stateCode || stateCode === 'all' ? true : stateCode === 'final' ? game.isFinal : game.isPostponed;
 
-            return dateFilter && seasonFilter && teamFilter && umpireFilter;
+            return dateFilter && initialDateFilter && seasonFilter && teamFilter && umpireFilter && stateCodeFilter;
         });
 
         return res(ctx.status(200), ctx.json(filteredGameList));
@@ -24,7 +29,16 @@ export const gameHandler = [
 
     rest.get<Game>('/api/games/:slug', async (req, res, ctx) => {
         const { slug } = req.params;
-        const targetGame = gameList.find((game) => game.slug === slug);
+        const targetGame = gameList.find((game) => game.slug && game.slug === slug);
+
+        if (!targetGame) return res(ctx.status(400), ctx.json({ message: '해당 경기가 존재하지 않습니다.' }));
+
+        return res(ctx.status(200), ctx.json(targetGame));
+    }),
+
+    rest.get<Game>('/api/games/get-by-id/:id', async (req, res, ctx) => {
+        const { id } = req.params;
+        const targetGame = gameList.find((game) => game.id === Number(id));
 
         if (!targetGame) return res(ctx.status(400), ctx.json({ message: '해당 경기가 존재하지 않습니다.' }));
 

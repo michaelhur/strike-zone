@@ -6,10 +6,15 @@ export interface Game {
     slug: string;
     date: string;
     season: number;
+    isFinal: boolean;
+    isPostponed: boolean;
+    initialDate: string;
+    homeScore: number | null;
+    awayScore: number | null;
     awayId?: number;
     homeId?: number;
     umpireId?: number;
     away?: Team;
     home?: Team;
-    umpire?: Umpire;
+    umpire?: Umpire | null;
 }

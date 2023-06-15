@@ -6,6 +6,7 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import { DarkIcon, LightIcon } from '@components/@shared/Icon';
 import { IconWrap } from '@components/@shared/Icon/Icon.styles';
 import { RadioButton } from '@components/@shared/RadioButton/RadioButton';
+import MatchItem from '@components/MatchCard/MatchItem';
 import {
     BottomSection,
     Logo,

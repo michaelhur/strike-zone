@@ -16,36 +16,62 @@ const getGames = async () => {
 
     if (!gameCount) return;
 
-    const idList = dates.map((d) => {
-        const games = d.games;
-        const fullTimeGames = games.filter((game) => game.status.codedGameState === 'F');
-        return fullTimeGames.map((game) => game.gamePk);
+    const cancelledGameList: Game[] = dates.flatMap((d) => {
+        const date = d.date;
+        return d.games
+            .filter((game) => game.status.codedGameState !== 'F')
+            .map((game) => ({
+                id: game.gamePk,
+                slug: 'POSTPONED',
+                date: date,
+                season: game.season,
+                awayId: game.teams.away.team.id,
+                homeId: game.teams.home.team.id,
+                isFinal: false,
+                isPostponed: true,
+                initialDate: date,
+            }));
     });
 
-    const flatIdList = idList.flat();
+    let j = 0;
+    for await (const game of cancelledGameList) {
+        console.log('${j}: ', game.id);
+        const gameResponse = await fetchSupabase('game', game);
+        j++;
+    }
 
-    console.log(`${flatIdList.length} data to be parsed`);
+    const gameList = dates.flatMap((d) =>
+        d.games
+            .filter((game) => game.status.codedGameState === 'F')
+            .map((game) => ({
+                gamePk: game.gamePk,
+                homeScore: game.teams.home.score,
+                awayScore: game.teams.away.score,
+                rescheduledFromDate: game.rescheduledFromDate,
+            })),
+    );
+
+    console.log(`${gameList.length} data to be parsed`);
 
     let i = 0;
 
-    for await (const id of flatIdList) {
-        console.log(`${i + 1}: ${id}`);
-        const response = await getMLBData(id);
-        await wait(1000);
+    for await (const game of gameList) {
+        const { gamePk, homeScore, awayScore, rescheduledFromDate } = game;
+        console.log(`${i}: ${gamePk}`);
+        const response = await getMLBData(gamePk, homeScore, awayScore, rescheduledFromDate);
+        await wait(500);
         i++;
     }
 };
 
-const getMLBData = async (gamePk: number) => {
+const getMLBData = async (gamePk: number, homeScore: number, awayScore: number, rescheduledFromDate?: string) => {
     try {
         const response = await axios(`${MLB_URL}/api/v1.1/game/${gamePk}/feed/live`);
         const MLBData = response.data;
         const { gameData, liveData } = MLBData;
-        const { game, datetime, status, teams, players } = gameData;
+        const { game, datetime, teams, players } = gameData;
         const { plays, boxscore } = liveData;
         const allPlays = plays.allPlays;
-
-        if (status.codedGameState !== 'F') return;
 
         const gameSlug = getGameSlug(game.id);
         const season = game.season;
@@ -74,6 +100,10 @@ const getMLBData = async (gamePk: number) => {
             awayId,
             homeId,
             umpireId,
+            isFinal: true,
+            homeScore,
+            awayScore,
+            initialDate: rescheduledFromDate || gameDate,
         };
 
         const playerData: Player[] = Object.keys(players)
@@ -136,10 +166,11 @@ const getMLBData = async (gamePk: number) => {
                 };
             });
 
-        const umpireResponse = await fetchSupabase('umpire', umpire);
-        const playerResponse = await fetchSupabase('player', playerData);
+        // const umpireResponse = await fetchSupabase('umpire', umpire);
+        // const playerResponse = await fetchSupabase('player', playerData);
         const gameResponse = await fetchSupabase('game', gameInfo);
-        const atbatResponse = await fetchSupabase('atbat', atbats);
+        // const atbatResponse = await fetchSupabase('atbat', atbats);
+        console.log('Final', gameInfo);
     } catch (e) {
         console.log(`${gamePk} failed with error ${e}`);
     }

@@ -7,8 +7,15 @@ import { ArrowLeftIcon, ArrowRightIcon, DarkIcon, LightIcon } from '@components/
 import { RadioButton, RadioButtonProps } from '@components/@shared/RadioButton/RadioButton';
 
 export default {
-    title: '@shared/RadioButton',
+    title: 'Components/@shared/RadioButton',
     component: RadioButton,
+    decorators: [
+        (Story) => (
+            <div style={{ width: '300px' }}>
+                <Story />
+            </div>
+        ),
+    ],
 } as Meta;
 
 const Template: Story<RadioButtonProps> = (args) => {
@@ -31,14 +38,14 @@ export const WithIcon = Template.bind({});
 WithIcon.args = {
     leftButtonLabel: 'Left Button',
     rightButtonLabel: 'Right Button',
-    leftIconComponent: <ArrowLeftIcon />,
-    rightIconComponent: <ArrowRightIcon />,
+    leftIconComponent: <ArrowLeftIcon hoverable={false} />,
+    rightIconComponent: <ArrowRightIcon hoverable={false} />,
 };
 
 export const DarkMode = Template.bind({});
 DarkMode.args = {
     leftButtonLabel: 'Light',
     rightButtonLabel: 'Dark',
-    leftIconComponent: <LightIcon />,
-    rightIconComponent: <DarkIcon />,
+    leftIconComponent: <LightIcon hoverable={false} />,
+    rightIconComponent: <DarkIcon hoverable={false} />,
 };
