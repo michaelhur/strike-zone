@@ -16,13 +16,15 @@ export const GameListSection = ({ fixtureDate }: GameListSectionProps) => {
     const YYYYMMDD = date_to_YYYYMMDD(fixtureDate);
     const { isLoading, data: gameList } = useGetGameList(`date=${YYYYMMDD}`);
 
+    if (isLoading) return <Loading size={40} />;
+
     return (
         <GameListSectionContainer>
             <ContainerTitleWrapper>
-                <h2>{YYYYMMDD}</h2>
+                <h2>{YYYYMMDD || '날짜가 선택되지 않았습니다'}</h2>
             </ContainerTitleWrapper>
             <GameListWrapper>
-                {isLoading ? <Loading size={40} /> : <GameList games={gameList!} itemViewType={'CARD'} cardCount={2} />}
+                <GameList games={gameList!} itemViewType={'LIST'} cardCount={2} />
             </GameListWrapper>
         </GameListSectionContainer>
     );
