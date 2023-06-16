@@ -36,7 +36,15 @@ export const RowPageContainer = styled.section({
     flex: '1',
 });
 
-export const ContainerTitleWrapper = styled.div({
+export const PageSectionContainer = styled(ColumnPageContainer)({
+    padding: '1rem',
+    gap: '1rem',
+
+    width: '100%',
+    // flex: '1',
+});
+
+export const SectionTitleWrapper = styled.div({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'flex-start',
@@ -47,11 +55,4 @@ export const ContainerTitleWrapper = styled.div({
         fontFamily: 'BMHANNAAir',
         fontSize: '2rem',
     },
-});
-
-export const PageSectionContainer = styled(ColumnPageContainer)({
-    padding: '1rem',
-    gap: '1rem',
-
-    flex: '1',
 });

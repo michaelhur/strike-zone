@@ -17,3 +17,8 @@ export const requestGetGameById = async (id: number): Promise<Game> => {
     const data = await fetcher({ method: 'get', path: `/api/games/get-by-id/${id}` });
     return data;
 };
+
+export const requestGetLatestGameList = async (): Promise<Game[]> => {
+    const data = await fetcher({ method: 'get', path: '/api/games/@latest' });
+    return data;
+};

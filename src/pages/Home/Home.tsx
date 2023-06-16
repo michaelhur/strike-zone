@@ -1,21 +1,36 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { GameList } from '@components/GameList/GameList';
+import { PageSectionContainer, SectionTitleWrapper } from '@components/Layout/Layout';
 import { Loading } from '@components/Loading/Loading';
 
-import { useGetGameList } from '@hooks/@query/game/useGetGameList';
+import { useGetLatestGameList } from '@hooks/@query/game/useGetLatestGameList';
 
-import { GameListSection } from '@pages/Fixture/components/GameListSection';
+import { GameListWrapper } from '@pages/Fixture/components/GameListSection.styles';
 import { HomePageContainer } from '@pages/Home/Home.styles';
 
-import { getYesterday } from '@utils/date';
-
 const Home = () => {
-    const yesterday = getYesterday();
+    const [date, setDate] = useState<string>();
+    const { isLoading, data: gameList } = useGetLatestGameList();
+
+    useEffect(() => {
+        if (!isLoading) setDate(gameList![0].date);
+    }, [isLoading, setDate]);
+
+    if (isLoading) return <Loading size={40} />;
 
     return (
         <HomePageContainer>
-            <GameListSection fixtureDate={yesterday} sectionLabel={'최근 경기'} />
+            <PageSectionContainer>
+                <SectionTitleWrapper>
+                    <h2>{`최신 경기: ${date}`}</h2>
+                </SectionTitleWrapper>
+                {gameList && (
+                    <GameListWrapper>
+                        <GameList games={gameList} itemViewType={'LIST'} cardCount={1} />
+                    </GameListWrapper>
+                )}
+            </PageSectionContainer>{' '}
         </HomePageContainer>
     );
 };

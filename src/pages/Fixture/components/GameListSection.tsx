@@ -1,5 +1,5 @@
 import { GameList } from '@components/GameList/GameList';
-import { ContainerTitleWrapper, PageSectionContainer } from '@components/Layout/Layout';
+import { PageSectionContainer, SectionTitleWrapper } from '@components/Layout/Layout';
 import { Loading } from '@components/Loading/Loading';
 
 import { useGetGameList } from '@hooks/@query/game/useGetGameList';
@@ -22,9 +22,9 @@ export const GameListSection = ({ fixtureDate, sectionLabel }: GameListSectionPr
 
     return (
         <PageSectionContainer>
-            <ContainerTitleWrapper>
+            <SectionTitleWrapper>
                 <h2>{sectionLabel ? sectionLabel : YYYYMMDD || '날짜가 선택되지 않았습니다'}</h2>
-            </ContainerTitleWrapper>
+            </SectionTitleWrapper>
             {fixtureDate && (
                 <GameListWrapper>
                     <GameList games={gameList!} itemViewType={'LIST'} cardCount={2} />

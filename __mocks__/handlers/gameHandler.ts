@@ -27,18 +27,25 @@ export const gameHandler = [
         return res(ctx.status(200), ctx.json(filteredGameList));
     }),
 
-    rest.get<Game>('/api/games/:slug', async (req, res, ctx) => {
-        const { slug } = req.params;
-        const targetGame = gameList.find((game) => game.slug && game.slug === slug);
+    rest.get<Game[]>('/api/games/@latest', async (req, res, ctx) => {
+        const maxDate = gameList.sort((a, b) => b.date.localeCompare(a.date))[0].date;
+        const targetGameList = gameList.filter((game) => game.date === maxDate);
+
+        return res(ctx.status(200), ctx.json(targetGameList));
+    }),
+
+    rest.get<Game>('/api/games/get-by-id/:id', async (req, res, ctx) => {
+        const { id } = req.params;
+        const targetGame = gameList.find((game) => game.id === Number(id));
 
         if (!targetGame) return res(ctx.status(400), ctx.json({ message: '해당 경기가 존재하지 않습니다.' }));
 
         return res(ctx.status(200), ctx.json(targetGame));
     }),
 
-    rest.get<Game>('/api/games/get-by-id/:id', async (req, res, ctx) => {
-        const { id } = req.params;
-        const targetGame = gameList.find((game) => game.id === Number(id));
+    rest.get<Game>('/api/games/:slug', async (req, res, ctx) => {
+        const { slug } = req.params;
+        const targetGame = gameList.find((game) => game.slug && game.slug === slug);
 
         if (!targetGame) return res(ctx.status(400), ctx.json({ message: '해당 경기가 존재하지 않습니다.' }));
 
