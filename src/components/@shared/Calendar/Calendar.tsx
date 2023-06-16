@@ -15,9 +15,5 @@ export const Calendar = () => {
     const yesterday = new Date();
     yesterday.setDate(yesterday.getDate() - 1);
 
-    return (
-        // <DayPickerWrapper>
-        <StyledDayPicker mode="single" selected={selected} onSelect={setSelected} toDate={yesterday} />
-        // </DayPickerWrapper>
-    );
+    return <StyledDayPicker mode="single" selected={selected} onSelect={setSelected} toDate={yesterday} />;
 };
