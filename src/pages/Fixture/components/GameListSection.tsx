@@ -24,9 +24,11 @@ export const GameListSection = ({ fixtureDate }: GameListSectionProps) => {
             <ContainerTitleWrapper>
                 <h2>{YYYYMMDD || '날짜가 선택되지 않았습니다'}</h2>
             </ContainerTitleWrapper>
-            <GameListWrapper>
-                <GameList games={gameList!} itemViewType={'LIST'} cardCount={2} />
-            </GameListWrapper>
+            {fixtureDate && (
+                <GameListWrapper>
+                    <GameList games={gameList!} itemViewType={'LIST'} cardCount={2} />
+                </GameListWrapper>
+            )}
         </GameListSectionContainer>
     );
 };
