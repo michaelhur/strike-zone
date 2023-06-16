@@ -1,7 +1,7 @@
 import GameItem from '@components/GameCard/GameItem';
-import { ContainerTitleWrapper, GameListContainer, GameListSection } from '@components/GameList/GameList.styles';
+import { GameListContainer } from '@components/GameList/GameList.styles';
 
-import { itemViewType } from '@recoils/schedule/atom';
+import { itemViewType } from '@recoils/fixture/atom';
 
 import { Game } from '@typings/game';
 
@@ -9,23 +9,16 @@ interface GameListProps {
     games: Game[];
     itemViewType: itemViewType;
     cardCount: number;
-    sectionLabel: string;
 }
 
-export const GameList = ({ games, itemViewType, cardCount, sectionLabel }: GameListProps) => {
+export const GameList = ({ games, itemViewType, cardCount }: GameListProps) => {
     return (
-        <GameListSection>
-            {sectionLabel && (
-                <ContainerTitleWrapper>
-                    <h2>{sectionLabel}</h2>
-                </ContainerTitleWrapper>
-            )}
-            <GameListContainer>
-                {games &&
-                    games.map((game) => {
-                        return <GameItem key={game.id} game={game} itemViewType={itemViewType} cardCount={cardCount} />;
-                    })}
-            </GameListContainer>
-        </GameListSection>
+        <GameListContainer>
+            {games.length
+                ? games.map((game) => {
+                      return <GameItem key={game.id} game={game} itemViewType={itemViewType} cardCount={cardCount} />;
+                  })
+                : `No Games Played`}
+        </GameListContainer>
     );
 };

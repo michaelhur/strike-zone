@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { CardViewItem } from '@components/GameCard/components/CardViewItem/CardViewItem';
 import { ListViewItem } from '@components/GameCard/components/ListViewItem/ListViewItem';
 
-import { itemViewType } from '@recoils/schedule/atom';
+import { itemViewType } from '@recoils/fixture/atom';
 
 import { Game } from '@typings/game';
 

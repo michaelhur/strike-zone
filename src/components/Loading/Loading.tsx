@@ -1,19 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import { RotatingLines } from 'react-loader-spinner';
 
-import Dimmed from '@components/Dimmed/Dimmed';
-
-import * as Styled from './Loading.styles';
-
-function Loading() {
-    return ReactDOM.createPortal(
-        <Dimmed>
-            <Styled.Root>
-                <img src="/vite.svg" alt="로고" width={120} height={120} />
-            </Styled.Root>
-        </Dimmed>,
-        document.querySelector('#root') as Element,
-    );
+interface LoadingProps {
+    size: number | string;
 }
-
-export default Loading;
+export const Loading = ({ size = '40' }: LoadingProps) => {
+    return (
+        <RotatingLines
+            strokeColor={'var(--primary500'}
+            strokeWidth="5"
+            animationDuration="0.75"
+            width={size.toString()}
+            visible={true}
+        />
+    );
+};
