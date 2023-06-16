@@ -14,7 +14,8 @@ interface GameListSectionProps {
 
 export const GameListSection = ({ fixtureDate }: GameListSectionProps) => {
     const YYYYMMDD = date_to_YYYYMMDD(fixtureDate);
-    const { isLoading, data: gameList } = useGetGameList(`date=${YYYYMMDD}`);
+    const queryString = `date=${YYYYMMDD}`;
+    const { isLoading, data: gameList } = YYYYMMDD ? useGetGameList(queryString) : { isLoading: false, data: [] };
 
     if (isLoading) return <Loading size={40} />;
 
