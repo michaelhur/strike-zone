@@ -62,6 +62,7 @@ export const ListViewTeamName = styled.div({
     '& span': {
         fontSize: '14px',
         lineHeight: '1rem',
+        textAlign: 'center',
     },
 });
 

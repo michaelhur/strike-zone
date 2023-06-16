@@ -5,16 +5,17 @@ import { Loading } from '@components/Loading/Loading';
 
 import { useGetGameList } from '@hooks/@query/game/useGetGameList';
 
+import { GameListSection } from '@pages/Fixture/components/GameListSection';
 import { HomePageContainer } from '@pages/Home/Home.styles';
 
-const Home = () => {
-    const { isLoading, data: gameList } = useGetGameList();
+import { getYesterday } from '@utils/date';
 
-    if (isLoading) return <Loading size={40} />;
+const Home = () => {
+    const yesterday = getYesterday();
 
     return (
         <HomePageContainer>
-            {gameList && <GameList games={gameList} itemViewType={'CARD'} cardCount={3} />}
+            <GameListSection fixtureDate={yesterday} sectionLabel={'최근 경기'} />
         </HomePageContainer>
     );
 };

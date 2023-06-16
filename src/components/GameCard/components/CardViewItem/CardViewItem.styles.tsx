@@ -87,6 +87,7 @@ export const CardViewTeamImage = styled.div({
 export const CardViewTeamName = styled.span({
     fontSize: '1rem',
     lineHeight: '1rem',
+    textAlign: 'center',
 });
 
 export const CardViewHomeOrAway = styled.span({

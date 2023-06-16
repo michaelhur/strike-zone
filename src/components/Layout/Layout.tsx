@@ -48,3 +48,10 @@ export const ContainerTitleWrapper = styled.div({
         fontSize: '2rem',
     },
 });
+
+export const PageSectionContainer = styled(ColumnPageContainer)({
+    padding: '1rem',
+    gap: '1rem',
+
+    flex: '1',
+});
