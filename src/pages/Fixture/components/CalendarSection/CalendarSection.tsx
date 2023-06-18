@@ -1,3 +1,6 @@
+import { useState } from 'react';
+
+import { addMonths } from 'date-fns';
 import { SetterOrUpdater, useRecoilValue } from 'recoil';
 
 import { Button } from '@components/@shared/Button/Button';
@@ -13,21 +16,23 @@ export interface CalendarSectionProps {
 }
 export const CalendarSection = ({ fixtureDate, setFixtureDate }: CalendarSectionProps) => {
     const latestGameDate = useRecoilValue(latestGameDateState);
+    const [month, setMonth] = useState<Date>(latestGameDate);
+    const onClickButton = () => {
+        setFixtureDate(latestGameDate);
+        setMonth(latestGameDate);
+    };
 
     return (
         <CalendarSectionContainer>
             <Calendar
                 mode={'single'}
-                defaultMonth={fixtureDate}
+                // defaultMonth={fixtureDate}
+                month={month}
+                onMonthChange={setMonth}
                 selected={fixtureDate}
                 onSelect={setFixtureDate}
                 footer={
-                    <Button
-                        size={'Medium'}
-                        buttonTheme={'fill'}
-                        buttonType={'button'}
-                        onClickHandler={() => setFixtureDate(latestGameDate)}
-                    >
+                    <Button size={'Medium'} buttonTheme={'fill'} buttonType={'button'} onClickHandler={onClickButton}>
                         최신 경기 보기
                     </Button>
                 }

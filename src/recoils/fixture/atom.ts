@@ -9,7 +9,7 @@ export const itemViewTypeState = atom<itemViewType>({
     default: 'CARD',
 });
 
-export const latestGameDateState = atom<Date | undefined>({
+export const latestGameDateState = atom<Date>({
     key: 'latestGameDateState',
     default: getYesterday(),
 });
