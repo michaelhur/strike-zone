@@ -1,36 +1,20 @@
 import React, { useEffect, useState } from 'react';
 
-import { GameList } from '@components/GameList/GameList';
-import { PageSectionContainer, SectionTitleWrapper } from '@components/Layout/Layout';
 import { Loading } from '@components/Loading/Loading';
 
-import { useGetLatestGameList } from '@hooks/@query/game/useGetLatestGameList';
+import { useGetLatestGameDate } from '@hooks/@query/game/useGetLatestGameDate';
 
-import { GameListWrapper } from '@pages/Fixture/components/GameListSection.styles';
+import { GameListSection } from '@pages/Fixture/components/GameListSection/GameListSection';
 import { HomePageContainer } from '@pages/Home/Home.styles';
 
 const Home = () => {
-    const [date, setDate] = useState<string>();
-    const { isLoading, data: gameList } = useGetLatestGameList();
-
-    useEffect(() => {
-        if (!isLoading) setDate(gameList![0].date);
-    }, [isLoading, setDate]);
+    const { isLoading, data: dateObject } = useGetLatestGameDate();
 
     if (isLoading) return <Loading size={40} />;
 
     return (
         <HomePageContainer>
-            <PageSectionContainer>
-                <SectionTitleWrapper>
-                    <h2>{`최신 경기: ${date}`}</h2>
-                </SectionTitleWrapper>
-                {gameList && (
-                    <GameListWrapper>
-                        <GameList games={gameList} itemViewType={'LIST'} cardCount={1} />
-                    </GameListWrapper>
-                )}
-            </PageSectionContainer>{' '}
+            <GameListSection fixtureDate={dateObject!.date} sectionLabel={`최신 경기 (${dateObject!.date} 경기)`} />
         </HomePageContainer>
     );
 };

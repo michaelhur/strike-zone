@@ -18,7 +18,7 @@ export const GameList = ({ games, itemViewType, cardCount }: GameListProps) => {
                 ? games.map((game) => {
                       return <GameItem key={game.id} game={game} itemViewType={itemViewType} cardCount={cardCount} />;
                   })
-                : `No Games Played`}
+                : `No Games Played on `}
         </GameListContainer>
     );
 };

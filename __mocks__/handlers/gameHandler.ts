@@ -1,5 +1,6 @@
 import { rest } from 'msw';
 
+import { dateString } from '../../src/typings';
 import { Game } from '../../src/typings/game';
 import { gameList } from '../data/game';
 
@@ -32,6 +33,12 @@ export const gameHandler = [
         const targetGameList = gameList.filter((game) => game.date === maxDate);
 
         return res(ctx.status(200), ctx.json(targetGameList));
+    }),
+
+    rest.get<dateString>('/api/games/@latest-date', async (req, res, ctx) => {
+        const maxDate = gameList.sort((a, b) => b.date.localeCompare(a.date))[0].date;
+
+        return res(ctx.status(200), ctx.json({ date: maxDate }));
     }),
 
     rest.get<Game>('/api/games/get-by-id/:id', async (req, res, ctx) => {

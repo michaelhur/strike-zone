@@ -116,7 +116,7 @@ describe('경기 API', () => {
         expect(data).toEqual(gameData);
     });
 
-    it('GET /api/games/@latest 요청은 가장 최근 경기일의 경기 리스트를 리턴한다', async () => {
+    it('GET /api/games/@latest 요청은 가장 최근 경기일을 리턴한다', async () => {
         const response = await axios.get(`/api/games/@latest`);
         const data = response.data;
 
@@ -125,5 +125,15 @@ describe('경기 API', () => {
 
         expect(response.status).toBe(200);
         expect(data).toEqual(targetGameList);
+    });
+
+    it('GET /api/games/@latest 요청은 가장 최근 경기일을 리턴한다', async () => {
+        const response = await axios.get(`/api/games/@latest-date`);
+        const data = response.data;
+
+        const maxDate = gameList.sort((a, b) => b.date.localeCompare(a.date))[0].date;
+        const targetDate = { date: maxDate };
+        expect(response.status).toBe(200);
+        expect(data).toEqual(targetDate);
     });
 });

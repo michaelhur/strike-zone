@@ -9,6 +9,11 @@ export const itemViewTypeState = atom<itemViewType>({
     default: 'CARD',
 });
 
+export const latestGameDateState = atom<Date | undefined>({
+    key: 'latestGameDateState',
+    default: getYesterday(),
+});
+
 export const fixtureDateState = atom<Date | undefined>({
     key: 'fixtureDateState',
     default: getYesterday(),

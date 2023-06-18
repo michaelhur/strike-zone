@@ -4,26 +4,24 @@ import { Loading } from '@components/Loading/Loading';
 
 import { useGetGameList } from '@hooks/@query/game/useGetGameList';
 
-import { GameListSectionContainer, GameListWrapper } from '@pages/Fixture/components/GameListSection.styles';
-
-import { date_to_YYYYMMDD } from '@utils/date';
+import { GameListWrapper } from '@pages/Fixture/components/GameListSection/GameListSection.styles';
 
 interface GameListSectionProps {
-    fixtureDate: Date | undefined;
+    fixtureDate: string;
     sectionLabel?: string;
 }
 
 export const GameListSection = ({ fixtureDate, sectionLabel }: GameListSectionProps) => {
-    const YYYYMMDD = date_to_YYYYMMDD(fixtureDate);
-    const queryString = `date=${YYYYMMDD}`;
-    const { isLoading, data: gameList } = YYYYMMDD ? useGetGameList(queryString) : { isLoading: false, data: [] };
+    const { isLoading, data: gameList } = fixtureDate
+        ? useGetGameList(`date=${fixtureDate}`)
+        : { isLoading: false, data: [] };
 
     if (isLoading) return <Loading size={40} />;
 
     return (
         <PageSectionContainer>
             <SectionTitleWrapper>
-                <h2>{sectionLabel ? sectionLabel : YYYYMMDD || '날짜가 선택되지 않았습니다'}</h2>
+                <h2>{sectionLabel ? sectionLabel : fixtureDate || '날짜가 선택되지 않았습니다'}</h2>
             </SectionTitleWrapper>
             {fixtureDate && (
                 <GameListWrapper>

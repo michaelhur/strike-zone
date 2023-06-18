@@ -1,38 +1,38 @@
-export const getYesterday = () => {
+export const getYesterday = (): Date => {
     const date = new Date();
     date.setDate(date.getDate() - 1);
     return date;
 };
 
-export const getTodayStr = () => {
+export const getTodayStr = (): string => {
     const today = new Date();
     return new Date(today.getTime() - today.getTimezoneOffset() * 90000).toISOString().slice(0, 10);
 };
 
-export const getYesterdayStr = () => {
+export const getYesterdayStr = (): string => {
     const date = new Date();
     date.setDate(date.getDate() - 1);
     return new Date(date.getTime() - date.getTimezoneOffset() * 90000).toISOString().slice(0, 10);
 };
 
-export const getThisYear = () => {
+export const getThisYear = (): number => {
     const today = new Date();
     return today.getFullYear();
 };
 
-export const isBeforeToday = (date: string, inclusive = true) => {
+export const isBeforeToday = (date: string, inclusive = true): boolean => {
     const today = getTodayStr();
     if (inclusive) return date <= today;
     return date < today;
 };
 
-export const isBeforeThisYear = (year: number, inclusive = true) => {
+export const isBeforeThisYear = (year: number, inclusive = true): boolean => {
     const thisYear = getThisYear();
     if (inclusive) return year <= thisYear;
     return year < thisYear;
 };
 
-export const timestamp_to_YYYYMMDD = (timestamp: number) => {
+export const timestamp_to_YYYYMMDD = (timestamp: number): string => {
     const date = new Date(timestamp * 1000);
 
     const year = date.getFullYear();
@@ -44,16 +44,12 @@ export const timestamp_to_YYYYMMDD = (timestamp: number) => {
     return formattedDate;
 };
 
-export const createdAt_to_YYYYMMDD = (date: string) => {
-    return date.substring(0, 10);
-};
-
-export const date_to_YYYYMMDD = (date: Date | undefined) => {
+export const date_to_YYYYMMDD = (date: Date | undefined): string => {
     if (!date) return '';
     return new Date(date?.getTime()! - date?.getTimezoneOffset()! * 90000).toISOString().slice(0, 10);
 };
 
-export const YYYYMMDD_to_date = (str: string) => {
+export const YYYYMMDD_to_date = (str: string): Date => {
     if (!str) return new Date();
     const yyyyMMdd = String(str);
     const sYear = yyyyMMdd.substring(0, 4);
