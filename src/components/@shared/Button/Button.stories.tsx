@@ -10,3 +10,6 @@ export default {
 const Template: Story<ButtonProps> = (args) => {
     return <Button {...args}>{args.children}</Button>;
 };
+
+export const ButtonTemplate = Template.bind({});
+ButtonTemplate.args = { children: '버튼' };
