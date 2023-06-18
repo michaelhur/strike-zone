@@ -3,7 +3,7 @@ import { ReactNode } from 'react';
 import { ButtonContainer, StyledButton } from '@components/@shared/Button/Button.styles';
 import { IconWrap } from '@components/@shared/Icon/Icon.styles';
 
-interface ButtonProps {
+export interface ButtonProps {
     children: string;
     size: 'XSmall' | 'Small' | 'Medium' | 'Large' | 'XLarge';
     buttonTheme: 'disabled' | 'mono' | 'line' | 'fill';

@@ -1,7 +1,5 @@
 import { useRecoilState } from 'recoil';
 
-import { Calendar } from '@components/@shared/Calendar/Calendar';
-
 import { FixturePageContainer } from '@pages/Fixture/Fixture.styles';
 import { CalendarSection } from '@pages/Fixture/components/CalendarSection/CalendarSection';
 import { GameListSection } from '@pages/Fixture/components/GameListSection/GameListSection';
