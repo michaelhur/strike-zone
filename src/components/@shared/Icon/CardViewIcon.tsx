@@ -2,7 +2,7 @@ import { SVGIcon } from '@components/@shared/Icon/Icon.styles';
 
 import { IIcon } from '@typings/icon';
 
-export const CardViewIcon = ({ size = 24, color = 'var(--grey1000)', hoverable = false }: IIcon) => {
+export const CardViewIcon = ({ size = 24, color = 'var(--grey1000)', hoverable = false, onClickIcon }: IIcon) => {
     return (
         <SVGIcon
             color={color}
@@ -12,6 +12,7 @@ export const CardViewIcon = ({ size = 24, color = 'var(--grey1000)', hoverable =
             viewBox="-4.8 -4.8 33.60 33.60"
             fill={color}
             xmlns="http://www.w3.org/2000/svg"
+            onClick={onClickIcon}
         >
             <g>
                 <rect
