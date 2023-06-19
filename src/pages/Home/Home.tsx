@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from 'react';
-
+import { GameListSection } from '@components/GameListSection/GameListSection';
 import { Loading } from '@components/Loading/Loading';
 
 import { useGetLatestGameDate } from '@hooks/@query/game/useGetLatestGameDate';
 
-import { GameListSection } from '@pages/Fixture/components/GameListSection/GameListSection';
 import { HomePageContainer } from '@pages/Home/Home.styles';
 
 const Home = () => {

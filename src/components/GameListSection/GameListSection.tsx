@@ -1,15 +1,14 @@
 import { useState } from 'react';
 
-import { LeagueSubMenu, LeagueTabOptions } from '@constants/menu';
+import { LeagueTabOptions } from '@constants/menu';
 
 import { CategoryMenu } from '@components/FilterMenu/FilterMenu';
-import { GameList } from '@components/GameList/GameList';
+import { GameListWrapper } from '@components/GameListSection/GameListSection.styles';
+import { GameList } from '@components/GameListSection/components/GameList/GameList';
 import { PageSectionContainer, SectionTitleWrapper } from '@components/Layout/Layout';
 import { Loading } from '@components/Loading/Loading';
 
 import { useGetGameList } from '@hooks/@query/game/useGetGameList';
-
-import { GameListWrapper } from '@pages/Fixture/components/GameListSection/GameListSection.styles';
 
 import { itemViewType } from '@recoils/fixture/atom';
 

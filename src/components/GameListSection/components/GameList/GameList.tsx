@@ -1,5 +1,5 @@
 import GameItem from '@components/GameCard/GameItem';
-import { GameListContainer } from '@components/GameList/GameList.styles';
+import { GameListContainer } from '@components/GameListSection/components/GameList/GameList.styles';
 
 import { itemViewType } from '@recoils/fixture/atom';
 

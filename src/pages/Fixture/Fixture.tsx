@@ -1,8 +1,9 @@
 import { useRecoilState } from 'recoil';
 
+import { GameListSection } from '@components/GameListSection/GameListSection';
+
 import { FixturePageContainer } from '@pages/Fixture/Fixture.styles';
 import { CalendarSection } from '@pages/Fixture/components/CalendarSection/CalendarSection';
-import { GameListSection } from '@pages/Fixture/components/GameListSection/GameListSection';
 
 import { fixtureDateState } from '@recoils/fixture/atom';
 
