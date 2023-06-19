@@ -20,7 +20,17 @@ export const LayoutWrapper = styled.main({
     // width: 'min(100vw, 1400px)',
 });
 
-export const ColumnPageContainer = styled.section({
+export const FlexColumnContainer = styled.div({
+    display: 'flex',
+    flexDirection: 'column',
+});
+
+export const FlexRowContainer = styled.div({
+    display: 'flex',
+    flexDirection: 'row',
+});
+
+export const ColumnPageContainer = styled(FlexColumnContainer)({
     display: 'flex',
     flexDirection: 'column',
 
@@ -28,7 +38,7 @@ export const ColumnPageContainer = styled.section({
     flex: '1',
 });
 
-export const RowPageContainer = styled.section({
+export const RowPageContainer = styled(FlexRowContainer)({
     display: 'flex',
     flexDirection: 'row',
 

@@ -12,6 +12,7 @@ export const gameHandler = [
         const teamId = Number(req.url.searchParams.get('team'));
         const umpireId = Number(req.url.searchParams.get('umpire'));
         const stateCode = req.url.searchParams.get('stateCode') || 'all';
+        const leagueId = Number(req.url.searchParams.get('leagues'));
 
         const filteredGameList = gameList.filter((game) => {
             const dateFilter = date ? game.date === date : true;
@@ -21,8 +22,17 @@ export const gameHandler = [
             const umpireFilter = umpireId ? game.umpire && game.umpire.id === umpireId : true;
             const stateCodeFilter =
                 !stateCode || stateCode === 'all' ? true : stateCode === 'final' ? game.isFinal : game.isPostponed;
+            const leagueFilter = leagueId ? game.home!.leagueId === leagueId || game.away!.leagueId === leagueId : true;
 
-            return dateFilter && initialDateFilter && seasonFilter && teamFilter && umpireFilter && stateCodeFilter;
+            return (
+                dateFilter &&
+                initialDateFilter &&
+                seasonFilter &&
+                teamFilter &&
+                umpireFilter &&
+                stateCodeFilter &&
+                leagueFilter
+            );
         });
 
         return res(ctx.status(200), ctx.json(filteredGameList));
