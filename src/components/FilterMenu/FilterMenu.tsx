@@ -41,16 +41,18 @@ export const CategoryMenu = <T,>({
             </CategoryMenuWrapper>
             {viewType && setViewType && (
                 <ItemViewChangerWrapper>
-                    <CardViewIcon
-                        color={viewType === 'CARD' ? 'var(--primary500)' : 'var(--grey700)'}
-                        hoverable={true}
-                        onClickIcon={() => setViewType('CARD')}
-                    />
-                    <ListViewIcon
-                        color={viewType === 'LIST' ? 'var(--primary500)' : 'var(--grey700)'}
-                        hoverable={true}
-                        onClickIcon={() => setViewType('LIST')}
-                    />
+                    <IconWrap style={{ padding: '0.25rem', cursor: 'pointer' }} onClick={() => setViewType('CARD')}>
+                        <CardViewIcon
+                            color={viewType === 'CARD' ? 'var(--primary500)' : 'var(--grey700)'}
+                            hoverable={true}
+                        />
+                    </IconWrap>
+                    <IconWrap style={{ padding: '0.25rem', cursor: 'pointer' }} onClick={() => setViewType('LIST')}>
+                        <ListViewIcon
+                            color={viewType === 'LIST' ? 'var(--primary500)' : 'var(--grey700)'}
+                            hoverable={true}
+                        />
+                    </IconWrap>
                 </ItemViewChangerWrapper>
             )}
         </CategoryMenuContainer>
