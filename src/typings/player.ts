@@ -1,5 +1,11 @@
 export type PlayerSide = 'L' | 'R' | 'S';
 
+export enum PlayerSideEnum {
+    'L' = 'Left',
+    'R' = 'Right',
+    'S' = 'Switch',
+}
+
 export enum PositionEnum {}
 
 export interface Player {

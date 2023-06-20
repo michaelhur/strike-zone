@@ -24,13 +24,13 @@ export const DYNAMIC_PATH = {
     FIXTURE_BY_DATE(date: string): string {
         return `/fixtures/${date}`;
     },
-    PLAYER_DETAIL(id: string): string {
+    PLAYER_DETAIL(id: number): string {
         return `/players/${id}`;
     },
-    TEAM_DETAIL(id: string): string {
+    TEAM_DETAIL(id: number): string {
         return `/teams/${id}`;
     },
-    UMPIRE_DETAIL(id: string): string {
+    UMPIRE_DETAIL(id: number): string {
         return `/umpires/${id}`;
     },
 };
