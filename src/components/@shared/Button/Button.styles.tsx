@@ -101,6 +101,16 @@ export const StyledButton = styled.button(
             justifyContent: isLeftIcon && isRightIcon ? 'space-between' : 'center',
             color: buttonThemeVariant[buttonTheme].color,
         },
+
+        '& svg': {
+            color: buttonThemeVariant[buttonTheme].color,
+            fill: buttonThemeVariant[buttonTheme].color,
+        },
+
+        '& svg path': {
+            color: buttonThemeVariant[buttonTheme].color,
+            fill: buttonThemeVariant[buttonTheme].color,
+        },
     }),
 );
 

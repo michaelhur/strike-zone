@@ -21,7 +21,7 @@ ButtonWithLeftIconTemplate.args = {
     size: 'XSmall',
     buttonTheme: 'fill',
     buttonType: 'button',
-    leftIcon: <ArrowLeftIcon color={'var(--grey0)'} />,
+    leftIcon: <ArrowLeftIcon />,
 };
 
 export const ButtonWithRightIconTemplate = Template.bind({});
@@ -30,7 +30,7 @@ ButtonWithRightIconTemplate.args = {
     size: 'XSmall',
     buttonTheme: 'fill',
     buttonType: 'button',
-    leftIcon: <ArrowRightIcon color={'var(--grey0)'} />,
+    leftIcon: <ArrowRightIcon />,
 };
 
 export const ButtonWithBothIconTemplate = Template.bind({});
@@ -39,6 +39,6 @@ ButtonWithBothIconTemplate.args = {
     size: 'XSmall',
     buttonTheme: 'fill',
     buttonType: 'button',
-    leftIcon: <ArrowLeftIcon color={'var(--grey0)'} />,
-    rightIcon: <ArrowRightIcon color={'var(--grey0)'} />,
+    leftIcon: <ArrowLeftIcon />,
+    rightIcon: <ArrowRightIcon />,
 };
