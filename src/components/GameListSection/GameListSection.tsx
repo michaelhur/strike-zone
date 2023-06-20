@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import { LeagueTabOptions } from '@constants/menu';
+import { useRecoilState } from 'recoil';
 
 import { CategoryMenu } from '@components/FilterMenu/FilterMenu';
 import { GameListWrapper } from '@components/GameListSection/GameListSection.styles';
@@ -10,7 +11,7 @@ import { Loading } from '@components/Loading/Loading';
 
 import { useGetGameList } from '@hooks/@query/game/useGetGameList';
 
-import { itemViewType } from '@recoils/fixture/atom';
+import { itemViewType, itemViewTypeState } from '@recoils/fixture/atom';
 
 import { LeagueType } from '@typings/league';
 
@@ -21,7 +22,7 @@ interface GameListSectionProps {
 
 export const GameListSection = ({ fixtureDate, sectionLabel }: GameListSectionProps) => {
     const [leagueFilter, setLeagueFilter] = useState<LeagueType>('ALL');
-    const [viewType, setViewType] = useState<itemViewType>('CARD');
+    const [viewType, setViewType] = useRecoilState<itemViewType>(itemViewTypeState);
 
     const { isLoading, data: gameList } = leagueFilter
         ? useGetGameList(`date=${fixtureDate}&leagues=${leagueFilter}`)

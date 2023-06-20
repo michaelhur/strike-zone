@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import { DYNAMIC_PATH } from '@constants/routes';
 import { useRecoilValue } from 'recoil';
@@ -10,11 +10,12 @@ import { FixturePageContainer } from '@pages/Fixture/Fixture.styles';
 
 import { latestGameDateState } from '@recoils/fixture/atom';
 
-import { date_to_YYYYMMDD } from '@utils/date';
+import { YYYYMMDD_to_date, date_to_YYYYMMDD } from '@utils/date';
 
-const Fixture = () => {
-    const navigate = useNavigate();
+const FixtureByDate = () => {
+    const { date: fixtureDate } = useParams();
     const latestGameDate = useRecoilValue(latestGameDateState);
+    const navigate = useNavigate();
 
     const onClickDate = (selectedDay: Date): void => {
         navigate(`${DYNAMIC_PATH.FIXTURE_BY_DATE(date_to_YYYYMMDD(selectedDay))}`);
@@ -27,13 +28,13 @@ const Fixture = () => {
     return (
         <FixturePageContainer>
             <SingleCalendarSection
-                fixtureDate={latestGameDate}
+                fixtureDate={YYYYMMDD_to_date(fixtureDate!)}
                 onChangeFixtureDate={onClickDate}
                 onClickButton={onClickButton}
             />
-            <GameListSection fixtureDate={date_to_YYYYMMDD(latestGameDate)} />
+            <GameListSection fixtureDate={fixtureDate!} />
         </FixturePageContainer>
     );
 };
 
-export default Fixture;
+export default FixtureByDate;
