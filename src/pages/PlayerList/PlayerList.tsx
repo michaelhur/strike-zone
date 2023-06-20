@@ -8,6 +8,9 @@ import { css } from '@emotion/react';
 import { playerList } from '@mocks/data/player';
 
 import { CategoryMenu } from '@components/CategoryMenu/CategoryMenu';
+import { Loading } from '@components/Loading/Loading';
+
+import { useGetPlayerList } from '@hooks/@query/player/useGetPlayerList';
 
 import { PlayerListContainer, PlayerListHeader, PlayerListTable } from '@pages/PlayerList/PlayerList.styles';
 import { PlayerListItem } from '@pages/PlayerList/components/PlayerListItem/PlayerListItem';
@@ -24,6 +27,8 @@ const PlayerList = () => {
     const onClickPlayerItem = (id: number) => {
         navigate(`${DYNAMIC_PATH.PLAYER_DETAIL(id)}`);
     };
+
+    if (isLoading) return <Loading size={60} />;
 
     return (
         <PlayerListContainer>
@@ -44,9 +49,10 @@ const PlayerList = () => {
                     </tr>
                 </PlayerListHeader>
                 <tbody css={css({ width: '100%' })}>
-                    {players.map((player) => (
-                        <PlayerListItem key={player.id} player={player} onClickPlayerItem={onClickPlayerItem} />
-                    ))}
+                    {playerList &&
+                        playerList.map((player) => (
+                            <PlayerListItem key={player.id} player={player} onClickPlayerItem={onClickPlayerItem} />
+                        ))}
                 </tbody>
             </PlayerListTable>
         </PlayerListContainer>
