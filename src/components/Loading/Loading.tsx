@@ -11,7 +11,7 @@ export const Loading = ({ size = '40' }: LoadingProps) => {
     return (
         <RowPageContainer css={css({ justifyContent: 'center', alignItems: 'center' })}>
             <RotatingLines
-                strokeColor={'var(--primary500'}
+                strokeColor={'var(--primary500)'}
                 strokeWidth="5"
                 animationDuration="1.5"
                 width={size.toString()}

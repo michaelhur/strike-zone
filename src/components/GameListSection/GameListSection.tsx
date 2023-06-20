@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { LeagueTabOptions } from '@constants/menu';
+import { ItemViewTypeOptions, LeagueTabOptions } from '@constants/menu';
 import { useRecoilState } from 'recoil';
 
 import { CategoryMenu } from '@components/CategoryMenu/CategoryMenu';
@@ -35,12 +35,13 @@ export const GameListSection = ({ fixtureDate, sectionLabel }: GameListSectionPr
             <SectionTitleWrapper>
                 <h2>{sectionLabel ? sectionLabel : fixtureDate || '날짜가 선택되지 않았습니다'}</h2>
             </SectionTitleWrapper>
-            <CategoryMenu<LeagueType>
+            <CategoryMenu<LeagueType, itemViewType>
                 selectedMenu={leagueFilter}
                 setSelectedMenu={setLeagueFilter}
                 tabOptions={LeagueTabOptions}
-                viewType={viewType}
+                selectedViewType={viewType}
                 setViewType={setViewType}
+                viewTypeOptions={ItemViewTypeOptions(viewType)}
             />
             {fixtureDate && (
                 <GameListWrapper>

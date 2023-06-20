@@ -1,60 +1,55 @@
 import { Dispatch, SetStateAction } from 'react';
 
-import { CardViewIcon } from '@components/@shared/Icon/CardViewIcon';
-import { IconWrap } from '@components/@shared/Icon/Icon.styles';
-import { ListViewIcon } from '@components/@shared/Icon/ListViewIcon';
+import { SetterOrUpdater } from 'recoil';
+
 import { TabInput } from '@components/@shared/TabInput/TabInput';
 import {
     CategoryMenuContainer,
     CategoryMenuWrapper,
     ItemViewChangerWrapper,
+    ItemViewIconWrap,
 } from '@components/CategoryMenu/CategoryMenu.styles';
 
-import { itemViewType } from '@recoils/fixture/atom';
+import { TabOptions, ViewTypeOptions } from '@typings/input';
 
-import { TabOptions } from '@typings/input';
-
-interface CategoryMenuProps<T> {
-    selectedMenu: T;
-    setSelectedMenu: Dispatch<SetStateAction<T>>;
-    tabOptions: TabOptions<T>[];
+interface CategoryMenuProps<T1, T2> {
+    selectedMenu: T1;
+    setSelectedMenu: Dispatch<SetStateAction<T1>> | SetterOrUpdater<T1>;
+    tabOptions: TabOptions<T1>[];
     size?: 'small' | 'large';
-    viewType?: itemViewType;
-    setViewType?: Dispatch<SetStateAction<itemViewType>>;
+    selectedViewType?: T2;
+    setViewType?: Dispatch<SetStateAction<T2>> | SetterOrUpdater<T2>;
+    viewTypeOptions?: ViewTypeOptions<T2>[];
 }
 
-export const CategoryMenu = <T,>({
+export const CategoryMenu = <T1, T2>({
     selectedMenu,
     setSelectedMenu,
     tabOptions,
     size = 'large',
-    viewType,
+    selectedViewType,
     setViewType,
-}: CategoryMenuProps<T>) => {
+    viewTypeOptions,
+}: CategoryMenuProps<T1, T2>) => {
     return (
         <CategoryMenuContainer>
             <CategoryMenuWrapper>
-                <TabInput<T>
+                <TabInput<T1>
                     selected={selectedMenu}
                     setSelected={setSelectedMenu}
                     tabOptions={tabOptions}
                     size={size}
                 />
             </CategoryMenuWrapper>
-            {viewType && setViewType && (
+            {selectedViewType && setViewType && viewTypeOptions && (
                 <ItemViewChangerWrapper>
-                    <IconWrap style={{ padding: '0.25rem', cursor: 'pointer' }} onClick={() => setViewType('CARD')}>
-                        <CardViewIcon
-                            color={viewType === 'CARD' ? 'var(--primary500)' : 'var(--grey700)'}
-                            hoverable={true}
-                        />
-                    </IconWrap>
-                    <IconWrap style={{ padding: '0.25rem', cursor: 'pointer' }} onClick={() => setViewType('LIST')}>
-                        <ListViewIcon
-                            color={viewType === 'LIST' ? 'var(--primary500)' : 'var(--grey700)'}
-                            hoverable={true}
-                        />
-                    </IconWrap>
+                    {viewTypeOptions.map((viewType) => {
+                        return (
+                            <ItemViewIconWrap key={viewType.key} onClick={() => setViewType(viewType.value)}>
+                                {viewType.iconComponent}
+                            </ItemViewIconWrap>
+                        );
+                    })}
                 </ItemViewChangerWrapper>
             )}
         </CategoryMenuContainer>

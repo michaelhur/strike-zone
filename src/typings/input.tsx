@@ -5,3 +5,9 @@ export interface TabOptions<T> {
     value: T;
     iconComponent?: ReactNode;
 }
+
+export interface ViewTypeOptions<T> {
+    key: string;
+    value: T;
+    iconComponent: ReactNode;
+}

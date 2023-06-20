@@ -1,8 +1,12 @@
 import { DYNAMIC_PATH, PATH } from '@constants/routes';
 
 import { CalendarIcon, HomeIcon, PersonIcon, TeamIcon, UmpireIcon } from '@components/@shared/Icon';
+import { CardViewIcon } from '@components/@shared/Icon/CardViewIcon';
+import { ListViewIcon } from '@components/@shared/Icon/ListViewIcon';
 
-import { TabOptions } from '@typings/input';
+import { itemViewType } from '@recoils/fixture/atom';
+
+import { TabOptions, ViewTypeOptions } from '@typings/input';
 import { LeagueType } from '@typings/league';
 import { Menu } from '@typings/menu';
 
@@ -61,5 +65,18 @@ export const LeagueTabOptions: TabOptions<LeagueType>[] = [
     {
         label: 'National League',
         value: 104,
+    },
+];
+
+export const ItemViewTypeOptions = (selected: itemViewType): ViewTypeOptions<itemViewType>[] => [
+    {
+        key: 'CARD',
+        value: 'CARD',
+        iconComponent: <CardViewIcon color={selected === 'CARD' ? 'var(--primary500)' : 'var(--grey1000)'} />,
+    },
+    {
+        key: 'LIST',
+        value: 'LIST',
+        iconComponent: <ListViewIcon color={selected === 'LIST' ? 'var(--primary500)' : 'var(--grey1000)'} />,
     },
 ];
