@@ -1,16 +1,13 @@
 import styled from '@emotion/styled';
 
-export const TabInputWrapper = styled.div({
-    display: 'flex',
-    flexDirection: 'column',
+import { FlexColumnContainer, FlexRowContainer } from '@components/Layout/Layout';
+
+export const TabInputWrapper = styled(FlexColumnContainer)({
     justifyContent: 'center',
     alignItems: 'center',
-    width: '100%',
-
-    background: 'var(--grey0)',
 });
 
-export const TabInputList = styled.div({
+export const TabInputList = styled(FlexRowContainer)({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'flex-start',
@@ -25,18 +22,13 @@ interface StyledTabProps {
     size: 'small' | 'large';
 }
 
-export const StyledTab = styled.div(
+export const StyledTab = styled(FlexRowContainer)(
     {
-        display: 'flex',
-        flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
         gap: '4px',
 
-        flex: '1 0 0',
-
         color: 'var(--grey600)',
-        border: '1px solid var(--grey300)',
         borderCollapse: 'collapse',
 
         pointer: 'cursor',
@@ -44,7 +36,7 @@ export const StyledTab = styled.div(
         '&.active, :active, :hover': {
             fontWeight: '600',
             color: 'var(--primary500)',
-            border: '2px solid var(--primary500)',
+            borderBottom: '2px solid var(--primary500)',
 
             '& svg path': {
                 fill: 'var(--primary500)',
@@ -61,7 +53,7 @@ export const StyledTab = styled.div(
         },
 
         '&.active, :hover, :active': {
-            padding: size === 'large' ? '23px 15px' : '15px 8px',
+            padding: size === 'large' ? '24px 16px 22px' : '16px 8px 14px',
         },
     }),
 );

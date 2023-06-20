@@ -7,7 +7,7 @@ export interface Game {
     date: string;
     season: number;
     isFinal: boolean;
-    isPostponed: boolean;
+    isPostponed?: boolean;
     initialDate: string;
     homeScore: number | null;
     awayScore: number | null;

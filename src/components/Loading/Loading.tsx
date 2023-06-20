@@ -1,19 +1,28 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import { ThreeCircles } from 'react-loader-spinner';
 
-import Dimmed from '@components/Dimmed/Dimmed';
+import { css } from '@emotion/react';
 
-import * as Styled from './Loading.styles';
+import { RowPageContainer } from '@components/Layout/Layout';
 
-function Loading() {
-    return ReactDOM.createPortal(
-        <Dimmed>
-            <Styled.Root>
-                <img src="/vite.svg" alt="로고" width={120} height={120} />
-            </Styled.Root>
-        </Dimmed>,
-        document.querySelector('#root') as Element,
-    );
+export interface LoadingProps {
+    size: number | string;
 }
 
-export default Loading;
+export const Loading = ({ size = '60' }: LoadingProps) => {
+    return (
+        <RowPageContainer css={css({ justifyContent: 'center', alignItems: 'center' })}>
+            <ThreeCircles
+                height={size}
+                width={size}
+                color="var(--primary500)"
+                wrapperStyle={{}}
+                wrapperClass=""
+                visible={true}
+                ariaLabel="three-circles-rotating"
+                outerCircleColor=""
+                innerCircleColor=""
+                middleCircleColor=""
+            />
+        </RowPageContainer>
+    );
+};

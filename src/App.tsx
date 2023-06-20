@@ -5,6 +5,7 @@ import { QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { useRecoilValue } from 'recoil';
 
+import { Layout } from '@components/Layout/Layout';
 import { Sidebar } from '@components/Sidebar/Sidebar';
 
 import { themeState } from '@recoils/atom';
@@ -23,8 +24,10 @@ function App() {
     return (
         <QueryClientProvider client={queryClient}>
             <BrowserRouter>
-                <Sidebar />
-                {/*<Router />*/}
+                <Layout>
+                    <Sidebar />
+                    <Router />
+                </Layout>
             </BrowserRouter>
             <ReactQueryDevtools initialIsOpen={false} />
         </QueryClientProvider>

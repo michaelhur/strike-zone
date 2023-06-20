@@ -1,5 +1,6 @@
 import { rest } from 'msw';
 
+import { dateString } from '../../src/typings';
 import { Game } from '../../src/typings/game';
 import { gameList } from '../data/game';
 
@@ -11,6 +12,7 @@ export const gameHandler = [
         const teamId = Number(req.url.searchParams.get('team'));
         const umpireId = Number(req.url.searchParams.get('umpire'));
         const stateCode = req.url.searchParams.get('stateCode') || 'all';
+        const leagueId = Number(req.url.searchParams.get('leagues'));
 
         const filteredGameList = gameList.filter((game) => {
             const dateFilter = date ? game.date === date : true;
@@ -20,25 +22,47 @@ export const gameHandler = [
             const umpireFilter = umpireId ? game.umpire && game.umpire.id === umpireId : true;
             const stateCodeFilter =
                 !stateCode || stateCode === 'all' ? true : stateCode === 'final' ? game.isFinal : game.isPostponed;
+            const leagueFilter = leagueId ? game.home!.leagueId === leagueId || game.away!.leagueId === leagueId : true;
 
-            return dateFilter && initialDateFilter && seasonFilter && teamFilter && umpireFilter && stateCodeFilter;
+            return (
+                dateFilter &&
+                initialDateFilter &&
+                seasonFilter &&
+                teamFilter &&
+                umpireFilter &&
+                stateCodeFilter &&
+                leagueFilter
+            );
         });
 
         return res(ctx.status(200), ctx.json(filteredGameList));
     }),
 
-    rest.get<Game>('/api/games/:slug', async (req, res, ctx) => {
-        const { slug } = req.params;
-        const targetGame = gameList.find((game) => game.slug && game.slug === slug);
+    rest.get<Game[]>('/api/games/@latest', async (req, res, ctx) => {
+        const maxDate = gameList.sort((a, b) => b.date.localeCompare(a.date))[0].date;
+        const targetGameList = gameList.filter((game) => game.date === maxDate);
+
+        return res(ctx.status(200), ctx.json(targetGameList));
+    }),
+
+    rest.get<dateString>('/api/games/@latest-date', async (req, res, ctx) => {
+        const maxDate = gameList.sort((a, b) => b.date.localeCompare(a.date))[0].date;
+
+        return res(ctx.status(200), ctx.json({ date: maxDate }));
+    }),
+
+    rest.get<Game>('/api/games/get-by-id/:id', async (req, res, ctx) => {
+        const { id } = req.params;
+        const targetGame = gameList.find((game) => game.id === Number(id));
 
         if (!targetGame) return res(ctx.status(400), ctx.json({ message: '해당 경기가 존재하지 않습니다.' }));
 
         return res(ctx.status(200), ctx.json(targetGame));
     }),
 
-    rest.get<Game>('/api/games/get-by-id/:id', async (req, res, ctx) => {
-        const { id } = req.params;
-        const targetGame = gameList.find((game) => game.id === Number(id));
+    rest.get<Game>('/api/games/:slug', async (req, res, ctx) => {
+        const { slug } = req.params;
+        const targetGame = gameList.find((game) => game.slug && game.slug === slug);
 
         if (!targetGame) return res(ctx.status(400), ctx.json({ message: '해당 경기가 존재하지 않습니다.' }));
 

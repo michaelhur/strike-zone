@@ -5,16 +5,14 @@ import { StyledTab, TabInputList, TabInputWrapper } from '@components/@shared/Ta
 
 import { TabOptions } from '@typings/input';
 
-interface TabInputProps<T> {
-    selected: T[];
-    setSelected: Dispatch<SetStateAction<T[]>>;
-    onClickTab: (value: T, selected: T[], setSelected: Dispatch<SetStateAction<T[]>>, maxSelect?: number) => void;
+export interface TabInputProps<T> {
+    selected: T;
+    setSelected: Dispatch<SetStateAction<T>>;
     tabOptions: TabOptions<T>[];
     size: 'small' | 'large';
-    maxSelect?: number;
 }
 
-export const TabInput = <T,>({ selected, setSelected, onClickTab, tabOptions, size, maxSelect }: TabInputProps<T>) => {
+export const TabInput = <T,>({ selected, setSelected, tabOptions, size }: TabInputProps<T>) => {
     return (
         <TabInputWrapper>
             <TabInputList>
@@ -22,9 +20,9 @@ export const TabInput = <T,>({ selected, setSelected, onClickTab, tabOptions, si
                     return (
                         <StyledTab
                             key={`${value}` as const}
-                            className={selected.includes(value) ? 'active' : ''}
+                            className={selected === value ? 'active' : ''}
                             size={size}
-                            onClick={() => onClickTab(value, selected, setSelected, maxSelect)}
+                            onClick={() => setSelected(value)}
                         >
                             {iconComponent && <IconWrap>{iconComponent}</IconWrap>}
                             {label}

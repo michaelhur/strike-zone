@@ -7,14 +7,8 @@ import { parseParmsToObject } from '@utils/url';
 
 import { requestGetGameList } from '@src/apis/game';
 
-export const useGetGameList = ({
-    searchParams,
-    options,
-}: {
-    searchParams?: string;
-    options?: UseQueryOptions<Array<Game>, AxiosError>;
-}) => {
-    const searchParamsObject = searchParams ? parseParmsToObject(searchParams) : null;
+export const useGetGameList = (searchParams?: string, options?: UseQueryOptions<Array<Game>, AxiosError>) => {
+    const searchParamsObject = searchParams ? parseParmsToObject(searchParams) : {};
     return useQuery<Array<Game>, AxiosError>(['GAMES', searchParamsObject], () => requestGetGameList(searchParams), {
         ...options,
         onSuccess: () => {

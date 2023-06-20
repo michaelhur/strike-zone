@@ -94,6 +94,26 @@ describe('경기 API', () => {
         expect(data).toEqual(postponedGameList);
     });
 
+    it('GET /api/games?leagues=103 요청은 AL 리그 경기 리스트를 리턴한다', async () => {
+        const response = await axios.get(`/api/games?leagues=103`);
+        const data = response.data;
+
+        const ALGameList = gameList.filter((game) => game.home!.leagueId === 103 || game.away!.leagueId === 103);
+
+        expect(response.status).toBe(200);
+        expect(data).toEqual(ALGameList);
+    });
+
+    it('GET /api/games?leagues=104 요청은 NL 리그 경기 리스트를 리턴한다', async () => {
+        const response = await axios.get(`/api/games?leagues=104`);
+        const data = response.data;
+
+        const NLGameList = gameList.filter((game) => game.home!.leagueId === 104 || game.away!.leagueId === 104);
+
+        expect(response.status).toBe(200);
+        expect(data).toEqual(NLGameList);
+    });
+
     it('GET /api/games/:slug 요청은 특정 경기의 정보를 리턴한다', async () => {
         const slug = '230406-TOR-KCA-1';
         const response = await axios.get(`/api/games/${slug}`);
@@ -114,5 +134,26 @@ describe('경기 API', () => {
 
         expect(response.status).toBe(200);
         expect(data).toEqual(gameData);
+    });
+
+    it('GET /api/games/@latest 요청은 가장 최근 경기일을 리턴한다', async () => {
+        const response = await axios.get(`/api/games/@latest`);
+        const data = response.data;
+
+        const maxDate = gameList.sort((a, b) => b.date.localeCompare(a.date))[0].date;
+        const targetGameList = gameList.filter((game) => game.date === maxDate);
+
+        expect(response.status).toBe(200);
+        expect(data).toEqual(targetGameList);
+    });
+
+    it('GET /api/games/@latest 요청은 가장 최근 경기일을 리턴한다', async () => {
+        const response = await axios.get(`/api/games/@latest-date`);
+        const data = response.data;
+
+        const maxDate = gameList.sort((a, b) => b.date.localeCompare(a.date))[0].date;
+        const targetDate = { date: maxDate };
+        expect(response.status).toBe(200);
+        expect(data).toEqual(targetDate);
     });
 });

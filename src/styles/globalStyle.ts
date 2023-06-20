@@ -15,20 +15,16 @@ export const globalStyle = css`
 
     @font-face {
         font-family: 'BMHANNAPro';
-        src: url('${BMHANNA_PRO_WOFF2}') format('woff2'), url('${BMHANNA_PRO_WOFF}') format('woff'),
-            url('${BMHANNA_PRO_TTF}') format('truetype');
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.0/BMHANNAPro.woff') format('woff');
         font-weight: normal;
         font-style: normal;
-        font-display: optional;
     }
 
     @font-face {
         font-family: 'BMHANNAAir';
-        src: url('${BMHANNA_AIR_WOFF2}') format('woff2'), url('${BMHANNA_AIR_WOFF}') format('woff'),
-            url('${BMHANNA_AIR_TTF}') format('truetype');
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.0/BMHANNAAir.woff') format('woff');
         font-weight: normal;
         font-style: normal;
-        font-display: optional;
     }
 
     :root {
@@ -124,13 +120,15 @@ export const globalStyle = css`
         background-color: var(--grey50);
         color: var(--grey1000);
 
-        @media (min-width: 1400px) {
-            max-width: 1400px;
-        }
-
-        @media (max-width: 1400px) {
-            max-width: 100vw;
-        }
+        width: 100%;
+        //@media (min-width: 1400px) {
+        //    max-width: 1400px;
+        //}
+        //
+        //@media (max-width: 1400px) {
+        //    max-width: 100vw;
+        //}
+        //max-width: 100vw;
     }
 
     a {
