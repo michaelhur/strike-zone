@@ -4,7 +4,7 @@ import { DYNAMIC_PATH } from '@constants/routes';
 import { css } from '@emotion/react';
 import { playerList } from '@mocks/data/player';
 
-import { PlayerListContainer } from '@pages/PlayerList/PlayerList.styles';
+import { PlayerListContainer, PlayerListHeader, PlayerListTable } from '@pages/PlayerList/PlayerList.styles';
 import { PlayerListItem } from '@pages/PlayerList/components/PlayerListItem/PlayerListItem';
 
 const players = playerList.slice(0, 10);
@@ -17,8 +17,8 @@ const PlayerList = () => {
 
     return (
         <PlayerListContainer>
-            <table css={css({ width: '100%' })}>
-                <thead>
+            <PlayerListTable>
+                <PlayerListHeader>
                     <tr>
                         <th>Name</th>
                         <th>Batting Side</th>
@@ -27,13 +27,13 @@ const PlayerList = () => {
                         <th>Height</th>
                         <th>Weight</th>
                     </tr>
-                </thead>
+                </PlayerListHeader>
                 <tbody css={css({ width: '100%' })}>
                     {players.map((player) => (
                         <PlayerListItem key={player.id} player={player} onClickPlayerItem={onClickPlayerItem} />
                     ))}
                 </tbody>
-            </table>
+            </PlayerListTable>
         </PlayerListContainer>
     );
 };
