@@ -1,18 +1,20 @@
 import { Dispatch, SetStateAction } from 'react';
 
-import styled from '@emotion/styled';
-
 import { CardViewIcon } from '@components/@shared/Icon/CardViewIcon';
 import { IconWrap } from '@components/@shared/Icon/Icon.styles';
 import { ListViewIcon } from '@components/@shared/Icon/ListViewIcon';
 import { TabInput } from '@components/@shared/TabInput/TabInput';
-import { FlexRowContainer } from '@components/Layout/Layout';
+import {
+    CategoryMenuContainer,
+    CategoryMenuWrapper,
+    ItemViewChangerWrapper,
+} from '@components/CategoryMenu/CategoryMenu.styles';
 
 import { itemViewType } from '@recoils/fixture/atom';
 
 import { TabOptions } from '@typings/input';
 
-interface FilterMenuProps<T> {
+interface CategoryMenuProps<T> {
     selectedMenu: T;
     setSelectedMenu: Dispatch<SetStateAction<T>>;
     tabOptions: TabOptions<T>[];
@@ -28,7 +30,7 @@ export const CategoryMenu = <T,>({
     size = 'large',
     viewType,
     setViewType,
-}: FilterMenuProps<T>) => {
+}: CategoryMenuProps<T>) => {
     return (
         <CategoryMenuContainer>
             <CategoryMenuWrapper>
@@ -58,20 +60,3 @@ export const CategoryMenu = <T,>({
         </CategoryMenuContainer>
     );
 };
-
-export const CategoryMenuContainer = styled(FlexRowContainer)({
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: '1rem',
-    width: '100%',
-});
-
-export const CategoryMenuWrapper = styled(FlexRowContainer)({
-    width: '100%',
-});
-
-export const ItemViewChangerWrapper = styled(FlexRowContainer)({
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-    gap: '0.5rem',
-});

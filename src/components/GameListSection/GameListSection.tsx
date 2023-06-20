@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { LeagueTabOptions } from '@constants/menu';
 import { useRecoilState } from 'recoil';
 
-import { CategoryMenu } from '@components/FilterMenu/FilterMenu';
+import { CategoryMenu } from '@components/CategoryMenu/CategoryMenu';
 import { GameListWrapper } from '@components/GameListSection/GameListSection.styles';
 import { GameList } from '@components/GameListSection/components/GameList/GameList';
 import { PageSectionContainer, SectionTitleWrapper } from '@components/Layout/Layout';
