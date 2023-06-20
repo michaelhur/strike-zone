@@ -13,9 +13,9 @@ import {
 import { TabOptions, ViewTypeOptions } from '@typings/input';
 
 interface CategoryMenuProps<T1, T2> {
-    selectedMenu: T1;
-    setSelectedMenu: Dispatch<SetStateAction<T1>> | SetterOrUpdater<T1>;
-    tabOptions: TabOptions<T1>[];
+    selectedCategory: T1;
+    setSelectedCategory: Dispatch<SetStateAction<T1>> | SetterOrUpdater<T1>;
+    categoryOptions: TabOptions<T1>[];
     size?: 'small' | 'large';
     selectedViewType?: T2;
     setViewType?: Dispatch<SetStateAction<T2>> | SetterOrUpdater<T2>;
@@ -23,9 +23,9 @@ interface CategoryMenuProps<T1, T2> {
 }
 
 export const CategoryMenu = <T1, T2>({
-    selectedMenu,
-    setSelectedMenu,
-    tabOptions,
+    selectedCategory,
+    setSelectedCategory,
+    categoryOptions,
     size = 'large',
     selectedViewType,
     setViewType,
@@ -35,17 +35,22 @@ export const CategoryMenu = <T1, T2>({
         <CategoryMenuContainer>
             <CategoryMenuWrapper>
                 <TabInput<T1>
-                    selected={selectedMenu}
-                    setSelected={setSelectedMenu}
-                    tabOptions={tabOptions}
+                    selected={selectedCategory}
+                    setSelected={setSelectedCategory}
+                    tabOptions={categoryOptions}
                     size={size}
                 />
             </CategoryMenuWrapper>
             {selectedViewType && setViewType && viewTypeOptions && (
                 <ItemViewChangerWrapper>
                     {viewTypeOptions.map((viewType) => {
+                        const isActive = selectedViewType === viewType.value;
                         return (
-                            <ItemViewIconWrap key={viewType.key} onClick={() => setViewType(viewType.value)}>
+                            <ItemViewIconWrap
+                                key={viewType.key}
+                                isActive={isActive}
+                                onClick={() => setViewType(viewType.value)}
+                            >
                                 {viewType.iconComponent}
                             </ItemViewIconWrap>
                         );

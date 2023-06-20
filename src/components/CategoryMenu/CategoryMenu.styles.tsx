@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import { IconWrap } from '@components/@shared/Icon/Icon.styles';
+import { IconWrap, SVGIcon } from '@components/@shared/Icon/Icon.styles';
 import { FlexRowContainer } from '@components/Layout/Layout';
 
 export const CategoryMenuContainer = styled(FlexRowContainer)({
@@ -20,7 +20,16 @@ export const ItemViewChangerWrapper = styled(FlexRowContainer)({
     gap: '0.5rem',
 });
 
-export const ItemViewIconWrap = styled(IconWrap)({
-    padding: '0.25rem',
-    cursor: 'pointer',
-});
+export const ItemViewIconWrap = styled(IconWrap)(
+    {
+        padding: '0.25rem',
+        cursor: 'pointer',
+    },
+    ({ isActive }: { isActive: boolean }) => ({
+        '& svg, & path, & g, & rect': {
+            color: isActive ? 'var(--primary500)' : 'var(--grey1000)',
+            fill: isActive ? 'var(--primary500)' : 'var(--grey1000)',
+            stroke: isActive ? 'var(--primary500)' : 'var(--grey1000)',
+        },
+    }),
+);

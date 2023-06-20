@@ -38,7 +38,7 @@ export const sidebarMenu: Menu[] = [
     },
 ];
 
-export const LeagueSubMenu = (date?: string): Menu[] => [
+export const leagueSubMenu = (date?: string): Menu[] => [
     {
         name: 'ALL',
         path: date ? `${DYNAMIC_PATH.FIXTURE_BY_DATE(date)}` : PATH.FIXTURE,
@@ -53,7 +53,7 @@ export const LeagueSubMenu = (date?: string): Menu[] => [
     },
 ];
 
-export const LeagueTabOptions: TabOptions<LeagueType>[] = [
+export const leagueTabOptions: TabOptions<LeagueType>[] = [
     {
         label: 'ALL',
         value: 'ALL',
@@ -68,15 +68,15 @@ export const LeagueTabOptions: TabOptions<LeagueType>[] = [
     },
 ];
 
-export const ItemViewTypeOptions = (selected: itemViewType): ViewTypeOptions<itemViewType>[] => [
+export const itemViewTypeOptions: ViewTypeOptions<itemViewType>[] = [
     {
         key: 'CARD',
         value: 'CARD',
-        iconComponent: <CardViewIcon color={selected === 'CARD' ? 'var(--primary500)' : 'var(--grey1000)'} />,
+        iconComponent: <CardViewIcon />,
     },
     {
         key: 'LIST',
         value: 'LIST',
-        iconComponent: <ListViewIcon color={selected === 'LIST' ? 'var(--primary500)' : 'var(--grey1000)'} />,
+        iconComponent: <ListViewIcon />,
     },
 ];
