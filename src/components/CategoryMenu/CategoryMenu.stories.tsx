@@ -9,7 +9,7 @@ import { CategoryMenu } from '@components/CategoryMenu/CategoryMenu';
 import { TabOptions } from '@typings/input';
 
 export default {
-    title: 'Composition/CategoryMenu',
+    title: 'Components/CategoryMenu',
     component: CategoryMenu,
     decorators: [
         (Story) => (

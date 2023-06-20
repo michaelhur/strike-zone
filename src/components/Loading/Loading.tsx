@@ -1,21 +1,27 @@
-import { RotatingLines } from 'react-loader-spinner';
+import { ThreeCircles } from 'react-loader-spinner';
 
 import { css } from '@emotion/react';
 
 import { RowPageContainer } from '@components/Layout/Layout';
 
-interface LoadingProps {
+export interface LoadingProps {
     size: number | string;
 }
-export const Loading = ({ size = '40' }: LoadingProps) => {
+
+export const Loading = ({ size = '60' }: LoadingProps) => {
     return (
         <RowPageContainer css={css({ justifyContent: 'center', alignItems: 'center' })}>
-            <RotatingLines
-                strokeColor={'var(--primary500)'}
-                strokeWidth="5"
-                animationDuration="1.5"
-                width={size.toString()}
+            <ThreeCircles
+                height={size}
+                width={size}
+                color="var(--primary500)"
+                wrapperStyle={{}}
+                wrapperClass=""
                 visible={true}
+                ariaLabel="three-circles-rotating"
+                outerCircleColor=""
+                innerCircleColor=""
+                middleCircleColor=""
             />
         </RowPageContainer>
     );

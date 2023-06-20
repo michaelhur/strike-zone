@@ -1,11 +1,11 @@
-import GameItem from '@components/GameCard/GameItem';
+import GameItem from '@components/GameItem/GameItem';
 import { GameListContainer } from '@components/GameListSection/components/GameList/GameList.styles';
 
 import { itemViewType } from '@recoils/fixture/atom';
 
 import { Game } from '@typings/game';
 
-interface GameListProps {
+export interface GameListProps {
     games: Game[];
     itemViewType: itemViewType;
     cardCount: number;

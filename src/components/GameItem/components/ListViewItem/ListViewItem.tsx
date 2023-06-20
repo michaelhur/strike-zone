@@ -1,4 +1,4 @@
-import { ViewItemProps } from '@components/GameCard/GameItem';
+import { ViewItemProps } from '@components/GameItem/GameItem';
 import {
     ListViewContainer,
     ListViewGameStatus,
@@ -8,7 +8,7 @@ import {
     ListViewTeamImage,
     ListViewTeamName,
     ListViewTeamSectionContainer,
-} from '@components/GameCard/components/ListViewItem/ListViewItem.styles';
+} from '@components/GameItem/components/ListViewItem/ListViewItem.styles';
 
 import { Team } from '@typings/team';
 

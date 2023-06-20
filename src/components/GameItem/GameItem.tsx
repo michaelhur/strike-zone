@@ -1,8 +1,8 @@
 import { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { CardViewItem } from '@components/GameCard/components/CardViewItem/CardViewItem';
-import { ListViewItem } from '@components/GameCard/components/ListViewItem/ListViewItem';
+import { CardViewItem } from '@components/GameItem/components/CardViewItem/CardViewItem';
+import { ListViewItem } from '@components/GameItem/components/ListViewItem/ListViewItem';
 
 import { itemViewType } from '@recoils/fixture/atom';
 

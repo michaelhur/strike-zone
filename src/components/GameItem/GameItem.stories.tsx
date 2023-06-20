@@ -3,7 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { gameList } from '@mocks/data/game';
 import type { Meta, Story } from '@storybook/react';
 
-import GameItem, { GameItemProps } from '@components/GameCard/GameItem';
+import GameItem, { GameItemProps } from '@components/GameItem/GameItem';
 
 export default {
     title: 'Components/GameItem',
