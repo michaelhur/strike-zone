@@ -5,7 +5,7 @@ import { StyledTab, TabInputList, TabInputWrapper } from '@components/@shared/Ta
 
 import { TabOptions } from '@typings/input';
 
-interface TabInputProps<T> {
+export interface TabInputProps<T> {
     selected: T;
     setSelected: Dispatch<SetStateAction<T>>;
     tabOptions: TabOptions<T>[];

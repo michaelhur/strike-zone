@@ -9,21 +9,36 @@ export default {
 } as Meta;
 
 const Template: Story<ButtonProps> = (args) => {
-    return (
-        <Button {...args} size={'XSmall'} buttonTheme={'disabled'} buttonType={'button'}>
-            {args.children}
-        </Button>
-    );
+    return <Button {...args}>{args.children}</Button>;
 };
 
 export const ButtonTemplate = Template.bind({});
-ButtonTemplate.args = { children: '버튼' };
+ButtonTemplate.args = { children: '버튼', size: 'XSmall', buttonTheme: 'fill', buttonType: 'button' };
 
 export const ButtonWithLeftIconTemplate = Template.bind({});
-ButtonWithLeftIconTemplate.args = { children: '버튼', leftIcon: <ArrowLeftIcon /> };
+ButtonWithLeftIconTemplate.args = {
+    children: '버튼',
+    size: 'XSmall',
+    buttonTheme: 'fill',
+    buttonType: 'button',
+    leftIcon: <ArrowLeftIcon color={'var(--grey0)'} />,
+};
 
 export const ButtonWithRightIconTemplate = Template.bind({});
-ButtonWithRightIconTemplate.args = { children: '버튼', leftIcon: <ArrowRightIcon /> };
+ButtonWithRightIconTemplate.args = {
+    children: '버튼',
+    size: 'XSmall',
+    buttonTheme: 'fill',
+    buttonType: 'button',
+    leftIcon: <ArrowRightIcon color={'var(--grey0)'} />,
+};
 
 export const ButtonWithBothIconTemplate = Template.bind({});
-ButtonWithBothIconTemplate.args = { children: '버튼', leftIcon: <ArrowLeftIcon />, rightIcon: <ArrowRightIcon /> };
+ButtonWithBothIconTemplate.args = {
+    children: '버튼',
+    size: 'XSmall',
+    buttonTheme: 'fill',
+    buttonType: 'button',
+    leftIcon: <ArrowLeftIcon color={'var(--grey0)'} />,
+    rightIcon: <ArrowRightIcon color={'var(--grey0)'} />,
+};
