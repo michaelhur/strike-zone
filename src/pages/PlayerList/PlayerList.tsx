@@ -28,8 +28,6 @@ const PlayerList = () => {
         navigate(`${DYNAMIC_PATH.PLAYER_DETAIL(id)}`);
     };
 
-    if (isLoading) return <Loading size={60} />;
-
     return (
         <PlayerListContainer>
             <CategoryMenu<PositionType, any>
@@ -49,10 +47,14 @@ const PlayerList = () => {
                     </tr>
                 </PlayerListHeader>
                 <tbody css={css({ width: '100%' })}>
-                    {playerList &&
+                    {isLoading ? (
+                        <Loading size={60} />
+                    ) : (
+                        playerList &&
                         playerList.map((player) => (
                             <PlayerListItem key={player.id} player={player} onClickPlayerItem={onClickPlayerItem} />
-                        ))}
+                        ))
+                    )}
                 </tbody>
             </PlayerListTable>
         </PlayerListContainer>
