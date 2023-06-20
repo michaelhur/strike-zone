@@ -12,5 +12,4 @@ export interface Player {
     positionType: string;
     height: string;
     weight: number;
-    playerNumber: number;
 }

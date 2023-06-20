@@ -119,7 +119,6 @@ const getMLBData = async (gamePk: number, homeScore: number, awayScore: number, 
                     positionType: player.primaryPosition.type,
                     height: player.height,
                     weight: player.weight,
-                    playerNumber: player.primaryNumber,
                 };
             });
 
