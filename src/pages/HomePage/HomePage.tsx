@@ -3,9 +3,9 @@ import { Loading } from '@components/Loading/Loading';
 
 import { useGetLatestGameDate } from '@hooks/@query/game/useGetLatestGameDate';
 
-import { HomePageContainer } from '@pages/Home/Home.styles';
+import { HomePageContainer } from '@pages/HomePage/HomePage.styles';
 
-const Home = () => {
+const HomePage = () => {
     const { isLoading, data: dateObject } = useGetLatestGameDate();
 
     if (isLoading) return <Loading size={40} />;
@@ -17,4 +17,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default HomePage;

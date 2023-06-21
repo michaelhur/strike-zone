@@ -89,7 +89,7 @@ const getMLBData = async (gamePk: number, homeScore: number, awayScore: number, 
                     },
                 };
             })
-            .filter((official) => official.officialType === 'Home Plate')[0].official;
+            .filter((official) => official.officialType === 'HomePage Plate')[0].official;
         const umpireId = umpire.id;
 
         const gameInfo: Game = {

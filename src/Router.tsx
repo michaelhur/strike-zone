@@ -5,10 +5,10 @@ import { PATH } from '@constants/routes';
 
 import { Loading } from '@components/Loading/Loading';
 
-const HomePage = lazy(() => import('@pages/Home/Home'));
-const FixturePage = lazy(() => import('@pages/Fixture/Fixture'));
-const FixtureByDatePage = lazy(() => import('@pages/FixtureByDate/FixtureByDate'));
-const PlayerListPage = lazy(() => import('@pages/PlayerList/PlayerList'));
+const HomePage = lazy(() => import('@pages/HomePage/HomePage'));
+const FixturePage = lazy(() => import('@pages/FixturePage/FixturePage'));
+const FixtureByDatePage = lazy(() => import('@pages/FixtureByDatePage/FixtureByDatePage'));
+const PlayerListPage = lazy(() => import('@pages/PlayerListPage/PlayerListPage'));
 
 const Router = () => {
     return (

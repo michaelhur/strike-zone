@@ -6,13 +6,13 @@ import { useRecoilValue } from 'recoil';
 import { GameListSection } from '@components/GameListSection/GameListSection';
 import { SingleCalendarSection } from '@components/SingleCalendarSection/SingleCalendarSection';
 
-import { FixturePageContainer } from '@pages/Fixture/Fixture.styles';
+import { FixturePageContainer } from '@pages/FixturePage/FixturePage.styles';
 
 import { latestGameDateState } from '@recoils/fixture/atom';
 
 import { YYYYMMDD_to_date, date_to_YYYYMMDD } from '@utils/date';
 
-const FixtureByDate = () => {
+const FixtureByDatePage = () => {
     const { date: fixtureDate } = useParams();
     const latestGameDate = useRecoilValue(latestGameDateState);
     const navigate = useNavigate();
@@ -37,4 +37,4 @@ const FixtureByDate = () => {
     );
 };
 
-export default FixtureByDate;
+export default FixtureByDatePage;

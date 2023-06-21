@@ -18,11 +18,11 @@ import {
     PlayerListTable,
     StyledHeaderCell,
     StyledNameHeaderCell,
-} from '@pages/PlayerList/PlayerList.styles';
+} from '@pages/PlayerListPage/PlayerListPage.styles';
 
 import { PositionType } from '@typings/player';
 
-const PlayerList = () => {
+const PlayerListPage = () => {
     const navigate = useNavigate();
     const [positionTypeFilter, setPositionTypeFilter] = useState<PositionType>('ALL');
     const [page, setPage] = useState<number>(1);
@@ -57,16 +57,16 @@ const PlayerList = () => {
                         <StyledHeaderCell>Weight</StyledHeaderCell>
                     </tr>
                 </PlayerListHeader>
-                <tbody css={css({ width: '100%' })}>
-                    {isLoading ? (
-                        <Loading size={60} />
-                    ) : (
-                        data?.players &&
-                        data.players.map((player) => (
-                            <PlayerListItem key={player.id} player={player} onClickPlayerItem={onClickPlayerItem} />
-                        ))
-                    )}
-                </tbody>
+                {isLoading ? (
+                    <Loading size={60} />
+                ) : (
+                    <tbody css={css({ width: '100%' })}>
+                        {data?.players &&
+                            data.players.map((player) => (
+                                <PlayerListItem key={player.id} player={player} onClickPlayerItem={onClickPlayerItem} />
+                            ))}
+                    </tbody>
+                )}
             </PlayerListTable>
             {data && data.count > 10 && (
                 <Pagination currentPage={page} totalPage={Math.ceil(data.count / 10)} onClickPage={setPage} />
@@ -75,4 +75,4 @@ const PlayerList = () => {
     );
 };
 
-export default PlayerList;
+export default PlayerListPage;
