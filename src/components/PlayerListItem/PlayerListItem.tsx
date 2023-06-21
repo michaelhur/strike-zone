@@ -10,10 +10,8 @@ interface PlayerListItemProps {
 export const PlayerListItem = ({ player, onClickPlayerItem }: PlayerListItemProps) => {
     const { id, name, batSide, pitchHand, positionCode, height, weight } = player;
 
-    const onClickItem = () => onClickPlayerItem(id);
-
     return (
-        <PlayerListItemContainer onClick={onClickItem}>
+        <PlayerListItemContainer onClick={() => onClickPlayerItem(id)}>
             <StyledNameCell>{name}</StyledNameCell>
             <StyledCell>{PlayerSideEnum[batSide]}</StyledCell>
             <StyledCell>{PlayerSideEnum[pitchHand]}</StyledCell>
