@@ -2,7 +2,12 @@ import { Player } from '@typings/player';
 
 import { fetcher } from '@src/apis/fetcher';
 
-export const requestGetPlayerList = async (page: number, searchParams?: string): Promise<Array<Player>> => {
+export interface GetPlayerListRequest {
+    players: Player[];
+    count: number;
+}
+
+export const requestGetPlayerList = async (page: number, searchParams?: string): Promise<GetPlayerListRequest> => {
     const range = `${(page - 1) * 10}-${page * 10 - 1}`;
     const path = searchParams ? `/api/players?page=${page}&${searchParams}` : `/api/players?page=${page}`;
     const data = await fetcher({ method: 'get', path, headers: { Range: range } });

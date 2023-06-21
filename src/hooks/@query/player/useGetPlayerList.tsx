@@ -5,15 +5,15 @@ import { Player } from '@typings/player';
 
 import { parseParmsToObject } from '@utils/url';
 
-import { requestGetPlayerList } from '@src/apis/player';
+import { GetPlayerListRequest, requestGetPlayerList } from '@src/apis/player';
 
 export const useGetPlayerList = (
     page: number,
     searchParams?: string,
-    options?: UseQueryOptions<Array<Player>, AxiosError>,
+    options?: UseQueryOptions<GetPlayerListRequest, AxiosError>,
 ) => {
     const searchParamsObject = searchParams ? parseParmsToObject(searchParams) : {};
-    return useQuery<Array<Player>, AxiosError>(
+    return useQuery<GetPlayerListRequest, AxiosError>(
         ['PLAYERS', { ...searchParamsObject, page }],
         () => requestGetPlayerList(page, searchParams),
         {

@@ -21,8 +21,6 @@ export const PlayerListHeader = styled.thead({
     border: '1px solid var(--grey0)',
     backgroundColor: 'var(--grey100)',
 
-    cursor: 'pointer',
-
     '& th': {
         padding: '1rem',
     },

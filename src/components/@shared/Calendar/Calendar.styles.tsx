@@ -5,6 +5,10 @@ import styled from '@emotion/styled';
 export const StyledDayPicker = styled(DayPicker)`
     padding: 1rem;
     background-color: var(--grey0);
+    .rdp-tfoot button {
+        margin-top: 1rem;
+    }
+
     .rdp-button_reset {
         color: var(--grey1000);
     }

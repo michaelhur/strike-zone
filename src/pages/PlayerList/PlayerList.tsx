@@ -25,7 +25,7 @@ const PlayerList = () => {
     const navigate = useNavigate();
     const [positionTypeFilter, setPositionTypeFilter] = useState<PositionType>('ALL');
     const [searchParams, setSearchParams] = useState<string>('');
-    const { isLoading, data: playerList } = useGetPlayerList(1, searchParams);
+    const { isLoading, data: data } = useGetPlayerList(1, searchParams);
     const onClickPlayerItem = (id: number) => {
         navigate(`${DYNAMIC_PATH.PLAYER_DETAIL(id)}`);
     };
@@ -57,8 +57,8 @@ const PlayerList = () => {
                     {isLoading ? (
                         <Loading size={60} />
                     ) : (
-                        playerList &&
-                        playerList.map((player) => (
+                        data?.players &&
+                        data.players.map((player) => (
                             <PlayerListItem key={player.id} player={player} onClickPlayerItem={onClickPlayerItem} />
                         ))
                     )}
