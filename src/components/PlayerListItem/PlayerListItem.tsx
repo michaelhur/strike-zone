@@ -1,8 +1,4 @@
-import {
-    PlayerListItemContainer,
-    StyledCell,
-    StyledNameCell,
-} from '@pages/PlayerList/components/PlayerListItem/PlayerListItem.styles';
+import { PlayerListItemContainer, StyledCell, StyledNameCell } from '@components/PlayerListItem/PlayerListItem.styles';
 
 import { Player, PlayerSideEnum, PositionEnum } from '@typings/player';
 

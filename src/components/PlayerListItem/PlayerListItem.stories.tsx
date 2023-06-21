@@ -1,7 +1,7 @@
 import { playerList } from '@mocks/data/player';
 import { Meta, Story } from '@storybook/react';
 
-import { PlayerListItem } from '@pages/PlayerList/components/PlayerListItem/PlayerListItem';
+import { PlayerListItem } from '@components/PlayerListItem/PlayerListItem';
 
 export default {
     title: 'Components/PlayerListItem',

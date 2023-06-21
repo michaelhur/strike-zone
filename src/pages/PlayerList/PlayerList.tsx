@@ -8,6 +8,7 @@ import { css } from '@emotion/react';
 import { CategoryMenu } from '@components/CategoryMenu/CategoryMenu';
 import { Loading } from '@components/Loading/Loading';
 import { Pagination } from '@components/Pagination/Pagination';
+import { PlayerListItem } from '@components/PlayerListItem/PlayerListItem';
 
 import { useGetPlayerList } from '@hooks/@query/player/useGetPlayerList';
 
@@ -18,7 +19,6 @@ import {
     StyledHeaderCell,
     StyledNameHeaderCell,
 } from '@pages/PlayerList/PlayerList.styles';
-import { PlayerListItem } from '@pages/PlayerList/components/PlayerListItem/PlayerListItem';
 
 import { PositionType } from '@typings/player';
 
