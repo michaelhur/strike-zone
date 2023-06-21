@@ -24,6 +24,9 @@ export const GameListSection = ({ fixtureDate, sectionLabel }: GameListSectionPr
     const [leagueFilter, setLeagueFilter] = useState<LeagueType>('ALL');
     const [viewType, setViewType] = useRecoilState<itemViewType>(itemViewTypeState);
 
+    const onClickLeague = (league: LeagueType) => setLeagueFilter(league);
+    const onClickView = (type: itemViewType) => setViewType(type);
+
     const { isLoading, data: gameList } = leagueFilter
         ? useGetGameList(`date=${fixtureDate}&leagues=${leagueFilter}`)
         : useGetGameList(`date=${fixtureDate}`);
@@ -37,10 +40,10 @@ export const GameListSection = ({ fixtureDate, sectionLabel }: GameListSectionPr
             </SectionTitleWrapper>
             <CategoryMenu<LeagueType, itemViewType>
                 selectedCategory={leagueFilter}
-                setSelectedCategory={setLeagueFilter}
+                setSelectedCategory={onClickLeague}
                 categoryOptions={leagueTabOptions}
                 selectedViewType={viewType}
-                setViewType={setViewType}
+                setViewType={onClickView}
                 viewTypeOptions={itemViewTypeOptions}
             />
             {fixtureDate && (

@@ -28,11 +28,11 @@ const PlayerList = () => {
     const [page, setPage] = useState<number>(1);
     const [searchParams, setSearchParams] = useState<string>('');
 
-    const { isLoading, data: data } = useGetPlayerList(page, searchParams);
+    const onClickPlayerItem = (id: number) => navigate(`${DYNAMIC_PATH.PLAYER_DETAIL(id)}`);
 
-    const onClickPlayerItem = (id: number) => {
-        navigate(`${DYNAMIC_PATH.PLAYER_DETAIL(id)}`);
-    };
+    const onClickPositionTab = (position: PositionType) => setPositionTypeFilter(position);
+
+    const { isLoading, data: data } = useGetPlayerList(page, searchParams);
 
     useEffect(() => {
         if (!positionTypeFilter || positionTypeFilter === 'ALL') setSearchParams('');
@@ -43,7 +43,7 @@ const PlayerList = () => {
         <PlayerListContainer>
             <CategoryMenu<PositionType, any>
                 selectedCategory={positionTypeFilter}
-                setSelectedCategory={setPositionTypeFilter}
+                setSelectedCategory={onClickPositionTab}
                 categoryOptions={positionTypeTabOptions}
             />
             <PlayerListTable>

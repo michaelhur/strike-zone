@@ -14,11 +14,11 @@ import { TabOptions, ViewTypeOptions } from '@typings/input';
 
 interface CategoryMenuProps<T1, T2> {
     selectedCategory: T1;
-    setSelectedCategory: Dispatch<SetStateAction<T1>> | SetterOrUpdater<T1>;
+    setSelectedCategory: (T1) => void;
     categoryOptions: TabOptions<T1>[];
     size?: 'small' | 'large';
     selectedViewType?: T2;
-    setViewType?: Dispatch<SetStateAction<T2>> | SetterOrUpdater<T2>;
+    setViewType?: (T2) => void;
     viewTypeOptions?: ViewTypeOptions<T2>[];
 }
 
