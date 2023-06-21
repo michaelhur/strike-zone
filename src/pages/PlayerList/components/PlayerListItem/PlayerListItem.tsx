@@ -1,8 +1,6 @@
 import styled from '@emotion/styled';
 
-import { AvatarIcon } from '@components/@shared/Icon';
-
-import { Player } from '@typings/player';
+import { Player, PlayerSideEnum, PositionEnum } from '@typings/player';
 
 interface PlayerListItemProps {
     player: Player;
@@ -16,12 +14,12 @@ export const PlayerListItem = ({ player, onClickPlayerItem }: PlayerListItemProp
 
     return (
         <PlayerListItemContainer onClick={onClickItem}>
-            <td>{name}</td>
-            <td>{batSide}</td>
-            <td>{pitchHand}</td>
-            <td>{positionCode}</td>
-            <td>{height}</td>
-            <td>{weight} lb</td>
+            <StyledNameCell>{name}</StyledNameCell>
+            <StyledCell>{PlayerSideEnum[batSide]}</StyledCell>
+            <StyledCell>{PlayerSideEnum[pitchHand]}</StyledCell>
+            <StyledCell>{PositionEnum[positionCode]}</StyledCell>
+            <StyledCell>{height}</StyledCell>
+            <StyledCell>{weight} lb</StyledCell>
         </PlayerListItemContainer>
     );
 };
@@ -35,8 +33,14 @@ export const PlayerListItemContainer = styled.tr({
     backgroundColor: 'var(--grey0)',
 
     cursor: 'pointer',
+});
 
-    '& td': {
-        padding: '1rem',
-    },
+export const StyledCell = styled.td({
+    padding: '1rem',
+    width: '10%',
+});
+
+export const StyledNameCell = styled.td({
+    padding: '1rem',
+    flex: '1',
 });

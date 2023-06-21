@@ -18,7 +18,7 @@ export const PlayerListHeader = styled.thead({
 
     width: '100%',
 
-    border: '1px solid var(--grey1000)',
+    border: '1px solid var(--grey0)',
     backgroundColor: 'var(--grey100)',
 
     cursor: 'pointer',
@@ -26,4 +26,14 @@ export const PlayerListHeader = styled.thead({
     '& th': {
         padding: '1rem',
     },
+});
+
+export const StyledHeaderCell = styled.th({
+    padding: '1rem',
+    width: '10%',
+});
+
+export const StyledNameHeaderCell = styled.th({
+    padding: '1rem',
+    flex: '1',
 });

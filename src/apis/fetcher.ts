@@ -7,11 +7,13 @@ type AnyOBJ = { [key: string]: any };
 export const fetcher = async ({
     method,
     path,
+    headers,
     body,
     params,
 }: {
     method: 'get' | 'post' | 'put' | 'delete' | 'patch';
     path: string;
+    headers?: AnyOBJ;
     body?: AnyOBJ;
     params?: AnyOBJ;
 }) => {
@@ -31,6 +33,9 @@ export const fetcher = async ({
                 'Access-Control-Allow-Origin': '*',
             },
         };
+
+        if (headers) fetchOptions.headers = { ...fetchOptions.headers, ...headers };
+        console.log(`new headers is: `, headers);
 
         if (body) fetchOptions.data = JSON.stringify(body);
 

@@ -8,7 +8,19 @@ export enum PlayerSideEnum {
     'S' = 'Switch',
 }
 
-export enum PositionEnum {}
+export enum PositionEnum {
+    'P' = 'Pitcher',
+    'C' = 'Catcher',
+    '1B' = 'First Baseman',
+    '2B' = 'Second Baseman',
+    '3B' = 'Third Baseman',
+    'SS' = 'Shortstop',
+    'LF' = 'Left Fielder',
+    'CF' = 'Center Fielder',
+    'RF' = 'Right Fielder',
+    'DH' = 'Designated Hitter',
+    'Y' = 'Two-Way Player',
+}
 
 export interface Player {
     id: number;

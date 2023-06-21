@@ -1,16 +1,28 @@
 import { rest } from 'msw';
 
 import { Player } from '../../src/typings/player';
+import { getFetchOffsets } from '../../src/utils/url';
 import { playerList } from '../data/player';
 
 export const playerHandler = [
     rest.get<Player[]>('/api/players', async (req, res, ctx) => {
         const query = req.url.searchParams.get('q');
+        const page = req.url.searchParams.get('page');
+        const positionType = req.url.searchParams.get('positionType');
+        const positionCode = req.url.searchParams.get('positionCode');
 
         const filteredData = playerList.filter((player) => {
             const queryFilter = query ? player.name.toLowerCase().indexOf(query) !== -1 : true;
-            return queryFilter;
+            const positionTypeFilter = positionType ? player.positionType === positionType : true;
+            const positionCodeFilter = positionCode ? player.positionCode === positionCode : true;
+
+            return queryFilter && positionTypeFilter && positionCodeFilter;
         });
+
+        if (page) {
+            const [start, end] = getFetchOffsets(1);
+            return res(ctx.status(200), ctx.json(filteredData.slice(start, end)));
+        }
 
         return res(ctx.status(200), ctx.json(filteredData));
     }),
