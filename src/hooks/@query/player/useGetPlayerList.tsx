@@ -1,8 +1,6 @@
 import { UseQueryOptions, useQuery } from '@tanstack/react-query';
 import { AxiosError } from 'axios';
 
-import { Player } from '@typings/player';
-
 import { parseParmsToObject } from '@utils/url';
 
 import { GetPlayerListRequest, requestGetPlayerList } from '@src/apis/player';

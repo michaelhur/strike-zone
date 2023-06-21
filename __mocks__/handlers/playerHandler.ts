@@ -8,7 +8,7 @@ import { playerList } from '../data/player';
 export const playerHandler = [
     rest.get<GetPlayerListRequest>('/api/players', async (req, res, ctx) => {
         const query = req.url.searchParams.get('q');
-        const page = req.url.searchParams.get('page');
+        const page = Number(req.url.searchParams.get('page'));
         const positionType = req.url.searchParams.get('positionType');
         const positionCode = req.url.searchParams.get('positionCode');
 
@@ -23,7 +23,7 @@ export const playerHandler = [
         const totalCount = filteredData.length;
 
         if (page) {
-            const [start, end] = getFetchOffsets(1);
+            const [start, end] = getFetchOffsets(page);
             return res(ctx.status(200), ctx.json({ players: filteredData.slice(start, end), count: totalCount }));
         }
 

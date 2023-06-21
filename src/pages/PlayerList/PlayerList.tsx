@@ -7,6 +7,7 @@ import { css } from '@emotion/react';
 
 import { CategoryMenu } from '@components/CategoryMenu/CategoryMenu';
 import { Loading } from '@components/Loading/Loading';
+import { Pagination } from '@components/Pagination/Pagination';
 
 import { useGetPlayerList } from '@hooks/@query/player/useGetPlayerList';
 
@@ -24,7 +25,7 @@ import { PositionType } from '@typings/player';
 const PlayerList = () => {
     const navigate = useNavigate();
     const [positionTypeFilter, setPositionTypeFilter] = useState<PositionType>('ALL');
-    const [page, setNumber] = useState<number>(1);
+    const [page, setPage] = useState<number>(1);
     const [searchParams, setSearchParams] = useState<string>('');
 
     const { isLoading, data: data } = useGetPlayerList(page, searchParams);
@@ -67,6 +68,9 @@ const PlayerList = () => {
                     )}
                 </tbody>
             </PlayerListTable>
+            {data && data.count > 10 && (
+                <Pagination currentPage={page} totalPage={Math.ceil(data.count / 10)} onClickPage={setPage} />
+            )}
         </PlayerListContainer>
     );
 };

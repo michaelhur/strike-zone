@@ -12,6 +12,7 @@ export * from './LogoIcon';
 export * from './PersonIcon';
 export * from './SidebarMenuIcon';
 export * from './TeamIcon';
+export * from './ThreeDotsIcon';
 export * from './ToggleDownIcon';
 export * from './ToggleUpIcon';
 export * from './UmpireIcon';
