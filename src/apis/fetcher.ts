@@ -34,8 +34,12 @@ export const fetcher = async ({
             },
         };
 
-        if (headers) fetchOptions.headers = { ...fetchOptions.headers, ...headers };
-        console.log(`new headers is: `, headers);
+        if (headers)
+            fetchOptions.headers = {
+                ...headers,
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+            };
 
         if (body) fetchOptions.data = JSON.stringify(body);
 
