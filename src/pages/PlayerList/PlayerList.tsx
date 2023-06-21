@@ -24,8 +24,11 @@ import { PositionType } from '@typings/player';
 const PlayerList = () => {
     const navigate = useNavigate();
     const [positionTypeFilter, setPositionTypeFilter] = useState<PositionType>('ALL');
+    const [page, setNumber] = useState<number>(1);
     const [searchParams, setSearchParams] = useState<string>('');
-    const { isLoading, data: data } = useGetPlayerList(1, searchParams);
+
+    const { isLoading, data: data } = useGetPlayerList(page, searchParams);
+
     const onClickPlayerItem = (id: number) => {
         navigate(`${DYNAMIC_PATH.PLAYER_DETAIL(id)}`);
     };
