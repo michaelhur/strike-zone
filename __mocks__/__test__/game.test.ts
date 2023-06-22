@@ -128,11 +128,18 @@ describe('경기 API', () => {
 
     it('GET /api/games/get-by-playerId/:id 요청은 특정 선수의 경기 리스트를 리턴한다', async () => {
         const id = 660670;
-        const response = await axios.get('/api/games/get-by-playerId/:id');
+        const playerType = 'batter';
+        const response = await axios.get(`/api/games/get-by-playerId/${id}?playerType=${playerType}`);
         const data = response.data;
 
         const gameIdList = atBatList
-            .filter((atbat) => atbat.batter.id === Number(id) || atbat.pitcher.id === Number(id))
+            .filter((atbat) =>
+                !playerType
+                    ? atbat.batter.id === Number(id) || atbat.pitcher.id === Number(id)
+                    : playerType === 'batter'
+                    ? atbat.batter.id === Number(id)
+                    : atbat.pitcher.id === Number(id),
+            )
             .map((atbat) => atbat.game.id);
 
         const uniqueIdList = [...new Set(gameIdList)];

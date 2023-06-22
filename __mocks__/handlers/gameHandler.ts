@@ -63,9 +63,16 @@ export const gameHandler = [
 
     rest.get<Game>('/api/games/get-by-playerId/:id', async (req, res, ctx) => {
         const { id } = req.params;
+        const playerType = req.url.searchParams.get('playerType');
 
         const gameIdList = atBatList
-            .filter((atbat) => atbat.batter.id === Number(id) || atbat.pitcher.id === Number(id))
+            .filter((atbat) =>
+                !playerType
+                    ? atbat.batter.id === Number(id) || atbat.pitcher.id === Number(id)
+                    : playerType === 'batter'
+                    ? atbat.batter.id === Number(id)
+                    : atbat.pitcher.id === Number(id),
+            )
             .map((atbat) => atbat.game.id);
 
         const uniqueIdList = [...new Set(gameIdList)];
