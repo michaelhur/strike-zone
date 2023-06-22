@@ -61,7 +61,7 @@ export const gameHandler = [
         return res(ctx.status(200), ctx.json(targetGame));
     }),
 
-    rest.get<Game>('/api/games/get-by-playerId/:id', async (req, res, ctx) => {
+    rest.get<Game[]>('/api/games/get-by-playerId/:id', async (req, res, ctx) => {
         const { id } = req.params;
         const playerType = req.url.searchParams.get('playerType');
 
@@ -72,6 +72,29 @@ export const gameHandler = [
                     : playerType === 'batter'
                     ? atbat.batter.id === Number(id)
                     : atbat.pitcher.id === Number(id),
+            )
+            .map((atbat) => atbat.game.id);
+
+        const uniqueIdList = [...new Set(gameIdList)];
+
+        const filteredGameList = gameList
+            .filter((game) => uniqueIdList.includes(game.id))
+            .sort((a, b) => b.date.localeCompare(a.date));
+
+        return res(ctx.status(200), ctx.json(filteredGameList));
+    }),
+
+    rest.get<Game[]>('/api/games/get-by-playerSlug/:slug', async (req, res, ctx) => {
+        const { slug } = req.params;
+        const playerType = req.url.searchParams.get('playerType');
+
+        const gameIdList = atBatList
+            .filter((atbat) =>
+                !playerType
+                    ? atbat.batter.slug === slug || atbat.pitcher.slug === slug
+                    : playerType === 'batter'
+                    ? atbat.batter.slug === slug
+                    : atbat.pitcher.slug === slug,
             )
             .map((atbat) => atbat.game.id);
 
