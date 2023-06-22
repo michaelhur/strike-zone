@@ -14,5 +14,14 @@ export const LeftSection = styled(FlexColumnContainer)({
     gap: '1rem',
 
     minHeight: '100vh',
-    width: '100%',
+    width: '30%',
+});
+
+export const RightSection = styled(FlexColumnContainer)({
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+    gap: '1rem',
+
+    minHeight: '100vh',
+    width: '70%%',
 });

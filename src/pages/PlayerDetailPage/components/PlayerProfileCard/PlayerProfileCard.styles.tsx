@@ -66,6 +66,7 @@ export const SectionName = styled.span({
 });
 
 export const SectionValue = styled.span({
+    fontWeight: '600',
     testAlign: 'left',
     width: '50%',
 });

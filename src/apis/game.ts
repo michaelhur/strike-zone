@@ -19,8 +19,10 @@ export const requestGetGameByPlayerId = async (id: number): Promise<Game[]> => {
     return data;
 };
 
-export const requestGetGameByPlayerSlug = async (slug: string): Promise<Game[]> => {
-    const data = await fetcher({ method: 'get', path: `/api/games/get-by-playerSlug/${slug}` });
+export const requestGetGameByPlayerSlug = async (slug: string, page: number): Promise<Game[]> => {
+    const path = `/api/games/get-by-playerSlug/${slug}?page=${page}`;
+    const range = `${(page - 1) * 10}-${page * 10 - 1}`;
+    const data = await fetcher({ method: 'get', path, headers: { Range: range } });
     return data;
 };
 

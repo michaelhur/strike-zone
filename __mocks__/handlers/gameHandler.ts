@@ -1,5 +1,7 @@
 import { rest } from 'msw';
 
+import { getFetchOffsets } from '@utils/url';
+
 import { dateString } from '../../src/typings';
 import { Game } from '../../src/typings/game';
 import { atBatList } from '../data/atBat';
@@ -78,6 +80,7 @@ export const gameHandler = [
     rest.get<Game[]>('/api/games/get-by-playerSlug/:slug', async (req, res, ctx) => {
         const { slug } = req.params;
         const playerType = req.url.searchParams.get('playerType');
+        const page = req.url.searchParams.get('page');
 
         const gameIdList = atBatList
             .filter((atbat) =>
@@ -94,6 +97,11 @@ export const gameHandler = [
         const filteredGameList = gameList
             .filter((game) => uniqueIdList.includes(game.id))
             .sort((a, b) => b.date.localeCompare(a.date));
+
+        if (page) {
+            const [start, end] = getFetchOffsets(Number(page), 5);
+            return res(ctx.status(200), ctx.json(filteredGameList.slice(start, end)));
+        }
 
         return res(ctx.status(200), ctx.json(filteredGameList));
     }),

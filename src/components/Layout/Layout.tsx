@@ -65,4 +65,9 @@ export const SectionTitleWrapper = styled.div({
         fontFamily: 'BMHANNAAir',
         fontSize: '2rem',
     },
+
+    '& h3': {
+        fontFamily: 'BMHANNAAir',
+        fontSize: '1.5rem',
+    },
 });
