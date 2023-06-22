@@ -6,10 +6,11 @@ import { RecoilRoot } from 'recoil';
 
 import { globalStyle } from '@styles/globalStyle';
 
+import { worker } from '../__mocks__/browser';
 import App from './App';
 
 if (import.meta.env.MODE === 'development') {
-    import('../__mocks__');
+    worker.start();
 }
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
