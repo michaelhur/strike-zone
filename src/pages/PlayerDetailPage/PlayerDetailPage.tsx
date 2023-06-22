@@ -4,7 +4,7 @@ import { Loading } from '@components/Loading/Loading';
 
 import { useGetPlayer } from '@hooks/@query/player/useGetPlayer';
 
-import { PlayerDetailPageContainer } from '@pages/PlayerDetailPage/PlayerDetailPage.styles';
+import { LeftSection, PlayerDetailPageContainer } from '@pages/PlayerDetailPage/PlayerDetailPage.styles';
 import { PlayerProfileCard } from '@pages/PlayerDetailPage/components/PlayerProfileCard/PlayerProfileCard';
 
 const PlayerDetailPage = () => {
@@ -15,7 +15,9 @@ const PlayerDetailPage = () => {
 
     return (
         <PlayerDetailPageContainer>
-            <PlayerProfileCard player={player!} />
+            <LeftSection>
+                <PlayerProfileCard player={player!} />
+            </LeftSection>
         </PlayerDetailPageContainer>
     );
 };

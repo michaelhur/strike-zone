@@ -1,3 +1,4 @@
+import { css } from '@emotion/react';
 import { playerList } from '@mocks/data/player';
 import { Meta, Story } from '@storybook/react';
 
@@ -6,6 +7,13 @@ import { PlayerProfileCard } from '@pages/PlayerDetailPage/components/PlayerProf
 export default {
     title: 'Components/PlayerProfileCard',
     component: PlayerProfileCard,
+    decorators: [
+        (Story) => (
+            <div css={css({ width: '350px' })}>
+                <Story />
+            </div>
+        ),
+    ],
 } as Meta<typeof PlayerProfileCard>;
 
 const Template: Story<typeof PlayerProfileCard> = (args) => {

@@ -7,3 +7,11 @@ export const PlayerDetailPageContainer = styled(RowPageContainer)({
     alignItems: 'flex-start',
     padding: '2rem',
 });
+
+export const LeftSection = styled(FlexColumnContainer)({
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+
+    minHeight: '100vh',
+    width: '100%',
+});
