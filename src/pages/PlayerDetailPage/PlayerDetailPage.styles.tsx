@@ -11,6 +11,7 @@ export const PlayerDetailPageContainer = styled(RowPageContainer)({
 export const LeftSection = styled(FlexColumnContainer)({
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
+    gap: '1rem',
 
     minHeight: '100vh',
     width: '100%',

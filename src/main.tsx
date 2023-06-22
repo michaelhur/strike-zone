@@ -8,7 +8,7 @@ import { globalStyle } from '@styles/globalStyle';
 
 import App from './App';
 
-if (import.meta.env.DEV) {
+if (import.meta.env.MODE === 'development') {
     import('../__mocks__');
 }
 
