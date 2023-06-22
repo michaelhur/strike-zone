@@ -3,6 +3,7 @@ export enum PitchType {
     AS = 'Automatic Strike',
     CH = 'Change-up',
     CU = 'Curveball',
+    CS = 'Slow Curve',
     EP = 'Eephus',
     FC = 'Cutter',
     FF = 'Four-Seam Fastball',

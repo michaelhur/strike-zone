@@ -25,7 +25,11 @@ export const Pagination = ({ currentPage, totalPage, onClickPage }: PaginationPr
     return (
         <PaginationContainer>
             <PaginationWrapper>
-                <ArrowLeftIcon color={'var(--grey700)'} hoverable={true} />
+                <ArrowLeftIcon
+                    color={'var(--grey700)'}
+                    hoverable={true}
+                    onClickIcon={currentPage > 1 ? () => onClickPage(currentPage - 1) : () => onClickPage(1)}
+                />
                 {pages.map((page) => {
                     const isNumber = page !== 'before' && page !== 'after';
                     const oncClickPageButton = () => {
@@ -42,7 +46,13 @@ export const Pagination = ({ currentPage, totalPage, onClickPage }: PaginationPr
                         </PaginationButtonWrap>
                     );
                 })}
-                <ArrowRightIcon color={'var(--grey700)'} hoverable={true} />
+                <ArrowRightIcon
+                    color={'var(--grey700)'}
+                    hoverable={true}
+                    onClickIcon={
+                        currentPage < totalPage ? () => onClickPage(currentPage + 1) : () => onClickPage(totalPage)
+                    }
+                />
             </PaginationWrapper>
         </PaginationContainer>
     );
