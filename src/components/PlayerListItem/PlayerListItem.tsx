@@ -4,14 +4,14 @@ import { Player, PlayerSideEnum, PositionEnum } from '@typings/player';
 
 interface PlayerListItemProps {
     player: Player;
-    onClickPlayerItem: (id: number) => void;
+    onClickPlayerItem: (slug: string) => void;
 }
 
 export const PlayerListItem = ({ player, onClickPlayerItem }: PlayerListItemProps) => {
-    const { id, name, batSide, pitchHand, positionCode, height, weight } = player;
+    const { name, batSide, pitchHand, positionCode, height, weight, slug } = player;
 
     return (
-        <PlayerListItemContainer onClick={() => onClickPlayerItem(id)}>
+        <PlayerListItemContainer onClick={() => onClickPlayerItem(slug)}>
             <StyledNameCell>{name}</StyledNameCell>
             <StyledCell>{PlayerSideEnum[batSide]}</StyledCell>
             <StyledCell>{PlayerSideEnum[pitchHand]}</StyledCell>

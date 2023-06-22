@@ -14,7 +14,7 @@ export const requestGetPlayerList = async (page: number, searchParams?: string):
     return data;
 };
 
-export const requestGetPlayer = async (id: number): Promise<Player> => {
-    const data = await fetcher({ method: 'get', path: `/api/players/${id}` });
+export const requestGetPlayer = async (slug: string): Promise<Player> => {
+    const data = await fetcher({ method: 'get', path: `/api/players/${slug}` });
     return data;
 };

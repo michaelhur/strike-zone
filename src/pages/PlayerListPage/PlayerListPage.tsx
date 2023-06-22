@@ -22,7 +22,7 @@ const PlayerListPage = () => {
     const [page, setPage] = useState<number>(1);
     const [searchParams, setSearchParams] = useState<string>('');
 
-    const onClickPlayerItem = (id: number) => navigate(`${DYNAMIC_PATH.PLAYER_DETAIL(id)}`);
+    const onClickPlayerItem = (slug: string) => navigate(`${DYNAMIC_PATH.PLAYER_DETAIL(slug)}`);
 
     const onClickPositionTab = (position: PositionType) => {
         setPositionTypeFilter(position);

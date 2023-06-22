@@ -14,7 +14,7 @@ describe('선수 API', () => {
     it('GET /api/players 요청은 모든 선수 리스트를 리턴한다.', async () => {
         const response = await axios.get(`/api/players`);
         const data = response.data;
-        const playerList = data.playerList;
+        const playerList = data.players;
 
         expect(response.status).toBe(200);
         expect(playerList).toEqual(playerList);
@@ -24,7 +24,7 @@ describe('선수 API', () => {
         const pageNumber = 1;
         const response = await axios.get(`/api/players?page=${pageNumber}`);
         const data = response.data;
-        const playerList = data.playerList;
+        const playerList = data.players;
 
         const firstPagePlayerList = playerList.slice(0, 9);
 
@@ -36,7 +36,7 @@ describe('선수 API', () => {
         const query = 'Ryu';
         const response = await axios.get(`/api/players?q=${query}`);
         const data = response.data;
-        const playerList = data.playerList;
+        const playerList = data.players;
 
         const playerListByQuery = playerList.filter((player) => player.name.toLowerCase().indexOf(query) !== -1);
 
@@ -48,7 +48,7 @@ describe('선수 API', () => {
         const positionType = 'Pitcher';
         const response = await axios.get(`/api/players?positionType=${positionType}`);
         const data = response.data;
-        const playerList = data.playerList;
+        const playerList = data.players;
 
         const pitcherList = playerList.filter((player) => player.positionType === positionType);
 
@@ -60,7 +60,7 @@ describe('선수 API', () => {
         const positionCode = 'SS';
         const response = await axios.get(`/api/players?positionCode=${positionCode}`);
         const data = response.data;
-        const playerList = data.playerList;
+        const playerList = data.players;
 
         const shortstopList = playerList.filter((player) => player.positionCode === positionCode);
 
@@ -68,12 +68,12 @@ describe('선수 API', () => {
         expect(playerList).toEqual(shortstopList);
     });
 
-    it('GET /api/players/:playerId 요청은 특정 선수의 정보를 리턴한다.', async () => {
-        const playerId = 657006;
-        const response = await axios.get(`/api/players/${playerId}`);
+    it('GET /api/players/:slug 요청은 특정 선수의 정보를 리턴한다.', async () => {
+        const slug = 'fernando-abad-472551';
+        const response = await axios.get(`/api/players/${slug}`);
         const data = response.data;
 
-        const playerData = playerList.find((player) => player.id === playerId);
+        const playerData = playerList.find((player) => player.slug === slug);
 
         expect(response.status).toBe(200);
         expect(data).toEqual(playerData);

@@ -30,9 +30,9 @@ export const playerHandler = [
         return res(ctx.status(200), ctx.json({ players: filteredData, count: totalCount }));
     }),
 
-    rest.get<Player>(`/api/players/:playerId`, async (req, res, ctx) => {
-        const { playerId } = req.params;
-        const targetPlayer = playerList.find((player) => player.id === Number(playerId));
+    rest.get<Player>(`/api/players/:slug`, async (req, res, ctx) => {
+        const { slug } = req.params;
+        const targetPlayer = playerList.find((player) => player.slug === slug);
 
         if (!targetPlayer) return res(ctx.status(400), ctx.json({ message: '해당 선수는 존재하지 않습니다' }));
 

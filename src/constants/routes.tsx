@@ -8,7 +8,7 @@ export const PATH = {
     FIXTURE: '/fixtures',
     FIXTURE_BY_DATE: '/fixtures/:date',
     PLAYER_LIST: '/players',
-    PLAYER_DETAIL: '/players/:id',
+    PLAYER_DETAIL: '/players/:slug',
     TEAM_LIST: '/teams',
     TEAM_DETAIL: '/teams/:id',
     UMPIRE_LIST: '/umpires',
@@ -24,8 +24,8 @@ export const DYNAMIC_PATH = {
     FIXTURE_BY_DATE(date: string): string {
         return `/fixtures/${date}`;
     },
-    PLAYER_DETAIL(id: number): string {
-        return `/players/${id}`;
+    PLAYER_DETAIL(slug: string): string {
+        return `/players/${slug}`;
     },
     TEAM_DETAIL(id: number): string {
         return `/teams/${id}`;

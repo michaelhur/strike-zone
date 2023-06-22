@@ -11,7 +11,7 @@ import { Player } from '@typings/player';
 
 interface PlayerListProps {
     players: Player[];
-    onClickItem: (id: number) => void;
+    onClickItem: (slug: string) => void;
 }
 
 export const PlayerList = ({ players, onClickItem }: PlayerListProps) => {
