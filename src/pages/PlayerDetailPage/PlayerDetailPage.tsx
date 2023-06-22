@@ -9,7 +9,7 @@ import { PlayerProfileCard } from '@pages/PlayerDetailPage/components/PlayerProf
 
 const PlayerDetailPage = () => {
     const { slug } = useParams();
-    const { isLoading, data: player } = useGetPlayer(slug);
+    const { isLoading, data: player } = useGetPlayer(slug!);
 
     if (isLoading) return <Loading size={60} />;
 

@@ -8,6 +8,17 @@ export enum PlayerSideEnum {
     'S' = 'Switch',
 }
 
+export enum PitchHandEnum {
+    'L' = 'LHP',
+    'R' = 'RHP',
+}
+
+export enum BatSideEnum {
+    'L' = 'LHB',
+    'R' = 'RHB',
+    'S' = 'Switch Hitter',
+}
+
 export enum PositionEnum {
     'P' = 'Pitcher',
     'C' = 'Catcher',
