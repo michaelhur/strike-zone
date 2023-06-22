@@ -1,5 +1,3 @@
-import { css } from '@emotion/react';
-
 import {
     PlayerListBody,
     PlayerListHeader,
@@ -30,10 +28,9 @@ export const PlayerList = ({ players, onClickItem }: PlayerListProps) => {
                 </tr>
             </PlayerListHeader>
             <PlayerListBody>
-                {players &&
-                    players.map((player) => (
-                        <PlayerListItem key={player.id} player={player} onClickPlayerItem={onClickItem} />
-                    ))}
+                {players.map((player) => (
+                    <PlayerListItem key={player.id} player={player} onClickPlayerItem={onClickItem} />
+                ))}
             </PlayerListBody>
         </PlayerListTable>
     );
