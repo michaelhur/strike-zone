@@ -2,6 +2,7 @@ import axios from 'axios';
 import { setupServer } from 'msw/node';
 import { expect } from 'vitest';
 
+import { atBatList } from '../data/atBat';
 import { gameList } from '../data/game';
 import { gameHandler } from '../handlers/gameHandler';
 
@@ -114,17 +115,6 @@ describe('경기 API', () => {
         expect(data).toEqual(NLGameList);
     });
 
-    it('GET /api/games/:slug 요청은 특정 경기의 정보를 리턴한다', async () => {
-        const slug = '230406-TOR-KCA-1';
-        const response = await axios.get(`/api/games/${slug}`);
-        const data = response.data;
-
-        const gameData = gameList.find((game) => game.slug && game.slug === slug);
-
-        expect(response.status).toBe(200);
-        expect(data).toEqual(gameData);
-    });
-
     it('GET /api/games/get-by-id/:id 요청은 특정 경기의 정보를 리턴한다', async () => {
         const id = 718686;
         const response = await axios.get(`/api/games/get-by-id/${id}`);
@@ -134,6 +124,25 @@ describe('경기 API', () => {
 
         expect(response.status).toBe(200);
         expect(data).toEqual(gameData);
+    });
+
+    it('GET /api/games/get-by-playerId/:id 요청은 특정 선수의 경기 리스트를 리턴한다', async () => {
+        const id = 660670;
+        const response = await axios.get('/api/games/get-by-playerId/:id');
+        const data = response.data;
+
+        const gameIdList = atBatList
+            .filter((atbat) => atbat.batter.id === Number(id) || atbat.pitcher.id === Number(id))
+            .map((atbat) => atbat.game.id);
+
+        const uniqueIdList = [...new Set(gameIdList)];
+
+        const filteredGameList = gameList
+            .filter((game) => uniqueIdList.includes(game.id))
+            .sort((a, b) => b.date.localeCompare(a.date));
+
+        expect(response.status).toBe(200);
+        expect(data).toEqual(filteredGameList);
     });
 
     it('GET /api/games/@latest 요청은 가장 최근 경기일을 리턴한다', async () => {
@@ -155,5 +164,16 @@ describe('경기 API', () => {
         const targetDate = { date: maxDate };
         expect(response.status).toBe(200);
         expect(data).toEqual(targetDate);
+    });
+
+    it('GET /api/games/:slug 요청은 특정 경기의 정보를 리턴한다', async () => {
+        const slug = '230406-TOR-KCA-1';
+        const response = await axios.get(`/api/games/${slug}`);
+        const data = response.data;
+
+        const gameData = gameList.find((game) => game.slug && game.slug === slug);
+
+        expect(response.status).toBe(200);
+        expect(data).toEqual(gameData);
     });
 });
