@@ -76,7 +76,7 @@ export const requestGetPlayerStats = async (slug: string): Promise<AnyOBJ> => {
     }
 
     if (battingSplits) {
-        const { gamesPlayed, strikeOuts, baseonBalls, avg, hits, homeRuns, obp, slg, ops, rbi } = splits;
+        const { gamesPlayed, strikeOuts, baseonBalls, avg, hits, homeRuns, obp, slg, ops, rbi } = battingSplits;
         battingStats = {
             gamesPlayed,
             strikeOuts,
