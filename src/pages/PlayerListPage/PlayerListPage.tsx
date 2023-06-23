@@ -39,7 +39,6 @@ const PlayerListPage = () => {
 
     useEffect(() => {
         const handlePopState = () => {
-            console.log('1234');
             const page = sessionStorage.getItem('playerList_page');
             if (page) {
                 setPage(JSON.parse(page));
