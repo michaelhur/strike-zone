@@ -14,10 +14,8 @@ if (import.meta.env.MODE === 'development') {
 }
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-    <React.StrictMode>
-        <RecoilRoot>
-            <Global styles={globalStyle} />
-            <App />
-        </RecoilRoot>
-    </React.StrictMode>,
+    <RecoilRoot>
+        <Global styles={globalStyle} />
+        <App />
+    </RecoilRoot>,
 );

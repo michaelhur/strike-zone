@@ -1,5 +1,3 @@
-import { Dispatch, SetStateAction } from 'react';
-
 import { ArrowLeftIcon, ArrowRightIcon, ThreeDotsIcon } from '@components/@shared/Icon';
 
 import { PaginationButtonWrap, PaginationContainer, PaginationWrapper } from './Pagination.styles';
@@ -7,7 +5,7 @@ import { PaginationButtonWrap, PaginationContainer, PaginationWrapper } from './
 interface PaginationProps {
     currentPage: number;
     totalPage: number;
-    onClickPage: Dispatch<SetStateAction<number>>;
+    onClickPage: (page: number) => void;
 }
 
 const getPageToShow = (currentPage: number, totalPage: number): Array<number | 'before' | 'after'> => {
