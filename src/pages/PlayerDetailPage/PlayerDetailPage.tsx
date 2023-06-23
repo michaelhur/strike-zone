@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { GameList } from '@components/GameListSection/components/GameList/GameList';
@@ -6,17 +7,21 @@ import { Loading } from '@components/Loading/Loading';
 
 import { useGetGameByPlayerSlug } from '@hooks/@query/game/useGetGameByPlayerSlug';
 import { useGetPlayer } from '@hooks/@query/player/useGetPlayer';
+import { useGetPlayerStats } from '@hooks/@query/player/useGetPlayerStats';
 
 import { LeftSection, PlayerDetailPageContainer, RightSection } from '@pages/PlayerDetailPage/PlayerDetailPage.styles';
 import { PlayerProfileCard } from '@pages/PlayerDetailPage/components/PlayerProfileCard/PlayerProfileCard';
+
+import { extractPlayerStats } from '@utils/player';
 
 const PlayerDetailPage = () => {
     const { slug } = useParams();
     const { isLoading: isLoadingPlayers, data: player } = useGetPlayer(slug!);
     const { isLoading: isLoadingGames, data: games } = useGetGameByPlayerSlug(slug!, 1);
+    const { isLoading: isLoadingStats, data: stats } = useGetPlayerStats(slug!, 'hitting');
 
-    if (isLoadingPlayers || isLoadingGames) return <Loading size={60} />;
-
+    if (isLoadingPlayers || isLoadingGames || isLoadingStats) return <Loading size={60} />;
+    console.log(stats);
     return (
         <PlayerDetailPageContainer>
             <LeftSection>

@@ -1,3 +1,5 @@
+import { Team } from '@typings/team';
+
 export type PlayerSide = 'L' | 'R' | 'S';
 
 export type PositionType = 'ALL' | 'Pitcher' | 'Infielder' | 'Outfielder' | 'Hitter' | 'Two-Way Player';
@@ -45,4 +47,6 @@ export interface Player {
     weight: number;
     slug: string;
     playerNumber: number;
+    teamId?: number;
+    team?: Team | null;
 }

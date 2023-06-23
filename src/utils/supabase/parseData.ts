@@ -121,6 +121,7 @@ const getMLBData = async (gamePk: number, homeScore: number, awayScore: number, 
                     weight: player.weight,
                     slug: player.nameSlug,
                     playerNumber: Number(player.primaryNumber) || 9999,
+                    teamId: player.currentTeam.id || 9999,
                 };
             });
 

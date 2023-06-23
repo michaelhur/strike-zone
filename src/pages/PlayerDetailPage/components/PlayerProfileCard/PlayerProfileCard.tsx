@@ -1,12 +1,11 @@
 import { AvatarIcon } from '@components/@shared/Icon';
 
 import {
-    BioSection,
-    BioSectionRow,
     NameSection,
+    PlayerImageSection,
     PlayerProfileCardContainer,
-    SectionName,
-    SectionValue,
+    PositionSection,
+    TeamImageWrap,
 } from '@pages/PlayerDetailPage/components/PlayerProfileCard/PlayerProfileCard.styles';
 
 import { Player, PlayerSideEnum, PositionEnum } from '@typings/player';
@@ -16,35 +15,26 @@ interface PlayerProfileCardProps {
 }
 
 export const PlayerProfileCard = ({ player }: PlayerProfileCardProps) => {
-    const { name, batSide, pitchHand, positionCode, height, weight, playerNumber } = player;
+    const { name, batSide, pitchHand, positionCode, height, weight, playerNumber, team } = player;
 
     return (
         <PlayerProfileCardContainer>
-            <AvatarIcon color={'#DDDDDD'} size={120} />
+            <PlayerImageSection>
+                <AvatarIcon color={'#DDDDDD'} size={120} />
+                {team && (
+                    <TeamImageWrap>
+                        <img src={team.imageUrl} alt={team.name} />
+                    </TeamImageWrap>
+                )}
+            </PlayerImageSection>
             <NameSection>
                 <h4>{name}</h4>
                 {playerNumber !== 9999 && <span> #{playerNumber}</span>}
             </NameSection>
-            <BioSection>
-                <BioSectionRow>
-                    <SectionName>Position:</SectionName>
-                    <SectionValue>{PositionEnum[positionCode]}</SectionValue>
-                </BioSectionRow>
-                <BioSectionRow>
-                    <SectionName>Pitch/Bat</SectionName>
-                    <SectionValue>
-                        {PlayerSideEnum[pitchHand]}/{PlayerSideEnum[batSide]}
-                    </SectionValue>
-                </BioSectionRow>
-                <BioSectionRow>
-                    <SectionName>Height:</SectionName>
-                    <SectionValue>{height}</SectionValue>
-                </BioSectionRow>
-                <BioSectionRow>
-                    <SectionName>Weight:</SectionName>
-                    <SectionValue>{weight} lb</SectionValue>
-                </BioSectionRow>
-            </BioSection>
+            <PositionSection>
+                <span>{PositionEnum[positionCode]}</span>
+                {team && <span>@ {team.name}</span>}
+            </PositionSection>
         </PlayerProfileCardContainer>
     );
 };
