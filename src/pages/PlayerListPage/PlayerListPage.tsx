@@ -1,4 +1,4 @@
-import { Suspense, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { positionTypeTabOptions } from '@constants/players';
@@ -9,7 +9,6 @@ import { Pagination } from '@components/Pagination/Pagination';
 import { PlayerList } from '@components/PlayerList/PlayerList';
 
 import { useGetPlayerList } from '@hooks/@query/player/useGetPlayerList';
-import useBackState from '@hooks/useBackState';
 
 import { PlayerListContainer } from '@pages/PlayerListPage/PlayerListPage.styles';
 

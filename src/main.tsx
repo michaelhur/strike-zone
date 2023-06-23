@@ -10,7 +10,9 @@ import { worker } from '../__mocks__/browser';
 import App from './App';
 
 if (import.meta.env.MODE === 'development') {
-    worker.start();
+    worker.start({
+        onUnhandledRequest: 'bypass',
+    });
 }
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
