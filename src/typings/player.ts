@@ -1,3 +1,4 @@
+import { EmptyObject } from '@typings/index';
 import { Team } from '@typings/team';
 
 export type PlayerSide = 'L' | 'R' | 'S';
@@ -49,4 +50,39 @@ export interface Player {
     playerNumber: number;
     teamId?: number;
     team?: Team | null;
+}
+
+export interface PitchingStats {
+    baseOnBalls: number;
+    balls: number;
+    era: number;
+    gamesPlayed: number;
+    holds: number;
+    inningsPitched: number;
+    losses: number;
+    outs: number;
+    saves: number;
+    strikes: number;
+    strikeOuts: number;
+    whip: number;
+    wins: number;
+}
+
+export interface BattingStats {
+    avg: number;
+    baseonBalls: number;
+    gamesPlayed: number;
+    hits: number;
+    homeRuns: number;
+    obp: number;
+    ops: number;
+    rbi: number;
+    slg: number;
+    strikeOuts: number;
+}
+
+export interface PlayerStats {
+    pitchingStats: PitchingStats;
+    battingStats: BattingStats;
+    positionCode: string;
 }

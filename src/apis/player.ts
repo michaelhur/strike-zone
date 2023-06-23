@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { Player } from '@typings/player';
+import { Player, PlayerStats } from '@typings/player';
 
 import { fetcher } from '@src/apis/fetcher';
 import { AnyOBJ } from '@src/typings';
@@ -22,7 +22,7 @@ export const requestGetPlayer = async (slug: string): Promise<Player> => {
     return data;
 };
 
-export const requestGetPlayerStats = async (slug: string): Promise<AnyOBJ> => {
+export const requestGetPlayerStats = async (slug: string): Promise<PlayerStats> => {
     const [id] = slug.split('-').slice(-1);
     const url = `https://statsapi.mlb.com/api/v1/people/${id}?hydrate=stats(group=[hitting,pitching],type=season,sportId=1,force=True),currentTeam`;
     const response = await axios({
@@ -31,7 +31,8 @@ export const requestGetPlayerStats = async (slug: string): Promise<AnyOBJ> => {
     });
 
     const mlbData = response.data;
-    const stats = mlbData.people[0].stats;
+    const { primaryPosition, stats } = mlbData.people[0];
+    const positionCode = primaryPosition.abbreviation;
 
     const seasonPitchingStats = stats.find((stat) => stat.group.displayName === 'pitching');
     const seasonBattingStats = stats.find((stat) => stat.group.displayName === 'hitting');
@@ -39,8 +40,33 @@ export const requestGetPlayerStats = async (slug: string): Promise<AnyOBJ> => {
     const pitchingSplits = seasonPitchingStats ? seasonPitchingStats.splits[0].stat : {};
     const battingSplits = seasonBattingStats ? seasonBattingStats.splits[0].stat : {};
 
-    let pitchingStats = {};
-    let battingStats = {};
+    let pitchingStats = {
+        gamesPlayed: 0,
+        era: 0,
+        wins: 0,
+        losses: 0,
+        saves: 0,
+        holds: 0,
+        outs: 0,
+        strikes: 0,
+        balls: 0,
+        whip: 0,
+        inningsPitched: 0,
+        strikeOuts: 0,
+        baseOnBalls: 0,
+    };
+    let battingStats = {
+        gamesPlayed: 0,
+        strikeOuts: 0,
+        baseonBalls: 0,
+        avg: 0,
+        hits: 0,
+        homeRuns: 0,
+        obp: 0,
+        slg: 0,
+        ops: 0,
+        rbi: 0,
+    };
 
     if (pitchingSplits) {
         const {
@@ -91,5 +117,5 @@ export const requestGetPlayerStats = async (slug: string): Promise<AnyOBJ> => {
         };
     }
 
-    return { pitchingStats, battingStats };
+    return { pitchingStats, battingStats, positionCode };
 };

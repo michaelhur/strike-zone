@@ -1,43 +1,16 @@
-import { AvatarIcon } from '@components/@shared/Icon';
-
-import {
-    NameSection,
-    PlayerImageSection,
-    PlayerProfileCardContainer,
-    PositionSection,
-    TeamImageWrap,
-} from '@pages/PlayerDetailPage/components/PlayerProfileCard/PlayerProfileCard.styles';
-
-import { Player, PositionEnum } from '@typings/player';
-
-import { AnyOBJ } from '@src/typings';
+import { PlayerProfileCardContainer } from '@pages/PlayerDetailPage/components/PlayerProfileCard/PlayerProfileCard.styles';
+import { ProfileStatsSection } from '@pages/PlayerDetailPage/components/PlayerProfileCard/components/ProfileStatsSection/ProfileStatsSection';
+import { ProfileTopSection } from '@pages/PlayerDetailPage/components/PlayerProfileCard/components/ProfileTopSection/ProfileTopSection';
 
 interface PlayerProfileCardProps {
-    player: Player;
-    stats: AnyOBJ;
+    slug: string;
 }
 
-export const PlayerProfileCard = ({ player, stats }: PlayerProfileCardProps) => {
-    const { name, batSide, pitchHand, positionCode, height, weight, playerNumber, team } = player;
-
+export const PlayerProfileCard = ({ slug }: PlayerProfileCardProps) => {
     return (
         <PlayerProfileCardContainer>
-            <PlayerImageSection>
-                <AvatarIcon color={'#DDDDDD'} size={120} />
-                {team && (
-                    <TeamImageWrap>
-                        <img src={team.imageUrl} alt={team.name} />
-                    </TeamImageWrap>
-                )}
-            </PlayerImageSection>
-            <NameSection>
-                <h4>{name}</h4>
-                {playerNumber !== 9999 && <span> #{playerNumber}</span>}
-            </NameSection>
-            <PositionSection>
-                <span>{PositionEnum[positionCode]}</span>
-                {team && <span>@ {team.name}</span>}
-            </PositionSection>
+            <ProfileTopSection slug={slug} />
+            <ProfileStatsSection slug={slug} />
         </PlayerProfileCardContainer>
     );
 };

@@ -1,11 +1,12 @@
 import { UseQueryOptions, useQuery } from '@tanstack/react-query';
 import { AxiosError } from 'axios';
 
-import { requestGetPlayerStats } from '@src/apis/player';
-import { AnyOBJ } from '@src/typings';
+import { PlayerStats } from '@typings/player';
 
-export const useGetPlayerStats = (slug: string, options?: UseQueryOptions<AnyOBJ, AxiosError>) => {
-    return useQuery<AnyOBJ, AxiosError>(['PLAYER_STAT', { playerSlug: slug }], () => requestGetPlayerStats(slug), {
+import { requestGetPlayerStats } from '@src/apis/player';
+
+export const useGetPlayerStats = (slug: string, options?: UseQueryOptions<PlayerStats, AxiosError>) => {
+    return useQuery<PlayerStats, AxiosError>(['PLAYER_STAT', { playerSlug: slug }], () => requestGetPlayerStats(slug), {
         ...options,
         enabled: !!slug,
         onSuccess: () => {
