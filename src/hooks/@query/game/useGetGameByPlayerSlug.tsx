@@ -5,13 +5,12 @@ import { Game } from '@typings/game';
 
 import { requestGetGameByPlayerSlug } from '@src/apis/game';
 
-export const useGetGameByPlayerSlug = (slug: string, page: number, options?: UseQueryOptions<Game[], AxiosError>) => {
+export const useGetGameByPlayerSlug = (slug: string, page?: number, options?: UseQueryOptions<Game[], AxiosError>) => {
     return useQuery<Game[], AxiosError>(
-        ['GAME', { playerSlug: slug, page: page }],
+        ['GAME', { playerSlug: slug, page: page || 'all' }],
         () => requestGetGameByPlayerSlug(slug, page),
         {
             ...options,
-            // Update ['GAME', { slug }] as well
             enabled: !!slug,
             onSuccess: () => {
                 console.log('useGetGameByPlayerSlug succeed');

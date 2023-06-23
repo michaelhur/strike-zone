@@ -98,7 +98,7 @@ export const gameHandler = [
             .filter((game) => uniqueIdList.includes(game.id))
             .sort((a, b) => b.date.localeCompare(a.date));
 
-        if (page) {
+        if (page && page.toLowerCase() !== 'all') {
             const [start, end] = getFetchOffsets(Number(page), 5);
             return res(ctx.status(200), ctx.json(filteredGameList.slice(start, end)));
         }
