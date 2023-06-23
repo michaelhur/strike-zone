@@ -8,13 +8,16 @@ import {
     TeamImageWrap,
 } from '@pages/PlayerDetailPage/components/PlayerProfileCard/PlayerProfileCard.styles';
 
-import { Player, PlayerSideEnum, PositionEnum } from '@typings/player';
+import { Player, PositionEnum } from '@typings/player';
+
+import { AnyOBJ } from '@src/typings';
 
 interface PlayerProfileCardProps {
     player: Player;
+    stats: AnyOBJ;
 }
 
-export const PlayerProfileCard = ({ player }: PlayerProfileCardProps) => {
+export const PlayerProfileCard = ({ player, stats }: PlayerProfileCardProps) => {
     const { name, batSide, pitchHand, positionCode, height, weight, playerNumber, team } = player;
 
     return (

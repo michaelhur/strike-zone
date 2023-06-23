@@ -23,7 +23,7 @@ export const requestGetPlayer = async (slug: string): Promise<Player> => {
 };
 
 export const requestGetPlayerStats = async (slug: string): Promise<AnyOBJ> => {
-    const id = slug.split('-')[2];
+    const [id] = slug.split('-').slice(-1);
     const url = `https://statsapi.mlb.com/api/v1/people/${id}?hydrate=stats(group=[hitting,pitching],type=season,sportId=1,force=True),currentTeam`;
     const response = await axios({
         method: 'get',
@@ -36,8 +36,8 @@ export const requestGetPlayerStats = async (slug: string): Promise<AnyOBJ> => {
     const seasonPitchingStats = stats.find((stat) => stat.group.displayName === 'pitching');
     const seasonBattingStats = stats.find((stat) => stat.group.displayName === 'hitting');
 
-    const pitchingSplits = seasonPitchingStats.splits ? seasonPitchingStats.splits[0].stat : {};
-    const battingSplits = seasonBattingStats.splits ? seasonBattingStats.splits[0].stat : {};
+    const pitchingSplits = seasonPitchingStats ? seasonPitchingStats.splits[0].stat : {};
+    const battingSplits = seasonBattingStats ? seasonBattingStats.splits[0].stat : {};
 
     let pitchingStats = {};
     let battingStats = {};

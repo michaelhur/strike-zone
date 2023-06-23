@@ -21,7 +21,7 @@ export const PlayerImageSection = styled.section({
     justifyContent: 'center',
     alignItems: 'center',
 
-    marginBottom: '-2rem',
+    // marginBottom: '-2rem',
 });
 
 export const TeamImageWrap = styled.div({
