@@ -89,7 +89,7 @@ const getMLBData = async (gamePk: number, homeScore: number, awayScore: number, 
                     },
                 };
             })
-            .filter((official) => official.officialType === 'Home Plate')[0].official;
+            .filter((official) => official.officialType === 'HomePage Plate')[0].official;
         const umpireId = umpire.id;
 
         const gameInfo: Game = {
@@ -115,6 +115,13 @@ const getMLBData = async (gamePk: number, homeScore: number, awayScore: number, 
                     lastName: player.lastName,
                     batSide: player.batSide.code,
                     pitchHand: player.pitchHand.code,
+                    positionCode: player.primaryPosition.abbreviation,
+                    positionType: player.primaryPosition.type,
+                    height: player.height,
+                    weight: player.weight,
+                    slug: player.nameSlug,
+                    playerNumber: Number(player.primaryNumber) || 9999,
+                    teamId: player.currentTeam.id || 9999,
                 };
             });
 
@@ -166,10 +173,10 @@ const getMLBData = async (gamePk: number, homeScore: number, awayScore: number, 
                 };
             });
 
-        // const umpireResponse = await fetchSupabase('umpire', umpire);
-        // const playerResponse = await fetchSupabase('player', playerData);
+        const umpireResponse = await fetchSupabase('umpire', umpire);
+        const playerResponse = await fetchSupabase('player', playerData);
         const gameResponse = await fetchSupabase('game', gameInfo);
-        // const atbatResponse = await fetchSupabase('atbat', atbats);
+        const atbatResponse = await fetchSupabase('atbat', atbats);
         console.log('Final', gameInfo);
     } catch (e) {
         console.log(`${gamePk} failed with error ${e}`);

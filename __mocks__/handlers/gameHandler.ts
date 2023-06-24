@@ -1,7 +1,10 @@
 import { rest } from 'msw';
 
+import { getFetchOffsets } from '@utils/url';
+
 import { dateString } from '../../src/typings';
 import { Game } from '../../src/typings/game';
+import { atBatList } from '../data/atBat';
 import { gameList } from '../data/game';
 
 export const gameHandler = [
@@ -38,6 +41,12 @@ export const gameHandler = [
         return res(ctx.status(200), ctx.json(filteredGameList));
     }),
 
+    rest.get<dateString>('/api/games/@latest-date', async (req, res, ctx) => {
+        const maxDate = gameList.sort((a, b) => b.date.localeCompare(a.date))[0].date;
+
+        return res(ctx.status(200), ctx.json({ date: maxDate }));
+    }),
+
     rest.get<Game[]>('/api/games/@latest', async (req, res, ctx) => {
         const maxDate = gameList.sort((a, b) => b.date.localeCompare(a.date))[0].date;
         const targetGameList = gameList.filter((game) => game.date === maxDate);
@@ -45,10 +54,56 @@ export const gameHandler = [
         return res(ctx.status(200), ctx.json(targetGameList));
     }),
 
-    rest.get<dateString>('/api/games/@latest-date', async (req, res, ctx) => {
-        const maxDate = gameList.sort((a, b) => b.date.localeCompare(a.date))[0].date;
+    rest.get<Game[]>('/api/games/get-by-playerId/:id', async (req, res, ctx) => {
+        const { id } = req.params;
+        const playerType = req.url.searchParams.get('playerType');
 
-        return res(ctx.status(200), ctx.json({ date: maxDate }));
+        const gameIdList = atBatList
+            .filter((atbat) =>
+                !playerType
+                    ? atbat.batter.id === Number(id) || atbat.pitcher.id === Number(id)
+                    : playerType === 'batter'
+                    ? atbat.batter.id === Number(id)
+                    : atbat.pitcher.id === Number(id),
+            )
+            .map((atbat) => atbat.game.id);
+
+        const uniqueIdList = [...new Set(gameIdList)];
+
+        const filteredGameList = gameList
+            .filter((game) => uniqueIdList.includes(game.id))
+            .sort((a, b) => b.date.localeCompare(a.date));
+
+        return res(ctx.status(200), ctx.json(filteredGameList));
+    }),
+
+    rest.get<Game[]>('/api/games/get-by-playerSlug/:slug', async (req, res, ctx) => {
+        const { slug } = req.params;
+        const playerType = req.url.searchParams.get('playerType');
+        const page = req.url.searchParams.get('page');
+
+        const gameIdList = atBatList
+            .filter((atbat) =>
+                !playerType
+                    ? atbat.batter.slug === slug || atbat.pitcher.slug === slug
+                    : playerType === 'batter'
+                    ? atbat.batter.slug === slug
+                    : atbat.pitcher.slug === slug,
+            )
+            .map((atbat) => atbat.game.id);
+
+        const uniqueIdList = [...new Set(gameIdList)];
+
+        const filteredGameList = gameList
+            .filter((game) => uniqueIdList.includes(game.id))
+            .sort((a, b) => b.date.localeCompare(a.date));
+
+        if (page && page.toLowerCase() !== 'all') {
+            const [start, end] = getFetchOffsets(Number(page), 5);
+            return res(ctx.status(200), ctx.json(filteredGameList.slice(start, end)));
+        }
+
+        return res(ctx.status(200), ctx.json(filteredGameList));
     }),
 
     rest.get<Game>('/api/games/get-by-id/:id', async (req, res, ctx) => {

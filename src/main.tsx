@@ -6,17 +6,18 @@ import { RecoilRoot } from 'recoil';
 
 import { globalStyle } from '@styles/globalStyle';
 
+import { worker } from '../__mocks__/browser';
 import App from './App';
 
-if (import.meta.env.DEV) {
-    import('../__mocks__');
+if (import.meta.env.MODE === 'development') {
+    worker.start({
+        onUnhandledRequest: 'bypass',
+    });
 }
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-    <React.StrictMode>
-        <RecoilRoot>
-            <Global styles={globalStyle} />
-            <App />
-        </RecoilRoot>
-    </React.StrictMode>,
+    <RecoilRoot>
+        <Global styles={globalStyle} />
+        <App />
+    </RecoilRoot>,
 );

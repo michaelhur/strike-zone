@@ -28,6 +28,7 @@ export const ListViewTeamSectionContainer = styled.section(
         display: 'flex',
         justifyContent: 'flex-end',
         alignItems: 'center',
+        gap: '0.25rem',
         width: '125px',
     },
     ({ homeOrAway }: { homeOrAway: 'Home' | 'Away' }) => ({

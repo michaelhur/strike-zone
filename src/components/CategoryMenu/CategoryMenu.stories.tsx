@@ -22,21 +22,25 @@ export default {
 
 const Template: Story<typeof CategoryMenu> = <T1, T2>(args) => {
     const [category, setCategory] = useState<T1>(args.selectedCategory);
+    const onClickCategoryTab = (tab: T1) => setCategory(tab);
 
-    return <CategoryMenu<T1, T2> {...args} selectedCategory={category} setSelectedCategory={setCategory} />;
+    return <CategoryMenu<T1, T2> {...args} selectedCategory={category} setSelectedCategory={onClickCategoryTab} />;
 };
 
 const TemplateWithViewType: Story<typeof CategoryMenu> = <T1, T2>(args) => {
     const [category, setCategory] = useState<T1>(args.selectedCategory);
     const [viewType, setViewType] = useState<T2>(args.selectedViewType);
 
+    const onClickCategoryTab = (tab: T1) => setCategory(tab);
+    const onClickViewTab = (tab: T2) => setViewType(tab);
+
     return (
         <CategoryMenu<T1, T2>
             {...args}
             selectedCategory={category}
-            setSelectedCategory={setCategory}
+            setSelectedCategory={onClickCategoryTab}
             selectedViewType={viewType}
-            setViewType={setViewType}
+            setViewType={onClickViewTab}
         />
     );
 };
