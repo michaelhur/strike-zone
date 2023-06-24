@@ -5,7 +5,7 @@ import { Player } from '@typings/player';
 import { Team } from '@typings/team';
 import { Umpire } from '@typings/umpire';
 
-interface Coordinates {
+export interface Coordinates {
     x: number;
     y: number;
 }
