@@ -8,22 +8,17 @@ import { Loading } from '@components/Loading/Loading';
 import { useGetGameByPlayerSlug } from '@hooks/@query/game/useGetGameByPlayerSlug';
 
 import { LeftSection, PlayerDetailPageContainer, RightSection } from '@pages/PlayerDetailPage/PlayerDetailPage.styles';
+import { PlayerGameList } from '@pages/PlayerDetailPage/components/PlayerGameList/PlayerGameList';
 import { PlayerProfileCard } from '@pages/PlayerDetailPage/components/PlayerProfileCard/PlayerProfileCard';
 
 const PlayerDetailPage = () => {
     const { slug } = useParams();
-    const { isLoading: isLoadingGames, data: games } = useGetGameByPlayerSlug(slug!, 1);
-
-    if (isLoadingGames) return <Loading size={60} />;
 
     return (
         <PlayerDetailPageContainer>
             <LeftSection>
                 <PlayerProfileCard slug={slug!} />
-                <SectionTitleWrapper>
-                    <h3>Last 5 Games</h3>
-                </SectionTitleWrapper>
-                <GameList games={games!} itemViewType={'LIST'} cardCount={1} />
+                <PlayerGameList slug={slug!} />
             </LeftSection>
             <RightSection></RightSection>
         </PlayerDetailPageContainer>
