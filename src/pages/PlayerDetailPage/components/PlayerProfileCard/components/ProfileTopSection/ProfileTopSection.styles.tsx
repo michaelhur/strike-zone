@@ -1,5 +1,15 @@
 import styled from '@emotion/styled';
 
+export const ProfileTopSectionContainer = styled.section({
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    gap: '0.5rem',
+
+    width: '100%',
+});
+
 export const PlayerImageSection = styled.section({
     display: 'flex',
     flexDirection: 'column',

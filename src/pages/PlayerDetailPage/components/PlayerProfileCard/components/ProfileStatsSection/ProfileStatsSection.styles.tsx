@@ -53,7 +53,7 @@ export const StatsCell = styled.article({
     alignItems: 'center',
     padding: '1rem',
 
-    height: '78px',
+    height: '72px',
 
     border: '1px solid var(--grey300)',
 
@@ -65,7 +65,7 @@ export const StatsCell = styled.article({
     },
 
     '& span': {
-        fontSize: '1rem',
+        fontSize: '.75rem',
         fontWeight: '400',
         color: 'var(--grey700)',
     },

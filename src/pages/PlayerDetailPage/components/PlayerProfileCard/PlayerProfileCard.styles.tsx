@@ -8,7 +8,6 @@ export const PlayerProfileCardContainer = styled.article({
     gap: '0.5rem',
     padding: '1rem',
 
-    height: '459px',
     width: '100%',
 
     background: 'var(--grey0)',

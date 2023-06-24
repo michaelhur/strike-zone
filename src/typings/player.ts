@@ -70,7 +70,7 @@ export interface PitchingStats {
 
 export interface BattingStats {
     avg: number;
-    baseonBalls: number;
+    baseOnBalls: number;
     gamesPlayed: number;
     hits: number;
     homeRuns: number;

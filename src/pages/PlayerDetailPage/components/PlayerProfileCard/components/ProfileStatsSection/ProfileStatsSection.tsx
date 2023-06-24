@@ -16,69 +16,54 @@ interface ProfileStatsSectionProps {
     slug: string;
 }
 
+const StatsItem = ({ label, value }: { label: string; value: number | string }) => {
+    return (
+        <StatsCell>
+            <h3>{value}</h3>
+            <span>{label}</span>
+        </StatsCell>
+    );
+};
+
 const PitchingStatsSection = ({ pitchingStats }: { pitchingStats: PitchingStats }) => {
-    const {
-        baseOnBalls,
-        balls,
-        era,
-        gamesPlayed,
-        holds,
-        inningsPitched,
-        losses,
-        outs,
-        saves,
-        strikes,
-        strikeOuts,
-        whip,
-        wins,
-    } = pitchingStats;
+    const { baseOnBalls, balls, era, gamesPlayed, inningsPitched, losses, strikes, strikeOuts, wins } = pitchingStats;
     return (
         <>
             <StatsRow>
-                <StatsCell>
-                    <h3>{gamesPlayed}</h3>
-                    <span>Games Played</span>
-                </StatsCell>
-                <StatsCell>
-                    <h3>
-                        {wins}-{losses}
-                    </h3>
-                    <span>W-L</span>
-                </StatsCell>
-                <StatsCell>
-                    <h3>{inningsPitched}</h3>
-                    <span>Innings</span>
-                </StatsCell>
+                <StatsItem label="Games" value={gamesPlayed} />
+                <StatsItem label="W-L" value={`${wins}-${losses}`} />
+                <StatsItem label="Innings" value={inningsPitched} />
             </StatsRow>
             <StatsRow>
-                <StatsCell>
-                    <h3>{strikeOuts}</h3>
-                    <span>Strike Outs</span>
-                </StatsCell>
-                <StatsCell>
-                    <h3>{baseOnBalls}</h3>
-                    <span>Base on Balls</span>
-                </StatsCell>
-                <StatsCell>
-                    <h3>{era}</h3>
-                    <span>ERA</span>
-                </StatsCell>
+                <StatsItem label="SO" value={strikeOuts} />
+                <StatsItem label="BB" value={baseOnBalls} />
+                <StatsItem label="ERA" value={era} />
             </StatsRow>
         </>
     );
 };
 
 const BattingStatsSection = ({ battingStats }: { battingStats: BattingStats }) => {
+    const { avg, baseOnBalls, gamesPlayed, hits, homeRuns, strikeOuts } = battingStats;
     return (
         <>
-            <StatsRow></StatsRow>
-            <StatsRow></StatsRow>
+            <StatsRow>
+                <StatsItem label="Games" value={gamesPlayed} />
+                <StatsItem label="Avg" value={avg} />
+                <StatsItem label="Hits" value={hits} />
+            </StatsRow>
+            <StatsRow>
+                <StatsItem label="SO" value={strikeOuts} />
+                <StatsItem label="BB" value={baseOnBalls} />
+                <StatsItem label="HR" value={homeRuns} />
+            </StatsRow>
         </>
     );
 };
 
 export const ProfileStatsSection = ({ slug }: ProfileStatsSectionProps) => {
     const { isLoading, data } = useGetPlayerStats(slug!);
+    const isPitcher = data?.positionCode === 'P' || data?.positionCode === 'TWP';
 
     return (
         <ProfileStatsSectionContainer>
@@ -90,7 +75,7 @@ export const ProfileStatsSection = ({ slug }: ProfileStatsSectionProps) => {
                     <Loading size={60} />
                 ) : (
                     data &&
-                    ((data.positionCode === 'P' || data.positionCode === 'TWP') && data.pitchingStats ? (
+                    (isPitcher ? (
                         <PitchingStatsSection pitchingStats={data.pitchingStats} />
                     ) : (
                         <BattingStatsSection battingStats={data.battingStats} />
