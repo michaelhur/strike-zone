@@ -1,6 +1,8 @@
 import * as d3 from 'd3';
 
 import { LogoIcon } from '@components/@shared/Icon';
+import { StrikeZoneContainer } from '@components/StrikeZone/StrikeZone.styles';
+import { Pitch } from '@components/StrikeZone/components/Pitch/Pitch';
 import { Zone } from '@components/StrikeZone/components/Zone/Zone';
 
 import { Coordinates } from '@typings/atbat';
@@ -8,13 +10,13 @@ import { Coordinates } from '@typings/atbat';
 interface StrikeZoneProps {
     width: number;
     height: number;
-    coordinates: Coordinates[];
+    coordinateList: Coordinates[];
     radius: number;
 }
 
 const MARGIN = { top: 16, right: 16, bottom: 16, left: 16 };
 
-const StrikeZone = ({ width, height, coordinates, radius = 24 }: StrikeZoneProps) => {
+const StrikeZone = ({ width, height, coordinateList, radius = 24 }: StrikeZoneProps) => {
     const boundsWidth = width - MARGIN.right - MARGIN.left;
     const boundsHeight = height - MARGIN.top - MARGIN.bottom;
 
@@ -22,17 +24,15 @@ const StrikeZone = ({ width, height, coordinates, radius = 24 }: StrikeZoneProps
     const yScale = d3.scaleLinear().domain([0.5, 4.5]).range([boundsHeight, 0]);
     const xScale = d3.scaleLinear().domain([-1.5, 1.5]).range([0, boundsWidth]);
 
-    // Build the shapes
-    const allShapes = coordinates.map((d, i) => {
-        return (
-            <g key={i} transform={`translate(${xScale(d.x) - radius / 2}, ${yScale(d.y) - radius / 2})`}>
-                <LogoIcon size={radius} opacity={0.8} hoverable={true} />
-            </g>
-        );
+    const scaledCoordinateList = coordinateList.map((coordinate) => {
+        return {
+            x: xScale(coordinate.x),
+            y: yScale(coordinate.y),
+        };
     });
 
     return (
-        <div>
+        <StrikeZoneContainer>
             <svg width={width} height={height}>
                 <g
                     width={boundsWidth}
@@ -49,10 +49,12 @@ const StrikeZone = ({ width, height, coordinates, radius = 24 }: StrikeZoneProps
                             fill="None"
                         />
                     </g>
-                    {allShapes}
+                    {scaledCoordinateList.map((coordinate, i) => (
+                        <Pitch key={i} coordinates={coordinate} radius={24} />
+                    ))}
                 </g>
             </svg>
-        </div>
+        </StrikeZoneContainer>
     );
 };
 

@@ -1,3 +1,4 @@
+import { atBatList } from '@mocks/data/atBat';
 import { Meta, Story } from '@storybook/react';
 
 import StrikeZone from '@components/StrikeZone/StrikeZone';
@@ -94,9 +95,18 @@ const coordinates = [
     },
 ];
 
+const sampleCoordinates = atBatList.splice(0, 20).flatMap((atbat) => atbat.plays.map((play) => play.coordinates));
+
 export const Default = Template.bind({});
 Default.args = {
     height: 400,
     width: 300,
-    coordinates: coordinates,
+    coordinateList: coordinates,
+};
+
+export const Example = Template.bind({});
+Example.args = {
+    height: 400,
+    width: 300,
+    coordinateList: sampleCoordinates,
 };
