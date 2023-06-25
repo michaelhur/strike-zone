@@ -1,26 +1,27 @@
+import { StrikeZoneDimensions } from '@constants/pitch';
 import * as d3 from 'd3';
 
 import { StrikeZoneContainer } from '@components/StrikeZone/StrikeZone.styles';
 import { Pitch } from '@components/StrikeZone/components/Pitch/Pitch';
 import { Zone } from '@components/StrikeZone/components/Zone/Zone';
 
-import { Coordinates } from '@typings/atbat';
+import { Coordinates, Play } from '@typings/atbat';
 
 interface StrikeZoneProps {
     width: number;
     height: number;
-    coordinateList: Coordinates[];
+    plays: Play[];
     radius: number;
 }
 
-const StrikeZone = ({ width, height, coordinateList, radius = 24 }: StrikeZoneProps) => {
+const StrikeZone = ({ width, height, plays, radius = 24 }: StrikeZoneProps) => {
     const yScale = d3.scaleLinear().domain([0.5, 4.5]).range([height, 0]);
     const xScale = d3.scaleLinear().domain([-1.5, 1.5]).range([0, width]);
 
-    const scaledCoordinateList = coordinateList.map((coordinate) => {
+    const scaledCoordinateList: Coordinates[] = plays.map((play) => {
         return {
-            x: xScale(coordinate.x),
-            y: yScale(coordinate.y),
+            x: xScale(play.coordinates.x),
+            y: yScale(play.coordinates.y),
         };
     });
 
@@ -28,12 +29,12 @@ const StrikeZone = ({ width, height, coordinateList, radius = 24 }: StrikeZonePr
         <StrikeZoneContainer>
             <svg width={width} height={height}>
                 <g width={width} height={height}>
-                    <g transform={`translate(${xScale(-0.85)},0)`}>
+                    <g transform={`translate(${xScale(StrikeZoneDimensions.left)},0)`}>
                         <Zone
-                            xMin={xScale(-0.85)}
-                            xMax={xScale(0.85)}
-                            yMin={yScale(1.5)}
-                            yMax={yScale(3.5)}
+                            xMin={xScale(StrikeZoneDimensions.left)}
+                            xMax={xScale(StrikeZoneDimensions.right)}
+                            yMin={yScale(StrikeZoneDimensions.bottom)}
+                            yMax={yScale(StrikeZoneDimensions.top)}
                             stroke="var(--grey700)"
                             fill="None"
                         />

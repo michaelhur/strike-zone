@@ -23,3 +23,10 @@ export enum PitchType {
     ST = 'Sweeper',
     UN = 'Unknown',
 }
+
+export const StrikeZoneDimensions = {
+    top: 3.5,
+    bottom: 1.5,
+    left: -0.85,
+    right: 0.85,
+};
