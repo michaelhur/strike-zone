@@ -8,13 +8,13 @@ import { Zone } from '@components/StrikeZone/components/Zone/Zone';
 import { AtBat, Coordinates, PitchPlay, Play } from '@typings/atbat';
 
 interface StrikeZoneProps {
+    atbats: AtBat[];
     width: number;
     height: number;
-    atbats: AtBat[];
     radius: number;
 }
 
-const StrikeZone = ({ width, height, atbats, radius = 24 }: StrikeZoneProps) => {
+const StrikeZone = ({ atbats, width, height, radius = 24 }: StrikeZoneProps) => {
     const yScale = d3.scaleLinear().domain([0.5, 4.5]).range([height, 0]);
     const xScale = d3.scaleLinear().domain([-1.5, 1.5]).range([0, width]);
 

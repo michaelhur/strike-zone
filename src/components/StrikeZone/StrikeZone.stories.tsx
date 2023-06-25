@@ -17,7 +17,7 @@ const sampleAtbats: AtBat[] = atBatList.splice(0, 1);
 
 export const Default = Template.bind({});
 Default.args = {
+    atbats: sampleAtbats,
     height: 400,
     width: 300,
-    atbats: sampleAtbats,
 };
