@@ -12,6 +12,7 @@ export const SVGIcon = styled.svg<SVGIconProps>`
     }
 
     &:hover {
+        opacity: 1;
         cursor: ${({ hoverable }) => (hoverable ? 'pointer' : 'unset')};
         & path {
             fill: ${({ hoverable, color }) => (hoverable ? 'var(--primary500)' : color)};

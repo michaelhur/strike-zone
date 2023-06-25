@@ -1,4 +1,3 @@
-import { atBatList } from '@mocks/data/atBat';
 import { Meta, Story } from '@storybook/react';
 
 import StrikeZone from '@components/StrikeZone/StrikeZone';

@@ -2,7 +2,13 @@ import { SVGIcon } from '@components/@shared/Icon/Icon.styles';
 
 import { IIcon } from '@typings/icon';
 
-export const ArrowLeftIcon = ({ size = 24, color = 'var(--grey1000)', hoverable = false, onClickIcon }: IIcon) => {
+export const ArrowLeftIcon = ({
+    size = 24,
+    color = 'var(--grey1000)',
+    opacity = 1,
+    hoverable = false,
+    onClickIcon,
+}: IIcon) => {
     return (
         <SVGIcon
             color={color}
