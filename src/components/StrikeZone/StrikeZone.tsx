@@ -5,28 +5,41 @@ import { StrikeZoneContainer } from '@components/StrikeZone/StrikeZone.styles';
 import { Pitch } from '@components/StrikeZone/components/Pitch/Pitch';
 import { Zone } from '@components/StrikeZone/components/Zone/Zone';
 
-import { Play } from '@typings/atbat';
+import { AtBat, Coordinates, PitchPlay, Play } from '@typings/atbat';
 
 interface StrikeZoneProps {
     width: number;
     height: number;
-    plays: Play[];
+    atbats: AtBat[];
     radius: number;
 }
 
-const StrikeZone = ({ width, height, plays, radius = 24 }: StrikeZoneProps) => {
+const StrikeZone = ({ width, height, atbats, radius = 24 }: StrikeZoneProps) => {
     const yScale = d3.scaleLinear().domain([0.5, 4.5]).range([height, 0]);
     const xScale = d3.scaleLinear().domain([-1.5, 1.5]).range([0, width]);
 
-    const scaledPlays: Play[] = plays.map((play) => {
-        const coordinates = {
-            x: xScale(play.coordinates.x),
-            y: yScale(play.coordinates.y),
-        };
-        return {
-            ...play,
-            coordinates,
-        };
+    const scaledPlays: PitchPlay[] = atbats.flatMap((atbat) => {
+        const inning = atbat.inning;
+        const isTopInning = atbat.isTopInning;
+        const atBatIndex = atbat.atBatIndex;
+        const batter = atbat.batter.name;
+        const pitcher = atbat.pitcher.name;
+
+        return atbat.plays.map((play) => {
+            const coordinates = {
+                x: xScale(play.coordinates.x),
+                y: yScale(play.coordinates.y),
+            };
+            return {
+                ...play,
+                inning,
+                isTopInning,
+                atBatIndex,
+                batter,
+                pitcher,
+                coordinates,
+            };
+        });
     });
 
     return (

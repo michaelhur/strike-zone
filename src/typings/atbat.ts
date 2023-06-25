@@ -23,6 +23,15 @@ export interface Play {
     coordinates: Coordinates;
 }
 
+export interface PitchPlay extends Play {
+    atBatIndex: number;
+    inning: number;
+    isTopInning: boolean;
+    batter: string;
+    pitcher: string;
+    coordinates: Coordinates;
+}
+
 export interface AtBat {
     id: string;
     date: string;
