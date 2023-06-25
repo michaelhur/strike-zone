@@ -49,7 +49,7 @@ const StrikeZone = ({ width, height, coordinateList, radius = 24 }: StrikeZonePr
                         />
                     </g>
                     {scaledCoordinateList.map((coordinate, i) => (
-                        <Pitch key={i} coordinates={coordinate} radius={24} />
+                        <Pitch key={i} coordinates={coordinate} radius={radius} />
                     ))}
                 </g>
             </svg>
