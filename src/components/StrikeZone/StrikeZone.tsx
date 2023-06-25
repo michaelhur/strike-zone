@@ -13,15 +13,9 @@ interface StrikeZoneProps {
     radius: number;
 }
 
-const MARGIN = { top: 16, right: 16, bottom: 16, left: 16 };
-
 const StrikeZone = ({ width, height, coordinateList, radius = 24 }: StrikeZoneProps) => {
-    const boundsWidth = width - MARGIN.right - MARGIN.left;
-    const boundsHeight = height - MARGIN.top - MARGIN.bottom;
-
-    // Scales
-    const yScale = d3.scaleLinear().domain([0.5, 4.5]).range([boundsHeight, 0]);
-    const xScale = d3.scaleLinear().domain([-1.5, 1.5]).range([0, boundsWidth]);
+    const yScale = d3.scaleLinear().domain([0.5, 4.5]).range([height, 0]);
+    const xScale = d3.scaleLinear().domain([-1.5, 1.5]).range([0, width]);
 
     const scaledCoordinateList = coordinateList.map((coordinate) => {
         return {
@@ -33,11 +27,7 @@ const StrikeZone = ({ width, height, coordinateList, radius = 24 }: StrikeZonePr
     return (
         <StrikeZoneContainer>
             <svg width={width} height={height}>
-                <g
-                    width={boundsWidth}
-                    height={boundsHeight}
-                    transform={`translate(${[MARGIN.left, MARGIN.top].join(',')})`}
-                >
+                <g width={width} height={height}>
                     <g transform={`translate(${xScale(-0.85)},0)`}>
                         <Zone
                             xMin={xScale(-0.85)}
