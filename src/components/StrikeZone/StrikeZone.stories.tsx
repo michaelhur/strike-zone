@@ -12,10 +12,92 @@ const Template: Story<typeof StrikeZone> = (args) => {
     return <StrikeZone {...args} />;
 };
 
-const sampleAtbat = atBatList[0];
-const coordinates = sampleAtbat.plays.map((play) => play.coordinates);
+const coordinates = [
+    {
+        x: -0.85,
+        y: 4,
+    },
+    {
+        x: -0.85,
+        y: 3.5,
+    },
+    {
+        x: -0.85,
+        y: 2,
+    },
+    {
+        x: -0.85,
+        y: 1,
+    },
+    {
+        x: -0.33,
+        y: 4,
+    },
+    {
+        x: -0.33,
+        y: 3.5,
+    },
+    {
+        x: -0.33,
+        y: 2,
+    },
+    {
+        x: -0.33,
+        y: 1,
+    },
+    {
+        x: 0,
+        y: 4,
+    },
+    {
+        x: 0,
+        y: 3.5,
+    },
+    {
+        x: 0,
+        y: 2,
+    },
+    {
+        x: 0,
+        y: 1,
+    },
+    {
+        x: 0.33,
+        y: 4,
+    },
+    {
+        x: 0.33,
+        y: 3.5,
+    },
+    {
+        x: 0.33,
+        y: 2,
+    },
+    {
+        x: 0.33,
+        y: 1,
+    },
+    {
+        x: 0.85,
+        y: 4,
+    },
+    {
+        x: 0.85,
+        y: 3.5,
+    },
+    {
+        x: 0.85,
+        y: 2,
+    },
+    {
+        x: 0.85,
+        y: 1,
+    },
+];
 
 export const Default = Template.bind({});
 Default.args = {
+    height: 400,
+    width: 300,
     coordinates: coordinates,
 };
