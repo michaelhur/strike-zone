@@ -5,7 +5,7 @@ import { StrikeZoneContainer } from '@components/StrikeZone/StrikeZone.styles';
 import { Pitch } from '@components/StrikeZone/components/Pitch/Pitch';
 import { Zone } from '@components/StrikeZone/components/Zone/Zone';
 
-import { Coordinates, Play } from '@typings/atbat';
+import { Play } from '@typings/atbat';
 
 interface StrikeZoneProps {
     width: number;
@@ -18,10 +18,14 @@ const StrikeZone = ({ width, height, plays, radius = 24 }: StrikeZoneProps) => {
     const yScale = d3.scaleLinear().domain([0.5, 4.5]).range([height, 0]);
     const xScale = d3.scaleLinear().domain([-1.5, 1.5]).range([0, width]);
 
-    const scaledCoordinateList: Coordinates[] = plays.map((play) => {
-        return {
+    const scaledPlays: Play[] = plays.map((play) => {
+        const coordinates = {
             x: xScale(play.coordinates.x),
             y: yScale(play.coordinates.y),
+        };
+        return {
+            ...play,
+            coordinates,
         };
     });
 
@@ -39,8 +43,8 @@ const StrikeZone = ({ width, height, plays, radius = 24 }: StrikeZoneProps) => {
                             fill="None"
                         />
                     </g>
-                    {scaledCoordinateList.map((coordinate, i) => (
-                        <Pitch key={i} coordinates={coordinate} radius={radius} />
+                    {scaledPlays.map((play) => (
+                        <Pitch key={play.id} play={play} radius={radius} />
                     ))}
                 </g>
             </svg>

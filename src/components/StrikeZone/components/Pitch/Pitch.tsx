@@ -1,16 +1,35 @@
 import { LogoIcon } from '@components/@shared/Icon';
 
-import { Coordinates } from '@typings/atbat';
+import { Play } from '@typings/atbat';
 
 interface PitchProps {
-    coordinates: Coordinates;
+    play: Play;
     radius: number;
 }
 
-export const Pitch = ({ coordinates, radius }: PitchProps) => {
+export const Pitch = ({ play, radius }: PitchProps) => {
+    const { isStrike, isBall, velocity, pitchType, coordinates } = play;
+    const OutcomeType = isStrike ? 'Strike' : isBall ? 'Ball' : 'InPlay';
     return (
         <g transform={`translate(${coordinates.x - radius / 2}, ${coordinates.y - radius / 2})`}>
-            <LogoIcon size={radius} opacity={0.8} hoverable={true} />;
+            <LogoIcon
+                color={PitchOutcomeColorVariant[OutcomeType].color}
+                size={radius}
+                opacity={0.8}
+                hoverable={true}
+            />
         </g>
     );
+};
+
+export const PitchOutcomeColorVariant = {
+    Strike: {
+        color: 'var(--primary500)',
+    },
+    Ball: {
+        color: 'var(--red)',
+    },
+    InPlay: {
+        color: 'var(--orange)',
+    },
 };

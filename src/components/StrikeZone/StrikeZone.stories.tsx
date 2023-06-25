@@ -13,7 +13,7 @@ export default {
 const Template: Story<typeof StrikeZone> = (args) => {
     return <StrikeZone {...args} />;
 };
-const samplePlays: Play[] = atBatList.splice(0, 5).flatMap((atbat) => atbat.plays);
+const samplePlays: Play[] = atBatList.splice(0, 20).flatMap((atbat) => atbat.plays);
 
 export const Default = Template.bind({});
 Default.args = {
