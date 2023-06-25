@@ -25,17 +25,6 @@ const StrikeZone = ({ width, height, coordinates, radius = 24 }: StrikeZoneProps
     // Build the shapes
     const allShapes = coordinates.map((d, i) => {
         return (
-            // <circle
-            //     key={i}
-            //     r={16}
-            //     cx={xScale(d.x)}
-            //     cy={yScale(d.y)}
-            //     opacity={1}
-            //     stroke="#cb1dd1"
-            //     fill="#cb1dd1"
-            //     fillOpacity={0.3}
-            //     strokeWidth={1}
-            // />
             <g key={i} transform={`translate(${xScale(d.x) - radius / 2}, ${yScale(d.y) - radius / 2})`}>
                 <LogoIcon size={radius} opacity={0.8} hoverable={true} />
             </g>
