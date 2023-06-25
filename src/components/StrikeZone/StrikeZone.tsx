@@ -1,6 +1,5 @@
 import * as d3 from 'd3';
 
-import { LogoIcon } from '@components/@shared/Icon';
 import { StrikeZoneContainer } from '@components/StrikeZone/StrikeZone.styles';
 import { Pitch } from '@components/StrikeZone/components/Pitch/Pitch';
 import { Zone } from '@components/StrikeZone/components/Zone/Zone';
