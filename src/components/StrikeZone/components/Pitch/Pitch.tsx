@@ -15,7 +15,7 @@ export const Pitch = ({ play, radius }: PitchProps) => {
             <LogoIcon
                 color={PitchOutcomeColorVariant[OutcomeType].color}
                 size={radius}
-                opacity={0.8}
+                opacity={0.7}
                 hoverable={true}
             />
         </g>
