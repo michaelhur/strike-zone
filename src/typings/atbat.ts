@@ -13,6 +13,8 @@ export interface Coordinates {
 export interface Play {
     id: string;
     isPitch: boolean;
+    outcomeCode: string;
+    outcomeDescription: string;
     pitchType: keyof typeof PitchType;
     velocity: number;
     isBall: boolean;

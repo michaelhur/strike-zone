@@ -13,11 +13,19 @@ export default {
 const Template: Story<typeof StrikeZone> = (args) => {
     return <StrikeZone {...args} />;
 };
-const sampleAtbats: AtBat[] = atBatList.splice(0, 1);
+const sampleAtbats: AtBat[] = atBatList.splice(0, 20);
+const strikesAtbats: AtBat[] = atBatList.filter((atbat) => atbat.plays.filter((play) => play.isStrike));
 
 export const Default = Template.bind({});
 Default.args = {
     atbats: sampleAtbats,
+    height: 400,
+    width: 300,
+};
+
+export const HeatMap = Template.bind({});
+HeatMap.args = {
+    atbats: strikesAtbats,
     height: 400,
     width: 300,
 };

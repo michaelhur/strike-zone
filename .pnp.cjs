@@ -58,6 +58,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@vitejs/plugin-react-swc", "virtual:cb06f0f70ce0314e45d6fd879b8b2799795625fbc231f548c9eb920421000a5f0fbf56907cc5078c0dae22e2d229168a2cb0010734e087c4931c98f1853b1bc1#npm:3.2.0"],\
             ["axios", "npm:1.3.6"],\
             ["d3", "npm:7.8.5"],\
+            ["d3-contour", "npm:4.0.2"],\
             ["date-fns", "npm:2.30.0"],\
             ["eslint", "npm:8.34.0"],\
             ["eslint-config-prettier", "virtual:cb06f0f70ce0314e45d6fd879b8b2799795625fbc231f548c9eb920421000a5f0fbf56907cc5078c0dae22e2d229168a2cb0010734e087c4931c98f1853b1bc1#npm:8.6.0"],\
@@ -15053,6 +15054,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@vitejs/plugin-react-swc", "virtual:cb06f0f70ce0314e45d6fd879b8b2799795625fbc231f548c9eb920421000a5f0fbf56907cc5078c0dae22e2d229168a2cb0010734e087c4931c98f1853b1bc1#npm:3.2.0"],\
             ["axios", "npm:1.3.6"],\
             ["d3", "npm:7.8.5"],\
+            ["d3-contour", "npm:4.0.2"],\
             ["date-fns", "npm:2.30.0"],\
             ["eslint", "npm:8.34.0"],\
             ["eslint-config-prettier", "virtual:cb06f0f70ce0314e45d6fd879b8b2799795625fbc231f548c9eb920421000a5f0fbf56907cc5078c0dae22e2d229168a2cb0010734e087c4931c98f1853b1bc1#npm:8.6.0"],\

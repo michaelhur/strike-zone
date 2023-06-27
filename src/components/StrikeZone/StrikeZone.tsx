@@ -2,10 +2,11 @@ import { StrikeZoneDimensions } from '@constants/pitch';
 import * as d3 from 'd3';
 
 import { StrikeZoneContainer } from '@components/StrikeZone/StrikeZone.styles';
+import { HeatMap } from '@components/StrikeZone/components/HeatMap/HeatMap';
 import { Pitch } from '@components/StrikeZone/components/Pitch/Pitch';
 import { Zone } from '@components/StrikeZone/components/Zone/Zone';
 
-import { AtBat, Coordinates, PitchPlay, Play } from '@typings/atbat';
+import { AtBat, Coordinates, PitchPlay } from '@typings/atbat';
 
 interface StrikeZoneProps {
     atbats: AtBat[];
@@ -42,6 +43,17 @@ const StrikeZone = ({ atbats, width, height, radius = 24 }: StrikeZoneProps) => 
         });
     });
 
+    const coordinateList: Coordinates[] = atbats.flatMap((atbat) => {
+        return atbat.plays
+            .filter((play) => play.isStrike)
+            .map((play) => {
+                return {
+                    x: xScale(play.coordinates.x),
+                    y: yScale(play.coordinates.y),
+                };
+            });
+    });
+
     return (
         <StrikeZoneContainer>
             <svg width={width} height={height}>
@@ -59,6 +71,7 @@ const StrikeZone = ({ atbats, width, height, radius = 24 }: StrikeZoneProps) => 
                     {scaledPlays.map((play) => (
                         <Pitch key={play.id} play={play} radius={radius} />
                     ))}
+                    <HeatMap coordinatesList={coordinateList} width={width} height={height} />
                 </g>
             </svg>
         </StrikeZoneContainer>

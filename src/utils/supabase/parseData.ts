@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { AtBat } from '@typings/atbat';
+import { AtBat, Play } from '@typings/atbat';
 import { Game } from '@typings/game';
 import { Player } from '@typings/player';
 import { Umpire } from '@typings/umpire';
@@ -10,7 +10,7 @@ import { fetchSupabase } from '@utils/supabase/fetchSupabase';
 const MLB_URL = import.meta.env.VITE_MLB_BASE_URL;
 
 const getGames = async () => {
-    const mlbData = await axios(`${MLB_URL}/api/v1/schedule/games/?sportId=1&startDate=2023-04-09&endDate=2023-04-30`);
+    const mlbData = await axios(`${MLB_URL}/api/v1/schedule/games/?sportId=1&startDate=2023-03-30&endDate=2023-06-17`);
     const scheduleData = mlbData.data;
     const { totalGames: gameCount, dates } = scheduleData;
 
@@ -121,7 +121,6 @@ const getMLBData = async (gamePk: number, homeScore: number, awayScore: number, 
                     weight: player.weight,
                     slug: player.nameSlug,
                     playerNumber: Number(player.primaryNumber) || 9999,
-                    teamId: player.currentTeam.id || 9999,
                 };
             });
 
@@ -139,10 +138,12 @@ const getMLBData = async (gamePk: number, homeScore: number, awayScore: number, 
 
                 const playEvents = play.playEvents;
                 const pitchEvents = playEvents.filter((e) => e.isPitch);
-                const pitch = pitchEvents.map((e) => {
+                const pitch: Play = pitchEvents.map((e) => {
                     return {
                         id: e.playId,
                         isPitch: true,
+                        outcomeCode: e.details.code,
+                        outcomeDescription: e.details.description,
                         pitchType: e.details?.type?.code || 'UN',
                         isBall: e.details.isBall,
                         isStrike: e.details.isStrike,

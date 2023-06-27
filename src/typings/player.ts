@@ -48,7 +48,7 @@ export interface Player {
     weight: number;
     slug: string;
     playerNumber: number;
-    teamId?: number;
+    teamId?: number | null;
     team?: Team | null;
 }
 
