@@ -10,12 +10,13 @@ import { AtBat, Coordinates, PitchPlay } from '@typings/atbat';
 
 interface StrikeZoneProps {
     atbats: AtBat[];
+    plotType: 'zone' | 'heatmap';
     width: number;
     height: number;
     radius: number;
 }
 
-const StrikeZone = ({ atbats, width, height, radius = 24 }: StrikeZoneProps) => {
+const StrikeZone = ({ atbats, plotType, width, height, radius = 24 }: StrikeZoneProps) => {
     const yScale = d3.scaleLinear().domain([0.5, 4.5]).range([height, 0]);
     const xScale = d3.scaleLinear().domain([-1.5, 1.5]).range([0, width]);
 
@@ -68,10 +69,11 @@ const StrikeZone = ({ atbats, width, height, radius = 24 }: StrikeZoneProps) => 
                             fill="None"
                         />
                     </g>
-                    {scaledPlays.map((play) => (
-                        <Pitch key={play.id} play={play} radius={radius} />
-                    ))}
-                    <HeatMap coordinatesList={coordinateList} width={width} height={height} />
+                    {plotType === 'zone' ? (
+                        scaledPlays.map((play) => <Pitch key={play.id} play={play} radius={radius} />)
+                    ) : (
+                        <HeatMap coordinatesList={coordinateList} width={width} height={height} />
+                    )}
                 </g>
             </svg>
         </StrikeZoneContainer>

@@ -14,18 +14,36 @@ const Template: Story<typeof StrikeZone> = (args) => {
     return <StrikeZone {...args} />;
 };
 const sampleAtbats: AtBat[] = atBatList.splice(0, 20);
-const strikesAtbats: AtBat[] = atBatList.filter((atbat) => atbat.plays.filter((play) => play.isStrike));
+const strikesAtbats: AtBat[] = atBatList.filter((atbat) => atbat.plays.filter((play) => play.outcomeCode === 'C'));
 
-export const Default = Template.bind({});
-Default.args = {
+export const DefaultZone = Template.bind({});
+DefaultZone.args = {
     atbats: sampleAtbats,
+    plotType: 'zone',
     height: 400,
     width: 300,
 };
 
-export const HeatMap = Template.bind({});
-HeatMap.args = {
+export const DefaultHeatmap = Template.bind({});
+DefaultHeatmap.args = {
+    atbats: sampleAtbats,
+    plotType: 'heatmap',
+    height: 400,
+    width: 300,
+};
+
+export const SampleZone = Template.bind({});
+SampleZone.args = {
     atbats: strikesAtbats,
+    plotType: 'zone',
+    height: 400,
+    width: 300,
+};
+
+export const SampleHeatMap = Template.bind({});
+SampleHeatMap.args = {
+    atbats: strikesAtbats,
+    plotType: 'heatmap',
     height: 400,
     width: 300,
 };
