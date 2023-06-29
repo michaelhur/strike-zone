@@ -8,8 +8,15 @@ interface PitchProps {
 }
 
 export const Pitch = ({ play, radius }: PitchProps) => {
-    const { isStrike, isBall, velocity, pitchType, coordinates } = play;
-    const OutcomeType = isStrike ? 'Strike' : isBall ? 'Ball' : 'InPlay';
+    const { outcomeCode, velocity, pitchType, coordinates } = play;
+    const OutcomeType =
+        outcomeCode === 'C'
+            ? 'CalledStrike'
+            : outcomeCode === 'B' || outcomeCode === '*B'
+            ? 'Ball'
+            : outcomeCode === 'S'
+            ? 'SwingingStrike'
+            : 'InPlay';
     return (
         <g transform={`translate(${coordinates.x - radius / 2}, ${coordinates.y - radius / 2})`}>
             <LogoIcon
@@ -23,11 +30,14 @@ export const Pitch = ({ play, radius }: PitchProps) => {
 };
 
 export const PitchOutcomeColorVariant = {
-    Strike: {
+    CalledStrike: {
         color: 'var(--primary500)',
     },
-    Ball: {
+    SwingingStrike: {
         color: 'var(--red)',
+    },
+    Ball: {
+        color: 'var(--green)',
     },
     InPlay: {
         color: 'var(--orange)',

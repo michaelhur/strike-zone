@@ -20,6 +20,12 @@ const StrikeZone = ({ atbats, plotType, width, height, radius = 24 }: StrikeZone
     const yScale = d3.scaleLinear().domain([0.5, 4.5]).range([height, 0]);
     const xScale = d3.scaleLinear().domain([-1.5, 1.5]).range([0, width]);
 
+    // const outcomes = [...new Set(atbats.flatMap((atbat) => atbat.plays.map((play) => play.outcomeCode)))];
+    // const outcomeDescs = [...new Set(atbats.flatMap((atbat) => atbat.plays.map((play) => play.outcomeDescription)))];
+    //
+    // console.log(outcomes);
+    // console.log(outcomeDescs);
+
     const scaledPlays: PitchPlay[] = atbats.flatMap((atbat) => {
         const inning = atbat.inning;
         const isTopInning = atbat.isTopInning;
@@ -46,7 +52,7 @@ const StrikeZone = ({ atbats, plotType, width, height, radius = 24 }: StrikeZone
 
     const coordinateList: Coordinates[] = atbats.flatMap((atbat) => {
         return atbat.plays
-            .filter((play) => play.isStrike)
+            .filter((play) => play.outcomeCode === 'C')
             .map((play) => {
                 return {
                     x: xScale(play.coordinates.x),

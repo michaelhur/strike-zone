@@ -16,7 +16,7 @@ export const HeatMap = ({ coordinatesList, width, height }: HeatMapProps) => {
         .x((d) => d[0])
         .y((d) => d[1])
         .size([width, height])
-        .bandwidth(12)(data);
+        .bandwidth(10)(data);
 
     // const colorScale = d3
     //     .scaleSequential((t) => d3.interpolate(`var(--white)`, `var(--primary500)`)(t))

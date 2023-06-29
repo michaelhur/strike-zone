@@ -14,7 +14,7 @@ const Template: Story<typeof StrikeZone> = (args) => {
     return <StrikeZone {...args} />;
 };
 const sampleAtbats: AtBat[] = atBatList.splice(0, 20);
-const strikesAtbats: AtBat[] = atBatList.filter((atbat) => atbat.plays.filter((play) => play.outcomeCode === 'C'));
+const strikesAtbats: AtBat[] = atBatList;
 
 export const DefaultZone = Template.bind({});
 DefaultZone.args = {
