@@ -1,3 +1,5 @@
+import { scaleLinear } from 'd3';
+
 export enum PitchType {
     AB = 'Automatic Ball',
     AS = 'Automatic Strike',
@@ -23,3 +25,33 @@ export enum PitchType {
     ST = 'Sweeper',
     UN = 'Unknown',
 }
+
+export const StrikeZoneDimensions = {
+    TOP: 3.5,
+    BOTTOM: 1.5,
+    LEFT: -0.85,
+    RIGHT: 0.85,
+    HEIGHT: 400,
+    WIDTH: 300,
+};
+
+export const PitchOutcomeColorVariant = {
+    CalledStrike: {
+        color: 'var(--primary500)',
+    },
+    SwingingStrike: {
+        color: 'var(--orange)',
+    },
+    Ball: {
+        color: 'var(--green)',
+    },
+    Foul: {
+        color: 'var(--red)',
+    },
+    InPlay: {
+        color: 'var(--yellow)',
+    },
+};
+
+export const yScale = scaleLinear().domain([0.5, 4.5]).range([StrikeZoneDimensions.HEIGHT, 0]);
+export const xScale = scaleLinear().domain([-1.5, 1.5]).range([0, StrikeZoneDimensions.WIDTH]);

@@ -5,14 +5,18 @@ import { Player } from '@typings/player';
 import { Team } from '@typings/team';
 import { Umpire } from '@typings/umpire';
 
-interface Coordinates {
+export interface Coordinates {
     x: number;
     y: number;
 }
 
+export type PlotTypes = 'zone' | 'heatmap';
+
 export interface Play {
     id: string;
     isPitch: boolean;
+    outcomeCode: string;
+    outcomeDescription: string;
     pitchType: keyof typeof PitchType;
     velocity: number;
     isBall: boolean;
@@ -20,6 +24,17 @@ export interface Play {
     isInPlay: boolean;
     strikeZoneTop: number;
     strikeZoneBottom: number;
+    coordinates: Coordinates;
+}
+
+export interface PitchPlay extends Play {
+    atBatIndex: number;
+    inning: number;
+    isTopInning: boolean;
+    batter: Player;
+    pitcher: Player;
+    home: Team;
+    away: Team;
     coordinates: Coordinates;
 }
 

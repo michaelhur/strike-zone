@@ -1,4 +1,3 @@
-import { EmptyObject } from '@typings/index';
 import { Team } from '@typings/team';
 
 export type PlayerSide = 'L' | 'R' | 'S';
@@ -48,7 +47,7 @@ export interface Player {
     weight: number;
     slug: string;
     playerNumber: number;
-    teamId?: number;
+    teamId?: number | null;
     team?: Team | null;
 }
 
