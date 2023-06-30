@@ -6,8 +6,7 @@ export const StrikeZoneContainer = styled.article({
     justifyContent: 'center',
     alignItems: 'center',
 
-    height: '400px',
-    width: '300px',
+    width: '100%',
 
     backgroundColor: 'var(--grey300)',
     border: '1px solid var(--grey500)',

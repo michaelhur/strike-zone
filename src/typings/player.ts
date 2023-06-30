@@ -1,4 +1,3 @@
-import { EmptyObject } from '@typings/index';
 import { Team } from '@typings/team';
 
 export type PlayerSide = 'L' | 'R' | 'S';

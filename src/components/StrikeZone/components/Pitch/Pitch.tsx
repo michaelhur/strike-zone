@@ -1,14 +1,18 @@
+import { PitchOutcomeColorVariant } from '@constants/pitch';
+
 import { LogoIcon } from '@components/@shared/Icon';
 
-import { Play } from '@typings/atbat';
+import { PitchPlay } from '@typings/atbat';
 
 interface PitchProps {
-    play: Play;
+    play: PitchPlay;
     radius: number;
+    onClickPitch: (play: PitchPlay) => void;
+    onUnclickPitch: () => void;
 }
 
-export const Pitch = ({ play, radius }: PitchProps) => {
-    const { outcomeCode, velocity, pitchType, coordinates } = play;
+export const Pitch = ({ play, radius, onClickPitch, onUnclickPitch }: PitchProps) => {
+    const { outcomeCode, coordinates } = play;
     const OutcomeType =
         outcomeCode === 'C'
             ? 'CalledStrike'
@@ -18,28 +22,17 @@ export const Pitch = ({ play, radius }: PitchProps) => {
             ? 'SwingingStrike'
             : 'InPlay';
     return (
-        <g transform={`translate(${coordinates.x - radius / 2}, ${coordinates.y - radius / 2})`}>
+        <g
+            transform={`translate(${coordinates.x - radius / 2}, ${coordinates.y - radius / 2})`}
+            onMouseEnter={() => onClickPitch(play)}
+            onMouseLeave={onUnclickPitch}
+        >
             <LogoIcon
                 color={PitchOutcomeColorVariant[OutcomeType].color}
                 size={radius}
-                opacity={0.7}
+                opacity={0.5}
                 hoverable={true}
             />
         </g>
     );
-};
-
-export const PitchOutcomeColorVariant = {
-    CalledStrike: {
-        color: 'var(--primary500)',
-    },
-    SwingingStrike: {
-        color: 'var(--red)',
-    },
-    Ball: {
-        color: 'var(--green)',
-    },
-    InPlay: {
-        color: 'var(--orange)',
-    },
 };

@@ -29,8 +29,10 @@ export interface PitchPlay extends Play {
     atBatIndex: number;
     inning: number;
     isTopInning: boolean;
-    batter: string;
-    pitcher: string;
+    batter: Player;
+    pitcher: Player;
+    home: Team;
+    away: Team;
     coordinates: Coordinates;
 }
 

@@ -1,3 +1,4 @@
+import { css } from '@emotion/react';
 import { atBatList } from '@mocks/data/atBat';
 import { Meta, Story } from '@storybook/react';
 
@@ -8,6 +9,13 @@ import { AtBat } from '@typings/atbat';
 export default {
     title: 'Components/StrikeZone',
     components: StrikeZone,
+    decorators: [
+        (Story) => (
+            <div css={css({ width: '300px' })}>
+                <Story />
+            </div>
+        ),
+    ],
 } as Meta<typeof StrikeZone>;
 
 const Template: Story<typeof StrikeZone> = (args) => {

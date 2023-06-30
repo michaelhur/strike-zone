@@ -30,3 +30,18 @@ export const StrikeZoneDimensions = {
     LEFT: -0.85,
     RIGHT: 0.85,
 };
+
+export const PitchOutcomeColorVariant = {
+    CalledStrike: {
+        color: 'var(--primary500)',
+    },
+    SwingingStrike: {
+        color: 'var(--red)',
+    },
+    Ball: {
+        color: 'var(--green)',
+    },
+    InPlay: {
+        color: 'var(--orange)',
+    },
+};
