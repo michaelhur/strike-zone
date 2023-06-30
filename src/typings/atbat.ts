@@ -10,6 +10,8 @@ export interface Coordinates {
     y: number;
 }
 
+export type PlotTypes = 'zone' | 'heatmap';
+
 export interface Play {
     id: string;
     isPitch: boolean;

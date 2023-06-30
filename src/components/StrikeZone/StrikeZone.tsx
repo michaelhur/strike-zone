@@ -1,56 +1,24 @@
-import { useState } from 'react';
-
 import { StrikeZoneDimensions, xScale, yScale } from '@constants/pitch';
 
 import { StrikeZoneContainer } from '@components/StrikeZone/StrikeZone.styles';
-import { HeatMap } from '@components/StrikeZone/components/HeatMap/HeatMap';
-import { Pitch } from '@components/StrikeZone/components/Pitch/Pitch';
+import { PlotType } from '@components/StrikeZone/components/PlotType/PlotType';
 import { Tooltip } from '@components/StrikeZone/components/Tooltip/Tooltip';
 import { Zone } from '@components/StrikeZone/components/Zone/Zone';
 
-import { AtBat, PitchPlay } from '@typings/atbat';
+import { usePitchHover } from '@hooks/pitch/usePitchHover';
+import { useScaledPitches } from '@hooks/pitch/useScaledPitches';
 
-import { computeAdjustedCoordinates } from '@utils/pitch';
+import { AtBat, PlotTypes } from '@typings/atbat';
 
 interface StrikeZoneProps {
     atbats: AtBat[];
-    plotType: 'zone' | 'heatmap';
+    plotType: PlotTypes;
     radius: number;
 }
 
 const StrikeZone = ({ atbats, plotType, radius = 24 }: StrikeZoneProps) => {
-    const [hoverData, setHoverData] = useState<PitchPlay | null>(null);
-
-    const onClickPitch = (pitchPlay: PitchPlay) => setHoverData(pitchPlay);
-    const onUnclickPitch = () => setHoverData(null);
-
-    const scaledPitches: PitchPlay[] = atbats.flatMap((atbat) => {
-        const inning = atbat.inning;
-        const isTopInning = atbat.isTopInning;
-        const atBatIndex = atbat.atBatIndex;
-        const batter = atbat.batter;
-        const pitcher = atbat.pitcher;
-        const home = atbat.home;
-        const away = atbat.away;
-
-        return atbat.plays.map((play) => {
-            const { coordinates, strikeZoneBottom, strikeZoneTop } = play;
-
-            const adjustedCoordinates = computeAdjustedCoordinates(coordinates, strikeZoneBottom, strikeZoneTop);
-
-            return {
-                ...play,
-                inning,
-                isTopInning,
-                atBatIndex,
-                batter,
-                pitcher,
-                home,
-                away,
-                coordinates: adjustedCoordinates,
-            };
-        });
-    });
+    const scaledPitches = useScaledPitches(atbats);
+    const { hoverData, onClickPitch, onUnclickPitch } = usePitchHover(null);
 
     return (
         <StrikeZoneContainer>
@@ -66,19 +34,13 @@ const StrikeZone = ({ atbats, plotType, radius = 24 }: StrikeZoneProps) => {
                             fill="None"
                         />
                     </g>
-                    {plotType === 'zone' ? (
-                        scaledPitches.map((play) => (
-                            <Pitch
-                                key={play.id}
-                                play={play}
-                                radius={radius}
-                                onClickPitch={onClickPitch}
-                                onUnclickPitch={onUnclickPitch}
-                            />
-                        ))
-                    ) : (
-                        <HeatMap pitchList={scaledPitches} />
-                    )}
+                    <PlotType
+                        plotType={plotType}
+                        scaledPitches={scaledPitches}
+                        radius={radius}
+                        onClickPitch={onClickPitch}
+                        onUnclickPitch={onUnclickPitch}
+                    />
                 </g>
             </svg>
             {hoverData && <Tooltip hoverData={hoverData} />}
