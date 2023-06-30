@@ -28,30 +28,22 @@ export const DefaultZone = Template.bind({});
 DefaultZone.args = {
     atbats: sampleAtbats,
     plotType: 'zone',
-    height: 400,
-    width: 300,
 };
 
 export const DefaultHeatmap = Template.bind({});
 DefaultHeatmap.args = {
     atbats: sampleAtbats,
     plotType: 'heatmap',
-    height: 400,
-    width: 300,
 };
 
 export const SampleZone = Template.bind({});
 SampleZone.args = {
     atbats: strikesAtbats,
     plotType: 'zone',
-    height: 400,
-    width: 300,
 };
 
 export const SampleHeatMap = Template.bind({});
 SampleHeatMap.args = {
     atbats: strikesAtbats,
     plotType: 'heatmap',
-    height: 400,
-    width: 300,
 };

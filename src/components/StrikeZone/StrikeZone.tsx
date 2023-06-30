@@ -11,7 +11,7 @@ import { Zone } from '@components/StrikeZone/components/Zone/Zone';
 
 import { AtBat, Coordinates, PitchPlay } from '@typings/atbat';
 
-import { adjustXCoordinate, adjustYCoordinate } from '@utils/pitch';
+import { computeAdjustedCoordinates } from '@utils/pitch';
 
 interface StrikeZoneProps {
     atbats: AtBat[];
@@ -21,7 +21,7 @@ interface StrikeZoneProps {
     radius: number;
 }
 
-const StrikeZone = ({ atbats, plotType, width, height, radius = 24 }: StrikeZoneProps) => {
+const StrikeZone = ({ atbats, plotType, width = 300, height = 400, radius = 24 }: StrikeZoneProps) => {
     const [hoverData, setHoverData] = useState<PitchPlay | null>(null);
 
     const onClickPitch = (pitchPlay: PitchPlay) => setHoverData(pitchPlay);
@@ -40,11 +40,16 @@ const StrikeZone = ({ atbats, plotType, width, height, radius = 24 }: StrikeZone
         const away = atbat.away;
 
         return atbat.plays.map((play) => {
-            const { coordinates, strikeZoneTop, strikeZoneBottom } = play;
-            const adjustedCoordinates = {
-                x: xScale(adjustXCoordinate(coordinates.x)),
-                y: yScale(adjustYCoordinate(coordinates.y, strikeZoneBottom, strikeZoneTop)),
-            };
+            const { coordinates, strikeZoneBottom, strikeZoneTop } = play;
+
+            const adjustedCoordinates = computeAdjustedCoordinates(
+                coordinates,
+                strikeZoneBottom,
+                strikeZoneTop,
+                xScale,
+                yScale,
+            );
+
             return {
                 ...play,
                 inning,
@@ -63,12 +68,9 @@ const StrikeZone = ({ atbats, plotType, width, height, radius = 24 }: StrikeZone
         return atbat.plays
             .filter((play) => play.outcomeCode === 'C')
             .map((play) => {
-                const { coordinates, strikeZoneTop, strikeZoneBottom } = play;
+                const { coordinates, strikeZoneBottom, strikeZoneTop } = play;
 
-                return {
-                    x: xScale(adjustXCoordinate(coordinates.x)),
-                    y: yScale(adjustYCoordinate(coordinates.y, strikeZoneBottom, strikeZoneTop)),
-                };
+                return computeAdjustedCoordinates(coordinates, strikeZoneBottom, strikeZoneTop, xScale, yScale);
             });
     });
 
