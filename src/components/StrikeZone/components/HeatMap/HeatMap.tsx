@@ -18,21 +18,10 @@ export const HeatMap = ({ coordinatesList, width, height }: HeatMapProps) => {
         .size([width, height])
         .bandwidth(10)(data);
 
-    // const colorScale = d3
-    //     .scaleSequential((t) => d3.interpolate(`var(--white)`, `var(--primary500)`)(t))
-    //     .domain(d3.extent(contours, (d) => d.value) as [number, number]);
-
     return (
         <svg>
             {contours.map((contour, i) => (
-                <path
-                    key={i}
-                    d={d3.geoPath()(contour) as string}
-                    fill={'var(--primary500)'}
-                    // fill={colorScale(contour.value) as string}
-                    // fillOpacity={0.4}
-                    opacity={0.3}
-                />
+                <path key={i} d={d3.geoPath()(contour) as string} fill={'var(--primary500)'} opacity={0.3} />
             ))}
         </svg>
     );

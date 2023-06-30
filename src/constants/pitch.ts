@@ -25,8 +25,8 @@ export enum PitchType {
 }
 
 export const StrikeZoneDimensions = {
-    top: 3.5,
-    bottom: 1.5,
-    left: -0.85,
-    right: 0.85,
+    TOP: 3.5,
+    BOTTOM: 1.5,
+    LEFT: -0.85,
+    RIGHT: 0.85,
 };

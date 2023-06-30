@@ -8,6 +8,8 @@ import { Zone } from '@components/StrikeZone/components/Zone/Zone';
 
 import { AtBat, Coordinates, PitchPlay } from '@typings/atbat';
 
+import { adjustXCoordinate, adjustYCoordinate } from '@utils/pitch';
+
 interface StrikeZoneProps {
     atbats: AtBat[];
     plotType: 'zone' | 'heatmap';
@@ -34,9 +36,10 @@ const StrikeZone = ({ atbats, plotType, width, height, radius = 24 }: StrikeZone
         const pitcher = atbat.pitcher.name;
 
         return atbat.plays.map((play) => {
-            const coordinates = {
-                x: xScale(play.coordinates.x),
-                y: yScale(play.coordinates.y),
+            const { coordinates, strikeZoneTop, strikeZoneBottom } = play;
+            const adjustedCoordinates = {
+                x: xScale(adjustXCoordinate(coordinates.x)),
+                y: yScale(adjustYCoordinate(coordinates.y, strikeZoneBottom, strikeZoneTop)),
             };
             return {
                 ...play,
@@ -45,7 +48,7 @@ const StrikeZone = ({ atbats, plotType, width, height, radius = 24 }: StrikeZone
                 atBatIndex,
                 batter,
                 pitcher,
-                coordinates,
+                coordinates: adjustedCoordinates,
             };
         });
     });
@@ -54,9 +57,11 @@ const StrikeZone = ({ atbats, plotType, width, height, radius = 24 }: StrikeZone
         return atbat.plays
             .filter((play) => play.outcomeCode === 'C')
             .map((play) => {
+                const { coordinates, strikeZoneTop, strikeZoneBottom } = play;
+
                 return {
-                    x: xScale(play.coordinates.x),
-                    y: yScale(play.coordinates.y),
+                    x: xScale(adjustXCoordinate(coordinates.x)),
+                    y: yScale(adjustYCoordinate(coordinates.y, strikeZoneBottom, strikeZoneTop)),
                 };
             });
     });
@@ -65,13 +70,13 @@ const StrikeZone = ({ atbats, plotType, width, height, radius = 24 }: StrikeZone
         <StrikeZoneContainer>
             <svg width={width} height={height}>
                 <g width={width} height={height}>
-                    <g transform={`translate(${xScale(StrikeZoneDimensions.left)},0)`}>
+                    <g transform={`translate(${xScale(StrikeZoneDimensions.LEFT)},0)`}>
                         <Zone
-                            xMin={xScale(StrikeZoneDimensions.left)}
-                            xMax={xScale(StrikeZoneDimensions.right)}
-                            yMin={yScale(StrikeZoneDimensions.bottom)}
-                            yMax={yScale(StrikeZoneDimensions.top)}
-                            stroke="var(--grey700)"
+                            xMin={xScale(StrikeZoneDimensions.LEFT)}
+                            xMax={xScale(StrikeZoneDimensions.RIGHT)}
+                            yMin={yScale(StrikeZoneDimensions.BOTTOM)}
+                            yMax={yScale(StrikeZoneDimensions.TOP)}
+                            stroke="var(--grey1000)"
                             fill="None"
                         />
                     </g>
