@@ -7,15 +7,10 @@ const adjustYCoordinate = (y: number, strikeZoneBottom: number, strikeZoneTop: n
     if (y <= 0.5) return 0.5;
     if (y >= 4.5) return 4.5;
 
-    if (y >= strikeZoneTop) {
-        const diff = y - strikeZoneTop;
-        return StrikeZoneDimensions.TOP + diff;
-    }
+    const diff = y >= strikeZoneTop ? y - strikeZoneTop : strikeZoneBottom - y;
 
-    if (y <= strikeZoneBottom) {
-        const diff = strikeZoneBottom - y;
-        return StrikeZoneDimensions.BOTTOM - diff;
-    }
+    if (y >= strikeZoneTop) return StrikeZoneDimensions.TOP + diff;
+    if (y <= strikeZoneBottom) return StrikeZoneDimensions.BOTTOM - diff;
 
     const topDiff = strikeZoneTop - y;
     const bottomDiff = y - strikeZoneBottom;
