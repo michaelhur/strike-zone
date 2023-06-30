@@ -1,19 +1,21 @@
 import { contourDensity } from 'd3';
 import * as d3 from 'd3';
 
-import { Coordinates } from '@typings/atbat';
+import { PitchPlay } from '@typings/atbat';
 
 interface HeatMapProps {
-    coordinatesList: Coordinates[];
+    pitchList: PitchPlay[];
 }
 
-export const HeatMap = ({ coordinatesList }: HeatMapProps) => {
-    const data: [number, number][] = coordinatesList.map((coordinate) => [coordinate.x, coordinate.y]);
+export const HeatMap = ({ pitchList }: HeatMapProps) => {
+    const data: [number, number][] = pitchList
+        .map((pitch) => pitch.coordinates)
+        .map((coordinate) => [coordinate.x, coordinate.y]);
 
     const contours = contourDensity()
         .x((d) => d[0])
         .y((d) => d[1])
-        .bandwidth(10)(data);
+        .bandwidth(5)(data);
 
     return (
         <svg>

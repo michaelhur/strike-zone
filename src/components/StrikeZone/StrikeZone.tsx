@@ -8,7 +8,7 @@ import { Pitch } from '@components/StrikeZone/components/Pitch/Pitch';
 import { Tooltip } from '@components/StrikeZone/components/Tooltip/Tooltip';
 import { Zone } from '@components/StrikeZone/components/Zone/Zone';
 
-import { AtBat, Coordinates, PitchPlay } from '@typings/atbat';
+import { AtBat, PitchPlay } from '@typings/atbat';
 
 import { computeAdjustedCoordinates } from '@utils/pitch';
 
@@ -24,7 +24,7 @@ const StrikeZone = ({ atbats, plotType, radius = 24 }: StrikeZoneProps) => {
     const onClickPitch = (pitchPlay: PitchPlay) => setHoverData(pitchPlay);
     const onUnclickPitch = () => setHoverData(null);
 
-    const scaledPlays: PitchPlay[] = atbats.flatMap((atbat) => {
+    const scaledPitches: PitchPlay[] = atbats.flatMap((atbat) => {
         const inning = atbat.inning;
         const isTopInning = atbat.isTopInning;
         const atBatIndex = atbat.atBatIndex;
@@ -52,16 +52,6 @@ const StrikeZone = ({ atbats, plotType, radius = 24 }: StrikeZoneProps) => {
         });
     });
 
-    const coordinateList: Coordinates[] = atbats.flatMap((atbat) => {
-        return atbat.plays
-            .filter((play) => play.outcomeCode === 'C')
-            .map((play) => {
-                const { coordinates, strikeZoneBottom, strikeZoneTop } = play;
-
-                return computeAdjustedCoordinates(coordinates, strikeZoneBottom, strikeZoneTop);
-            });
-    });
-
     return (
         <StrikeZoneContainer>
             <svg width={StrikeZoneDimensions.WIDTH} height={StrikeZoneDimensions.HEIGHT}>
@@ -77,7 +67,7 @@ const StrikeZone = ({ atbats, plotType, radius = 24 }: StrikeZoneProps) => {
                         />
                     </g>
                     {plotType === 'zone' ? (
-                        scaledPlays.map((play) => (
+                        scaledPitches.map((play) => (
                             <Pitch
                                 key={play.id}
                                 play={play}
@@ -87,7 +77,7 @@ const StrikeZone = ({ atbats, plotType, radius = 24 }: StrikeZoneProps) => {
                             />
                         ))
                     ) : (
-                        <HeatMap coordinatesList={coordinateList} />
+                        <HeatMap pitchList={scaledPitches} />
                     )}
                 </g>
             </svg>
