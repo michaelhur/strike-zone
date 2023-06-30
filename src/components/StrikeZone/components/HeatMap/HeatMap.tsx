@@ -5,17 +5,14 @@ import { Coordinates } from '@typings/atbat';
 
 interface HeatMapProps {
     coordinatesList: Coordinates[];
-    width: number;
-    height: number;
 }
 
-export const HeatMap = ({ coordinatesList, width, height }: HeatMapProps) => {
+export const HeatMap = ({ coordinatesList }: HeatMapProps) => {
     const data: [number, number][] = coordinatesList.map((coordinate) => [coordinate.x, coordinate.y]);
 
     const contours = contourDensity()
         .x((d) => d[0])
         .y((d) => d[1])
-        .size([width, height])
         .bandwidth(10)(data);
 
     return (

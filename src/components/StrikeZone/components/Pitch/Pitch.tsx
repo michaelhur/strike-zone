@@ -16,10 +16,12 @@ export const Pitch = ({ play, radius, onClickPitch, onUnclickPitch }: PitchProps
     const OutcomeType =
         outcomeCode === 'C'
             ? 'CalledStrike'
-            : outcomeCode === 'B' || outcomeCode === '*B'
-            ? 'Ball'
             : outcomeCode === 'S'
             ? 'SwingingStrike'
+            : outcomeCode === 'B' || outcomeCode === '*B'
+            ? 'Ball'
+            : outcomeCode === 'F'
+            ? 'Foul'
             : 'InPlay';
     return (
         <g
@@ -30,7 +32,7 @@ export const Pitch = ({ play, radius, onClickPitch, onUnclickPitch }: PitchProps
             <LogoIcon
                 color={PitchOutcomeColorVariant[OutcomeType].color}
                 size={radius}
-                opacity={0.5}
+                opacity={0.6}
                 hoverable={true}
             />
         </g>

@@ -1,5 +1,4 @@
-import { StrikeZoneDimensions } from '@constants/pitch';
-import { ScaleLinear } from 'd3';
+import { StrikeZoneDimensions, xScale, yScale } from '@constants/pitch';
 
 import { Coordinates } from '@typings/atbat';
 
@@ -30,8 +29,6 @@ export const computeAdjustedCoordinates = (
     coordinates: Coordinates,
     strikeZoneBottom: number,
     strikeZoneTop: number,
-    xScale: ScaleLinear<number, number, never>,
-    yScale: ScaleLinear<number, number, never>,
 ): Coordinates => {
     return {
         x: xScale(adjustXCoordinate(coordinates.x)),

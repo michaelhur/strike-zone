@@ -54,7 +54,7 @@ export const PitchInfoSection = styled(FlexColumnContainer)({
 
 export const Outcome = styled.span({
     color: 'var(--grey700)',
-    fontSize: '0.75rem',
+    fontSize: '1rem',
 });
 
 export const PitchInfo = styled.span({

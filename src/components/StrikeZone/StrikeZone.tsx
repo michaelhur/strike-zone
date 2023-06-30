@@ -1,7 +1,6 @@
 import { useState } from 'react';
 
-import { StrikeZoneDimensions } from '@constants/pitch';
-import * as d3 from 'd3';
+import { StrikeZoneDimensions, xScale, yScale } from '@constants/pitch';
 
 import { StrikeZoneContainer } from '@components/StrikeZone/StrikeZone.styles';
 import { HeatMap } from '@components/StrikeZone/components/HeatMap/HeatMap';
@@ -16,19 +15,14 @@ import { computeAdjustedCoordinates } from '@utils/pitch';
 interface StrikeZoneProps {
     atbats: AtBat[];
     plotType: 'zone' | 'heatmap';
-    width: number;
-    height: number;
     radius: number;
 }
 
-const StrikeZone = ({ atbats, plotType, width = 300, height = 400, radius = 24 }: StrikeZoneProps) => {
+const StrikeZone = ({ atbats, plotType, radius = 24 }: StrikeZoneProps) => {
     const [hoverData, setHoverData] = useState<PitchPlay | null>(null);
 
     const onClickPitch = (pitchPlay: PitchPlay) => setHoverData(pitchPlay);
     const onUnclickPitch = () => setHoverData(null);
-
-    const yScale = d3.scaleLinear().domain([0.5, 4.5]).range([height, 0]);
-    const xScale = d3.scaleLinear().domain([-1.5, 1.5]).range([0, width]);
 
     const scaledPlays: PitchPlay[] = atbats.flatMap((atbat) => {
         const inning = atbat.inning;
@@ -42,13 +36,7 @@ const StrikeZone = ({ atbats, plotType, width = 300, height = 400, radius = 24 }
         return atbat.plays.map((play) => {
             const { coordinates, strikeZoneBottom, strikeZoneTop } = play;
 
-            const adjustedCoordinates = computeAdjustedCoordinates(
-                coordinates,
-                strikeZoneBottom,
-                strikeZoneTop,
-                xScale,
-                yScale,
-            );
+            const adjustedCoordinates = computeAdjustedCoordinates(coordinates, strikeZoneBottom, strikeZoneTop);
 
             return {
                 ...play,
@@ -70,14 +58,14 @@ const StrikeZone = ({ atbats, plotType, width = 300, height = 400, radius = 24 }
             .map((play) => {
                 const { coordinates, strikeZoneBottom, strikeZoneTop } = play;
 
-                return computeAdjustedCoordinates(coordinates, strikeZoneBottom, strikeZoneTop, xScale, yScale);
+                return computeAdjustedCoordinates(coordinates, strikeZoneBottom, strikeZoneTop);
             });
     });
 
     return (
         <StrikeZoneContainer>
-            <svg width={width} height={height}>
-                <g width={width} height={height}>
+            <svg width={StrikeZoneDimensions.WIDTH} height={StrikeZoneDimensions.HEIGHT}>
+                <g width={StrikeZoneDimensions.WIDTH} height={StrikeZoneDimensions.HEIGHT}>
                     <g transform={`translate(${xScale(StrikeZoneDimensions.LEFT)},0)`}>
                         <Zone
                             xMin={xScale(StrikeZoneDimensions.LEFT)}
@@ -99,7 +87,7 @@ const StrikeZone = ({ atbats, plotType, width = 300, height = 400, radius = 24 }
                             />
                         ))
                     ) : (
-                        <HeatMap coordinatesList={coordinateList} width={width} height={height} />
+                        <HeatMap coordinatesList={coordinateList} />
                     )}
                 </g>
             </svg>
