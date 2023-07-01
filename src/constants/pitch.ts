@@ -1,5 +1,9 @@
 import { scaleLinear } from 'd3';
 
+import { GameViewType } from '@typings/game';
+import { TabOptions } from '@typings/input';
+import { LeagueType } from '@typings/league';
+
 export enum PitchType {
     AB = 'Automatic Ball',
     AS = 'Automatic Strike',
@@ -52,6 +56,21 @@ export const PitchOutcomeColorVariant = {
         color: 'var(--yellow)',
     },
 };
+
+export const leagueTabOptions: TabOptions<GameViewType>[] = [
+    {
+        label: '전체',
+        value: 'ALL',
+    },
+    {
+        label: '요약',
+        value: 'SUMMARY',
+    },
+    {
+        label: '이닝별',
+        value: 'INNING',
+    },
+];
 
 export const yScale = scaleLinear().domain([0.5, 4.5]).range([StrikeZoneDimensions.HEIGHT, 0]);
 export const xScale = scaleLinear().domain([-1.5, 1.5]).range([0, StrikeZoneDimensions.WIDTH]);

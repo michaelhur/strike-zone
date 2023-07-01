@@ -18,7 +18,7 @@ import {
     TopSection,
 } from '@components/Sidebar/Sidebar.styles';
 
-import { themeState } from '@recoils/atom';
+import { themeState } from '@recoils/sidebar/atom';
 import { sidebarCollapseState } from '@recoils/sidebar/atom';
 
 export const Sidebar = () => {
