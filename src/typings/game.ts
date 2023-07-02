@@ -19,4 +19,4 @@ export interface Game {
     umpire?: Umpire | null;
 }
 
-export type GameViewType = 'ALL' | 'SUMMARY' | 'INNING';
+export type GameViewType = 'DETAIL' | 'SUMMARY' | 'INNING';

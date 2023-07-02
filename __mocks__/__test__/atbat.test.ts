@@ -84,4 +84,15 @@ describe('타석 API', () => {
         expect(response.status).toBe(200);
         expect(data).toEqual(umpireData);
     });
+
+    it('GET /api/atbats/:slug 요청은 특정 경기의 타석 정보를 리턴한다', async () => {
+        const slug = '230407-HOU-MIN-1';
+        const response = await axios.get(`/api/atbats/${slug}`);
+        const data = response.data;
+
+        const targetData = atBatList.filter((atbat) => atbat.game.slug === slug);
+
+        expect(response.status).toBe(200);
+        expect(data).toEqual(targetData);
+    });
 });

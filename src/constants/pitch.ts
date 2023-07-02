@@ -57,10 +57,10 @@ export const PitchOutcomeColorVariant = {
     },
 };
 
-export const leagueTabOptions: TabOptions<GameViewType>[] = [
+export const gameTapOptions: TabOptions<GameViewType>[] = [
     {
-        label: '전체',
-        value: 'ALL',
+        label: '상세',
+        value: 'DETAIL',
     },
     {
         label: '요약',

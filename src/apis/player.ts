@@ -3,7 +3,6 @@ import axios from 'axios';
 import { Player, PlayerStats } from '@typings/player';
 
 import { fetcher } from '@src/apis/fetcher';
-import { AnyOBJ } from '@src/typings';
 
 export interface GetPlayerListRequest {
     players: Player[];

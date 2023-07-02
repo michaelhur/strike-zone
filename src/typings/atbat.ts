@@ -10,6 +10,10 @@ export interface Coordinates {
     y: number;
 }
 
+export type SideType = 'All' | 'Home' | 'Away';
+
+export type OutcomeType = 'All' | 'Strike' | 'Ball';
+
 export type PlotTypes = 'zone' | 'heatmap';
 
 export interface Play {

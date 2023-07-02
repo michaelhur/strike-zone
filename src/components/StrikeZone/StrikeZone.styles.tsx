@@ -4,10 +4,23 @@ export const StrikeZoneContainer = styled.article({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'flex-start',
+    gap: '0.5rem',
 
-    width: '100%',
+    width: '300px',
+    // flex: '1',
 
+    // backgroundColor: 'var(--grey300)',
+    // border: '1px solid var(--grey500)',
+});
+
+export const ZoneLabel = styled.h3({
+    fontFamily: 'BMHANNAAir',
+    fontSize: '1.5rem',
+    color: 'var(--grey1000)',
+});
+
+export const StrikeZonePlot = styled.svg({
     backgroundColor: 'var(--grey300)',
     border: '1px solid var(--grey500)',
 });

@@ -1,7 +1,4 @@
-import { useState } from 'react';
-
-import { leagueTabOptions } from '@constants/pitch';
-import { css } from '@emotion/react';
+import { gameTapOptions } from '@constants/pitch';
 import { useRecoilState } from 'recoil';
 
 import { CategoryMenu } from '@components/CategoryMenu/CategoryMenu';
@@ -85,7 +82,7 @@ export const GameDataSection = ({ slug }: GameDataSectionProps) => {
                 <CategoryMenu<GameViewType, any>
                     selectedCategory={gameViewType}
                     setSelectedCategory={setGameViewType}
-                    categoryOptions={leagueTabOptions}
+                    categoryOptions={gameTapOptions}
                 />
             </GameDataSectionContainer>
         );

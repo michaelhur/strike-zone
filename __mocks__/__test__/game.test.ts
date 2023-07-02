@@ -2,6 +2,7 @@ import axios from 'axios';
 import { setupServer } from 'msw/node';
 import { expect } from 'vitest';
 
+import { getFetchOffsets } from '../../src/utils/url';
 import { atBatList } from '../data/atBat';
 import { gameList } from '../data/game';
 import { gameHandler } from '../handlers/gameHandler';
@@ -155,7 +156,7 @@ describe('경기 API', () => {
     it('GET /api/games/get-by-playerSlug/:slug 요청은 특정 선수의 경기 리스트를 리턴한다', async () => {
         const slug = 'ronald-acuna-jr-660670';
         const playerType = 'batter';
-        const response = await axios.get(`/api/games/get-by-playerId/${slug}?playerType=${playerType}`);
+        const response = await axios.get(`/api/games/get-by-playerSlug/${slug}?playerType=${playerType}`);
         const data = response.data;
 
         const gameIdList = atBatList
