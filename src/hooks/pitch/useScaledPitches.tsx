@@ -2,11 +2,19 @@ import { AtBat, OutcomeType, PitchPlay, SideType } from '@typings/atbat';
 
 import { computeAdjustedCoordinates } from '@utils/pitch';
 
-export const useScaledPitches = (atbats: AtBat[], outcomeType: OutcomeType, sideType: SideType): PitchPlay[] => {
+export const useScaledPitches = (
+    atbats: AtBat[],
+    outcomeType: OutcomeType,
+    sideType: SideType,
+    inningType?: number,
+): PitchPlay[] => {
     return atbats
         .filter((atbat) => {
-            const { isTopInning } = atbat;
-            return sideType === 'All' ? true : sideType === 'Home' ? !isTopInning : !isTopInning;
+            const { isTopInning, inning } = atbat;
+            const sideFilter = sideType === 'All' ? true : sideType === 'Home' ? !isTopInning : !isTopInning;
+            const inningFilter = !inningType ? true : inning === inningType;
+
+            return sideFilter && inningFilter;
         })
         .flatMap((atbat) => {
             const { inning, isTopInning, atBatIndex, batter, pitcher, home, away } = atbat;
