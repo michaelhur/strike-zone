@@ -6,7 +6,10 @@ import StrikeZone from '@components/StrikeZone/StrikeZone';
 
 import { useGetAtbat } from '@hooks/@query/atbat/useGetAtbat';
 
-import { StrikeZoneSectionContainer } from '@pages/GameDetailPage/components/StrikeZoneSection/StrikeZoneSection.styles';
+import {
+    SectionTitle,
+    StrikeZoneSectionContainer,
+} from '@pages/GameDetailPage/components/StrikeZoneSection/StrikeZoneSection.styles';
 
 import { SideType } from '@typings/atbat';
 
@@ -17,11 +20,21 @@ interface StrikeZoneSectionProps {
 
 export const StrikeZoneSection = ({ slug, sideType }: StrikeZoneSectionProps) => {
     const { isLoading, data } = useGetAtbat(slug!);
+    const sectionTitle = sideType === 'All' ? '전체' : sideType === 'Home' ? '홈팀 투구' : '원정팀 투구';
+
     if (isLoading) return <Loading size={60} />;
     return (
         <StrikeZoneSectionContainer>
-            <h2>{sideType} Pitching</h2>
+            <SectionTitle>{sectionTitle}</SectionTitle>
             <PlotContainer>
+                <StrikeZone
+                    atbats={data!}
+                    outcomeType={'All'}
+                    sideType={sideType}
+                    plotType={'zone'}
+                    radius={24}
+                    hasLabel={true}
+                />
                 <StrikeZone
                     atbats={data!}
                     outcomeType={'BallsAndStrikes'}
