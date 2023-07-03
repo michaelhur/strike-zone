@@ -12,7 +12,7 @@ export interface Coordinates {
 
 export type SideType = 'All' | 'Home' | 'Away';
 
-export type OutcomeType = 'All' | 'CalledStrike' | 'SwingingStrike' | 'Ball' | 'InPlay' | 'Foul';
+export type OutcomeType = 'All' | 'BallsAndStrikes' | 'CalledStrike' | 'SwingingStrike' | 'Ball' | 'InPlay' | 'Foul';
 
 export type PlotTypes = 'zone' | 'heatmap';
 

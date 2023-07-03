@@ -24,7 +24,7 @@ export const StrikeZoneSection = ({ slug, sideType }: StrikeZoneSectionProps) =>
             <PlotContainer>
                 <StrikeZone
                     atbats={data!}
-                    outcomeType={'All'}
+                    outcomeType={'BallsAndStrikes'}
                     sideType={sideType}
                     plotType={'zone'}
                     radius={24}

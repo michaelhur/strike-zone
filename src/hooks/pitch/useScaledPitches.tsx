@@ -22,11 +22,22 @@ export const useScaledPitches = (
             return atbat.plays
                 .filter((play) => {
                     const { outcomeCode } = play;
-                    return outcomeType === 'All'
-                        ? outcomeCode === 'C' || outcomeCode === 'B' || outcomeCode === '*B'
-                        : outcomeType === 'CalledStrike'
-                        ? outcomeCode === 'C'
-                        : outcomeCode === 'B' || outcomeCode === '*B';
+                    switch (outcomeType) {
+                        case 'All':
+                            return true;
+                        case 'BallsAndStrikes':
+                            return outcomeCode === 'C' || outcomeCode === 'B' || outcomeCode === '*B';
+                        case 'CalledStrike':
+                            return outcomeCode === 'C';
+                        case 'Ball':
+                            return outcomeCode === 'B' || outcomeCode === '*B';
+                        case 'Foul':
+                            return outcomeCode === 'F';
+                        case 'SwingingStrike':
+                            return outcomeCode === 'S';
+                        default:
+                            return !['C', 'S', 'F', 'B', '*B'].includes(outcomeCode);
+                    }
                 })
                 .map((play) => {
                     const { coordinates, strikeZoneBottom, strikeZoneTop } = play;
