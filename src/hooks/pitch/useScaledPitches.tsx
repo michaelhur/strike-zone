@@ -11,7 +11,7 @@ export const useScaledPitches = (
     return atbats
         .filter((atbat) => {
             const { isTopInning, inning } = atbat;
-            const sideFilter = sideType === 'All' ? true : sideType === 'Home' ? !isTopInning : !isTopInning;
+            const sideFilter = sideType === 'All' ? true : sideType === 'Home' ? !isTopInning : isTopInning;
             const inningFilter = !inningType ? true : inning === inningType;
 
             return sideFilter && inningFilter;

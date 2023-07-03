@@ -2,7 +2,6 @@ import { scaleLinear } from 'd3';
 
 import { GameViewType } from '@typings/game';
 import { TabOptions } from '@typings/input';
-import { LeagueType } from '@typings/league';
 
 export enum PitchType {
     AB = 'Automatic Ball',
@@ -35,7 +34,7 @@ export const StrikeZoneDimensions = {
     BOTTOM: 1.5,
     LEFT: -0.85,
     RIGHT: 0.85,
-    HEIGHT: 400,
+    HEIGHT: 350,
     WIDTH: 300,
 };
 

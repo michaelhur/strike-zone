@@ -10,6 +10,7 @@ import {
     PlayerSection,
     PlayerType,
     TooltipContainer,
+    Velocity,
 } from '@components/StrikeZone/components/Tooltip/Tooltip.styles';
 
 import { PitchPlay } from '@typings/atbat';
@@ -56,7 +57,7 @@ export const Tooltip = ({ hoverData }: TooltipProps) => {
             </PlayerSection>
             <PitchInfoSection>
                 <PitchInfo>
-                    {velocity} MPH - {PitchType[pitchType]}
+                    {PitchType[pitchType]} <Velocity>({velocity} MPH)</Velocity>
                 </PitchInfo>
                 <Outcome>{outcomeDescription}</Outcome>
             </PitchInfoSection>

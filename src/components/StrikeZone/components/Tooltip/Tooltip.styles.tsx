@@ -61,3 +61,8 @@ export const PitchInfo = styled.span({
     color: 'var(--grey1000)',
     fontSize: '1rem',
 });
+
+export const Velocity = styled.span({
+    color: 'var(--grey700)',
+    fontSize: '1rem',
+});

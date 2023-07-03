@@ -7,6 +7,7 @@ import { Zone } from '@components/StrikeZone/components/Zone/Zone';
 
 import { usePitchHover } from '@hooks/pitch/usePitchHover';
 import { useScaledPitches } from '@hooks/pitch/useScaledPitches';
+import { useZoneLabel } from '@hooks/pitch/useZoneLabel';
 
 import { AtBat, OutcomeType, PlotTypes, SideType } from '@typings/atbat';
 
@@ -16,16 +17,17 @@ interface StrikeZoneProps {
     sideType: SideType;
     plotType: PlotTypes;
     radius: number;
-    zoneLabel?: string;
+    hasLabel?: boolean;
 }
 
-const StrikeZone = ({ atbats, outcomeType, sideType, plotType, radius = 24, zoneLabel }: StrikeZoneProps) => {
+const StrikeZone = ({ atbats, outcomeType, sideType, plotType, radius = 24, hasLabel }: StrikeZoneProps) => {
     const scaledPitches = useScaledPitches(atbats, outcomeType, sideType);
     const { hoverData, onClickPitch, onUnclickPitch } = usePitchHover(null);
+    const zoneLabel = useZoneLabel(outcomeType);
 
     return (
         <StrikeZoneContainer>
-            {zoneLabel && <ZoneLabel>{zoneLabel}</ZoneLabel>}
+            {hasLabel && <ZoneLabel>{zoneLabel}</ZoneLabel>}
             <StrikeZonePlot width={StrikeZoneDimensions.WIDTH} height={StrikeZoneDimensions.HEIGHT}>
                 <g width={StrikeZoneDimensions.WIDTH} height={StrikeZoneDimensions.HEIGHT}>
                     <g transform={`translate(${xScale(StrikeZoneDimensions.LEFT)},0)`}>

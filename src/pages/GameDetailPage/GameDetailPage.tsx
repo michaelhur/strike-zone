@@ -10,7 +10,9 @@ const GameDetailPage = () => {
     return (
         <GameDetailPageContainer>
             <GameDataSection slug={slug!} />
-            <StrikeZoneSection slug={slug!} />
+            <StrikeZoneSection slug={slug!} sideType={'All'} />
+            <StrikeZoneSection slug={slug!} sideType={'Home'} />
+            <StrikeZoneSection slug={slug!} sideType={'Away'} />
         </GameDetailPageContainer>
     );
 };

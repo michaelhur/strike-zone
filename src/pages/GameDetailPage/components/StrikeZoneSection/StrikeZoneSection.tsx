@@ -8,48 +8,43 @@ import { useGetAtbat } from '@hooks/@query/atbat/useGetAtbat';
 
 import { StrikeZoneSectionContainer } from '@pages/GameDetailPage/components/StrikeZoneSection/StrikeZoneSection.styles';
 
+import { SideType } from '@typings/atbat';
+
 interface StrikeZoneSectionProps {
     slug: string;
+    sideType: SideType;
 }
 
-export const StrikeZoneSection = ({ slug }: StrikeZoneSectionProps) => {
+export const StrikeZoneSection = ({ slug, sideType }: StrikeZoneSectionProps) => {
     const { isLoading, data } = useGetAtbat(slug!);
     if (isLoading) return <Loading size={60} />;
     return (
         <StrikeZoneSectionContainer>
-            <h2>전체</h2>
+            <h2>{sideType} Pitching</h2>
             <PlotContainer>
                 <StrikeZone
                     atbats={data!}
                     outcomeType={'All'}
-                    sideType={'Home'}
+                    sideType={sideType}
                     plotType={'zone'}
                     radius={24}
-                    zoneLabel={'스트라이크 + 볼'}
+                    hasLabel={true}
                 />
                 <StrikeZone
                     atbats={data!}
                     outcomeType={'Ball'}
-                    sideType={'Home'}
+                    sideType={sideType}
                     plotType={'zone'}
                     radius={24}
-                    zoneLabel={'볼'}
+                    hasLabel={true}
                 />
                 <StrikeZone
                     atbats={data!}
                     outcomeType={'Strike'}
-                    sideType={'Home'}
+                    sideType={sideType}
                     plotType={'zone'}
                     radius={24}
-                    zoneLabel={'스트라이크'}
-                />
-                <StrikeZone
-                    atbats={data!}
-                    outcomeType={'Strike'}
-                    sideType={'Home'}
-                    plotType={'heatmap'}
-                    radius={24}
-                    zoneLabel={'스트라이크 존'}
+                    hasLabel={true}
                 />
             </PlotContainer>
         </StrikeZoneSectionContainer>
@@ -59,5 +54,5 @@ export const StrikeZoneSection = ({ slug }: StrikeZoneSectionProps) => {
 export const PlotContainer = styled(FlexRowContainer)({
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
-    gap: '2rem',
+    gap: '1rem',
 });
