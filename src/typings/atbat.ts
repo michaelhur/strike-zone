@@ -12,12 +12,7 @@ export interface Coordinates {
 
 export type SideType = 'All' | 'Home' | 'Away';
 
-export type OutcomeType = 'All' | 'Strike' | 'Ball';
-export enum OutcomeTypeEnum {
-    All = 'All',
-    Strike = 'Strike',
-    Ball = 'Ball',
-}
+export type OutcomeType = 'All' | 'CalledStrike' | 'SwingingStrike' | 'Ball' | 'InPlay' | 'Foul';
 
 export type PlotTypes = 'zone' | 'heatmap';
 

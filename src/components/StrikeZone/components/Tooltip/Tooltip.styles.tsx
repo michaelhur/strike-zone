@@ -1,6 +1,9 @@
+import { PitchOutcomeColorVariant } from '@constants/pitch';
 import styled from '@emotion/styled';
 
 import { FlexColumnContainer, FlexRowContainer } from '@components/Layout/Layout';
+
+import { OutcomeType } from '@typings/atbat';
 
 export const TooltipContainer = styled(FlexColumnContainer)({
     width: '100%',
@@ -52,10 +55,16 @@ export const PitchInfoSection = styled(FlexColumnContainer)({
     padding: '0 0.75rem',
 });
 
-export const Outcome = styled.span({
-    color: 'var(--grey700)',
-    fontSize: '1rem',
-});
+export const Outcome = styled.span(
+    {
+        fontSize: '1rem',
+        fontWeight: '600',
+        color: 'var(--grey700)',
+    },
+    ({ outcomeType }: { outcomeType: OutcomeType }) => ({
+        color: PitchOutcomeColorVariant[outcomeType].color,
+    }),
+);
 
 export const PitchInfo = styled.span({
     color: 'var(--grey1000)',

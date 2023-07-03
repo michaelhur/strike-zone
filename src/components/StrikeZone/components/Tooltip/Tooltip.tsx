@@ -13,6 +13,8 @@ import {
     Velocity,
 } from '@components/StrikeZone/components/Tooltip/Tooltip.styles';
 
+import { useOutcomeType } from '@hooks/pitch/useOutcomeType';
+
 import { PitchPlay } from '@typings/atbat';
 import { BatSideEnum, PitchHandEnum } from '@typings/player';
 
@@ -21,9 +23,11 @@ interface TooltipProps {
 }
 
 export const Tooltip = ({ hoverData }: TooltipProps) => {
-    const { isTopInning, batter, pitcher, home, away, outcomeDescription, pitchType, velocity } = hoverData;
+    const { isTopInning, batter, pitcher, home, away, outcomeCode, outcomeDescription, pitchType, velocity } =
+        hoverData;
     const { name: pitcherName, pitchHand, playerNumber: pitcherNumber } = pitcher;
     const { name: batterName, batSide, positionCode, playerNumber: batterNumber } = batter;
+    const outcomeType = useOutcomeType(outcomeCode);
 
     return (
         <TooltipContainer>
@@ -57,9 +61,9 @@ export const Tooltip = ({ hoverData }: TooltipProps) => {
             </PlayerSection>
             <PitchInfoSection>
                 <PitchInfo>
-                    {PitchType[pitchType]} <Velocity>({velocity} MPH)</Velocity>
+                    {velocity} MPH - {PitchType[pitchType]}
                 </PitchInfo>
-                <Outcome>{outcomeDescription}</Outcome>
+                <Outcome outcomeType={outcomeType}>{outcomeDescription}</Outcome>
             </PitchInfoSection>
         </TooltipContainer>
     );

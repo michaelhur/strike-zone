@@ -8,10 +8,19 @@ export const useZoneLabel = (outcomeType: OutcomeType): string => {
     useEffect(() => {
         switch (outcomeType) {
             case 'All':
-                setZoneLabel('스트라이크 + 볼');
+                setZoneLabel('스트라이크+볼');
                 break;
-            case 'Strike':
+            case 'CalledStrike':
                 setZoneLabel('스트라이크');
+                break;
+            case 'SwingingStrike':
+                setZoneLabel('헛스윙');
+                break;
+            case 'Foul':
+                setZoneLabel('파울');
+                break;
+            case 'InPlay':
+                setZoneLabel('타격');
                 break;
             default:
                 setZoneLabel('볼');

@@ -34,7 +34,7 @@ export const StrikeZoneDimensions = {
     BOTTOM: 1.5,
     LEFT: -0.85,
     RIGHT: 0.85,
-    HEIGHT: 350,
+    HEIGHT: 400,
     WIDTH: 300,
 };
 

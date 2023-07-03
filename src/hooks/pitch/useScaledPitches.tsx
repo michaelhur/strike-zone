@@ -24,7 +24,7 @@ export const useScaledPitches = (
                     const { outcomeCode } = play;
                     return outcomeType === 'All'
                         ? outcomeCode === 'C' || outcomeCode === 'B' || outcomeCode === '*B'
-                        : outcomeType === 'Strike'
+                        : outcomeType === 'CalledStrike'
                         ? outcomeCode === 'C'
                         : outcomeCode === 'B' || outcomeCode === '*B';
                 })

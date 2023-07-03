@@ -40,7 +40,7 @@ export const StrikeZoneSection = ({ slug, sideType }: StrikeZoneSectionProps) =>
                 />
                 <StrikeZone
                     atbats={data!}
-                    outcomeType={'Strike'}
+                    outcomeType={'CalledStrike'}
                     sideType={sideType}
                     plotType={'zone'}
                     radius={24}
