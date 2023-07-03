@@ -9,7 +9,7 @@ import { PitchPlay } from '@typings/atbat';
 interface PitchProps {
     play: PitchPlay;
     radius: number;
-    onClickPitch: (play: PitchPlay) => void;
+    onClickPitch: (e: React.MouseEvent, pitchPlay: PitchPlay) => void;
     onUnclickPitch: () => void;
 }
 
@@ -20,7 +20,7 @@ export const Pitch = ({ play, radius, onClickPitch, onUnclickPitch }: PitchProps
     return (
         <g
             transform={`translate(${coordinates.x - radius / 2}, ${coordinates.y - radius / 2})`}
-            onMouseEnter={() => onClickPitch(play)}
+            onMouseEnter={(e) => onClickPitch(e, play)}
             onMouseLeave={onUnclickPitch}
         >
             <LogoIcon

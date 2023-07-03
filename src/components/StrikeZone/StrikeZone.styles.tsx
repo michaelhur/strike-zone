@@ -7,12 +7,6 @@ export const StrikeZoneContainer = styled.article({
     alignItems: 'flex-start',
     gap: '0.5rem',
     padding: '1rem',
-
-    // width: '300px',
-    // flex: '1',
-
-    // backgroundColor: 'var(--grey300)',
-    // border: '1px solid var(--grey500)',
 });
 
 export const ZoneLabel = styled.h3({

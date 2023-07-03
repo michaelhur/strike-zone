@@ -1,4 +1,5 @@
-import { PitchType } from '@constants/pitch';
+import { PitchType, StrikeZoneDimensions } from '@constants/pitch';
+import { css } from '@emotion/react';
 
 import {
     Outcome,
@@ -10,7 +11,6 @@ import {
     PlayerSection,
     PlayerType,
     TooltipContainer,
-    Velocity,
 } from '@components/StrikeZone/components/Tooltip/Tooltip.styles';
 
 import { useOutcomeType } from '@hooks/pitch/useOutcomeType';
@@ -30,7 +30,16 @@ export const Tooltip = ({ hoverData }: TooltipProps) => {
     const outcomeType = useOutcomeType(outcomeCode);
 
     return (
-        <TooltipContainer>
+        <TooltipContainer
+            css={css({
+                width: StrikeZoneDimensions.WIDTH,
+                position: 'absolute',
+                zIndex: '10',
+                pointerEvents: 'none',
+                top: hoverData.coordinates.y,
+                left: hoverData.coordinates.x,
+            })}
+        >
             <PlayerSection>
                 <PlayerImageSection>
                     <img
