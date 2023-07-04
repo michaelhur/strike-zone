@@ -1,6 +1,6 @@
 import { scaleLinear } from 'd3';
 
-import { GameViewType } from '@typings/game';
+import { ZoneViewType } from '@typings/game';
 import { TabOptions } from '@typings/input';
 
 export enum PitchType {
@@ -34,8 +34,8 @@ export const StrikeZoneDimensions = {
     BOTTOM: 1.5,
     LEFT: -0.85,
     RIGHT: 0.85,
-    HEIGHT: 400,
-    WIDTH: 300,
+    HEIGHT: 300,
+    WIDTH: 250,
 };
 
 export const PitchOutcomeColorVariant = {
@@ -56,11 +56,7 @@ export const PitchOutcomeColorVariant = {
     },
 };
 
-export const gameTapOptions: TabOptions<GameViewType>[] = [
-    {
-        label: '상세',
-        value: 'DETAIL',
-    },
+export const gameTapOptions: TabOptions<ZoneViewType>[] = [
     {
         label: '요약',
         value: 'SUMMARY',
@@ -70,6 +66,8 @@ export const gameTapOptions: TabOptions<GameViewType>[] = [
         value: 'INNING',
     },
 ];
+
+export const inningList = Array.from({ length: 9 }, (_, i) => i + 1);
 
 export const yScale = scaleLinear().domain([0.5, 4.5]).range([StrikeZoneDimensions.HEIGHT, 0]);
 export const xScale = scaleLinear().domain([-1.5, 1.5]).range([0, StrikeZoneDimensions.WIDTH]);

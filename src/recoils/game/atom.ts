@@ -1,8 +1,8 @@
 import { atom } from 'recoil';
 
-import { GameViewType } from '@typings/game';
+import { ZoneViewType } from '@typings/game';
 
-export const gameViewTypeState = atom<GameViewType>({
-    key: 'gameViewTypeState',
+export const zoneViewTypeState = atom<ZoneViewType>({
+    key: 'zoneViewTypeState',
     default: 'SUMMARY',
 });

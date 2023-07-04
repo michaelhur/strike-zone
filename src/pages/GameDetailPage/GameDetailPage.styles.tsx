@@ -10,8 +10,11 @@ export const GameDetailPageContainer = styled(ColumnPageContainer)({
     padding: '2rem',
 });
 
-export const PlotContainer = styled(FlexRowContainer)({
-    justifyContent: 'center',
+export const StrikeZoneList = styled.ul({
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
     alignItems: 'flex-start',
     gap: '1rem',
+    width: '100%',
 });

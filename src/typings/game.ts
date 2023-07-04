@@ -19,4 +19,4 @@ export interface Game {
     umpire?: Umpire | null;
 }
 
-export type GameViewType = 'DETAIL' | 'SUMMARY' | 'INNING';
+export type ZoneViewType = 'SUMMARY' | 'INNING'; // | 'DETAIL' | 'COMPARISON';

@@ -20,7 +20,7 @@ export const useZoneLabel = (outcomeType: OutcomeType): string => {
                 setZoneLabel('파울');
                 break;
             case 'InPlay':
-                setZoneLabel('타격');
+                setZoneLabel('인플레이');
                 break;
             case 'BallsAndStrikes':
                 setZoneLabel('스트라이크+볼');

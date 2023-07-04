@@ -18,9 +18,9 @@ import {
     TopSectionContainer,
 } from '@pages/GameDetailPage/components/GameDataSection/GameDataSection.styles';
 
-import { gameViewTypeState } from '@recoils/game/atom';
+import { zoneViewTypeState } from '@recoils/game/atom';
 
-import { GameViewType } from '@typings/game';
+import { ZoneViewType } from '@typings/game';
 import { Team } from '@typings/team';
 
 interface GameDataSectionProps {
@@ -62,7 +62,7 @@ const ScoreLine = ({ homeScore, awayScore }: ScoreLineProps) => {
 };
 
 export const GameDataSection = ({ slug }: GameDataSectionProps) => {
-    const [gameViewType, setGameViewType] = useRecoilState<GameViewType>(gameViewTypeState);
+    const [zoneViewType, setZoneViewType] = useRecoilState<ZoneViewType>(zoneViewTypeState);
     const { isLoading, data } = useGetGame(slug, { enabled: !!slug });
 
     if (isLoading) return <Loading size={60} />;
@@ -79,9 +79,9 @@ export const GameDataSection = ({ slug }: GameDataSectionProps) => {
                     <ScoreLine homeScore={homeScore!} awayScore={awayScore!} />
                     <TeamInfo team={away!} isHome={false} />
                 </MatchupSectionContainer>
-                <CategoryMenu<GameViewType, any>
-                    selectedCategory={gameViewType}
-                    setSelectedCategory={setGameViewType}
+                <CategoryMenu<ZoneViewType, any>
+                    selectedCategory={zoneViewType}
+                    setSelectedCategory={setZoneViewType}
                     categoryOptions={gameTapOptions}
                 />
             </GameDataSectionContainer>
