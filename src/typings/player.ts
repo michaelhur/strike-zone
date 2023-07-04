@@ -91,3 +91,13 @@ export interface SidePlotValueProps {
     batSide: PlayerSide;
     zoneLabel: string;
 }
+
+export interface PitcherPlotValueProps {
+    batSide: PlayerSide;
+    zoneLabel: string;
+}
+
+export interface BatterPlotValueProps {
+    pitchHand: PlayerSide;
+    zoneLabel: string;
+}

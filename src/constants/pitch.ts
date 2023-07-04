@@ -2,7 +2,7 @@ import { scaleLinear } from 'd3';
 
 import { ZoneViewType } from '@typings/game';
 import { TabOptions } from '@typings/input';
-import { SidePlotValueProps } from '@typings/player';
+import { BatterPlotValueProps, PitcherPlotValueProps, SidePlotValueProps } from '@typings/player';
 
 export enum PitchType {
     AB = 'Automatic Ball',
@@ -92,6 +92,28 @@ export const SidePlotValues: SidePlotValueProps[] = [
         pitchHand: 'R',
         batSide: 'R',
         zoneLabel: 'RHP vs RHB',
+    },
+];
+
+export const PitcherPlotValues: PitcherPlotValueProps[] = [
+    {
+        batSide: 'L',
+        zoneLabel: 'vs LHB',
+    },
+    {
+        batSide: 'R',
+        zoneLabel: 'vs RHB',
+    },
+];
+
+export const BatterPlotValues: BatterPlotValueProps[] = [
+    {
+        pitchHand: 'L',
+        zoneLabel: 'vs LHP',
+    },
+    {
+        pitchHand: 'R',
+        zoneLabel: 'vs RHP',
     },
 ];
 
