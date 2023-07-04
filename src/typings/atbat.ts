@@ -1,7 +1,7 @@
 import { PitchType } from '@constants/pitch';
 
 import { Game } from '@typings/game';
-import { Player } from '@typings/player';
+import { Player, PlayerSide } from '@typings/player';
 import { Team } from '@typings/team';
 import { Umpire } from '@typings/umpire';
 

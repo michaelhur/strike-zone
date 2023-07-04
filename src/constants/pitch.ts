@@ -2,6 +2,7 @@ import { scaleLinear } from 'd3';
 
 import { ZoneViewType } from '@typings/game';
 import { TabOptions } from '@typings/input';
+import { SidePlotValueProps } from '@typings/player';
 
 export enum PitchType {
     AB = 'Automatic Ball',
@@ -71,7 +72,28 @@ export const gameTapOptions: TabOptions<ZoneViewType>[] = [
     },
 ];
 
-export const inningList = Array.from({ length: 9 }, (_, i) => i + 1);
+export const SidePlotValues: SidePlotValueProps[] = [
+    {
+        pitchHand: 'L',
+        batSide: 'L',
+        zoneLabel: 'LHP vs LHB',
+    },
+    {
+        pitchHand: 'L',
+        batSide: 'R',
+        zoneLabel: 'LHP vs RHB',
+    },
+    {
+        pitchHand: 'R',
+        batSide: 'L',
+        zoneLabel: 'RHP vs LHB',
+    },
+    {
+        pitchHand: 'R',
+        batSide: 'R',
+        zoneLabel: 'RHP vs RHB',
+    },
+];
 
 export const yScale = scaleLinear().domain([0.5, 4.5]).range([StrikeZoneDimensions.HEIGHT, 0]);
 export const xScale = scaleLinear().domain([-1.5, 1.5]).range([0, StrikeZoneDimensions.WIDTH]);

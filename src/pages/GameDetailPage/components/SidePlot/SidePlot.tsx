@@ -1,3 +1,5 @@
+import { SidePlotValues } from '@constants/pitch';
+
 import StrikeZone from '@components/StrikeZone/StrikeZone';
 
 import { StrikeZoneList } from '@pages/GameDetailPage/GameDetailPage.styles';
@@ -17,42 +19,18 @@ const SidePlot = ({ atbats, outcomeType }: SidePlotProps) => {
         <SidePlotContainer>
             <SectionTitle>{sectionTitle}</SectionTitle>
             <StrikeZoneList>
-                <StrikeZone
-                    atbats={atbats}
-                    outcomeType={outcomeType}
-                    pitchHand={'L'}
-                    batSide={'L'}
-                    plotType={'zone'}
-                    zoneLabel={'LHP vs LHB'}
-                    radius={24}
-                />
-                <StrikeZone
-                    atbats={atbats}
-                    outcomeType={outcomeType}
-                    pitchHand={'L'}
-                    batSide={'R'}
-                    plotType={'zone'}
-                    zoneLabel={'LHP vs RHB'}
-                    radius={24}
-                />
-                <StrikeZone
-                    atbats={atbats}
-                    outcomeType={outcomeType}
-                    pitchHand={'R'}
-                    batSide={'L'}
-                    plotType={'zone'}
-                    zoneLabel={'RHP vs LHB'}
-                    radius={24}
-                />
-                <StrikeZone
-                    atbats={atbats}
-                    outcomeType={outcomeType}
-                    pitchHand={'R'}
-                    batSide={'R'}
-                    plotType={'zone'}
-                    zoneLabel={'RHP vs RHB'}
-                    radius={24}
-                />
+                {SidePlotValues.map((props, index) => {
+                    return (
+                        <StrikeZone
+                            key={index}
+                            atbats={atbats}
+                            outcomeType={outcomeType}
+                            plotType={'zone'}
+                            radius={24}
+                            {...props}
+                        />
+                    );
+                })}
             </StrikeZoneList>
         </SidePlotContainer>
     );

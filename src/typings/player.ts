@@ -85,3 +85,9 @@ export interface PlayerStats {
     battingStats: BattingStats;
     positionCode: string;
 }
+
+export interface SidePlotValueProps {
+    pitchHand: PlayerSide;
+    batSide: PlayerSide;
+    zoneLabel: string;
+}
