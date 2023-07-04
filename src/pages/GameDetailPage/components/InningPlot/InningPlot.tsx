@@ -1,6 +1,7 @@
 import StrikeZone from '@components/StrikeZone/StrikeZone';
 
 import { StrikeZoneList } from '@pages/GameDetailPage/GameDetailPage.styles';
+import { InningPlotContainer } from '@pages/GameDetailPage/components/InningPlot/InningPlot.styles';
 import { SectionTitle } from '@pages/GameDetailPage/components/StrikeZoneSection/StrikeZoneSection.styles';
 
 import { AtBat } from '@typings/atbat';
@@ -12,7 +13,7 @@ interface InningPlotProps {
 
 const InningPlot = ({ atbats, inning }: InningPlotProps) => {
     return (
-        <>
+        <InningPlotContainer>
             <SectionTitle>이닝: {inning}</SectionTitle>
             <StrikeZoneList>
                 <StrikeZone
@@ -90,7 +91,7 @@ const InningPlot = ({ atbats, inning }: InningPlotProps) => {
                     radius={24}
                 />
             </StrikeZoneList>
-        </>
+        </InningPlotContainer>
     );
 };
 

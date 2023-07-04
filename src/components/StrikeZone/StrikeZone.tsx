@@ -15,9 +15,9 @@ interface StrikeZoneProps {
     outcomeType: OutcomeType;
     sideType: SideType;
     plotType: PlotTypes;
-    inningType: number;
     zoneLabel: string;
     radius: number;
+    inningType?: number;
 }
 
 const StrikeZone = ({
@@ -25,9 +25,9 @@ const StrikeZone = ({
     outcomeType,
     sideType,
     plotType,
-    inningType,
     zoneLabel,
     radius = 24,
+    inningType,
 }: StrikeZoneProps) => {
     const scaledPitches = useScaledPitches(atbats, outcomeType, sideType, inningType);
     const { hoverData, onClickPitch, onUnclickPitch } = usePitchHover(null);
