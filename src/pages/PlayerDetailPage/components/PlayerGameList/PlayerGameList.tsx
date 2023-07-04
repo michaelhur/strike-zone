@@ -4,7 +4,7 @@ import { GameList } from '@components/GameListSection/components/GameList/GameLi
 import { FlexColumnContainer, SectionTitleWrapper } from '@components/Layout/Layout';
 import { Loading } from '@components/Loading/Loading';
 
-import { useGetGameByPlayerSlug } from '@hooks/@query/game/useGetGameByPlayerSlug';
+import { useGetGameByPlayerSlug } from '@hooks/@query/player/useGetGameByPlayerSlug';
 
 import { PlayerGameListContainer } from '@pages/PlayerDetailPage/components/PlayerGameList/PlayerGameList.styles';
 

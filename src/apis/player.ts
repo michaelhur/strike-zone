@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+import { AtBat } from '@typings/atbat';
+import { Game } from '@typings/game';
 import { Player, PlayerStats } from '@typings/player';
 
 import { fetcher } from '@src/apis/fetcher';
@@ -18,6 +20,24 @@ export const requestGetPlayerList = async (page: number, searchParams?: string):
 
 export const requestGetPlayer = async (slug: string): Promise<Player> => {
     const data = await fetcher({ method: 'get', path: `/api/players/${slug}` });
+    return data;
+};
+
+export const requestGetGameByPlayerSlug = async (slug: string, page?: number): Promise<Game[]> => {
+    const path = page ? `/api/players/${slug}/games?page=${page}` : `/api/players/${slug}/games`;
+    const headers = page ? { Range: `${(page - 1) * 5}-${page * 5 - 1}` } : {};
+    const data = await fetcher({ method: 'get', path, headers });
+    return data;
+};
+
+export const requestGetAtbatsByPlayerSlug = async (slug: string): Promise<AtBat[]> => {
+    const data = await fetcher({ method: 'get', path: `/api/players/${slug}/atbats` });
+    return data;
+};
+
+export const requestGetLatestAtbatsByPlayerSlug = async (slug: string): Promise<AtBat[]> => {
+    const headers = { Range: `0 - 4` };
+    const data = await fetcher({ method: 'get', path: `/api/players/${slug}/atbats/latest`, headers });
     return data;
 };
 

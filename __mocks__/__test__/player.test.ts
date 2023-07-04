@@ -2,6 +2,8 @@ import axios from 'axios';
 import { setupServer } from 'msw/node';
 import { describe, expect } from 'vitest';
 
+import { atBatList } from '../data/atBat';
+import { gameList } from '../data/game';
 import { playerList } from '../data/player';
 import { playerHandler } from '../handlers/playerHandler';
 
@@ -77,5 +79,71 @@ describe('선수 API', () => {
 
         expect(response.status).toBe(200);
         expect(data).toEqual(playerData);
+    });
+
+    it('GET /api/players/:slug/games 요청은 특정 선수의 스트라이크 존 정보를 리턴한다.', async () => {
+        const slug = 'ronald-acuna-jr-660670';
+        const playerType = 'batter';
+        const response = await axios.get(`/api/players/${slug}/games?playerType=${playerType}`);
+        const data = response.data;
+
+        const gameIdList = atBatList
+            .filter((atbat) =>
+                !playerType
+                    ? atbat.batter.slug === slug || atbat.pitcher.slug === slug
+                    : playerType === 'batter'
+                    ? atbat.batter.slug === slug
+                    : atbat.pitcher.slug === slug,
+            )
+            .map((atbat) => atbat.game.id);
+
+        const uniqueIdList = [...new Set(gameIdList)];
+
+        const filteredGameList = gameList
+            .filter((game) => uniqueIdList.includes(game.id))
+            .sort((a, b) => b.date.localeCompare(a.date));
+
+        expect(response.status).toBe(200);
+        expect(data).toEqual(filteredGameList);
+    });
+
+    it('GET /api/players/:slug/atbats 요청은 특정 선수의 스트라이크 존 정보를 리턴한다.', async () => {
+        const slug = 'fernando-abad-472551';
+        const response = await axios.get(`/api/players/${slug}/atbats`);
+        const data = response.data;
+
+        const targetAtbatList = atBatList
+            .filter((atbat) => atbat.batter.slug === slug || atbat.pitcher.slug === slug)
+            .sort((a, b) => b.date.localeCompare(a.date));
+
+        expect(response.status).toBe(200);
+        expect(data).toEqual(targetAtbatList);
+    });
+
+    it('GET /api/players/:slug/atbats/latest 요청은 특정 선수의 스트라이크 존 정보를 리턴한다.', async () => {
+        const slug = 'fernando-abad-472551';
+        const response = await axios.get(`/api/players/${slug}/atbats/latest`);
+        const data = response.data;
+
+        const targetAtbatList = atBatList
+            .filter((atbat) => atbat.batter.slug === slug || atbat.pitcher.slug === slug)
+            .sort((a, b) => b.date.localeCompare(a.date));
+
+        const gameIdList = atBatList
+            .filter((atbat) => atbat.batter.slug === slug || atbat.pitcher.slug === slug)
+            .map((atbat) => atbat.game.id);
+
+        const uniqueIdList = [...new Set(gameIdList)];
+
+        const filteredGameList = gameList
+            .filter((game) => uniqueIdList.includes(game.id))
+            .sort((a, b) => b.date.localeCompare(a.date))
+            .slice(0, 5)
+            .map((game) => game.id);
+
+        const filteredTargetAtbatList = targetAtbatList.filter((atbat) => filteredGameList.includes(atbat.game.id));
+
+        expect(response.status).toBe(200);
+        expect(data).toEqual(filteredTargetAtbatList);
     });
 });
