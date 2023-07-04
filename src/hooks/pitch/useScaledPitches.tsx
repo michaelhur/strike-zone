@@ -1,20 +1,29 @@
 import { AtBat, OutcomeType, PitchPlay, SideType } from '@typings/atbat';
+import { PlayerSide } from '@typings/player';
 
 import { computeAdjustedCoordinates } from '@utils/pitch';
 
 export const useScaledPitches = (
     atbats: AtBat[],
-    outcomeType: OutcomeType,
-    sideType: SideType,
+    outcomeType?: OutcomeType,
+    sideType?: SideType,
+    batSide?: PlayerSide,
+    pitchHand?: PlayerSide,
     inningType?: number,
 ): PitchPlay[] => {
     return atbats
         .filter((atbat) => {
-            const { isTopInning, inning } = atbat;
-            const sideFilter = sideType === 'All' ? true : sideType === 'Home' ? !isTopInning : isTopInning;
-            const inningFilter = !inningType ? true : inning === inningType;
+            const { isTopInning, inning, batter, pitcher } = atbat;
+            const battingSide = batter.batSide;
+            const pitchingHand = pitcher.pitchHand;
 
-            return sideFilter && inningFilter;
+            const sideFilter =
+                !sideType || sideType === 'All' ? true : sideType === 'Home' ? !isTopInning : isTopInning;
+            const inningFilter = !inningType ? true : inning === inningType;
+            const batFilter = !batSide ? true : battingSide === batSide;
+            const pitchFilter = !pitchHand ? true : pitchingHand === pitchHand;
+
+            return sideFilter && inningFilter && batFilter && pitchFilter;
         })
         .flatMap((atbat) => {
             const { inning, isTopInning, atBatIndex, batter, pitcher, home, away } = atbat;
@@ -23,8 +32,8 @@ export const useScaledPitches = (
                 .filter((play) => {
                     const { outcomeCode } = play;
                     switch (outcomeType) {
-                        case 'All':
-                            return true;
+                        case 'InPlay':
+                            return !['C', 'S', 'F', 'B', '*B'].includes(outcomeCode);
                         case 'BallsAndStrikes':
                             return outcomeCode === 'C' || outcomeCode === 'B' || outcomeCode === '*B';
                         case 'CalledStrike':
@@ -36,7 +45,7 @@ export const useScaledPitches = (
                         case 'SwingingStrike':
                             return outcomeCode === 'S';
                         default:
-                            return !['C', 'S', 'F', 'B', '*B'].includes(outcomeCode);
+                            return true;
                     }
                 })
                 .map((play) => {

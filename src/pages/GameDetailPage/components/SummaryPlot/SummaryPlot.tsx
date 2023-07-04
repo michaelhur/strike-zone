@@ -20,35 +20,35 @@ const SummaryPlot = ({ atbats, sideType }: SummaryPlotProps) => {
             <StrikeZoneList>
                 <StrikeZone
                     atbats={atbats}
-                    outcomeType={'All'}
-                    sideType={sideType}
                     plotType={'zone'}
                     zoneLabel={'전체'}
                     radius={24}
+                    outcomeType={'All'}
+                    sideType={sideType}
                 />
                 <StrikeZone
                     atbats={atbats}
-                    outcomeType={'BallsAndStrikes'}
-                    sideType={sideType}
                     plotType={'zone'}
                     zoneLabel={'스트라이크 + 볼'}
                     radius={24}
+                    outcomeType={'BallsAndStrikes'}
+                    sideType={sideType}
                 />
                 <StrikeZone
                     atbats={atbats}
-                    outcomeType={'CalledStrike'}
-                    sideType={sideType}
                     plotType={'zone'}
                     zoneLabel={'스트라이크'}
                     radius={24}
+                    outcomeType={'CalledStrike'}
+                    sideType={sideType}
                 />
                 <StrikeZone
                     atbats={atbats}
-                    outcomeType={'Ball'}
-                    sideType={sideType}
                     plotType={'zone'}
                     zoneLabel={'볼'}
                     radius={24}
+                    outcomeType={'Ball'}
+                    sideType={sideType}
                 />
             </StrikeZoneList>
         </SummaryPlotContainer>

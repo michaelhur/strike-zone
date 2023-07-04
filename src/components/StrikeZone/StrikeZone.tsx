@@ -9,27 +9,32 @@ import { usePitchHover } from '@hooks/pitch/usePitchHover';
 import { useScaledPitches } from '@hooks/pitch/useScaledPitches';
 
 import { AtBat, OutcomeType, PlotTypes, SideType } from '@typings/atbat';
+import { PlayerSide } from '@typings/player';
 
 interface StrikeZoneProps {
     atbats: AtBat[];
-    outcomeType: OutcomeType;
-    sideType: SideType;
     plotType: PlotTypes;
     zoneLabel: string;
     radius: number;
+    outcomeType?: OutcomeType;
+    sideType?: SideType;
+    batSide?: PlayerSide;
+    pitchHand?: PlayerSide;
     inningType?: number;
 }
 
 const StrikeZone = ({
     atbats,
-    outcomeType,
-    sideType,
     plotType,
     zoneLabel,
     radius = 24,
+    outcomeType,
+    sideType,
+    batSide,
+    pitchHand,
     inningType,
 }: StrikeZoneProps) => {
-    const scaledPitches = useScaledPitches(atbats, outcomeType, sideType, inningType);
+    const scaledPitches = useScaledPitches(atbats, outcomeType, sideType, batSide, pitchHand, inningType);
     const { hoverData, onClickPitch, onUnclickPitch } = usePitchHover(null);
 
     return (

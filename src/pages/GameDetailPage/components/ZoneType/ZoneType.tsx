@@ -6,6 +6,7 @@ import { useGetAtbat } from '@hooks/@query/atbat/useGetAtbat';
 
 import { PlotContainer } from '@pages/GameDetailPage/GameDetailPage.styles';
 import InningPlot from '@pages/GameDetailPage/components/InningPlot/InningPlot';
+import SidePlot from '@pages/GameDetailPage/components/SidePlot/SidePlot';
 import SummaryPlot from '@pages/GameDetailPage/components/SummaryPlot/SummaryPlot';
 
 import { zoneViewTypeState } from '@recoils/game/atom';
@@ -22,6 +23,14 @@ export const ZoneType = ({ slug }: ZoneTypeProps) => {
     if (isLoading) return <Loading size={60} />;
 
     switch (zoneViewType) {
+        case 'SIDE':
+            return (
+                <PlotContainer>
+                    <SidePlot atbats={data!} outcomeType={'All'} />
+                    <SidePlot atbats={data!} outcomeType={'CalledStrike'} />
+                    <SidePlot atbats={data!} outcomeType={'Ball'} />
+                </PlotContainer>
+            );
         case 'INNING':
             return (
                 <PlotContainer>

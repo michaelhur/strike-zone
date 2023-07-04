@@ -65,6 +65,10 @@ export const gameTapOptions: TabOptions<ZoneViewType>[] = [
         label: '이닝별',
         value: 'INNING',
     },
+    {
+        label: '투타 방향별',
+        value: 'SIDE',
+    },
 ];
 
 export const inningList = Array.from({ length: 9 }, (_, i) => i + 1);
