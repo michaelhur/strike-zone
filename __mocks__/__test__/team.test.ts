@@ -2,6 +2,8 @@ import axios from 'axios';
 import { setupServer } from 'msw/node';
 import { describe, expect } from 'vitest';
 
+import { atBatList } from '../data/atBat';
+import { gameList } from '../data/game';
 import { teamList } from '../data/team';
 import { teamHandler } from '../handlers/teamHandler';
 
@@ -64,5 +66,64 @@ describe('팀 API', () => {
 
         expect(response.status).toBe(200);
         expect(data).toEqual(targetTeam);
+    });
+
+    it('GET /api/teams/:teamId/games 요청은 특정 팀 정보를 리턴한다', async () => {
+        const teamId = 144;
+        const response = await axios.get(`/api/teams/${teamId}/games`);
+        const data = response.data;
+
+        const targetGameList = gameList
+            .filter((game) => game.home!.id === Number(teamId) || game.away!.id === Number(teamId))
+            .sort((a, b) => b.date.localeCompare(a.date));
+
+        expect(response.status).toBe(200);
+        expect(data).toEqual(targetGameList);
+    });
+
+    it('GET /api/teams/:teamId/games/latest 요청은 특정 팀 정보를 리턴한다', async () => {
+        const teamId = 144;
+        const response = await axios.get(`/api/teams/${teamId}/games/latest`);
+        const data = response.data;
+
+        const targetGameList = gameList
+            .filter((game) => game.home!.id === Number(teamId) || game.away!.id === Number(teamId))
+            .sort((a, b) => b.date.localeCompare(a.date))
+            .slice(0, 5);
+
+        expect(response.status).toBe(200);
+        expect(data).toEqual(targetGameList);
+    });
+
+    it('GET /api/teams/:teamId/atbats 요청은 특정 팀 정보를 리턴한다', async () => {
+        const teamId = 144;
+        const response = await axios.get(`/api/teams/${teamId}/atbats`);
+        const data = response.data;
+
+        const targetAtbatList = atBatList
+            .filter((atbat) => atbat.home!.id === Number(teamId) || atbat.away!.id === Number(teamId))
+            .sort((a, b) => b.date.localeCompare(a.date) || a.atBatIndex - b.atBatIndex);
+
+        expect(response.status).toBe(200);
+        expect(data).toEqual(targetAtbatList);
+    });
+
+    it('GET /api/teams/:teamId/atbats/latest 요청은 특정 팀 정보를 리턴한다', async () => {
+        const teamId = 144;
+        const response = await axios.get(`/api/teams/${teamId}/atbats/latest`);
+        const data = response.data;
+
+        const targetGameList = gameList
+            .filter((game) => game.home!.id === Number(teamId) || game.away!.id === Number(teamId))
+            .sort((a, b) => b.date.localeCompare(a.date))
+            .slice(0, 5)
+            .map((game) => game.id);
+
+        const targetAtbatList = atBatList
+            .filter((atbat) => targetGameList.includes(atbat.game!.id))
+            .sort((a, b) => b.date.localeCompare(a.date) || a.atBatIndex - b.atBatIndex);
+
+        expect(response.status).toBe(200);
+        expect(data).toEqual(targetAtbatList);
     });
 });
