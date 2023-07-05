@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { FlexRowContainer } from '@components/Layout/Layout';
 
 export const NameFilterContainer = styled(FlexRowContainer)({
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     alignItems: 'center',
     padding: '0.5rem',
 

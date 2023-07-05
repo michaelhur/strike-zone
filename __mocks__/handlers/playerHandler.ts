@@ -16,13 +16,15 @@ export const playerHandler = [
         const page = Number(req.url.searchParams.get('page'));
         const positionType = req.url.searchParams.get('positionType');
         const positionCode = req.url.searchParams.get('positionCode');
+        const name = req.url.searchParams.get('name');
 
         const filteredData = playerList.filter((player) => {
             const queryFilter = query ? player.name.toLowerCase().indexOf(query) !== -1 : true;
             const positionTypeFilter = positionType ? player.positionType === positionType : true;
             const positionCodeFilter = positionCode ? player.positionCode === positionCode : true;
+            const nameFilter = name ? player.lastName.startsWith(name) : true;
 
-            return queryFilter && positionTypeFilter && positionCodeFilter;
+            return queryFilter && positionTypeFilter && positionCodeFilter && nameFilter;
         });
 
         const totalCount = filteredData.length;

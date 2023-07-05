@@ -15,21 +15,31 @@ import { PlayerListContainer } from '@pages/PlayerListPage/PlayerListPage.styles
 import { PositionType } from '@typings/player';
 
 import { Loading } from '@src/components/Loading/Loading';
+import { NameFilter } from '@src/components/NameFilter/NameFilter';
 
 const PlayerListPage = () => {
     const navigate = useNavigate();
     const [positionTypeFilter, setPositionTypeFilter] = useState<PositionType>('ALL');
     const [page, setPage] = useState<number>(1);
-    const [searchParams, setSearchParams] = useState<string>('');
+    const [name, setName] = useState<string>('A');
+    const [searchParams, setSearchParams] = useState<string>(`positionType=All&name=A`);
 
     const onClickPlayerItem = (slug: string) => {
         sessionStorage.setItem('playerList_positionType', JSON.stringify(positionTypeFilter));
         sessionStorage.setItem('playerList_page', JSON.stringify(page));
+        sessionStorage.setItem('playerList_alphabet', JSON.stringify(name));
+
         navigate(`${DYNAMIC_PATH.PLAYER_DETAIL(slug)}`);
     };
 
     const onClickPositionTab = (position: PositionType) => {
         setPositionTypeFilter(position);
+        setName('A');
+        setPage(1);
+    };
+
+    const onClickName = (name: string) => {
+        setName(name);
         setPage(1);
     };
 
@@ -50,15 +60,21 @@ const PlayerListPage = () => {
                 setPositionTypeFilter(JSON.parse(positionType));
                 sessionStorage.removeItem('playerList_positionType');
             }
+
+            const alphabet = sessionStorage.getItem('playerList_alphabet');
+            if (alphabet) {
+                setName(JSON.parse(alphabet));
+                sessionStorage.removeItem('playerList_alphabet');
+            }
         };
 
         handlePopState();
     }, []);
 
     useEffect(() => {
-        if (!positionTypeFilter || positionTypeFilter === 'ALL') setSearchParams('');
-        else setSearchParams(`positionType=${positionTypeFilter}`);
-    }, [positionTypeFilter]);
+        if (!positionTypeFilter || positionTypeFilter === 'ALL') setSearchParams(`name=${name}`);
+        else setSearchParams(`positionType=${positionTypeFilter}&name=${name}`);
+    }, [positionTypeFilter, name]);
 
     return (
         <PlayerListContainer>
@@ -67,6 +83,7 @@ const PlayerListPage = () => {
                 setSelectedCategory={onClickPositionTab}
                 categoryOptions={positionTypeTabOptions}
             />
+            <NameFilter selected={name} onSelectName={onClickName} />
             {isLoading ? <Loading size={60} /> : <PlayerList players={data!.players} onClickItem={onClickPlayerItem} />}
             {data && data.count > 10 && (
                 <Pagination currentPage={page} totalPage={Math.ceil(data.count / 10)} onClickPage={onClickPage} />

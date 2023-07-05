@@ -17,7 +17,7 @@ export const useGetPlayerList = (
         {
             ...options,
             onSuccess: () => {
-                console.log('useGetGameList succeed');
+                console.log('useGetPlayerList succeed');
             },
         },
     );
