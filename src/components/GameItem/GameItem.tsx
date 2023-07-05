@@ -17,6 +17,7 @@ export interface GameItemProps {
 export interface ViewItemProps {
     game: Game;
     onClickItem: () => void;
+    cardCount: number;
 }
 
 const GameItem = ({ game, itemViewType, cardCount }: GameItemProps) => {
@@ -26,7 +27,8 @@ const GameItem = ({ game, itemViewType, cardCount }: GameItemProps) => {
         else alert('취소된 경기의 정보는 열람할 수 없습니다.');
     }, [game]);
 
-    if (itemViewType === 'LIST') return <ListViewItem game={game} onClickItem={onClickGameItem} />;
+    if (itemViewType === 'LIST')
+        return <ListViewItem game={game} onClickItem={onClickGameItem} cardCount={cardCount!} />;
     return <CardViewItem game={game} onClickItem={onClickGameItem} cardCount={cardCount!} />;
 };
 

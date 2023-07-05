@@ -53,11 +53,11 @@ const ListViewTeamSection = ({ team, homeOrAway }: { team: Team; homeOrAway: 'Ho
     );
 };
 
-export const ListViewItem = ({ game, onClickItem }: ViewItemProps) => {
+export const ListViewItem = ({ game, onClickItem, cardCount }: ViewItemProps) => {
     const { id, home, away, isFinal, homeScore, awayScore } = game;
 
     return (
-        <ListViewContainer key={id} onClick={onClickItem}>
+        <ListViewContainer key={id} onClick={onClickItem} cardCount={cardCount}>
             <ListViewTeamSection team={home!} homeOrAway={'Home'} />
             <ListViewScoreSection isFinal={isFinal!} homeScore={homeScore} awayScore={awayScore} />
             <ListViewTeamSection team={away!} homeOrAway={'Away'} />

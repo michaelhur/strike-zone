@@ -7,7 +7,7 @@ interface PlotTypeProps {
     plotType: PlotTypes;
     scaledPitches: PitchPlay[];
     radius: number;
-    onClickPitch: (pitchPlay: PitchPlay) => void;
+    onClickPitch: (e: React.MouseEvent, pitchPlay: PitchPlay) => void;
     onUnclickPitch: () => void;
 }
 

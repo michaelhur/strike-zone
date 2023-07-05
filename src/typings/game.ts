@@ -18,3 +18,5 @@ export interface Game {
     home?: Team;
     umpire?: Umpire | null;
 }
+
+export type ZoneViewType = 'SUMMARY' | 'INNING' | 'SIDE'; // | 'DETAIL' | 'COMPARISON';

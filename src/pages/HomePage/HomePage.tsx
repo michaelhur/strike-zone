@@ -12,7 +12,11 @@ const HomePage = () => {
 
     return (
         <HomePageContainer>
-            <GameListSection fixtureDate={dateObject!.date} sectionLabel={`최신 경기 (${dateObject!.date} 경기)`} />
+            <GameListSection
+                fixtureDate={dateObject!.date}
+                sectionLabel={`최신 경기 (${dateObject!.date} 경기)`}
+                cardCount={3}
+            />
         </HomePageContainer>
     );
 };

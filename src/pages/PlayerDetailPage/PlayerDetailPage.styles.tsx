@@ -21,6 +21,7 @@ export const RightSection = styled(FlexColumnContainer)({
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
     gap: '1rem',
+    padding: '1rem',
 
     minHeight: '100vh',
     width: '70%%',

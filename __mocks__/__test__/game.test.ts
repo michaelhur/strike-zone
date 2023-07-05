@@ -2,6 +2,7 @@ import axios from 'axios';
 import { setupServer } from 'msw/node';
 import { expect } from 'vitest';
 
+import { getFetchOffsets } from '../../src/utils/url';
 import { atBatList } from '../data/atBat';
 import { gameList } from '../data/game';
 import { gameHandler } from '../handlers/gameHandler';
@@ -124,58 +125,6 @@ describe('경기 API', () => {
 
         expect(response.status).toBe(200);
         expect(data).toEqual(gameData);
-    });
-
-    it('GET /api/games/get-by-playerId/:id 요청은 특정 선수의 경기 리스트를 리턴한다', async () => {
-        const id = 660670;
-        const playerType = 'batter';
-        const response = await axios.get(`/api/games/get-by-playerId/${id}?playerType=${playerType}`);
-        const data = response.data;
-
-        const gameIdList = atBatList
-            .filter((atbat) =>
-                !playerType
-                    ? atbat.batter.id === Number(id) || atbat.pitcher.id === Number(id)
-                    : playerType === 'batter'
-                    ? atbat.batter.id === Number(id)
-                    : atbat.pitcher.id === Number(id),
-            )
-            .map((atbat) => atbat.game.id);
-
-        const uniqueIdList = [...new Set(gameIdList)];
-
-        const filteredGameList = gameList
-            .filter((game) => uniqueIdList.includes(game.id))
-            .sort((a, b) => b.date.localeCompare(a.date));
-
-        expect(response.status).toBe(200);
-        expect(data).toEqual(filteredGameList);
-    });
-
-    it('GET /api/games/get-by-playerSlug/:slug 요청은 특정 선수의 경기 리스트를 리턴한다', async () => {
-        const slug = 'ronald-acuna-jr-660670';
-        const playerType = 'batter';
-        const response = await axios.get(`/api/games/get-by-playerId/${slug}?playerType=${playerType}`);
-        const data = response.data;
-
-        const gameIdList = atBatList
-            .filter((atbat) =>
-                !playerType
-                    ? atbat.batter.slug === slug || atbat.pitcher.slug === slug
-                    : playerType === 'batter'
-                    ? atbat.batter.slug === slug
-                    : atbat.pitcher.slug === slug,
-            )
-            .map((atbat) => atbat.game.id);
-
-        const uniqueIdList = [...new Set(gameIdList)];
-
-        const filteredGameList = gameList
-            .filter((game) => uniqueIdList.includes(game.id))
-            .sort((a, b) => b.date.localeCompare(a.date));
-
-        expect(response.status).toBe(200);
-        expect(data).toEqual(filteredGameList);
     });
 
     it('GET /api/games/@latest 요청은 가장 최근 경기일을 리턴한다', async () => {

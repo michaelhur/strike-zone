@@ -8,7 +8,7 @@ import { useRecoilValue } from 'recoil';
 import { Layout } from '@components/Layout/Layout';
 import { Sidebar } from '@components/Sidebar/Sidebar';
 
-import { themeState } from '@recoils/atom';
+import { themeState } from '@recoils/sidebar/atom';
 
 import Router from '@src/Router';
 import { getClient } from '@src/queryClient';

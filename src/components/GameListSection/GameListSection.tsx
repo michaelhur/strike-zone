@@ -18,9 +18,10 @@ import { LeagueType } from '@typings/league';
 interface GameListSectionProps {
     fixtureDate: string;
     sectionLabel?: string;
+    cardCount?: number;
 }
 
-export const GameListSection = ({ fixtureDate, sectionLabel }: GameListSectionProps) => {
+export const GameListSection = ({ fixtureDate, sectionLabel, cardCount = 2 }: GameListSectionProps) => {
     const [leagueFilter, setLeagueFilter] = useState<LeagueType>('ALL');
     const [viewType, setViewType] = useRecoilState<itemViewType>(itemViewTypeState);
 
@@ -48,7 +49,7 @@ export const GameListSection = ({ fixtureDate, sectionLabel }: GameListSectionPr
             />
             {fixtureDate && (
                 <GameListWrapper>
-                    <GameList games={gameList!} itemViewType={viewType} cardCount={2} />
+                    <GameList games={gameList!} itemViewType={viewType} cardCount={cardCount} />
                 </GameListWrapper>
             )}
         </PageSectionContainer>

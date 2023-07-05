@@ -2,7 +2,7 @@ import { ThreeCircles } from 'react-loader-spinner';
 
 import { css } from '@emotion/react';
 
-import { RowPageContainer } from '@components/Layout/Layout';
+import { FlexRowContainer } from '@components/Layout/Layout';
 
 export interface LoadingProps {
     size: number | string;
@@ -10,7 +10,7 @@ export interface LoadingProps {
 
 export const Loading = ({ size = '60' }: LoadingProps) => {
     return (
-        <RowPageContainer css={css({ justifyContent: 'center', alignItems: 'center' })}>
+        <FlexRowContainer css={css({ justifyContent: 'center', alignItems: 'center', width: '100%' })}>
             <ThreeCircles
                 height={size}
                 width={size}
@@ -23,6 +23,6 @@ export const Loading = ({ size = '60' }: LoadingProps) => {
                 innerCircleColor=""
                 middleCircleColor=""
             />
-        </RowPageContainer>
+        </FlexRowContainer>
     );
 };

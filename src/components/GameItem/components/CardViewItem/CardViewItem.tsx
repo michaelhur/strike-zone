@@ -15,10 +15,6 @@ import {
 
 import { Team } from '@typings/team';
 
-interface CardViewItemProps extends ViewItemProps {
-    cardCount: number;
-}
-
 const CardViewTeamSection = ({ team, homeOrAway }: { team: Team; homeOrAway: 'Home' | 'Away' }) => {
     const { franchiseName, teamName, abbreviation, imageUrl } = team;
 
@@ -33,7 +29,7 @@ const CardViewTeamSection = ({ team, homeOrAway }: { team: Team; homeOrAway: 'Ho
         </CardViewTeamSectionContainer>
     );
 };
-[];
+
 const CardViewScoreSection = ({
     isFinal,
     homeScore,
@@ -59,7 +55,7 @@ const CardViewScoreSection = ({
     );
 };
 
-export const CardViewItem = ({ game, onClickItem, cardCount }: CardViewItemProps) => {
+export const CardViewItem = ({ game, onClickItem, cardCount }: ViewItemProps) => {
     const { id, date, home, away, isFinal, homeScore, awayScore } = game;
 
     return (

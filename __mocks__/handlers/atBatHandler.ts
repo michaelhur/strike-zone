@@ -25,4 +25,13 @@ export const atBatHandler = [
 
         return res(ctx.status(200), ctx.json(filteredData));
     }),
+
+    rest.get<AtBat[]>('/api/atbats/:slug', async (req, res, ctx) => {
+        const { slug } = req.params;
+        const targetAtbats = atBatList.filter((atbat) => atbat.game.slug === slug);
+
+        if (!targetAtbats) return res(ctx.status(400), ctx.json({ message: '해당 경기 정보가 존재하지 않습니다.' }));
+
+        return res(ctx.status(200), ctx.json(targetAtbats));
+    }),
 ];

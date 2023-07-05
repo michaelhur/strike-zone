@@ -3,11 +3,11 @@ import { AxiosError } from 'axios';
 
 import { Game } from '@typings/game';
 
-import { requestGetGameByPlayerSlug } from '@src/apis/game';
+import { requestGetGameByPlayerSlug } from '@src/apis/player';
 
 export const useGetGameByPlayerSlug = (slug: string, page?: number, options?: UseQueryOptions<Game[], AxiosError>) => {
     return useQuery<Game[], AxiosError>(
-        ['GAME', { playerSlug: slug, page: page || 'all' }],
+        ['GAMES', { playerSlug: slug, page: page || 'all' }],
         () => requestGetGameByPlayerSlug(slug, page),
         {
             ...options,

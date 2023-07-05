@@ -2,35 +2,29 @@ import { PitchOutcomeColorVariant } from '@constants/pitch';
 
 import { LogoIcon } from '@components/@shared/Icon';
 
+import { useOutcomeType } from '@hooks/pitch/useOutcomeType';
+
 import { PitchPlay } from '@typings/atbat';
 
 interface PitchProps {
     play: PitchPlay;
     radius: number;
-    onClickPitch: (play: PitchPlay) => void;
+    onClickPitch: (e: React.MouseEvent, pitchPlay: PitchPlay) => void;
     onUnclickPitch: () => void;
 }
 
 export const Pitch = ({ play, radius, onClickPitch, onUnclickPitch }: PitchProps) => {
     const { outcomeCode, coordinates } = play;
-    const OutcomeType =
-        outcomeCode === 'C'
-            ? 'CalledStrike'
-            : outcomeCode === 'S'
-            ? 'SwingingStrike'
-            : outcomeCode === 'B' || outcomeCode === '*B'
-            ? 'Ball'
-            : outcomeCode === 'F'
-            ? 'Foul'
-            : 'InPlay';
+    const outcomeType = useOutcomeType(outcomeCode);
+
     return (
         <g
             transform={`translate(${coordinates.x - radius / 2}, ${coordinates.y - radius / 2})`}
-            onMouseEnter={() => onClickPitch(play)}
+            onMouseEnter={(e) => onClickPitch(e, play)}
             onMouseLeave={onUnclickPitch}
         >
             <LogoIcon
-                color={PitchOutcomeColorVariant[OutcomeType].color}
+                color={PitchOutcomeColorVariant[outcomeType].color}
                 size={radius}
                 opacity={0.6}
                 hoverable={true}

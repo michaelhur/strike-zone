@@ -1,4 +1,5 @@
-import { PitchType } from '@constants/pitch';
+import { PitchType, StrikeZoneDimensions } from '@constants/pitch';
+import { css } from '@emotion/react';
 
 import {
     Outcome,
@@ -12,6 +13,8 @@ import {
     TooltipContainer,
 } from '@components/StrikeZone/components/Tooltip/Tooltip.styles';
 
+import { useOutcomeType } from '@hooks/pitch/useOutcomeType';
+
 import { PitchPlay } from '@typings/atbat';
 import { BatSideEnum, PitchHandEnum } from '@typings/player';
 
@@ -20,12 +23,23 @@ interface TooltipProps {
 }
 
 export const Tooltip = ({ hoverData }: TooltipProps) => {
-    const { isTopInning, batter, pitcher, home, away, outcomeDescription, pitchType, velocity } = hoverData;
+    const { isTopInning, batter, pitcher, home, away, outcomeCode, outcomeDescription, pitchType, velocity } =
+        hoverData;
     const { name: pitcherName, pitchHand, playerNumber: pitcherNumber } = pitcher;
     const { name: batterName, batSide, positionCode, playerNumber: batterNumber } = batter;
+    const outcomeType = useOutcomeType(outcomeCode);
 
     return (
-        <TooltipContainer>
+        <TooltipContainer
+            css={css({
+                width: StrikeZoneDimensions.WIDTH,
+                position: 'absolute',
+                zIndex: '10',
+                pointerEvents: 'none',
+                top: hoverData.coordinates.y,
+                left: hoverData.coordinates.x,
+            })}
+        >
             <PlayerSection>
                 <PlayerImageSection>
                     <img
@@ -58,7 +72,7 @@ export const Tooltip = ({ hoverData }: TooltipProps) => {
                 <PitchInfo>
                     {velocity} MPH - {PitchType[pitchType]}
                 </PitchInfo>
-                <Outcome>{outcomeDescription}</Outcome>
+                <Outcome outcomeType={outcomeType}>{outcomeDescription}</Outcome>
             </PitchInfoSection>
         </TooltipContainer>
     );
