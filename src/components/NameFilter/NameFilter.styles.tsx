@@ -5,7 +5,7 @@ import { FlexRowContainer } from '@components/Layout/Layout';
 export const NameFilterContainer = styled(FlexRowContainer)({
     justifyContent: 'flex-start',
     alignItems: 'center',
-    padding: '0.5rem',
+    padding: '1rem',
 
     width: '100%',
 });
