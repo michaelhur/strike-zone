@@ -1,13 +1,13 @@
 import { useRecoilValue } from 'recoil';
 
+import InningPlot from '@components/InningPlot/InningPlot';
 import { Loading } from '@components/Loading/Loading';
+import SidePlot from '@components/SidePlot/SidePlot';
+import SummaryPlot from '@components/SummaryPlot/SummaryPlot';
 
 import { useGetAtbat } from '@hooks/@query/atbat/useGetAtbat';
 
 import { PlotContainer } from '@pages/GameDetailPage/GameDetailPage.styles';
-import InningPlot from '@pages/GameDetailPage/components/InningPlot/InningPlot';
-import SidePlot from '@pages/GameDetailPage/components/SidePlot/SidePlot';
-import SummaryPlot from '@pages/GameDetailPage/components/SummaryPlot/SummaryPlot';
 
 import { zoneViewTypeState } from '@recoils/game/atom';
 

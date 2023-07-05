@@ -1,8 +1,8 @@
 import StrikeZone from '@components/StrikeZone/StrikeZone';
+import { StrikeZoneList } from '@components/StrikeZone/StrikeZone.styles';
+import { SummaryPlotContainer } from '@components/SummaryPlot/SummaryPlot.styles';
 
-import { StrikeZoneList } from '@pages/GameDetailPage/GameDetailPage.styles';
 import { SectionTitle } from '@pages/GameDetailPage/components/StrikeZoneSection/StrikeZoneSection.styles';
-import { SummaryPlotContainer } from '@pages/GameDetailPage/components/SummaryPlot/SummaryPlot.styles';
 
 import { AtBat, SideType } from '@typings/atbat';
 

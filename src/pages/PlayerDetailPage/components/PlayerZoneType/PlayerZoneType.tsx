@@ -1,8 +1,7 @@
 import { BatterPlotValues, PitcherPlotValues } from '@constants/pitch';
 
 import StrikeZone from '@components/StrikeZone/StrikeZone';
-
-import { StrikeZoneList } from '@pages/GameDetailPage/GameDetailPage.styles';
+import { StrikeZoneList } from '@components/StrikeZone/StrikeZone.styles';
 
 import { AtBat } from '@typings/atbat';
 

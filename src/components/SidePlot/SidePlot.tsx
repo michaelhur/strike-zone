@@ -1,9 +1,9 @@
 import { SidePlotValues } from '@constants/pitch';
 
+import { SidePlotContainer } from '@components/SidePlot/SidePlot.styles';
 import StrikeZone from '@components/StrikeZone/StrikeZone';
+import { StrikeZoneList } from '@components/StrikeZone/StrikeZone.styles';
 
-import { StrikeZoneList } from '@pages/GameDetailPage/GameDetailPage.styles';
-import { SidePlotContainer } from '@pages/GameDetailPage/components/SidePlot/SidePlot.styles';
 import { SectionTitle } from '@pages/GameDetailPage/components/StrikeZoneSection/StrikeZoneSection.styles';
 
 import { AtBat, OutcomeType } from '@typings/atbat';

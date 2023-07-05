@@ -8,8 +8,7 @@ import { useGetPlayer } from '@hooks/@query/player/useGetPlayer';
 
 import { SectionTitle } from '@pages/GameDetailPage/components/StrikeZoneSection/StrikeZoneSection.styles';
 import { PlayerStrikeZoneContainer } from '@pages/PlayerDetailPage/components/PlayerStrikeZone/PlayerStrikeZone.styles';
-
-import { PlayerZoneType } from '../PlayerZoneType/PlayerZoneType';
+import { PlayerZoneType } from '@pages/PlayerDetailPage/components/PlayerZoneType/PlayerZoneType';
 
 interface PlayerStrikeZoneProps {
     slug: string;

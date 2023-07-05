@@ -15,12 +15,3 @@ export const PlotContainer = styled(FlexColumnContainer)({
     alignItems: 'flex-start',
     gap: '3rem',
 });
-
-export const StrikeZoneList = styled.ul({
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
-    alignItems: 'flex-start',
-    gap: '1rem',
-    width: '100%',
-});

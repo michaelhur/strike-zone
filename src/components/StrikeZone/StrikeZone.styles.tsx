@@ -1,5 +1,14 @@
 import styled from '@emotion/styled';
 
+export const StrikeZoneList = styled.ul({
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+    gap: '1rem',
+    width: '100%',
+});
+
 export const StrikeZoneContainer = styled.article({
     display: 'flex',
     flexDirection: 'column',
