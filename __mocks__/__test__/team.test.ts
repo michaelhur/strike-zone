@@ -4,6 +4,7 @@ import { describe, expect } from 'vitest';
 
 import { atBatList } from '../data/atBat';
 import { gameList } from '../data/game';
+import { playerList } from '../data/player';
 import { teamList } from '../data/team';
 import { teamHandler } from '../handlers/teamHandler';
 
@@ -125,5 +126,18 @@ describe('팀 API', () => {
 
         expect(response.status).toBe(200);
         expect(data).toEqual(targetAtbatList);
+    });
+
+    it('GET /api/teams/:teamId/roster 요청은 특정 팀의 로스터 정보를 리턴한다', async () => {
+        const teamId = 144;
+        const response = await axios.get(`/api/teams/${teamId}/roster`);
+        const data = response.data;
+
+        const targetRoster = playerList
+            .filter((player) => player.team && player.team.id === Number(teamId))
+            .sort((a, b) => b.lastName.localeCompare(a.lastName) || b.name.localeCompare(a.name));
+
+        expect(response.status).toBe(200);
+        expect(data).toEqual(targetRoster);
     });
 });
