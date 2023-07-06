@@ -35,9 +35,9 @@ describe('팀 API', () => {
         expect(data).toEqual(teamListByQuery);
     });
 
-    it('GET /api/teams?leagues=:leagueId 요청은 특정 리그의 모든 팀 정보를 리턴한다', async () => {
+    it('GET /api/teams?leagueId=:leagueId 요청은 특정 리그의 모든 팀 정보를 리턴한다', async () => {
         const leagueId = 104;
-        const response = await axios.get(`/api/teams?leagues=${leagueId}`);
+        const response = await axios.get(`/api/teams?leagueId=${leagueId}`);
         const data = response.data;
 
         const teamListByLeague = teamList.filter((team) => team.league!.id === leagueId);
@@ -46,9 +46,9 @@ describe('팀 API', () => {
         expect(data).toEqual(teamListByLeague);
     });
 
-    it('GET /api/teams?divisions=:divisionId 요청은 특정 디비젼의 모든 팀 정보를 리턴한다', async () => {
+    it('GET /api/teams?divisionId=:divisionId 요청은 특정 디비젼의 모든 팀 정보를 리턴한다', async () => {
         const divisionId = 204;
-        const response = await axios.get(`/api/teams?divisions=${divisionId}`);
+        const response = await axios.get(`/api/teams?divisionId=${divisionId}`);
         const data = response.data;
 
         const teamListByDivision = teamList.filter((team) => team.division!.id === divisionId);

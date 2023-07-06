@@ -11,6 +11,7 @@ const FixturePage = lazy(() => import('@pages/FixturePage/FixturePage'));
 const FixtureByDatePage = lazy(() => import('@pages/FixtureByDatePage/FixtureByDatePage'));
 const PlayerListPage = lazy(() => import('@pages/PlayerListPage/PlayerListPage'));
 const PlayerDetailPage = lazy(() => import('@pages/PlayerDetailPage/PlayerDetailPage'));
+const TeamListPage = lazy(() => import('@pages/TeamListPage/TeamListPage'));
 
 const Router = () => {
     return (
@@ -22,6 +23,7 @@ const Router = () => {
                 <Route path={`${PATH.FIXTURE_BY_DATE}`} element={<FixtureByDatePage />} />
                 <Route path={`${PATH.PLAYER_LIST}`} element={<PlayerListPage />} />
                 <Route path={`${PATH.PLAYER_DETAIL}`} element={<PlayerDetailPage />} />
+                <Route path={`${PATH.TEAM_LIST}`} element={<TeamListPage />} />
             </Routes>
         </Suspense>
     );

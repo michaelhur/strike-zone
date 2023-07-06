@@ -11,8 +11,8 @@ import { teamList } from '../data/team';
 export const teamHandler = [
     rest.get<Team[]>('/api/teams', async (req, res, ctx) => {
         const query = req.url.searchParams.get('q');
-        const leagueId = Number(req.url.searchParams.get('leagues'));
-        const divisionId = Number(req.url.searchParams.get('divisions'));
+        const leagueId = Number(req.url.searchParams.get('leagueId'));
+        const divisionId = Number(req.url.searchParams.get('divisionId'));
 
         const filteredData = teamList.filter((team) => {
             const queryFilter = query
