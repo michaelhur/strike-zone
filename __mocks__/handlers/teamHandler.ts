@@ -94,8 +94,15 @@ export const teamHandler = [
 
     rest.get<Player[]>('/api/teams/:teamId/roster', async (req, res, ctx) => {
         const { teamId } = req.params;
+        const positionType = req.url.searchParams.get('positionType');
+
         const targetRoster = playerList
-            .filter((player) => player.team && player.team.id === Number(teamId))
+            .filter((player) => {
+                const teamFilter = player.team && player.team.id === Number(teamId);
+                const positionFilter = positionType ? player.positionType === positionType : true;
+
+                return teamFilter && positionFilter;
+            })
             .sort((a, b) => b.lastName.localeCompare(a.lastName) || b.name.localeCompare(a.name));
 
         if (!targetRoster)

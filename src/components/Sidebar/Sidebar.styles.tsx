@@ -8,7 +8,7 @@ interface SidebarContainerProps {
 
 export const StyledTitle = styled.h3({
     fontFamily: 'BMHANNAAir',
-    fontSize: '32px',
+    fontSize: '2rem',
     fontWeight: '800',
     color: 'var(--primary500)',
 });

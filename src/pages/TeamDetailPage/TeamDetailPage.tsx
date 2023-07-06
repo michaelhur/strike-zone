@@ -1,11 +1,18 @@
 import { useParams } from 'react-router-dom';
 
-import { TeamDetailPageContainer } from '@pages/TeamDetailPage/TeamDetailPage.styles';
+import { MidSection, TeamDetailPageContainer } from '@pages/TeamDetailPage/TeamDetailPage.styles';
+import { TeamProfile } from '@pages/TeamDetailPage/components/TeamProfile/TeamProfile';
 
 const TeamDetailPage = () => {
     const { id } = useParams();
 
-    return <TeamDetailPageContainer>{id}</TeamDetailPageContainer>;
+    return (
+        <TeamDetailPageContainer>
+            <TeamProfile teamId={Number(id)!} />
+            <MidSection></MidSection>
+            {id}
+        </TeamDetailPageContainer>
+    );
 };
 
 export default TeamDetailPage;
