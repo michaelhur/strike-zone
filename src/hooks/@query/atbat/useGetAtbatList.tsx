@@ -10,7 +10,7 @@ import { requestGetAtbatList } from '@src/apis/atbat';
 export const useGetAtbatList = (searchParams?: string, options?: UseQueryOptions<Array<AtBat>, AxiosError>) => {
     const searchParamsObject = searchParams ? parseParmsToObject(searchParams) : {};
     return useQuery<Array<AtBat>, AxiosError>(
-        ['ATBATS', { ...searchParamsObject }],
+        ['Atbats', { ...searchParamsObject }],
         () => requestGetAtbatList(searchParams),
         {
             ...options,
