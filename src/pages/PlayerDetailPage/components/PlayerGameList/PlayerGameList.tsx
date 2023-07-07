@@ -1,7 +1,5 @@
-import styled from '@emotion/styled';
-
 import { GameList } from '@components/GameListSection/components/GameList/GameList';
-import { FlexColumnContainer, SectionTitleWrapper } from '@components/Layout/Layout';
+import { SectionTitleWrapper } from '@components/Layout/Layout';
 import { Loading } from '@components/Loading/Loading';
 
 import { useGetGameByPlayerSlug } from '@hooks/@query/player/useGetGameByPlayerSlug';

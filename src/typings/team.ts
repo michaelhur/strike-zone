@@ -14,3 +14,15 @@ export interface Team {
     league?: League;
     division?: Division;
 }
+
+export interface TeamStanding {
+    teamId: number;
+    teamName: string;
+    leagueId: number;
+    divisionId: number;
+    divisionRank: number;
+    leagueRank: number;
+    gamesPlayed: number;
+    wins: number;
+    losses: number;
+}

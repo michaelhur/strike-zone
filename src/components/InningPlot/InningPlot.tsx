@@ -1,8 +1,7 @@
 import { InningPlotContainer } from '@components/InningPlot/InningPlot.styles';
+import { SectionTitle } from '@components/Layout/Layout';
 import StrikeZone from '@components/StrikeZone/StrikeZone';
 import { StrikeZoneList } from '@components/StrikeZone/StrikeZone.styles';
-
-import { SectionTitle } from '@pages/GameDetailPage/components/StrikeZoneSection/StrikeZoneSection.styles';
 
 import { AtBat } from '@typings/atbat';
 

@@ -12,7 +12,7 @@ const FixtureByDatePage = lazy(() => import('@pages/FixtureByDatePage/FixtureByD
 const PlayerListPage = lazy(() => import('@pages/PlayerListPage/PlayerListPage'));
 const PlayerDetailPage = lazy(() => import('@pages/PlayerDetailPage/PlayerDetailPage'));
 const TeamListPage = lazy(() => import('@pages/TeamListPage/TeamListPage'));
-
+const TeamDetailPage = lazy(() => import('@pages/TeamDetailPage/TeamDetailPage'));
 const Router = () => {
     return (
         <Suspense fallback={<Loading size={40} />}>
@@ -24,6 +24,7 @@ const Router = () => {
                 <Route path={`${PATH.PLAYER_LIST}`} element={<PlayerListPage />} />
                 <Route path={`${PATH.PLAYER_DETAIL}`} element={<PlayerDetailPage />} />
                 <Route path={`${PATH.TEAM_LIST}`} element={<TeamListPage />} />
+                <Route path={`${PATH.TEAM_DETAIL}`} element={<TeamDetailPage />} />
             </Routes>
         </Suspense>
     );

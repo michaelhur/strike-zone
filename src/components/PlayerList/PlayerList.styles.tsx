@@ -5,6 +5,15 @@ export const PlayerListTable = styled.table({
     width: '100%',
 });
 
+export const ListTitle = styled.h3({
+    fontFamily: 'BMHANNAAir',
+    fontSize: '1.5rem',
+    color: 'var(--grey1000)',
+
+    padding: '0 1rem',
+    margin: '0 0 -1rem',
+});
+
 export const PlayerListHeader = styled.thead({
     padding: '0.5rem',
 

@@ -1,9 +1,11 @@
 import { atBatList } from '@mocks/data/atBat';
 import { gameList } from '@mocks/data/game';
+import { playerList } from '@mocks/data/player';
 import { rest } from 'msw';
 
 import { AtBat } from '@typings/atbat';
 import { Game } from '@typings/game';
+import { Player } from '@typings/player';
 
 import { Team } from '../../src/typings/team';
 import { teamList } from '../data/team';
@@ -88,5 +90,24 @@ export const teamHandler = [
         if (!targetAtbatList) return res(ctx.status(400), ctx.json({ message: '해당 팀 정보가 존재하지 않습니다.' }));
 
         return res(ctx.status(200), ctx.json(targetAtbatList));
+    }),
+
+    rest.get<Player[]>('/api/teams/:teamId/roster', async (req, res, ctx) => {
+        const { teamId } = req.params;
+        const positionType = req.url.searchParams.get('positionType');
+
+        const targetRoster = playerList
+            .filter((player) => {
+                const teamFilter = player.team && player.team.id === Number(teamId);
+                const positionFilter = positionType ? player.positionType === positionType : true;
+
+                return teamFilter && positionFilter;
+            })
+            .sort((a, b) => a.lastName.localeCompare(b.lastName) || a.name.localeCompare(b.name));
+
+        if (!targetRoster)
+            return res(ctx.status(400), ctx.json({ message: '해당 팀의 로스터 정보가 존재하지 않습니다.' }));
+
+        return res(ctx.status(200), ctx.json(targetRoster));
     }),
 ];

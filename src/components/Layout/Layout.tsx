@@ -20,12 +20,12 @@ export const LayoutWrapper = styled.main({
     // width: 'min(100vw, 1400px)',
 });
 
-export const FlexColumnContainer = styled.div({
+export const FlexColumnContainer = styled.section({
     display: 'flex',
     flexDirection: 'column',
 });
 
-export const FlexRowContainer = styled.div({
+export const FlexRowContainer = styled.section({
     display: 'flex',
     flexDirection: 'row',
 });
@@ -70,4 +70,12 @@ export const SectionTitleWrapper = styled.div({
         fontFamily: 'BMHANNAAir',
         fontSize: '1.5rem',
     },
+});
+
+export const SectionTitle = styled.h2({
+    fontFamily: 'BMHANNAAir',
+    fontSize: '2rem',
+    color: 'var(--grey1000)',
+
+    padding: '0 1rem',
 });
