@@ -135,7 +135,7 @@ describe('팀 API', () => {
 
         const targetRoster = playerList
             .filter((player) => player.team && player.team.id === Number(teamId))
-            .sort((a, b) => b.lastName.localeCompare(a.lastName) || b.name.localeCompare(a.name));
+            .sort((a, b) => a.lastName.localeCompare(b.lastName) || a.name.localeCompare(b.name));
 
         expect(response.status).toBe(200);
         expect(data).toEqual(targetRoster);

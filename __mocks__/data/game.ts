@@ -36,6 +36,7 @@ export const gameList: Game[] = [
         umpire: {
             id: 605672,
             name: 'Jeremie Rehak',
+            lastName: 'Rehak',
         },
     },
     {
@@ -73,6 +74,7 @@ export const gameList: Game[] = [
         umpire: {
             id: 594151,
             name: 'Ramon De Jesus',
+            lastName: 'De Jesus',
         },
     },
     {
@@ -110,6 +112,7 @@ export const gameList: Game[] = [
         umpire: {
             id: 503586,
             name: 'Tripp Gibson',
+            lastName: 'Gibson',
         },
     },
     {
@@ -147,6 +150,7 @@ export const gameList: Game[] = [
         umpire: {
             id: 503493,
             name: 'Sean Barber',
+            lastName: 'Barber',
         },
     },
     {
@@ -184,6 +188,7 @@ export const gameList: Game[] = [
         umpire: {
             id: 484499,
             name: 'Manny Gonzalez',
+            lastName: 'Gonzalez',
         },
     },
     {
