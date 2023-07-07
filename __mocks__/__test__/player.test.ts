@@ -28,7 +28,7 @@ describe('선수 API', () => {
         const data = response.data;
         const playerList = data.players;
 
-        const firstPagePlayerList = playerList.slice(0, 9);
+        const firstPagePlayerList = playerList.slice(0, 10);
 
         expect(response.status).toBe(200);
         expect(playerList).toEqual(firstPagePlayerList);

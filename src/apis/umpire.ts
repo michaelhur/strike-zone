@@ -1,10 +1,10 @@
 import { AtBat } from '@typings/atbat';
 import { Game } from '@typings/game';
-import { Umpire } from '@typings/umpire';
+import { GetUmpireListRequest, Umpire } from '@typings/umpire';
 
 import { fetcher } from '@src/apis/fetcher';
 
-export const requestGetUmpireList = async (page: number, name?: string): Promise<Umpire[]> => {
+export const requestGetUmpireList = async (page: number, name?: string): Promise<GetUmpireListRequest> => {
     const range = `${(page - 1) * 10}-${page * 10 - 1}`;
     const path = name ? `/api/umpires?page=${page}&name=${name}` : `/api/umpires?page=${page}`;
     const data = await fetcher({ method: 'get', path, headers: { Range: range } });

@@ -12,7 +12,7 @@ const Template: Story<typeof PlayerList> = (args) => {
     return <PlayerList {...args} />;
 };
 
-const samplePlayerList = playerList.slice(0, 9);
+const samplePlayerList = playerList.slice(0, 10);
 
 export const Default = Template.bind({});
 Default.args = {

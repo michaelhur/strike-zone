@@ -6,7 +6,7 @@ export const parseParmsToObject = (searchParams: string): AnyOBJ => {
 
 export const getFetchOffsets = (page: number, offset = 10): number[] => {
     const start = (page - 1) * offset;
-    const end = page * offset - 1;
+    const end = page * offset;
 
     return [start, end];
 };
