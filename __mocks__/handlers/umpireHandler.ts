@@ -5,6 +5,8 @@ import { rest } from 'msw';
 import { AtBat } from '@typings/atbat';
 import { Game } from '@typings/game';
 
+import { getFetchOffsets } from '@utils/url';
+
 import { Umpire } from '../../src/typings/umpire';
 import { umpireList } from '../data/umpire';
 
@@ -12,6 +14,7 @@ export const umpireHandler = [
     rest.get<Umpire[]>('/api/umpires', async (req, res, ctx) => {
         const query = req.url.searchParams.get('q');
         const name = req.url.searchParams.get('name');
+        const page = Number(req.url.searchParams.get('page'));
 
         const filteredList = umpireList.filter((umpire) => {
             const queryFilter = query ? umpire.name.toLowerCase().indexOf(query) !== -1 : true;
@@ -19,6 +22,11 @@ export const umpireHandler = [
 
             return queryFilter && nameFilter;
         });
+
+        if (page) {
+            const [start, end] = getFetchOffsets(page);
+            return res(ctx.status(200), ctx.json(filteredList.slice(start, end)));
+        }
 
         return res(ctx.status(200), ctx.json(filteredList));
     }),
