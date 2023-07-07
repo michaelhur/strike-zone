@@ -10,13 +10,15 @@ import { AtBat, OutcomeType } from '@typings/atbat';
 interface SidePlotProps {
     atbats: AtBat[];
     outcomeType: OutcomeType;
+    hasTitle: boolean;
 }
 
-const SidePlot = ({ atbats, outcomeType }: SidePlotProps) => {
+const SidePlot = ({ atbats, outcomeType, hasTitle = true }: SidePlotProps) => {
     const sectionTitle = outcomeType === 'All' ? '전체' : outcomeType == 'CalledStrike' ? '스트라이크' : '볼';
+
     return (
         <SidePlotContainer>
-            <SectionTitle>{sectionTitle}</SectionTitle>
+            {hasTitle && <SectionTitle>{sectionTitle}</SectionTitle>}
             <StrikeZoneList>
                 {SidePlotValues.map((props, index) => {
                     return (

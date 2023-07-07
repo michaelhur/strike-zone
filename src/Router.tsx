@@ -14,6 +14,7 @@ const PlayerDetailPage = lazy(() => import('@pages/PlayerDetailPage/PlayerDetail
 const TeamListPage = lazy(() => import('@pages/TeamListPage/TeamListPage'));
 const TeamDetailPage = lazy(() => import('@pages/TeamDetailPage/TeamDetailPage'));
 const UmpireListPage = lazy(() => import('@pages/UmpireListPage/UmpireListPage'));
+const UmpireDetailPage = lazy(() => import('@pages/UmpireDetailPage/UmpireDetailPage'));
 
 const Router = () => {
     return (
@@ -28,6 +29,7 @@ const Router = () => {
                 <Route path={`${PATH.TEAM_LIST}`} element={<TeamListPage />} />
                 <Route path={`${PATH.TEAM_DETAIL}`} element={<TeamDetailPage />} />
                 <Route path={`${PATH.UMPIRE_LIST}`} element={<UmpireListPage />} />
+                <Route path={`${PATH.UMPIRE_DETAIL}`} element={<UmpireDetailPage />} />
             </Routes>
         </Suspense>
     );
