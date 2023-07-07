@@ -1,4 +1,5 @@
 import {
+    ListTitle,
     PlayerListBody,
     PlayerListHeader,
     PlayerListTable,
@@ -12,27 +13,31 @@ import { Player } from '@typings/player';
 interface PlayerListProps {
     players: Player[];
     onClickItem: (slug: string) => void;
+    listTitle?: string;
 }
 
-export const PlayerList = ({ players, onClickItem }: PlayerListProps) => {
+export const PlayerList = ({ players, onClickItem, listTitle }: PlayerListProps) => {
     return (
-        <PlayerListTable>
-            <PlayerListHeader>
-                <tr>
-                    <StyledNameHeaderCell>Name</StyledNameHeaderCell>
-                    <StyledHeaderCell>Team</StyledHeaderCell>
-                    <StyledHeaderCell>Batting Side</StyledHeaderCell>
-                    <StyledHeaderCell>Pitching Hand</StyledHeaderCell>
-                    <StyledHeaderCell>Position</StyledHeaderCell>
-                    <StyledHeaderCell>Height</StyledHeaderCell>
-                    <StyledHeaderCell>Weight</StyledHeaderCell>
-                </tr>
-            </PlayerListHeader>
-            <PlayerListBody>
-                {players.map((player) => (
-                    <PlayerListItem key={player.id} player={player} onClickPlayerItem={onClickItem} />
-                ))}
-            </PlayerListBody>
-        </PlayerListTable>
+        <>
+            {listTitle && <ListTitle>{listTitle}</ListTitle>}
+            <PlayerListTable>
+                <PlayerListHeader>
+                    <tr>
+                        <StyledNameHeaderCell>Name</StyledNameHeaderCell>
+                        <StyledHeaderCell>Team</StyledHeaderCell>
+                        <StyledHeaderCell>Batting Side</StyledHeaderCell>
+                        <StyledHeaderCell>Pitching Hand</StyledHeaderCell>
+                        <StyledHeaderCell>Position</StyledHeaderCell>
+                        <StyledHeaderCell>Height</StyledHeaderCell>
+                        <StyledHeaderCell>Weight</StyledHeaderCell>
+                    </tr>
+                </PlayerListHeader>
+                <PlayerListBody>
+                    {players.map((player) => (
+                        <PlayerListItem key={player.id} player={player} onClickPlayerItem={onClickItem} />
+                    ))}
+                </PlayerListBody>
+            </PlayerListTable>
+        </>
     );
 };

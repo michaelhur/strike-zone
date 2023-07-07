@@ -71,3 +71,11 @@ export const SectionTitleWrapper = styled.div({
         fontSize: '1.5rem',
     },
 });
+
+export const SectionTitle = styled.h2({
+    fontFamily: 'BMHANNAAir',
+    fontSize: '2rem',
+    color: 'var(--grey1000)',
+
+    padding: '0 1rem',
+});

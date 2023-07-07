@@ -43,6 +43,7 @@ export const requestGetTeamRoster = async (teamId: number, positionType?: Positi
         !positionType || positionType === 'ALL'
             ? `/api/teams/${teamId}/roster`
             : `/api/teams/${teamId}/roster?positionType=${positionType}`;
+    console.log(`path, ${path}`);
     return await fetcher({ method: 'get', path });
 };
 

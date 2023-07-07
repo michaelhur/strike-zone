@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 
+import { SectionTitle } from '@components/Layout/Layout';
 import { Loading } from '@components/Loading/Loading';
 
 import { useGetAtbatsByPlayerSlug } from '@hooks/@query/player/useGetAtbatsByPlayerSlug';
 import { useGetLatestAtbatsByPlayerSlug } from '@hooks/@query/player/useGetLatestAtbatsByPlayerSlug';
 import { useGetPlayer } from '@hooks/@query/player/useGetPlayer';
 
-import { SectionTitle } from '@pages/GameDetailPage/components/StrikeZoneSection/StrikeZoneSection.styles';
 import { PlayerStrikeZoneContainer } from '@pages/PlayerDetailPage/components/PlayerStrikeZone/PlayerStrikeZone.styles';
 import { PlayerZoneType } from '@pages/PlayerDetailPage/components/PlayerZoneType/PlayerZoneType';
 

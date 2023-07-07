@@ -103,7 +103,7 @@ export const teamHandler = [
 
                 return teamFilter && positionFilter;
             })
-            .sort((a, b) => b.lastName.localeCompare(a.lastName) || b.name.localeCompare(a.name));
+            .sort((a, b) => a.lastName.localeCompare(b.lastName) || a.name.localeCompare(b.name));
 
         if (!targetRoster)
             return res(ctx.status(400), ctx.json({ message: '해당 팀의 로스터 정보가 존재하지 않습니다.' }));

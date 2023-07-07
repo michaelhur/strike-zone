@@ -10,11 +10,3 @@ export const StrikeZoneSectionContainer = styled(FlexColumnContainer)({
 
     width: '100%',
 });
-
-export const SectionTitle = styled.h2({
-    fontFamily: 'BMHANNAAir',
-    fontSize: '2rem',
-    color: 'var(--grey1000)',
-
-    padding: '0 1rem',
-});
