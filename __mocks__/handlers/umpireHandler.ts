@@ -11,9 +11,14 @@ import { umpireList } from '../data/umpire';
 export const umpireHandler = [
     rest.get<Umpire[]>('/api/umpires', async (req, res, ctx) => {
         const query = req.url.searchParams.get('q');
-        const filteredList = umpireList.filter((umpire) =>
-            query ? umpire.name.toLowerCase().indexOf(query) !== -1 : true,
-        );
+        const name = req.url.searchParams.get('name');
+
+        const filteredList = umpireList.filter((umpire) => {
+            const queryFilter = query ? umpire.name.toLowerCase().indexOf(query) !== -1 : true;
+            const nameFilter = name ? umpire.lastName.startsWith(name) : true;
+
+            return queryFilter && nameFilter;
+        });
 
         return res(ctx.status(200), ctx.json(filteredList));
     }),
