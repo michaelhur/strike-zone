@@ -13,9 +13,11 @@ const PlayerListPage = lazy(() => import('@pages/PlayerListPage/PlayerListPage')
 const PlayerDetailPage = lazy(() => import('@pages/PlayerDetailPage/PlayerDetailPage'));
 const TeamListPage = lazy(() => import('@pages/TeamListPage/TeamListPage'));
 const TeamDetailPage = lazy(() => import('@pages/TeamDetailPage/TeamDetailPage'));
+const UmpireListPage = lazy(() => import('@pages/UmpireListPage/UmpireListPage'));
+
 const Router = () => {
     return (
-        <Suspense fallback={<Loading size={40} />}>
+        <Suspense fallback={<Loading size={60} />}>
             <Routes>
                 <Route path={`${PATH.HOME}`} element={<HomePage />} />
                 <Route path={`${PATH.GAME_DETAIL}`} element={<GameDetailPage />} />
@@ -25,6 +27,7 @@ const Router = () => {
                 <Route path={`${PATH.PLAYER_DETAIL}`} element={<PlayerDetailPage />} />
                 <Route path={`${PATH.TEAM_LIST}`} element={<TeamListPage />} />
                 <Route path={`${PATH.TEAM_DETAIL}`} element={<TeamDetailPage />} />
+                <Route path={`${PATH.UMPIRE_LIST}`} element={<UmpireListPage />} />
             </Routes>
         </Suspense>
     );

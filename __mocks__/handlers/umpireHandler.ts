@@ -7,28 +7,33 @@ import { Game } from '@typings/game';
 
 import { getFetchOffsets } from '@utils/url';
 
-import { Umpire } from '../../src/typings/umpire';
+import { GetUmpireListRequest, Umpire } from '../../src/typings/umpire';
 import { umpireList } from '../data/umpire';
 
 export const umpireHandler = [
-    rest.get<Umpire[]>('/api/umpires', async (req, res, ctx) => {
+    rest.get<GetUmpireListRequest>('/api/umpires', async (req, res, ctx) => {
         const query = req.url.searchParams.get('q');
         const name = req.url.searchParams.get('name');
         const page = Number(req.url.searchParams.get('page'));
 
-        const filteredList = umpireList.filter((umpire) => {
-            const queryFilter = query ? umpire.name.toLowerCase().indexOf(query) !== -1 : true;
-            const nameFilter = name ? umpire.lastName.startsWith(name) : true;
+        const filteredList = umpireList
+            .filter((umpire) => {
+                const queryFilter = query ? umpire.name.toLowerCase().indexOf(query) !== -1 : true;
+                const nameFilter = name ? umpire.lastName.startsWith(name) : true;
 
-            return queryFilter && nameFilter;
-        });
+                return queryFilter && nameFilter;
+            })
+            .sort((a, b) => a.lastName.localeCompare(b.lastName));
+
+        const count = filteredList.length;
 
         if (page) {
-            const [start, end] = getFetchOffsets(page);
-            return res(ctx.status(200), ctx.json(filteredList.slice(start, end)));
+            const [start, end] = getFetchOffsets(page, 20);
+            const paginatedList = filteredList.slice(start, end);
+            return res(ctx.status(200), ctx.json({ umpires: paginatedList, count }));
         }
 
-        return res(ctx.status(200), ctx.json(filteredList));
+        return res(ctx.status(200), ctx.json({ umpires: filteredList, count }));
     }),
 
     rest.get<Umpire>('/api/umpires/:umpireId', async (req, res, ctx) => {
