@@ -7,7 +7,7 @@ export const ProfileContainer = styled(FlexRowContainer)({
     padding: '2rem',
     width: '100%',
 
-    backgroundColor: 'var(--grey0)',
+    backgroundColor: 'var(--grey200)',
     borderRadius: '0.5rem',
 });
 
