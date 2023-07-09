@@ -30,28 +30,47 @@ export const FlexRowContainer = styled.section({
     flexDirection: 'row',
 });
 
-export const ColumnPageContainer = styled(FlexColumnContainer)({
-    display: 'flex',
-    flexDirection: 'column',
+export const ColumnPageContainer = styled(FlexColumnContainer)(
+    {
+        display: 'flex',
+        flexDirection: 'column',
 
-    minHeight: '100vh',
-    flex: '1',
-});
+        minHeight: '100vh',
+        flex: '1',
 
-export const RowPageContainer = styled(FlexRowContainer)({
-    display: 'flex',
-    flexDirection: 'row',
+        '@media (max-width: 768px)': {
+            marginLeft: '6rem',
+        },
+    },
+    ({ isSidebarOpen = true }: { isSidebarOpen: boolean }) => ({
+        marginLeft: isSidebarOpen ? '290px' : '6rem',
+    }),
+);
 
-    minHeight: '100vh',
-    flex: '1',
-});
+export const RowPageContainer = styled(FlexRowContainer)(
+    {
+        display: 'flex',
+        flexDirection: 'row',
 
-export const PageSectionContainer = styled(ColumnPageContainer)({
+        minHeight: '100vh',
+        flex: '1',
+
+        marginLeft: '290px',
+
+        '@media (max-width: 768px)': {
+            marginLeft: '6rem',
+        },
+    },
+    ({ isSidebarOpen = true }: { isSidebarOpen: boolean }) => ({
+        marginLeft: isSidebarOpen ? '290px' : '6rem',
+    }),
+);
+
+export const PageSectionContainer = styled(FlexColumnContainer)({
     padding: '1rem',
     gap: '1rem',
 
     width: '100%',
-    // flex: '1',
 });
 
 export const SectionTitleWrapper = styled.div({

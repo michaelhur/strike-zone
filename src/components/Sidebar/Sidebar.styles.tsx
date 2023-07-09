@@ -21,12 +21,14 @@ export const SidebarContainer = styled.aside(
         alignItems: 'flex-start',
         padding: '2rem 1rem',
 
-        width: '280px',
         minHeight: '100vh',
+
+        backgroundColor: 'var(--grey50)',
         borderRight: '1px solid var(--grey200)',
+        position: 'fixed',
     },
     ({ isSidebarOpen }: SidebarContainerProps) => ({
-        width: isSidebarOpen ? '280px' : '6rem',
+        width: isSidebarOpen ? '290px' : '6rem',
     }),
 );
 

@@ -121,14 +121,13 @@ export const globalStyle = css`
         color: var(--grey1000);
 
         width: 100%;
-        //@media (min-width: 1400px) {
-        //    max-width: 1400px;
-        //}
-        //
-        //@media (max-width: 1400px) {
-        //    max-width: 100vw;
-        //}
-        //max-width: 100vw;
+        @media (min-width: 1400px) {
+            max-width: 1400px;
+        }
+
+        @media (max-width: 1400px) {
+            max-width: 100vw;
+        }
     }
 
     a {

@@ -43,8 +43,12 @@ export const Sidebar = () => {
             <TopSection>
                 <LogoSection>
                     <Logo to={'/'}>
-                        <img src="/sz_logo.svg" alt="Logo" height={32} width={32} />
-                        {isSidebarOpen && <StyledTitle>스트라이크 존</StyledTitle>}
+                        <img
+                            src={isSidebarOpen ? '/sz_logo_full.svg' : '/sz_logo.svg'}
+                            alt="Logo"
+                            height={32}
+                            // width={32}
+                        />
                     </Logo>
                 </LogoSection>
                 <MenuSection>
