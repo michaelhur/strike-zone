@@ -14,11 +14,7 @@ export const UmpireGameList = ({ id }: UmpireGameListProps) => {
 
     return (
         <UmpireGameListContainer>
-            {isLoading || !games ? (
-                <Loading size={60} />
-            ) : (
-                <GameList games={games} itemViewType={'LIST'} cardCount={1} />
-            )}
+            {isLoading || !games ? <Loading size={60} /> : <GameList games={games} itemViewType={'LIST'} />}
         </UmpireGameListContainer>
     );
 };

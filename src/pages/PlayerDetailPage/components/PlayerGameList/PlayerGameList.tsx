@@ -18,7 +18,7 @@ export const PlayerGameList = ({ slug }: PlayerGameListProps) => {
             <SectionTitleWrapper>
                 <h3>Last 5 Games</h3>
             </SectionTitleWrapper>
-            {isLoadingGames ? <Loading size={60} /> : <GameList games={games!} itemViewType={'LIST'} cardCount={1} />}
+            {isLoadingGames ? <Loading size={60} /> : <GameList games={games!} itemViewType={'LIST'} />}
         </PlayerGameListContainer>
     );
 };

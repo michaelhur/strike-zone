@@ -1,32 +1,28 @@
 import styled from '@emotion/styled';
 
-export const ListViewContainer = styled.article(
-    {
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-        // justifyContent: 'space-between',
-        alignItems: 'center',
-        padding: '1rem 0.5rem',
+export const ListViewContainer = styled.article({
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    padding: '1rem 0.5rem',
 
-        height: '80px',
-        width: '100%',
+    height: '80px',
+    width: '100%',
 
-        background: 'var(--grey0)',
-        boxShadow: 'var(--shadowStrong)',
-        borderRadius: '0.5rem',
+    background: 'var(--grey0)',
+    boxShadow: 'var(--shadowStrong)',
+    borderRadius: '0.5rem',
 
-        cursor: 'pointer',
-        transition: 'box-shadow 0.25s ease-in 0s, transform 0.25s ease-in 0s',
+    flex: '1 0 300px',
 
-        '&:hover': {
-            transform: 'translateY(-0.25rem)',
-        },
+    cursor: 'pointer',
+    transition: 'box-shadow 0.25s ease-in 0s, transform 0.25s ease-in 0s',
+
+    '&:hover': {
+        transform: 'translateY(-0.25rem)',
     },
-    ({ cardCount }: { cardCount: number }) => ({
-        width: `calc((100% - calc(16px * ${cardCount - 1})) / ${cardCount})`,
-    }),
-);
+});
 
 export const ListViewTeamSectionContainer = styled.section(
     {

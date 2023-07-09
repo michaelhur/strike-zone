@@ -4,9 +4,9 @@ import { itemViewTypeOptions, leagueTabOptions } from '@constants/menu';
 import { useRecoilState } from 'recoil';
 
 import { CategoryMenu } from '@components/CategoryMenu/CategoryMenu';
-import { GameListWrapper } from '@components/GameListSection/GameListSection.styles';
+import { GameListSectionContainer, GameListWrapper } from '@components/GameListSection/GameListSection.styles';
 import { GameList } from '@components/GameListSection/components/GameList/GameList';
-import { PageSectionContainer, SectionTitleWrapper } from '@components/Layout/Layout';
+import { SectionTitleWrapper } from '@components/Layout/Layout';
 import { Loading } from '@components/Loading/Loading';
 
 import { useGetGameList } from '@hooks/@query/game/useGetGameList';
@@ -18,10 +18,9 @@ import { LeagueType } from '@typings/league';
 interface GameListSectionProps {
     fixtureDate: string;
     sectionLabel?: string;
-    cardCount?: number;
 }
 
-export const GameListSection = ({ fixtureDate, sectionLabel, cardCount = 2 }: GameListSectionProps) => {
+export const GameListSection = ({ fixtureDate, sectionLabel }: GameListSectionProps) => {
     const [leagueFilter, setLeagueFilter] = useState<LeagueType>('ALL');
     const [viewType, setViewType] = useRecoilState<itemViewType>(itemViewTypeState);
 
@@ -32,10 +31,8 @@ export const GameListSection = ({ fixtureDate, sectionLabel, cardCount = 2 }: Ga
         ? useGetGameList(`date=${fixtureDate}&leagues=${leagueFilter}`)
         : useGetGameList(`date=${fixtureDate}`);
 
-    if (isLoading) return <Loading size={40} />;
-
     return (
-        <PageSectionContainer>
+        <GameListSectionContainer>
             <SectionTitleWrapper>
                 <h2>{sectionLabel ? sectionLabel : fixtureDate || '날짜가 선택되지 않았습니다'}</h2>
             </SectionTitleWrapper>
@@ -47,11 +44,13 @@ export const GameListSection = ({ fixtureDate, sectionLabel, cardCount = 2 }: Ga
                 setViewType={onClickView}
                 viewTypeOptions={itemViewTypeOptions}
             />
-            {fixtureDate && (
-                <GameListWrapper>
-                    <GameList games={gameList!} itemViewType={viewType} cardCount={cardCount} />
-                </GameListWrapper>
-            )}
-        </PageSectionContainer>
+            <GameListWrapper>
+                {isLoading || !gameList ? (
+                    <Loading size={40} />
+                ) : (
+                    <GameList games={gameList!} itemViewType={viewType} />
+                )}
+            </GameListWrapper>
+        </GameListSectionContainer>
     );
 };

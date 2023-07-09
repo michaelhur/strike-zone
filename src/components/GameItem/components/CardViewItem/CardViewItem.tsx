@@ -55,11 +55,11 @@ const CardViewScoreSection = ({
     );
 };
 
-export const CardViewItem = ({ game, onClickItem, cardCount }: ViewItemProps) => {
+export const CardViewItem = ({ game, onClickItem }: ViewItemProps) => {
     const { id, date, home, away, isFinal, homeScore, awayScore } = game;
 
     return (
-        <CardViewContainer key={id} onClick={onClickItem} cardCount={cardCount}>
+        <CardViewContainer key={id} onClick={onClickItem}>
             <CardViewTopSection>
                 <h3>{home!.venue}</h3>
                 <span>{date}</span>

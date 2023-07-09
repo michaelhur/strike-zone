@@ -1,12 +1,10 @@
 import styled from '@emotion/styled';
 
-import { ColumnPageContainer } from '@components/Layout/Layout';
+import { FlexColumnContainer } from '@components/Layout/Layout';
 
-export const GameListSectionContainer = styled(ColumnPageContainer)({
-    padding: '1rem',
+export const GameListSectionContainer = styled(FlexColumnContainer)({
     gap: '1rem',
-
-    flex: '1',
+    width: '100%',
 });
 
 export const GameListWrapper = styled.section({

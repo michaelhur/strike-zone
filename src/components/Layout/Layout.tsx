@@ -66,13 +66,6 @@ export const RowPageContainer = styled(FlexRowContainer)(
     }),
 );
 
-export const PageSectionContainer = styled(FlexColumnContainer)({
-    padding: '1rem',
-    gap: '1rem',
-
-    width: '100%',
-});
-
 export const SectionTitleWrapper = styled.div({
     display: 'flex',
     flexDirection: 'row',
