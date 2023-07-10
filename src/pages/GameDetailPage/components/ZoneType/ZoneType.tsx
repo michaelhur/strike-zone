@@ -20,31 +20,43 @@ export const ZoneType = ({ slug }: ZoneTypeProps) => {
     const zoneViewType = useRecoilValue(zoneViewTypeState);
     const inningList = data ? [...new Set(data.flatMap((atbat) => atbat.inning))].sort() : [];
 
-    if (isLoading) return <Loading size={60} />;
-
     switch (zoneViewType) {
         case 'SIDE':
             return (
                 <PlotContainer>
-                    <SidePlot atbats={data!} outcomeType={'All'} />
-                    <SidePlot atbats={data!} outcomeType={'CalledStrike'} />
-                    <SidePlot atbats={data!} outcomeType={'Ball'} />
+                    {isLoading || !data ? (
+                        <Loading size={60} />
+                    ) : (
+                        <>
+                            <SidePlot atbats={data!} outcomeType={'All'} hasTitle={true} />
+                            <SidePlot atbats={data!} outcomeType={'CalledStrike'} hasTitle={true} />
+                            <SidePlot atbats={data!} outcomeType={'Ball'} hasTitle={true} />
+                        </>
+                    )}
                 </PlotContainer>
             );
         case 'INNING':
             return (
                 <PlotContainer>
-                    {inningList.map((inning) => (
-                        <InningPlot key={inning} atbats={data!} inning={inning} />
-                    ))}
+                    {isLoading || !data ? (
+                        <Loading size={60} />
+                    ) : (
+                        inningList.map((inning) => <InningPlot key={inning} atbats={data!} inning={inning} />)
+                    )}
                 </PlotContainer>
             );
         default:
             return (
                 <PlotContainer>
-                    <SummaryPlot atbats={data!} sideType={'All'} />
-                    <SummaryPlot atbats={data!} sideType={'Home'} />
-                    <SummaryPlot atbats={data!} sideType={'Away'} />
+                    {isLoading || !data ? (
+                        <Loading size={60} />
+                    ) : (
+                        <>
+                            <SummaryPlot atbats={data!} sideType={'All'} />
+                            <SummaryPlot atbats={data!} sideType={'Home'} />
+                            <SummaryPlot atbats={data!} sideType={'Away'} />
+                        </>
+                    )}
                 </PlotContainer>
             );
     }

@@ -65,26 +65,34 @@ export const GameDataSection = ({ slug }: GameDataSectionProps) => {
     const [zoneViewType, setZoneViewType] = useRecoilState<ZoneViewType>(zoneViewTypeState);
     const { isLoading, data } = useGetGame(slug, { enabled: !!slug });
 
-    if (isLoading) return <Loading size={60} />;
-    else {
-        const { date, homeScore, awayScore, home, away, umpire } = data!;
-        return (
-            <GameDataSectionContainer>
-                <TopSectionContainer>
-                    <h2>{date} Strike Zone</h2>
-                    <span>(Umpire: {umpire!.name})</span>
-                </TopSectionContainer>
-                <MatchupSectionContainer>
-                    <TeamInfo team={home!} isHome={true} />
-                    <ScoreLine homeScore={homeScore!} awayScore={awayScore!} />
-                    <TeamInfo team={away!} isHome={false} />
-                </MatchupSectionContainer>
-                <CategoryMenu<ZoneViewType, any>
-                    selectedCategory={zoneViewType}
-                    setSelectedCategory={setZoneViewType}
-                    categoryOptions={gameTapOptions}
-                />
-            </GameDataSectionContainer>
-        );
-    }
+    return (
+        <GameDataSectionContainer>
+            <TopSectionContainer>
+                {isLoading || !data ? (
+                    <Loading size={60} />
+                ) : (
+                    <>
+                        <h2>{data!.date} Strike Zone</h2>
+                        <span>(Umpire: {data!.umpire!.name})</span>
+                    </>
+                )}
+            </TopSectionContainer>
+            <MatchupSectionContainer>
+                {isLoading || !data ? (
+                    <Loading size={60} />
+                ) : (
+                    <>
+                        <TeamInfo team={data!.home!} isHome={true} />
+                        <ScoreLine homeScore={data!.homeScore!} awayScore={data!.awayScore!} />
+                        <TeamInfo team={data!.away!} isHome={false} />
+                    </>
+                )}
+            </MatchupSectionContainer>
+            <CategoryMenu<ZoneViewType, any>
+                selectedCategory={zoneViewType}
+                setSelectedCategory={setZoneViewType}
+                categoryOptions={gameTapOptions}
+            />
+        </GameDataSectionContainer>
+    );
 };

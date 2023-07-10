@@ -28,14 +28,6 @@ const SummaryPlot = ({ atbats, sideType }: SummaryPlotProps) => {
                 <StrikeZone
                     atbats={atbats}
                     plotType={'zone'}
-                    zoneLabel={'스트라이크 + 볼'}
-                    radius={24}
-                    outcomeType={'BallsAndStrikes'}
-                    sideType={sideType}
-                />
-                <StrikeZone
-                    atbats={atbats}
-                    plotType={'zone'}
                     zoneLabel={'스트라이크'}
                     radius={24}
                     outcomeType={'CalledStrike'}
@@ -47,6 +39,30 @@ const SummaryPlot = ({ atbats, sideType }: SummaryPlotProps) => {
                     zoneLabel={'볼'}
                     radius={24}
                     outcomeType={'Ball'}
+                    sideType={sideType}
+                />
+                <StrikeZone
+                    atbats={atbats}
+                    plotType={'zone'}
+                    zoneLabel={'파울'}
+                    radius={24}
+                    outcomeType={'Foul'}
+                    sideType={sideType}
+                />
+                <StrikeZone
+                    atbats={atbats}
+                    plotType={'zone'}
+                    zoneLabel={'헛스윙'}
+                    radius={24}
+                    outcomeType={'SwingingStrike'}
+                    sideType={sideType}
+                />
+                <StrikeZone
+                    atbats={atbats}
+                    plotType={'zone'}
+                    zoneLabel={'인플레이'}
+                    radius={24}
+                    outcomeType={'InPlay'}
                     sideType={sideType}
                 />
             </StrikeZoneList>

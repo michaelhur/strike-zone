@@ -3,7 +3,7 @@ import { SidePlotValues } from '@constants/pitch';
 import { SectionTitle } from '@components/Layout/Layout';
 import { SidePlotContainer } from '@components/SidePlot/SidePlot.styles';
 import StrikeZone from '@components/StrikeZone/StrikeZone';
-import { StrikeZoneList } from '@components/StrikeZone/StrikeZone.styles';
+import { StrikeZoneList, StrikeZoneRow } from '@components/StrikeZone/StrikeZone.styles';
 
 import { AtBat, OutcomeType } from '@typings/atbat';
 
@@ -19,20 +19,36 @@ const SidePlot = ({ atbats, outcomeType, hasTitle = true }: SidePlotProps) => {
     return (
         <SidePlotContainer>
             {hasTitle && <SectionTitle>{sectionTitle}</SectionTitle>}
-            <StrikeZoneList>
-                {SidePlotValues.map((props, index) => {
-                    return (
-                        <StrikeZone
-                            key={index}
-                            atbats={atbats}
-                            outcomeType={outcomeType}
-                            plotType={'zone'}
-                            radius={24}
-                            {...props}
-                        />
-                    );
-                })}
-            </StrikeZoneList>
+            <StrikeZoneRow>
+                <StrikeZoneList>
+                    {SidePlotValues.slice(0, 2).map((props, index) => {
+                        return (
+                            <StrikeZone
+                                key={index}
+                                atbats={atbats}
+                                outcomeType={outcomeType}
+                                plotType={'zone'}
+                                radius={24}
+                                {...props}
+                            />
+                        );
+                    })}
+                </StrikeZoneList>
+                <StrikeZoneList>
+                    {SidePlotValues.slice(2).map((props, index) => {
+                        return (
+                            <StrikeZone
+                                key={index}
+                                atbats={atbats}
+                                outcomeType={outcomeType}
+                                plotType={'zone'}
+                                radius={24}
+                                {...props}
+                            />
+                        );
+                    })}
+                </StrikeZoneList>
+            </StrikeZoneRow>
         </SidePlotContainer>
     );
 };

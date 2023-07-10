@@ -14,4 +14,6 @@ export const PlotContainer = styled(FlexColumnContainer)({
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
     gap: '3rem',
+
+    width: '100%',
 });
