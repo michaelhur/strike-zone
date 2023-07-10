@@ -9,12 +9,14 @@ import { SingleCalendarSection } from '@components/SingleCalendarSection/SingleC
 import { FixturePageContainer } from '@pages/FixturePage/FixturePage.styles';
 
 import { latestGameDateState } from '@recoils/fixture/atom';
+import { sidebarCollapseState } from '@recoils/sidebar/atom';
 
 import { YYYYMMDD_to_date, date_to_YYYYMMDD } from '@utils/date';
 
 const FixtureByDatePage = () => {
     const { date: fixtureDate } = useParams();
     const latestGameDate = useRecoilValue(latestGameDateState);
+    const isSidebarOpen = useRecoilValue(sidebarCollapseState);
     const navigate = useNavigate();
 
     const onClickDate = (selectedDay: Date): void => {
@@ -26,7 +28,7 @@ const FixtureByDatePage = () => {
     };
 
     return (
-        <FixturePageContainer>
+        <FixturePageContainer isSidebarOpen={isSidebarOpen}>
             <SingleCalendarSection
                 fixtureDate={YYYYMMDD_to_date(fixtureDate!)}
                 onChangeFixtureDate={onClickDate}
