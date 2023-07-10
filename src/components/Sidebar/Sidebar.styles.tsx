@@ -28,7 +28,7 @@ export const SidebarContainer = styled.aside(
         position: 'fixed',
     },
     ({ isSidebarOpen }: SidebarContainerProps) => ({
-        width: isSidebarOpen ? '290px' : '6rem',
+        width: isSidebarOpen ? '290px' : '88px',
     }),
 );
 
@@ -53,6 +53,10 @@ export const BottomSection = styled.section({
 });
 
 export const LogoSection = styled.section({
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     padding: '1rem',
     width: '100%',
 

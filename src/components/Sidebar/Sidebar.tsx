@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
 import { sidebarMenu } from '@constants/menu';
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilState } from 'recoil';
 
-import { DarkIcon, LightIcon } from '@components/@shared/Icon';
+import { DarkIcon, LightIcon, SidebarCloseIcon, SidebarOpenIcon } from '@components/@shared/Icon';
 import { IconWrap } from '@components/@shared/Icon/Icon.styles';
 import { RadioButton } from '@components/@shared/RadioButton/RadioButton';
 import {
@@ -14,7 +14,6 @@ import {
     MenuList,
     MenuSection,
     SidebarContainer,
-    StyledTitle,
     TopSection,
 } from '@components/Sidebar/Sidebar.styles';
 
@@ -22,9 +21,11 @@ import { themeState } from '@recoils/sidebar/atom';
 import { sidebarCollapseState } from '@recoils/sidebar/atom';
 
 export const Sidebar = () => {
-    const isSidebarOpen = useRecoilValue(sidebarCollapseState);
+    const [isSidebarOpen, setIsSidebarOpen] = useRecoilState(sidebarCollapseState);
     const [theme, setTheme] = useRecoilState(themeState);
     const [selected, setSelected] = useState<boolean>(theme === 'dark');
+
+    const onClickSidebarButton = () => setIsSidebarOpen(!isSidebarOpen);
 
     const onClickThemeChanger = () => {
         if (theme === 'dark') {
@@ -42,14 +43,21 @@ export const Sidebar = () => {
         <SidebarContainer isSidebarOpen={isSidebarOpen}>
             <TopSection>
                 <LogoSection>
-                    <Logo to={'/'}>
-                        <img
-                            src={isSidebarOpen ? '/sz_logo_full.svg' : '/sz_logo.svg'}
-                            alt="Logo"
-                            height={32}
-                            // width={32}
-                        />
-                    </Logo>
+                    {isSidebarOpen ? (
+                        <>
+                            <Logo to={'/'}>
+                                <img
+                                    src={'/sz_logo_full.svg'}
+                                    alt="Logo"
+                                    height={24}
+                                    // width={32}
+                                />
+                            </Logo>
+                            <SidebarCloseIcon size={24} onClickIcon={onClickSidebarButton} />
+                        </>
+                    ) : (
+                        <SidebarOpenIcon size={24} onClickIcon={onClickSidebarButton} />
+                    )}
                 </LogoSection>
                 <MenuSection>
                     <MenuList>
