@@ -110,3 +110,31 @@ export const MenuItem = styled(NavLink)({
         borderRadius: '0.5rem',
     },
 });
+
+export const SidebarButtonWrap = styled.div({
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: '.5rem',
+
+    width: '3rem',
+    height: '3rem',
+
+    borderRadius: '0.5rem',
+    backgroundColor: 'var(--grey100)',
+
+    cursor: 'pointer',
+
+    '&:hover': {
+        borderRadius: '0.5rem',
+
+        color: 'var(--grey900)',
+        borderColor: 'var(--grey200)',
+        backgroundColor: 'var(--grey200)',
+
+        '& svg path': {
+            fill: 'var(--grey900)',
+        },
+    },
+});

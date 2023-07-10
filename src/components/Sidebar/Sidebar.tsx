@@ -4,7 +4,7 @@ import { sidebarMenu } from '@constants/menu';
 import { useRecoilState } from 'recoil';
 
 import { DarkIcon, LightIcon, SidebarCloseIcon, SidebarOpenIcon } from '@components/@shared/Icon';
-import { IconWrap, IconWrapWithBorder } from '@components/@shared/Icon/Icon.styles';
+import { IconWrap } from '@components/@shared/Icon/Icon.styles';
 import { RadioButton } from '@components/@shared/RadioButton/RadioButton';
 import {
     BottomSection,
@@ -13,6 +13,7 @@ import {
     MenuItem,
     MenuList,
     MenuSection,
+    SidebarButtonWrap,
     SidebarContainer,
     TopSection,
 } from '@components/Sidebar/Sidebar.styles';
@@ -85,13 +86,13 @@ export const Sidebar = () => {
                         rightIconComponent={<DarkIcon color={selected ? 'var(--grey900)' : 'var(--grey500)'} />}
                     />
                 ) : (
-                    <IconWrapWithBorder isDisabled={false} onClick={onClickThemeChanger}>
+                    <SidebarButtonWrap onClick={onClickThemeChanger}>
                         {selected ? (
                             <DarkIcon color={selected ? 'var(--grey900)' : 'var(--grey500)'} hoverable={false} />
                         ) : (
                             <LightIcon color={!selected ? 'var(--grey900)' : 'var(--grey500)'} hoverable={false} />
                         )}
-                    </IconWrapWithBorder>
+                    </SidebarButtonWrap>
                 )}
             </BottomSection>
         </SidebarContainer>
