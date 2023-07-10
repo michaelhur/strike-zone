@@ -4,7 +4,7 @@ import { sidebarMenu } from '@constants/menu';
 import { useRecoilState } from 'recoil';
 
 import { DarkIcon, LightIcon, SidebarCloseIcon, SidebarOpenIcon } from '@components/@shared/Icon';
-import { IconWrap } from '@components/@shared/Icon/Icon.styles';
+import { IconWrap, IconWrapWithBorder } from '@components/@shared/Icon/Icon.styles';
 import { RadioButton } from '@components/@shared/RadioButton/RadioButton';
 import {
     BottomSection,
@@ -75,14 +75,24 @@ export const Sidebar = () => {
                 </MenuSection>
             </TopSection>
             <BottomSection>
-                <RadioButton
-                    selected={selected}
-                    onClickRadioButton={onClickThemeChanger}
-                    leftButtonLabel={'Light'}
-                    rightButtonLabel={'Dark'}
-                    leftIconComponent={<LightIcon color={!selected ? 'var(--grey900)' : 'var(--grey500)'} />}
-                    rightIconComponent={<DarkIcon color={selected ? 'var(--grey900)' : 'var(--grey500)'} />}
-                />
+                {isSidebarOpen ? (
+                    <RadioButton
+                        selected={selected}
+                        onClickRadioButton={onClickThemeChanger}
+                        leftButtonLabel={'Light'}
+                        rightButtonLabel={'Dark'}
+                        leftIconComponent={<LightIcon color={!selected ? 'var(--grey900)' : 'var(--grey500)'} />}
+                        rightIconComponent={<DarkIcon color={selected ? 'var(--grey900)' : 'var(--grey500)'} />}
+                    />
+                ) : (
+                    <IconWrapWithBorder isDisabled={false} onClick={onClickThemeChanger}>
+                        {selected ? (
+                            <DarkIcon color={selected ? 'var(--grey900)' : 'var(--grey500)'} hoverable={false} />
+                        ) : (
+                            <LightIcon color={!selected ? 'var(--grey900)' : 'var(--grey500)'} hoverable={false} />
+                        )}
+                    </IconWrapWithBorder>
+                )}
             </BottomSection>
         </SidebarContainer>
     );
