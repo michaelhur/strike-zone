@@ -26,7 +26,15 @@ export const Sidebar = () => {
     const [theme, setTheme] = useRecoilState(themeState);
     const [selected, setSelected] = useState<boolean>(theme === 'dark');
 
-    const onClickSidebarButton = () => setIsSidebarOpen(!isSidebarOpen);
+    const onClickSidebarButton = () => {
+        if (isSidebarOpen === 'opened') {
+            setIsSidebarOpen('collapsed');
+            localStorage.setItem('sz-sidebar', 'collapsed');
+        } else {
+            setIsSidebarOpen('opened');
+            localStorage.setItem('sz-sidebar', 'opened');
+        }
+    };
 
     const onClickThemeChanger = () => {
         if (theme === 'dark') {
@@ -43,7 +51,7 @@ export const Sidebar = () => {
     return (
         <SidebarContainer isSidebarOpen={isSidebarOpen}>
             <TopSection>
-                {isSidebarOpen ? (
+                {isSidebarOpen === 'opened' ? (
                     <LogoSection>
                         <Logo to={'/'}>
                             <img
@@ -67,7 +75,7 @@ export const Sidebar = () => {
                                 <li key={menu.name}>
                                     <MenuItem to={menu.path}>
                                         {menu.iconComponent && <IconWrap>{menu.iconComponent}</IconWrap>}
-                                        {isSidebarOpen && <span>{menu.name}</span>}
+                                        {isSidebarOpen === 'opened' && <span>{menu.name}</span>}
                                     </MenuItem>
                                 </li>
                             );
@@ -76,7 +84,7 @@ export const Sidebar = () => {
                 </MenuSection>
             </TopSection>
             <BottomSection>
-                {isSidebarOpen ? (
+                {isSidebarOpen === 'opened' ? (
                     <RadioButton
                         selected={selected}
                         onClickRadioButton={onClickThemeChanger}

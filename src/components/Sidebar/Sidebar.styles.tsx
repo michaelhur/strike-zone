@@ -2,9 +2,7 @@ import { NavLink } from 'react-router-dom';
 
 import styled from '@emotion/styled';
 
-interface SidebarContainerProps {
-    isSidebarOpen: boolean;
-}
+import { SidebarStatus } from '@typings/sidebar';
 
 export const StyledTitle = styled.h3({
     fontFamily: 'BMHANNAAir',
@@ -27,8 +25,8 @@ export const SidebarContainer = styled.aside(
         borderRight: '1px solid var(--grey200)',
         position: 'fixed',
     },
-    ({ isSidebarOpen }: SidebarContainerProps) => ({
-        width: isSidebarOpen ? '290px' : '88px',
+    ({ isSidebarOpen }: { isSidebarOpen: SidebarStatus }) => ({
+        width: isSidebarOpen === 'opened' ? '290px' : '88px',
     }),
 );
 

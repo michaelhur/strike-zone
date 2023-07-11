@@ -2,6 +2,8 @@ import { ReactNode } from 'react';
 
 import styled from '@emotion/styled';
 
+import { SidebarStatus } from '@typings/sidebar';
+
 interface LayoutProps {
     children: ReactNode;
 }
@@ -42,8 +44,8 @@ export const ColumnPageContainer = styled(FlexColumnContainer)(
             marginLeft: '6rem',
         },
     },
-    ({ isSidebarOpen = true }: { isSidebarOpen: boolean }) => ({
-        marginLeft: isSidebarOpen ? '290px' : '6rem',
+    ({ isSidebarOpen }: { isSidebarOpen: SidebarStatus }) => ({
+        marginLeft: isSidebarOpen === 'opened' ? '290px' : '6rem',
     }),
 );
 
@@ -61,8 +63,8 @@ export const RowPageContainer = styled(FlexRowContainer)(
             marginLeft: '6rem',
         },
     },
-    ({ isSidebarOpen = true }: { isSidebarOpen: boolean }) => ({
-        marginLeft: isSidebarOpen ? '290px' : '6rem',
+    ({ isSidebarOpen }: { isSidebarOpen: SidebarStatus }) => ({
+        marginLeft: isSidebarOpen === 'opened' ? '290px' : '6rem',
     }),
 );
 
