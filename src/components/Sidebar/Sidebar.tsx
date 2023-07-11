@@ -43,23 +43,23 @@ export const Sidebar = () => {
     return (
         <SidebarContainer isSidebarOpen={isSidebarOpen}>
             <TopSection>
-                <LogoSection>
-                    {isSidebarOpen ? (
-                        <>
-                            <Logo to={'/'}>
-                                <img
-                                    src={'/sz_logo_full.svg'}
-                                    alt="Logo"
-                                    height={24}
-                                    // width={32}
-                                />
-                            </Logo>
-                            <SidebarCloseIcon size={24} onClickIcon={onClickSidebarButton} />
-                        </>
-                    ) : (
-                        <SidebarOpenIcon size={24} onClickIcon={onClickSidebarButton} />
-                    )}
-                </LogoSection>
+                {isSidebarOpen ? (
+                    <LogoSection>
+                        <Logo to={'/'}>
+                            <img
+                                src={'/sz_logo_full.svg'}
+                                alt="Logo"
+                                height={24}
+                                // width={32}
+                            />
+                        </Logo>
+                        <SidebarCloseIcon size={24} onClickIcon={onClickSidebarButton} />
+                    </LogoSection>
+                ) : (
+                    <SidebarButtonWrap onClick={onClickSidebarButton}>
+                        <SidebarOpenIcon size={24} />
+                    </SidebarButtonWrap>
+                )}
                 <MenuSection>
                     <MenuList>
                         {sidebarMenu.map((menu) => {

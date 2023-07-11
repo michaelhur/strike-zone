@@ -116,10 +116,8 @@ export const SidebarButtonWrap = styled.div({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    padding: '.5rem',
-
-    width: '3rem',
-    height: '3rem',
+    padding: '.5rem 1rem',
+    marginTop: '1rem',
 
     borderRadius: '0.5rem',
     backgroundColor: 'var(--grey100)',
