@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import { FlexColumnContainer } from '@components/Layout/Layout';
+import { FlexRowContainer } from '@components/Layout/Layout';
 
 export const PopupCalendarContainer = styled.article({
     display: 'flex',
@@ -11,7 +11,9 @@ export const PopupCalendarContainer = styled.article({
     padding: '1rem',
 
     width: '100%',
-    maxWidth: '350px',
+    maxWidth: '344px',
+
+    position: 'relative',
 
     '& span': {
         fontFamily: 'BMHANNAAir',
@@ -43,10 +45,20 @@ export const FixtureDate = styled.section({
     },
 });
 
-export const CalendarSection = styled(FlexColumnContainer)(
+export const CalendarSection = styled(FlexRowContainer)(
     {
-        alignItems: 'flex-start',
-        flex: '300px',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        // flex: '300px',
+        width: '100%',
+
+        position: 'absolute',
+        top: '7rem',
+        zIndex: '10',
+
+        '& .rdp': {
+            margin: '0 !important',
+        },
     },
     ({ isOpen }: { isOpen: boolean }) => ({
         display: isOpen ? 'flex' : 'none',

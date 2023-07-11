@@ -9,6 +9,8 @@ export interface CalendarSectionProps {
 }
 
 export const SingleCalendarSection = ({ fixtureDate, onChangeFixtureDate, onClickButton }: CalendarSectionProps) => {
+    console.log(`SingleCalendarSection: ${fixtureDate}`);
+
     return (
         <SingleCalendarSectionContainer>
             <Calendar

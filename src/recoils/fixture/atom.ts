@@ -18,3 +18,8 @@ export const fixtureDateState = atom<Date | undefined>({
     key: 'fixtureDateState',
     default: getYesterday(),
 });
+
+export const popupCalendarState = atom<boolean>({
+    key: 'popupCalendarState',
+    default: false,
+});
