@@ -41,11 +41,11 @@ export const ColumnPageContainer = styled(FlexColumnContainer)(
         flex: '1',
 
         '@media (max-width: 768px)': {
-            marginLeft: '6rem',
+            marginLeft: '88px',
         },
     },
     ({ isSidebarOpen }: { isSidebarOpen: SidebarStatus }) => ({
-        marginLeft: isSidebarOpen === 'opened' ? '290px' : '6rem',
+        marginLeft: isSidebarOpen === 'opened' ? '290px' : '88px',
     }),
 );
 
@@ -60,11 +60,11 @@ export const RowPageContainer = styled(FlexRowContainer)(
         marginLeft: '290px',
 
         '@media (max-width: 768px)': {
-            marginLeft: '6rem',
+            marginLeft: '88px',
         },
     },
     ({ isSidebarOpen }: { isSidebarOpen: SidebarStatus }) => ({
-        marginLeft: isSidebarOpen === 'opened' ? '290px' : '6rem',
+        marginLeft: isSidebarOpen === 'opened' ? '290px' : '88px',
     }),
 );
 

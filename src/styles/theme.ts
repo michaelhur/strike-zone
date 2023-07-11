@@ -111,7 +111,7 @@ const shadow = {
 };
 
 export const breakpoints = {
-    MOBILE: '320px',
+    MOBILE: '600px',
     TABLET: '768px',
     DESKTOP_SMALL: '1024px',
     DESKTOP_LARGE: '1440px',
