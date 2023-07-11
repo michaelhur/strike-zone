@@ -40,8 +40,8 @@ export const ColumnPageContainer = styled(FlexColumnContainer)(
         minHeight: '100vh',
         flex: '1',
 
-        '@media (max-width: 768px)': {
-            marginLeft: '88px',
+        '@media (max-width: 600px)': {
+            marginLeft: '0',
         },
     },
     ({ isSidebarOpen }: { isSidebarOpen: SidebarStatus }) => ({
@@ -59,8 +59,8 @@ export const RowPageContainer = styled(FlexRowContainer)(
 
         marginLeft: '290px',
 
-        '@media (max-width: 768px)': {
-            marginLeft: '88px',
+        '@media (max-width: 600px)': {
+            marginLeft: '0',
         },
     },
     ({ isSidebarOpen }: { isSidebarOpen: SidebarStatus }) => ({
