@@ -24,6 +24,12 @@ export const SidebarContainer = styled.aside(
         backgroundColor: 'var(--grey50)',
         borderRight: '1px solid var(--grey200)',
         position: 'fixed',
+
+        zIndex: '100',
+
+        '@media (max-width: 600px)': {
+            display: 'none',
+        },
     },
     ({ isSidebarOpen }: { isSidebarOpen: SidebarStatus }) => ({
         width: isSidebarOpen === 'opened' ? '290px' : '88px',

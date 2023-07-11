@@ -4,7 +4,13 @@ import styled from '@emotion/styled';
 
 export const StyledDayPicker = styled(DayPicker)`
     padding: 1rem;
+    margin: unset !important;
     background-color: var(--grey0);
+
+    .rdp-row {
+        padding: 0 0.25rem;
+    }
+
     .rdp-tfoot button {
         margin-top: 1rem;
     }
