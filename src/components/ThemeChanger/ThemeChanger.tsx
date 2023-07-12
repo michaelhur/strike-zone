@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
 
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilValue } from 'recoil';
 
 import { DarkIcon, LightIcon } from '@components/@shared/Icon';
 import { RadioButton } from '@components/@shared/RadioButton/RadioButton';
@@ -11,18 +11,17 @@ import { useLocalStorage } from '@hooks/common/useLocalStorage';
 import { sidebarCollapseState, themeState } from '@recoils/sidebar/atom';
 
 export const ThemeChanger = () => {
-    const [theme, setTheme] = useRecoilState(themeState);
-    const [selected, setSelected] = useState<boolean>(theme === 'dark');
-
     const isSidebarOpen = useRecoilValue(sidebarCollapseState);
-    const [_, setStoredThemeState] = useLocalStorage('sz-theme', 'light');
+    const [storedThemeState, setStoredThemeState] = useLocalStorage(themeState, 'sz-theme', 'light');
+    const [selected, setSelected] = useState<boolean>(storedThemeState === 'dark');
+
+    console.log(`storedThemeState: ${storedThemeState}`);
 
     const onClickThemeChanger = useCallback(() => {
-        const newThemeState = theme === 'dark' ? 'light' : 'dark';
+        const newThemeState = storedThemeState === 'dark' ? 'light' : 'dark';
         setSelected(newThemeState === 'dark');
-        setTheme(newThemeState);
         setStoredThemeState(newThemeState);
-    }, [theme]);
+    }, [storedThemeState]);
 
     switch (isSidebarOpen) {
         case 'opened':

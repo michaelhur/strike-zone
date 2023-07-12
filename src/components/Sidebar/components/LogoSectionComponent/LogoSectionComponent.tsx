@@ -10,16 +10,18 @@ import { useLocalStorage } from '@hooks/common/useLocalStorage';
 import { sidebarCollapseState } from '@recoils/sidebar/atom';
 
 export const LogoSectionComponent = () => {
-    const [isSidebarOpen, setIsSidebarOpen] = useRecoilState(sidebarCollapseState);
-    const [_, setStoredSidebarState] = useLocalStorage('sz-sidebar', 'collapsed');
+    const [storedSidebarState, setStoredSidebarState] = useLocalStorage(
+        sidebarCollapseState,
+        'sz-sidebar',
+        'collapsed',
+    );
 
     const onClickSidebarButton = useCallback(() => {
-        const newSidebarState = isSidebarOpen === 'opened' ? 'collapsed' : 'opened';
-        setIsSidebarOpen(newSidebarState);
+        const newSidebarState = storedSidebarState === 'opened' ? 'collapsed' : 'opened';
         setStoredSidebarState(newSidebarState);
-    }, [isSidebarOpen]);
+    }, [storedSidebarState]);
 
-    switch (isSidebarOpen) {
+    switch (storedSidebarState) {
         case 'opened':
             return (
                 <LogoSection>

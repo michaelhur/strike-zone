@@ -1,6 +1,5 @@
 import { ReactNode } from 'react';
 
-import { IconWrap } from '@components/@shared/Icon/Icon.styles';
 import { RadioButtonContainer, RadioButtonItem } from '@components/@shared/RadioButton/RadioButton.styles';
 
 export interface RadioButtonProps {
