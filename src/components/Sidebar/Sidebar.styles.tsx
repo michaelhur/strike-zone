@@ -112,6 +112,10 @@ export const MenuItem = styled(NavLink)({
     '&:hover, &:active, &.active': {
         backgroundColor: 'var(--grey300)',
         borderRadius: '0.5rem',
+
+        '& svg, & svg path': {
+            fill: 'var(--grey1000)',
+        },
     },
 });
 

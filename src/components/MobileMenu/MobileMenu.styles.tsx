@@ -32,7 +32,7 @@ export const MobileMenuList = styled.ul({
     width: '100%',
 
     '& li': {
-        width: '100%',
+        width: '20%',
     },
 });
 
@@ -46,5 +46,14 @@ export const MenuItem = styled(NavLink)({
 
     '& span': {
         fontSize: '12px',
+    },
+
+    '&:hover, &:active, &.active': {
+        backgroundColor: 'var(--grey300)',
+        borderRadius: '0.5rem',
+
+        '& svg, & svg path': {
+            fill: 'var(--grey1000)',
+        },
     },
 });
