@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import { FlexRowContainer } from '@components/Layout/Layout';
+import { FlexRowContainer } from '@components/Layout/Layout.styles';
 
 export const NameFilterContainer = styled(FlexRowContainer)({
     justifyContent: 'flex-start',

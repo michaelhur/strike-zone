@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import { ColumnPageContainer, FlexColumnContainer } from '@components/Layout/Layout';
+import { ColumnPageContainer, FlexColumnContainer } from '@components/Layout/Layout.styles';
 
 export const GameDetailPageContainer = styled(ColumnPageContainer)({
     justifyContent: 'flex-start',

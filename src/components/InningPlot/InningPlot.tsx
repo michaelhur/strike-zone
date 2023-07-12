@@ -1,5 +1,5 @@
 import { InningPlotContainer } from '@components/InningPlot/InningPlot.styles';
-import { SectionTitle } from '@components/Layout/Layout';
+import { SectionTitle } from '@components/Layout/Layout.styles';
 import StrikeZone from '@components/StrikeZone/StrikeZone';
 import { StrikeZoneList, StrikeZoneRow } from '@components/StrikeZone/StrikeZone.styles';
 

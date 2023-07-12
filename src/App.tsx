@@ -30,12 +30,12 @@ function App() {
     return (
         <QueryClientProvider client={queryClient}>
             <BrowserRouter>
-                {isMobile && <MobileHeader />}
                 <Layout>
+                    {isMobile && <MobileHeader />}
                     <Sidebar />
                     <Router />
+                    {isMobile && <MobileMenu />}
                 </Layout>
-                {isMobile && <MobileMenu />}
             </BrowserRouter>
             <ReactQueryDevtools initialIsOpen={false} />
         </QueryClientProvider>

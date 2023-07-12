@@ -1,6 +1,6 @@
 import { SidePlotValues } from '@constants/pitch';
 
-import { SectionTitle } from '@components/Layout/Layout';
+import { SectionTitle } from '@components/Layout/Layout.styles';
 import { SidePlotContainer } from '@components/SidePlot/SidePlot.styles';
 import StrikeZone from '@components/StrikeZone/StrikeZone';
 import { StrikeZoneList, StrikeZoneRow } from '@components/StrikeZone/StrikeZone.styles';

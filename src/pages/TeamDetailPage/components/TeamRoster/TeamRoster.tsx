@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { DYNAMIC_PATH } from '@constants/routes';
 
-import { SectionTitle } from '@components/Layout/Layout';
+import { SectionTitle } from '@components/Layout/Layout.styles';
 import { Loading } from '@components/Loading/Loading';
 import { PlayerList } from '@components/PlayerList/PlayerList';
 

@@ -1,7 +1,7 @@
 import { PitchOutcomeColorVariant } from '@constants/pitch';
 import styled from '@emotion/styled';
 
-import { FlexColumnContainer, FlexRowContainer } from '@components/Layout/Layout';
+import { FlexColumnContainer, FlexRowContainer } from '@components/Layout/Layout.styles';
 
 import { OutcomeType } from '@typings/atbat';
 

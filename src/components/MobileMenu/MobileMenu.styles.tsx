@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 
 import styled from '@emotion/styled';
 
-import { FlexRowContainer } from '@components/Layout/Layout';
+import { FlexRowContainer } from '@components/Layout/Layout.styles';
 
 import { breakpoints } from '@styles/theme';
 
@@ -43,4 +43,8 @@ export const MenuItem = styled(NavLink)({
     alignItems: 'center',
     gap: '0.25rem',
     width: '100%',
+
+    '& span': {
+        fontSize: '12px',
+    },
 });

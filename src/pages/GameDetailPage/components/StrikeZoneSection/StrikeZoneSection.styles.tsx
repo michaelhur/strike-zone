@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import { FlexColumnContainer } from '@components/Layout/Layout';
+import { FlexColumnContainer } from '@components/Layout/Layout.styles';
 
 export const StrikeZoneSectionContainer = styled(FlexColumnContainer)({
     justifyContent: 'flex-start',

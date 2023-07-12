@@ -1,6 +1,6 @@
 import { useRecoilValue } from 'recoil';
 
-import { SectionTitleWrapper } from '@components/Layout/Layout';
+import { SectionTitleWrapper } from '@components/Layout/Layout.styles';
 
 import { UmpireListPageContainer } from '@pages/UmpireListPage/UmpireListPage.styles';
 import { UmpireList } from '@pages/UmpireListPage/components/UmpireList/UmpireList';

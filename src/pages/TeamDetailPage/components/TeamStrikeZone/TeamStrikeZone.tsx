@@ -1,4 +1,4 @@
-import { SectionTitle } from '@components/Layout/Layout';
+import { SectionTitle } from '@components/Layout/Layout.styles';
 import { Loading } from '@components/Loading/Loading';
 import StrikeZone from '@components/StrikeZone/StrikeZone';
 import { StrikeZoneList, StrikeZoneRow } from '@components/StrikeZone/StrikeZone.styles';

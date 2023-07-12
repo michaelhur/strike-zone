@@ -2,7 +2,7 @@ import { ThreeCircles } from 'react-loader-spinner';
 
 import { css } from '@emotion/react';
 
-import { FlexRowContainer } from '@components/Layout/Layout';
+import { FlexRowContainer } from '@components/Layout/Layout.styles';
 
 export interface LoadingProps {
     size: number | string;

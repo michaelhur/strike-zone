@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import { FlexColumnContainer, RowPageContainer } from '@components/Layout/Layout';
+import { FlexColumnContainer, RowPageContainer } from '@components/Layout/Layout.styles';
 
 import { breakpoints } from '@styles/theme';
 

@@ -1,5 +1,5 @@
 import { GameList } from '@components/GameListSection/components/GameList/GameList';
-import { SectionTitle } from '@components/Layout/Layout';
+import { SectionTitle } from '@components/Layout/Layout.styles';
 import { Loading } from '@components/Loading/Loading';
 
 import { useGetGameListByTeam } from '@hooks/@query/team/useGetGameListByTeam';

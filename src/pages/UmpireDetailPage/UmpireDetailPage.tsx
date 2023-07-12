@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 
 import { useRecoilValue } from 'recoil';
 
-import { SectionTitleWrapper } from '@components/Layout/Layout';
+import { SectionTitleWrapper } from '@components/Layout/Layout.styles';
 import { Loading } from '@components/Loading/Loading';
 
 import { useGetUmpire } from '@hooks/@query/umpire/useGetUmpire';

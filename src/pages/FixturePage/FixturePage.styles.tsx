@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import { RowPageContainer } from '@components/Layout/Layout';
+import { RowPageContainer } from '@components/Layout/Layout.styles';
 
 import { breakpoints } from '@styles/theme';
 

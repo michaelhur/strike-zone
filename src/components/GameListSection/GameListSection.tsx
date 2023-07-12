@@ -6,7 +6,7 @@ import { useRecoilState } from 'recoil';
 import { CategoryMenu } from '@components/CategoryMenu/CategoryMenu';
 import { GameListSectionContainer, GameListWrapper } from '@components/GameListSection/GameListSection.styles';
 import { GameList } from '@components/GameListSection/components/GameList/GameList';
-import { SectionTitleWrapper } from '@components/Layout/Layout';
+import { SectionTitleWrapper } from '@components/Layout/Layout.styles';
 import { Loading } from '@components/Loading/Loading';
 
 import { useGetGameList } from '@hooks/@query/game/useGetGameList';

@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 import { IconWrap, SVGIcon } from '@components/@shared/Icon/Icon.styles';
-import { FlexRowContainer } from '@components/Layout/Layout';
+import { FlexRowContainer } from '@components/Layout/Layout.styles';
 
 export const CategoryMenuContainer = styled(FlexRowContainer)({
     justifyContent: 'space-between',

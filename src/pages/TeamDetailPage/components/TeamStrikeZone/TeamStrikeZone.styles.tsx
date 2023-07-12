@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import { FlexColumnContainer } from '@components/Layout/Layout';
+import { FlexColumnContainer } from '@components/Layout/Layout.styles';
 
 export const TeamStrikeZoneContainer = styled(FlexColumnContainer)({
     gap: '1rem',
