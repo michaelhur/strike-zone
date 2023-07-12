@@ -16,5 +16,6 @@ export const FixturePageContainer = styled(RowPageContainer)({
 
     [`@media (max-width: ${breakpoints.MOBILE})`]: {
         padding: '1rem',
+        gap: '2rem',
     },
 });

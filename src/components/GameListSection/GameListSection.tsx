@@ -15,6 +15,8 @@ import { itemViewType, itemViewTypeState } from '@recoils/fixture/atom';
 
 import { LeagueType } from '@typings/league';
 
+import { YYYYMMDD_to_locale } from '@utils/date';
+
 interface GameListSectionProps {
     fixtureDate: string;
     sectionLabel?: string;
@@ -35,7 +37,11 @@ export const GameListSection = ({ fixtureDate, sectionLabel, cardCount = 2 }: Ga
     return (
         <GameListSectionContainer>
             <SectionTitleWrapper>
-                <h2>{sectionLabel ? sectionLabel : fixtureDate || '날짜가 선택되지 않았습니다'}</h2>
+                <h2>
+                    {sectionLabel
+                        ? sectionLabel
+                        : `${YYYYMMDD_to_locale(fixtureDate)} 경기 일정` || '날짜가 선택되지 않았습니다'}
+                </h2>
             </SectionTitleWrapper>
             <CategoryMenu<LeagueType, itemViewType>
                 selectedCategory={leagueFilter}

@@ -16,6 +16,7 @@ import {
     TeamInformation,
     TeamName,
     TopSectionContainer,
+    UmpireInfo,
 } from '@pages/GameDetailPage/components/GameDataSection/GameDataSection.styles';
 
 import { zoneViewTypeState } from '@recoils/game/atom';
@@ -73,7 +74,7 @@ export const GameDataSection = ({ slug }: GameDataSectionProps) => {
                 ) : (
                     <>
                         <h2>{data!.date} Strike Zone</h2>
-                        <span>(Umpire: {data!.umpire!.name})</span>
+                        <UmpireInfo>(Umpire: {data!.umpire!.name})</UmpireInfo>
                     </>
                 )}
             </TopSectionContainer>

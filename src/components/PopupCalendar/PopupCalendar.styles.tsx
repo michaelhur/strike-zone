@@ -2,6 +2,8 @@ import styled from '@emotion/styled';
 
 import { FlexRowContainer } from '@components/Layout/Layout.styles';
 
+import { breakpoints } from '@styles/theme';
+
 export const PopupCalendarContainer = styled.article({
     display: 'flex',
     flexDirection: 'column',
@@ -19,6 +21,10 @@ export const PopupCalendarContainer = styled.article({
         fontFamily: 'BMHANNAAir',
         fontSize: '1rem',
         color: 'var(--grey1000)',
+    },
+
+    [`@media (max-width: ${breakpoints.MOBILE})`]: {
+        padding: '0',
     },
 });
 
