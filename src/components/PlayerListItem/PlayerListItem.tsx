@@ -14,11 +14,9 @@ export const PlayerListItem = ({ player, onClickPlayerItem }: PlayerListItemProp
         <PlayerListItemContainer onClick={() => onClickPlayerItem(slug)}>
             <StyledNameCell>{name}</StyledNameCell>
             <StyledCell>{team?.abbreviation || 'FA'}</StyledCell>
+            <StyledCell>{positionCode}</StyledCell>
             <StyledCell>{PlayerSideEnum[batSide]}</StyledCell>
             <StyledCell>{PlayerSideEnum[pitchHand]}</StyledCell>
-            <StyledCell>{positionCode}</StyledCell>
-            <StyledCell>{height}</StyledCell>
-            <StyledCell>{weight} lb</StyledCell>
         </PlayerListItemContainer>
     );
 };

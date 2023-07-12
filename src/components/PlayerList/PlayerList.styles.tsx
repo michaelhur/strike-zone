@@ -29,7 +29,7 @@ export const PlayerListHeader = styled.thead({
 
 export const StyledHeaderCell = styled.th({
     padding: '1rem',
-    width: '10%',
+    width: '15%',
 });
 
 export const StyledNameHeaderCell = styled.th({

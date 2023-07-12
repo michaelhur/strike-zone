@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { positionTypeTabOptions } from '@constants/players';
 import { DYNAMIC_PATH } from '@constants/routes';
+import { useRecoilValue } from 'recoil';
 
 import { CategoryMenu } from '@components/CategoryMenu/CategoryMenu';
 import { Pagination } from '@components/Pagination/Pagination';
@@ -11,6 +12,8 @@ import { PlayerList } from '@components/PlayerList/PlayerList';
 import { useGetPlayerList } from '@hooks/@query/player/useGetPlayerList';
 
 import { PlayerListContainer } from '@pages/PlayerListPage/PlayerListPage.styles';
+
+import { sidebarCollapseState } from '@recoils/sidebar/atom';
 
 import { PositionType } from '@typings/player';
 
@@ -23,6 +26,7 @@ const PlayerListPage = () => {
     const [page, setPage] = useState<number>(1);
     const [name, setName] = useState<string>('A');
     const [searchParams, setSearchParams] = useState<string>(`positionType=All&name=A`);
+    const isSidebarOpen = useRecoilValue(sidebarCollapseState);
 
     const onClickPlayerItem = (slug: string) => {
         sessionStorage.setItem('playerList_positionType', JSON.stringify(positionTypeFilter));
@@ -77,7 +81,7 @@ const PlayerListPage = () => {
     }, [positionTypeFilter, name]);
 
     return (
-        <PlayerListContainer>
+        <PlayerListContainer isSidebarOpen={isSidebarOpen}>
             <CategoryMenu<PositionType, any>
                 selectedCategory={positionTypeFilter}
                 setSelectedCategory={onClickPositionTab}

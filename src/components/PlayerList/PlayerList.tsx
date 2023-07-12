@@ -25,11 +25,9 @@ export const PlayerList = ({ players, onClickItem, listTitle }: PlayerListProps)
                     <tr>
                         <StyledNameHeaderCell>Name</StyledNameHeaderCell>
                         <StyledHeaderCell>Team</StyledHeaderCell>
+                        <StyledHeaderCell>Position</StyledHeaderCell>
                         <StyledHeaderCell>Batting Side</StyledHeaderCell>
                         <StyledHeaderCell>Pitching Hand</StyledHeaderCell>
-                        <StyledHeaderCell>Position</StyledHeaderCell>
-                        <StyledHeaderCell>Height</StyledHeaderCell>
-                        <StyledHeaderCell>Weight</StyledHeaderCell>
                     </tr>
                 </PlayerListHeader>
                 <PlayerListBody>
