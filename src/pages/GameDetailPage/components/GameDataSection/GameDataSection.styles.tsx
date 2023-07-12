@@ -1,10 +1,13 @@
 import styled from '@emotion/styled';
 
-import { FlexColumnContainer, FlexRowContainer } from '@components/Layout/Layout';
+import { FlexColumnContainer, FlexRowContainer } from '@components/Layout/Layout.styles';
+
+import { breakpoints } from '@styles/theme';
 
 export const GameDataSectionContainer = styled(FlexColumnContainer)({
     justifyContent: 'flex-start',
     alignItems: 'center',
+    width: '100%',
 });
 
 export const TopSectionContainer = styled(FlexRowContainer)({
@@ -20,12 +23,24 @@ export const TopSectionContainer = styled(FlexRowContainer)({
         fontWeight: '600',
     },
 
-    '& span': {
-        fontFamily: 'BMHANNAAir',
-        fontSize: '1rem',
-        fontWeight: '400',
-        color: 'var(--grey700)',
+    [`@media (max-width: ${breakpoints.TABLET})`]: {
+        flexDirection: 'column',
+        alignItems: 'flex-start',
     },
+
+    [`@media (max-width: ${breakpoints.MOBILE})`]: {
+        padding: '0',
+        '& h2': {
+            fontSize: '1.25rem',
+        },
+    },
+});
+
+export const UmpireInfo = styled.span({
+    fontFamily: 'BMHANNAAir',
+    fontSize: '1rem',
+    fontWeight: '400',
+    color: 'var(--grey700)',
 });
 
 export const MatchupSectionContainer = styled(FlexRowContainer)({
@@ -34,6 +49,10 @@ export const MatchupSectionContainer = styled(FlexRowContainer)({
     gap: '1rem',
     padding: '1rem',
     width: '100%',
+
+    [`@media (max-width: ${breakpoints.TABLET})`]: {
+        flexDirection: 'column',
+    },
 });
 
 export const TeamInformation = styled(FlexRowContainer)(

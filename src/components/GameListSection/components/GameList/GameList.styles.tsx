@@ -11,3 +11,10 @@ export const GameListContainer = styled.section({
     width: '100%',
     // flex: '1',
 });
+
+export const NoGameAlert = styled.h4({
+    padding: '1rem',
+    fontFamily: 'BMHANNAPro',
+    fontSize: '1rem',
+    color: 'var(--grey1000)',
+});

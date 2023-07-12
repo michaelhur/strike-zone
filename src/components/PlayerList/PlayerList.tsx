@@ -8,6 +8,8 @@ import {
 } from '@components/PlayerList/PlayerList.styles';
 import { PlayerListItem } from '@components/PlayerListItem/PlayerListItem';
 
+import { useResponsive } from '@hooks/common/useResponsive';
+
 import { Player } from '@typings/player';
 
 interface PlayerListProps {
@@ -17,6 +19,8 @@ interface PlayerListProps {
 }
 
 export const PlayerList = ({ players, onClickItem, listTitle }: PlayerListProps) => {
+    const isMobile = !useResponsive(600);
+
     return (
         <>
             {listTitle && <ListTitle>{listTitle}</ListTitle>}
@@ -25,11 +29,13 @@ export const PlayerList = ({ players, onClickItem, listTitle }: PlayerListProps)
                     <tr>
                         <StyledNameHeaderCell>Name</StyledNameHeaderCell>
                         <StyledHeaderCell>Team</StyledHeaderCell>
-                        <StyledHeaderCell>Batting Side</StyledHeaderCell>
-                        <StyledHeaderCell>Pitching Hand</StyledHeaderCell>
                         <StyledHeaderCell>Position</StyledHeaderCell>
-                        <StyledHeaderCell>Height</StyledHeaderCell>
-                        <StyledHeaderCell>Weight</StyledHeaderCell>
+                        {!isMobile && (
+                            <>
+                                <StyledHeaderCell>Batting Side</StyledHeaderCell>
+                                <StyledHeaderCell>Pitching Hand</StyledHeaderCell>
+                            </>
+                        )}
                     </tr>
                 </PlayerListHeader>
                 <PlayerListBody>

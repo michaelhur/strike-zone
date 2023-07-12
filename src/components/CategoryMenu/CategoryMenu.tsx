@@ -10,6 +10,8 @@ import {
     ItemViewIconWrap,
 } from '@components/CategoryMenu/CategoryMenu.styles';
 
+import { useResponsive } from '@hooks/common/useResponsive';
+
 import { TabOptions, ViewTypeOptions } from '@typings/input';
 
 interface CategoryMenuProps<T1, T2> {

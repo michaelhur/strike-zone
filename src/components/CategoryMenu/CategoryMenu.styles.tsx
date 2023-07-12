@@ -1,13 +1,19 @@
 import styled from '@emotion/styled';
 
-import { IconWrap, SVGIcon } from '@components/@shared/Icon/Icon.styles';
-import { FlexRowContainer } from '@components/Layout/Layout';
+import { IconWrap } from '@components/@shared/Icon/Icon.styles';
+import { FlexRowContainer } from '@components/Layout/Layout.styles';
+
+import { breakpoints } from '@styles/theme';
 
 export const CategoryMenuContainer = styled(FlexRowContainer)({
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: '1rem',
     width: '100%',
+
+    [`@media (max-width: ${breakpoints.MOBILE})`]: {
+        padding: '0',
+    },
 });
 
 export const CategoryMenuWrapper = styled(FlexRowContainer)({

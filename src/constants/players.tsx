@@ -23,7 +23,7 @@ export const positionTypeTabOptions: TabOptions<PositionType>[] = [
         value: 'Hitter',
     },
     {
-        label: 'Two-Way Player',
+        label: 'TWP',
         value: 'Two-Way Player',
     },
 ];

@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
 
+import { breakpoints } from '@styles/theme';
+
 export const TeamListItem = styled.li({
     display: 'flex',
     flexDirection: 'column',
@@ -15,6 +17,14 @@ export const TeamListItem = styled.li({
     boxShadow: 'var(--shadowStrong)',
 
     cursor: 'pointer',
+
+    [`@media (max-width: ${breakpoints.DESKTOP_SMALL})`]: {
+        width: 'calc((100% - 2rem)/3)',
+    },
+
+    [`@media (max-width: ${breakpoints.TABLET})`]: {
+        width: 'calc((100% - 1rem)/2)',
+    },
 });
 
 export const TeamImage = styled.section({

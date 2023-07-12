@@ -110,7 +110,16 @@ const shadow = {
     strong: '0px 0px 16px rgba(0, 0, 0, 0.08)',
 };
 
+export const breakpoints = {
+    MOBILE: '600px',
+    TABLET: '768px',
+    DESKTOP_SMALL: '1024px',
+    DESKTOP_MEDIUM: '1200px',
+    DESKTOP_LARGE: '1440px',
+};
+
 export const theme = {
     colors,
     shadow,
+    breakpoints,
 };

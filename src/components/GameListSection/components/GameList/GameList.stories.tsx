@@ -29,19 +29,16 @@ export const CardViewWithOneItem = Template.bind({});
 CardViewWithOneItem.args = {
     games: gameList,
     itemViewType: 'CARD',
-    cardCount: 1,
 };
 
 export const CardViewWithMultipleItems = Template.bind({});
 CardViewWithMultipleItems.args = {
     games: gameList,
     itemViewType: 'CARD',
-    cardCount: 2,
 };
 
 export const ListView = Template.bind({});
 ListView.args = {
     games: gameList,
     itemViewType: 'LIST',
-    cardCount: 1,
 };

@@ -60,11 +60,11 @@ export const leagueTabOptions: TabOptions<LeagueType>[] = [
         value: 'ALL',
     },
     {
-        label: 'American League',
+        label: 'AL',
         value: 103,
     },
     {
-        label: 'National League',
+        label: 'NL',
         value: 104,
     },
 ];

@@ -1,12 +1,12 @@
 import styled from '@emotion/styled';
 
-import { ColumnPageContainer } from '@components/Layout/Layout';
+import { FlexColumnContainer } from '@components/Layout/Layout.styles';
 
-export const GameListSectionContainer = styled(ColumnPageContainer)({
-    padding: '1rem',
+import { breakpoints } from '@styles/theme';
+
+export const GameListSectionContainer = styled(FlexColumnContainer)({
     gap: '1rem',
-
-    flex: '1',
+    width: '100%',
 });
 
 export const GameListWrapper = styled.section({
@@ -16,4 +16,8 @@ export const GameListWrapper = styled.section({
     alignItems: 'center',
     padding: '1rem',
     flex: '1',
+
+    [`@media (max-width: ${breakpoints.MOBILE})`]: {
+        padding: '0',
+    },
 });

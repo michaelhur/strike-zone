@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
 
+import { breakpoints } from '@styles/theme';
+
 export const CardViewContainer = styled.article(
     {
         display: 'flex',
@@ -7,6 +9,7 @@ export const CardViewContainer = styled.article(
         justifyContent: 'flex-start',
         alignItems: 'center',
         padding: '1rem',
+
         height: '226px',
 
         background: 'var(--grey0)',
@@ -21,7 +24,24 @@ export const CardViewContainer = styled.article(
         },
     },
     ({ cardCount }: { cardCount: number }) => ({
-        width: `calc((100% - calc(16px * ${cardCount - 1})) / ${cardCount})`,
+        width: cardCount === 1 ? '100%' : `calc((100% - ${cardCount - 1}rem)/${cardCount})`,
+
+        [`@media (max-width: ${breakpoints.DESKTOP_MEDIUM})`]: {
+            width:
+                cardCount === 3
+                    ? `calc((100% - ${cardCount - 2}rem)/${cardCount - 1})`
+                    : cardCount <= 2
+                    ? '100%'
+                    : `calc((100% - 1rem)/2)`,
+        },
+
+        [`@media (max-width: ${breakpoints.DESKTOP_SMALL})`]: {
+            width: cardCount <= 2 ? '100%' : `calc((100% - 1rem)/2)`,
+        },
+
+        [`@media (max-width: ${breakpoints.TABLET})`]: {
+            width: '100%',
+        },
     }),
 );
 

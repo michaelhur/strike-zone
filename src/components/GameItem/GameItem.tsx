@@ -20,7 +20,7 @@ export interface ViewItemProps {
     cardCount: number;
 }
 
-const GameItem = ({ game, itemViewType, cardCount }: GameItemProps) => {
+const GameItem = ({ game, itemViewType, cardCount = 1 }: GameItemProps) => {
     const navigate = useNavigate();
     const onClickGameItem = useCallback(() => {
         if (game.isFinal) navigate(`/games/${game.slug}`);
@@ -28,8 +28,8 @@ const GameItem = ({ game, itemViewType, cardCount }: GameItemProps) => {
     }, [game]);
 
     if (itemViewType === 'LIST')
-        return <ListViewItem game={game} onClickItem={onClickGameItem} cardCount={cardCount!} />;
-    return <CardViewItem game={game} onClickItem={onClickGameItem} cardCount={cardCount!} />;
+        return <ListViewItem game={game} onClickItem={onClickGameItem} cardCount={cardCount} />;
+    return <CardViewItem game={game} onClickItem={onClickGameItem} cardCount={cardCount} />;
 };
 
 export default GameItem;

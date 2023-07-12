@@ -1,12 +1,23 @@
 import styled from '@emotion/styled';
 
+import { FlexRowContainer } from '@components/Layout/Layout.styles';
+
+export const StrikeZoneRow = styled(FlexRowContainer)({
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+    gap: '1rem',
+
+    flexWrap: 'wrap',
+});
+
 export const StrikeZoneList = styled.ul({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
     gap: '1rem',
-    width: '100%',
+
+    flexWrap: 'wrap',
 });
 
 export const StrikeZoneContainer = styled.article({

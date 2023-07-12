@@ -1,16 +1,18 @@
 import styled from '@emotion/styled';
 
+import { breakpoints } from '@styles/theme';
+
 export const ListViewContainer = styled.article(
     {
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-around',
-        // justifyContent: 'space-between',
         alignItems: 'center',
         padding: '1rem 0.5rem',
 
         height: '80px',
-        width: '100%',
+        // minWidth: '300px',
+        width: 'calc((100% - 1rem) / 2)',
 
         background: 'var(--grey0)',
         boxShadow: 'var(--shadowStrong)',
@@ -24,7 +26,24 @@ export const ListViewContainer = styled.article(
         },
     },
     ({ cardCount }: { cardCount: number }) => ({
-        width: `calc((100% - calc(16px * ${cardCount - 1})) / ${cardCount})`,
+        width: cardCount === 1 ? '100%' : `calc((100% - ${cardCount - 1}rem)/${cardCount})`,
+
+        [`@media (max-width: ${breakpoints.DESKTOP_MEDIUM})`]: {
+            width:
+                cardCount === 3
+                    ? `calc((100% - ${cardCount - 2}rem)/${cardCount - 1})`
+                    : cardCount <= 2
+                    ? '100%'
+                    : `calc((100% - 1rem)/2)`,
+        },
+
+        [`@media (max-width: ${breakpoints.DESKTOP_SMALL})`]: {
+            width: cardCount <= 2 ? '100%' : `calc((100% - 1rem)/2)`,
+        },
+
+        [`@media (max-width: ${breakpoints.TABLET})`]: {
+            width: '100%',
+        },
     }),
 );
 

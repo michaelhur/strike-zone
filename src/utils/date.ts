@@ -58,3 +58,9 @@ export const YYYYMMDD_to_date = (str: string): Date => {
 
     return new Date(Number(sYear), Number(sMonth) - 1, Number(sDate));
 };
+
+export const YYYYMMDD_to_locale = (dateStr: string | undefined): string => {
+    if (!dateStr) return '';
+    const [year, month, day] = dateStr.split('-');
+    return `${year}년 ${month}월 ${day}일`;
+};

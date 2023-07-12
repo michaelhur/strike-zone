@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import { FlexColumnContainer } from '@components/Layout/Layout';
+import { FlexColumnContainer } from '@components/Layout/Layout.styles';
 
 export const TeamRosterContainer = styled(FlexColumnContainer)({
     gap: '1rem',
@@ -8,5 +8,4 @@ export const TeamRosterContainer = styled(FlexColumnContainer)({
 
     background: 'var(--grey200)',
     borderRadius: '0.5rem',
-    boxShadow: 'var(--shadowStrong)',
 });

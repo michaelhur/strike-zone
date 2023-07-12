@@ -2,9 +2,7 @@ import { NavLink } from 'react-router-dom';
 
 import styled from '@emotion/styled';
 
-interface SidebarContainerProps {
-    isSidebarOpen: boolean;
-}
+import { SidebarStatus } from '@typings/sidebar';
 
 export const StyledTitle = styled.h3({
     fontFamily: 'BMHANNAAir',
@@ -21,12 +19,20 @@ export const SidebarContainer = styled.aside(
         alignItems: 'flex-start',
         padding: '2rem 1rem',
 
-        width: '280px',
         minHeight: '100vh',
+
+        backgroundColor: 'var(--grey50)',
         borderRight: '1px solid var(--grey200)',
+        position: 'fixed',
+
+        zIndex: '100',
+
+        '@media (max-width: 600px)': {
+            display: 'none',
+        },
     },
-    ({ isSidebarOpen }: SidebarContainerProps) => ({
-        width: isSidebarOpen ? '280px' : '6rem',
+    ({ isSidebarOpen }: { isSidebarOpen: SidebarStatus }) => ({
+        width: isSidebarOpen === 'opened' ? '290px' : '88px',
     }),
 );
 
@@ -51,6 +57,10 @@ export const BottomSection = styled.section({
 });
 
 export const LogoSection = styled.section({
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     padding: '1rem',
     width: '100%',
 
@@ -102,5 +112,35 @@ export const MenuItem = styled(NavLink)({
     '&:hover, &:active, &.active': {
         backgroundColor: 'var(--grey300)',
         borderRadius: '0.5rem',
+
+        '& svg, & svg path': {
+            fill: 'var(--grey1000)',
+        },
+    },
+});
+
+export const SidebarButtonWrap = styled.div({
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: '.5rem 1rem',
+    marginTop: '1rem',
+
+    borderRadius: '0.5rem',
+    backgroundColor: 'var(--grey100)',
+
+    cursor: 'pointer',
+
+    '&:hover': {
+        borderRadius: '0.5rem',
+
+        color: 'var(--grey900)',
+        borderColor: 'var(--grey200)',
+        backgroundColor: 'var(--grey200)',
+
+        '& svg path': {
+            fill: 'var(--grey900)',
+        },
     },
 });

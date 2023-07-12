@@ -1,9 +1,3 @@
-import BMHANNA_AIR_TTF from '@assets/fonts/BMHANNAAir/BMHANNAAir.ttf';
-import BMHANNA_AIR_WOFF from '@assets/fonts/BMHANNAAir/BMHANNAAir.woff';
-import BMHANNA_AIR_WOFF2 from '@assets/fonts/BMHANNAAir/BMHANNAAir.woff2';
-import BMHANNA_PRO_TTF from '@assets/fonts/BMHANNAPro/BMHANNAPro.ttf';
-import BMHANNA_PRO_WOFF from '@assets/fonts/BMHANNAPro/BMHANNAPro.woff';
-import BMHANNA_PRO_WOFF2 from '@assets/fonts/BMHANNAPro/BMHANNAPro.woff2';
 import { css } from '@emotion/react';
 
 import { Reset } from '@styles/reset';
@@ -121,14 +115,13 @@ export const globalStyle = css`
         color: var(--grey1000);
 
         width: 100%;
-        //@media (min-width: 1400px) {
-        //    max-width: 1400px;
-        //}
-        //
-        //@media (max-width: 1400px) {
-        //    max-width: 100vw;
-        //}
-        //max-width: 100vw;
+        @media (min-width: 1400px) {
+            max-width: 1400px;
+        }
+
+        @media (max-width: 1400px) {
+            max-width: 100vw;
+        }
     }
 
     a {

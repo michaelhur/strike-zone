@@ -1,5 +1,5 @@
 import { GameList } from '@components/GameListSection/components/GameList/GameList';
-import { SectionTitleWrapper } from '@components/Layout/Layout';
+import { SectionTitleWrapper } from '@components/Layout/Layout.styles';
 import { Loading } from '@components/Loading/Loading';
 
 import { useGetGameByPlayerSlug } from '@hooks/@query/player/useGetGameByPlayerSlug';

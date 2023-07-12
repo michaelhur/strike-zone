@@ -35,8 +35,8 @@ export const StrikeZoneDimensions = {
     BOTTOM: 1.5,
     LEFT: -0.85,
     RIGHT: 0.85,
-    HEIGHT: 300,
-    WIDTH: 250,
+    HEIGHT: 250,
+    WIDTH: 200,
 };
 
 export const PitchOutcomeColorVariant = {

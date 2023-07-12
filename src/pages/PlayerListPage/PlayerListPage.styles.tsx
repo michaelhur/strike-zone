@@ -1,9 +1,15 @@
 import styled from '@emotion/styled';
 
-import { PageSectionContainer } from '@components/Layout/Layout';
+import { ColumnPageContainer } from '@components/Layout/Layout.styles';
 
-export const PlayerListContainer = styled(PageSectionContainer)({
+import { breakpoints } from '@styles/theme';
+
+export const PlayerListContainer = styled(ColumnPageContainer)({
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
     padding: '2rem',
+
+    [`@media (max-width: ${breakpoints.MOBILE})`]: {
+        padding: '1rem',
+    },
 });

@@ -11,6 +11,8 @@ export * from './ListViewIcon';
 export * from './LogoIcon';
 export * from './PersonIcon';
 export * from './SidebarMenuIcon';
+export * from './SidebarCloseIcon';
+export * from './SidebarOpenIcon';
 export * from './TeamIcon';
 export * from './ThreeDotsIcon';
 export * from './ToggleDownIcon';

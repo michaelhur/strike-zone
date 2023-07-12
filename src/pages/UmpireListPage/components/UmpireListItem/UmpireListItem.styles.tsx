@@ -1,6 +1,8 @@
 import styled from '@emotion/styled';
 
-import { FlexColumnContainer } from '@components/Layout/Layout';
+import { FlexColumnContainer } from '@components/Layout/Layout.styles';
+
+import { breakpoints } from '@styles/theme';
 
 export const UmpireListItemContainer = styled(FlexColumnContainer)({
     padding: '1rem',
@@ -15,5 +17,13 @@ export const UmpireListItemContainer = styled(FlexColumnContainer)({
     '& span': {
         fontSize: '1rem',
         fontColor: 'var(--grey1000)',
+    },
+
+    [`@media (max-width: ${breakpoints.DESKTOP_SMALL})`]: {
+        width: 'calc((100% - 2rem)/3)',
+    },
+
+    [`@media (max-width: ${breakpoints.TABLET})`]: {
+        width: 'calc((100% - 1rem)/2)',
     },
 });

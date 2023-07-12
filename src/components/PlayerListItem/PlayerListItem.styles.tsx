@@ -13,7 +13,7 @@ export const PlayerListItemContainer = styled.tr({
 
 export const StyledCell = styled.td({
     padding: '1rem',
-    width: '10%',
+    width: '15%',
 });
 
 export const StyledNameCell = styled.td({

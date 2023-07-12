@@ -1,11 +1,19 @@
 import styled from '@emotion/styled';
 
-import { FlexColumnContainer, RowPageContainer } from '@components/Layout/Layout';
+import { FlexColumnContainer, RowPageContainer } from '@components/Layout/Layout.styles';
+
+import { breakpoints } from '@styles/theme';
 
 export const PlayerDetailPageContainer = styled(RowPageContainer)({
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
+    gap: '1rem',
     padding: '2rem',
+
+    [`@media (max-width: ${breakpoints.MOBILE})`]: {
+        padding: '1rem',
+        flexDirection: 'column',
+    },
 });
 
 export const LeftSection = styled(FlexColumnContainer)({
@@ -14,15 +22,19 @@ export const LeftSection = styled(FlexColumnContainer)({
     gap: '1rem',
 
     minHeight: '100vh',
-    width: '30%',
+    width: 'max(30%, 300px)',
+
+    [`@media (max-width: ${breakpoints.MOBILE})`]: {
+        minHeight: 'unset',
+        width: '100%',
+    },
 });
 
 export const RightSection = styled(FlexColumnContainer)({
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
     gap: '1rem',
-    padding: '1rem',
 
     minHeight: '100vh',
-    width: '70%%',
+    flex: '1',
 });
