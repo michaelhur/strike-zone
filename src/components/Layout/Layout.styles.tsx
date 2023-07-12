@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
 
+import { breakpoints } from '@styles/theme';
+
 import { SidebarStatus } from '@typings/sidebar';
 
 export const LayoutWrapper = styled.main({
@@ -28,15 +30,15 @@ export const ColumnPageContainer = styled(FlexColumnContainer)(
         flexDirection: 'column',
 
         minHeight: '100vh',
-        flex: '1',
 
         '@media (max-width: 600px)': {
             marginLeft: '0',
-            // marginBottom: '-4rem',
-            // marginTop: '-4rem',
+            marginBottom: '6rem',
+            width: '100%',
         },
     },
     ({ isSidebarOpen }: { isSidebarOpen: SidebarStatus }) => ({
+        width: isSidebarOpen === 'opened' ? 'calc(100% - 290px)' : 'calc(100% - 88px)',
         marginLeft: isSidebarOpen === 'opened' ? '290px' : '88px',
     }),
 );
@@ -49,15 +51,14 @@ export const RowPageContainer = styled(FlexRowContainer)(
         minHeight: '100vh',
         flex: '1',
 
-        marginLeft: '290px',
-
         '@media (max-width: 600px)': {
             marginLeft: '0',
-            // marginBottom: '4rem',
-            // marginTop: '4rem',
+            marginBottom: '6rem',
+            width: '100%',
         },
     },
     ({ isSidebarOpen }: { isSidebarOpen: SidebarStatus }) => ({
+        width: isSidebarOpen === 'opened' ? 'calc(100% - 290px)' : 'calc(100% - 88px)',
         marginLeft: isSidebarOpen === 'opened' ? '290px' : '88px',
     }),
 );
@@ -77,6 +78,13 @@ export const SectionTitleWrapper = styled.div({
     '& h3': {
         fontFamily: 'BMHANNAAir',
         fontSize: '1.5rem',
+    },
+
+    [`@media (max-width: ${breakpoints.MOBILE})`]: {
+        padding: '0',
+        '& h2': {
+            fontSize: '1.25rem',
+        },
     },
 });
 
