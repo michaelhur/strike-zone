@@ -8,5 +8,4 @@ export const TeamRosterContainer = styled(FlexColumnContainer)({
 
     background: 'var(--grey200)',
     borderRadius: '0.5rem',
-    boxShadow: 'var(--shadowStrong)',
 });

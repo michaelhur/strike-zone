@@ -1,5 +1,7 @@
 import { useParams } from 'react-router-dom';
 
+import { useRecoilValue } from 'recoil';
+
 import {
     MidSection,
     TeamDetailPageContainer,
@@ -10,12 +12,15 @@ import { TeamProfile } from '@pages/TeamDetailPage/components/TeamProfile/TeamPr
 import { TeamRoster } from '@pages/TeamDetailPage/components/TeamRoster/TeamRoster';
 import { TeamStrikeZone } from '@pages/TeamDetailPage/components/TeamStrikeZone/TeamStrikeZone';
 
+import { sidebarCollapseState } from '@recoils/sidebar/atom';
+
 const TeamDetailPage = () => {
     const { id } = useParams();
     const teamId = Number(id);
+    const isSidebarOpen = useRecoilValue(sidebarCollapseState);
 
     return (
-        <TeamDetailPageContainer>
+        <TeamDetailPageContainer isSidebarOpen={isSidebarOpen}>
             <TeamProfile teamId={teamId} />
             <MidSection>
                 <TeamGameList teamId={teamId} />
