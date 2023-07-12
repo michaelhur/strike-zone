@@ -114,6 +114,7 @@ export const breakpoints = {
     MOBILE: '600px',
     TABLET: '768px',
     DESKTOP_SMALL: '1024px',
+    DESKTOP_MEDIUM: '1200px',
     DESKTOP_LARGE: '1440px',
 };
 

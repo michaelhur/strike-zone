@@ -17,7 +17,11 @@ const HomePage = () => {
 
     return (
         <HomePageContainer isSidebarOpen={isSidebarOpen}>
-            <GameListSection fixtureDate={dateObject!.date} sectionLabel={`최신 경기 (${dateObject!.date} 경기)`} />
+            <GameListSection
+                fixtureDate={dateObject!.date}
+                sectionLabel={`최신 경기 (${dateObject!.date} 경기)`}
+                cardCount={3}
+            />
         </HomePageContainer>
     );
 };

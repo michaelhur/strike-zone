@@ -23,23 +23,24 @@ const FixtureByDatePage = () => {
     const isSidebarOpen = useRecoilValue(sidebarCollapseState);
     const setIsPopupOpen = useSetRecoilState(popupCalendarState);
 
-    const isDesktop = useResponsive(768);
+    const isTablet = useResponsive(768);
+    const isDesktop = useResponsive(1200);
+
+    const cardCount = isDesktop ? 2 : 1;
 
     const onClickDate = (selectedDay: Date): void => {
-        if (!isDesktop) setIsPopupOpen(false);
+        if (!isTablet) setIsPopupOpen(false);
         navigate(`${DYNAMIC_PATH.FIXTURE_BY_DATE(date_to_YYYYMMDD(selectedDay))}`);
     };
 
     const onClickButton = () => {
-        if (!isDesktop) setIsPopupOpen(false);
+        if (!isTablet) setIsPopupOpen(false);
         navigate(`${DYNAMIC_PATH.FIXTURE_BY_DATE(date_to_YYYYMMDD(latestGameDate))}`);
     };
 
-    console.log(`fixtureDate: ${fixtureDate}`);
-
     return (
         <FixturePageContainer isSidebarOpen={isSidebarOpen}>
-            {isDesktop ? (
+            {isTablet ? (
                 <SingleCalendarSection
                     fixtureDate={YYYYMMDD_to_date(fixtureDate!)}
                     onChangeFixtureDate={onClickDate}
@@ -52,7 +53,7 @@ const FixtureByDatePage = () => {
                     onClickButton={onClickButton}
                 />
             )}
-            <GameListSection fixtureDate={fixtureDate!} />
+            <GameListSection fixtureDate={fixtureDate!} cardCount={cardCount} />
         </FixturePageContainer>
     );
 };
