@@ -10,7 +10,7 @@ export const MobileMenuContainer = styled(FlexRowContainer)({
     justifyContent: 'space-between',
     alignItems: 'center',
 
-    width: '100%',
+    width: '100vw',
     height: '4rem',
 
     backgroundColor: 'var(--grey50)',

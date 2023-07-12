@@ -8,7 +8,7 @@ export const MobileHeaderContainer = styled(FlexRowContainer)({
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
     padding: '1rem',
-    width: '100%',
+    width: '100vw',
 
     borderBottom: '1px solid var(--grey200)',
 });

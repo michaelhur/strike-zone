@@ -42,8 +42,8 @@ export const ColumnPageContainer = styled(FlexColumnContainer)(
 
         '@media (max-width: 600px)': {
             marginLeft: '0',
-            marginBottom: '4rem',
-            marginTop: '4rem',
+            // marginBottom: '-4rem',
+            // marginTop: '-4rem',
         },
     },
     ({ isSidebarOpen }: { isSidebarOpen: SidebarStatus }) => ({
@@ -63,8 +63,8 @@ export const RowPageContainer = styled(FlexRowContainer)(
 
         '@media (max-width: 600px)': {
             marginLeft: '0',
-            marginBottom: '4rem',
-            marginTop: '4rem',
+            // marginBottom: '4rem',
+            // marginTop: '4rem',
         },
     },
     ({ isSidebarOpen }: { isSidebarOpen: SidebarStatus }) => ({
