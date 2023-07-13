@@ -1,10 +1,7 @@
 import { rest } from 'msw';
 
-import { getFetchOffsets } from '@utils/url';
-
 import { dateString } from '../../src/typings';
 import { Game } from '../../src/typings/game';
-import { atBatList } from '../data/atBat';
 import { gameList } from '../data/game';
 
 export const gameHandler = [
