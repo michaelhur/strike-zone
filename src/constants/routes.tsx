@@ -63,12 +63,13 @@ export const DYNAMIC_API_PATH = {
         return `/player?order=lastName.asc&select=id,name,lastName,batSide,pitchHand,positionCode,positionType,height,weight,playerNumber,slug,team:teamId(*)&slug=eq.${slug}`;
     },
     PLAYER_GAME_LIST(slug: string, isPitcher: boolean): string {
-        const playerFilter = isPitcher ? `&pitcher.slug=eq.${slug}` : `&batter.slug=eq.${slug}`;
-        return `/atbat?select=game:gameId!inner(*)&order=gameId.asc${playerFilter}`;
+        const positionSelect = isPitcher ? `,pitcher:pitcherId!inner(*)` : `,batter:batterId!inner(*)`;
+        const positionFilter = isPitcher ? `&pitcherId.slug=eq.${slug}` : `&batterId.slug=eq.${slug}`;
+        return `/atbat?select=game:gameId!inner(*,away:awayId(*),home:homeId(*))${positionSelect}&order=gameId.asc${positionFilter}`;
     },
     PLAYER_ATBAT_LIST(slug: string, isPitcher: boolean): string {
-        const playerFilter = isPitcher ? `&pitcher.slug=eq.${slug}` : `&batter.slug=eq.${slug}`;
-        return `/atbat?select=id,date,atBatIndex,isTopInning,inning,home:homeId(*),away:awayId(*),batter:batterId(*),pitcher:pitcherId(*),game:gameId!inner(*),umpire:umpireId!inner(*),plays&order=gameId.asc${playerFilter}`;
+        const positionFilter = isPitcher ? `&pitcherId.slug=eq.${slug}` : `&batterId.slug=eq.${slug}`;
+        return `/atbat?select=id,date,atBatIndex,isTopInning,inning,home:homeId(*),away:awayId(*),batter:batterId(*),pitcher:pitcherId(*),game:gameId!inner(*),umpire:umpireId!inner(*),plays&order=gameId.asc${positionFilter}`;
     },
     TEAM_LIST(): string {
         return `/team?select=id,name,abbreviation,franchiseName,teamName,imageUrl,league:leagueId(*),division:divisionId(*),venue`;

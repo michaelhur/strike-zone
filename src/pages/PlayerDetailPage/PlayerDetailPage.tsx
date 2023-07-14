@@ -20,10 +20,10 @@ const PlayerDetailPage = () => {
                 <PlayerProfileCard slug={slug!} />
                 <PlayerGameList slug={slug!} />
             </LeftSection>
-            <RightSection>
-                <PlayerStrikeZone slug={slug!} latest={true} />
-                <PlayerStrikeZone slug={slug!} latest={false} />
-            </RightSection>
+            {/*<RightSection>*/}
+            {/*    <PlayerStrikeZone slug={slug!} latest={true} />*/}
+            {/*    <PlayerStrikeZone slug={slug!} latest={false} />*/}
+            {/*</RightSection>*/}
         </PlayerDetailPageContainer>
     );
 };
