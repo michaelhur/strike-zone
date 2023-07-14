@@ -24,5 +24,5 @@ Pitcher.args = {
 export const Batter = Template.bind({});
 Batter.args = {
     atbats: sampleAtbat,
-    positionType: 'Batter',
+    positionType: 'Catcher',
 };

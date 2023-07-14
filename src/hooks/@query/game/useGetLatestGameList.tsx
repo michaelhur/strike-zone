@@ -3,9 +3,7 @@ import { AxiosError } from 'axios';
 
 import { Game } from '@typings/game';
 
-import { parseParmsToObject } from '@utils/url';
-
-import { requestGetGameList, requestGetLatestGameList } from '@src/apis/game';
+import { requestGetLatestGameList } from '@src/apis/game';
 import { getClient } from '@src/queryClient';
 
 export const useGetLatestGameList = (options?: UseQueryOptions<Array<Game>, AxiosError>) => {

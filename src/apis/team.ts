@@ -1,3 +1,4 @@
+import { DYNAMIC_API_PATH } from '@constants/routes';
 import axios from 'axios';
 
 import { AtBat } from '@typings/atbat';
@@ -6,45 +7,55 @@ import { Player, PositionType } from '@typings/player';
 import { Team, TeamStanding } from '@typings/team';
 
 import { fetcher } from '@src/apis/fetcher';
-import { AnyOBJ } from '@src/typings';
 
 export const requestGetTeamList = async (leagueId?: number, divisionId?: number): Promise<Team[]> => {
+    const basePath = DYNAMIC_API_PATH.TEAM_LIST();
     const path = divisionId
-        ? `/api/teams?divisionId=${divisionId}`
+        ? `${basePath}&divisionId=eq.${divisionId}`
         : leagueId
-        ? `/api/teams?leagueId=${leagueId}`
-        : `/api/teams`;
-    const data = await fetcher({ method: 'get', path });
-    return data;
+        ? `${basePath}&leagueId=eq.${leagueId}`
+        : basePath;
+    const response = await fetcher({ method: 'get', path });
+    return response!.data;
 };
 
 export const requestGetTeam = async (teamId: number): Promise<Team> => {
-    return await fetcher({ method: 'get', path: `/api/teams/${teamId}` });
+    const path = DYNAMIC_API_PATH.TEAM_DETAIL(teamId);
+    const response = await fetcher({ method: 'get', path });
+    const teamData = response!.data;
+    return teamData[0];
 };
 
 export const requestGetGameListByTeam = async (teamId: number): Promise<Game[]> => {
-    return await fetcher({ method: 'get', path: `/api/teams/${teamId}/games` });
+    const path = DYNAMIC_API_PATH.TEAM_GAME_LIST(teamId);
+    const response = await fetcher({ method: 'get', path });
+    return response!.data;
 };
 
 export const requestGetLatestGameListByTeam = async (teamId: number): Promise<Game[]> => {
-    return await fetcher({ method: 'get', path: `/api/teams/${teamId}/games/latest` });
+    const gameList = await requestGetGameListByTeam(teamId);
+    return gameList.slice(0, 5);
 };
 
 export const requestGetAtbatListByTeam = async (teamId: number): Promise<AtBat[]> => {
-    return await fetcher({ method: 'get', path: `/api/teams/${teamId}/atbats` });
+    const path = DYNAMIC_API_PATH.TEAM_ATBAT_LIST(teamId);
+    const response = await fetcher({ method: 'get', path });
+    return response!.data;
 };
 
 export const requestGetLatestAtbatListByTeam = async (teamId: number): Promise<AtBat[]> => {
-    return await fetcher({ method: 'get', path: `/api/teams/${teamId}/atbats/latest` });
+    const atbatList = await requestGetAtbatListByTeam(teamId);
+    const latestGameList = await requestGetLatestGameListByTeam(teamId);
+    const latestGameIdList = latestGameList.map((game) => game.id);
+
+    return atbatList.filter((atbat) => latestGameIdList.includes(atbat.game.id));
 };
 
 export const requestGetTeamRoster = async (teamId: number, positionType?: PositionType): Promise<Player[]> => {
-    const path =
-        !positionType || positionType === 'ALL'
-            ? `/api/teams/${teamId}/roster`
-            : `/api/teams/${teamId}/roster?positionType=${positionType}`;
-    console.log(`path, ${path}`);
-    return await fetcher({ method: 'get', path });
+    const basePath = DYNAMIC_API_PATH.TEAM_ROSTER(teamId);
+    const path = !positionType || positionType === 'ALL' ? basePath : `${basePath}&positionType=eq.${positionType}`;
+    const response = await fetcher({ method: 'get', path });
+    return response!.data;
 };
 
 export const requestGetTeamStandings = async (

@@ -11,6 +11,10 @@ export const positionTypeTabOptions: TabOptions<PositionType>[] = [
         value: 'Pitcher',
     },
     {
+        label: 'Catcher',
+        value: 'Catcher',
+    },
+    {
         label: 'Infielder',
         value: 'Infielder',
     },

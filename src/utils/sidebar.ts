@@ -1,6 +1,6 @@
-import {SidebarStatus} from '@typings/sidebar';
+import { SidebarStatus } from '@typings/sidebar';
 
 export const getSidebarStatus = (): SidebarStatus => {
-    const sidebarStatus = <SidebarStatus>localStorage.getItem('sz-sidebar');
+    const sidebarStatus = localStorage.getItem('sz-sidebar') as SidebarStatus;
     return JSON.parse(sidebarStatus) || 'opened';
 };

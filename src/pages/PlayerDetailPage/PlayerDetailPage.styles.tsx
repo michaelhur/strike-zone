@@ -22,7 +22,7 @@ export const LeftSection = styled(FlexColumnContainer)({
     gap: '1rem',
 
     minHeight: '100vh',
-    width: 'max(30%, 300px)',
+    width: 'max(40%, 350px)',
 
     [`@media (max-width: ${breakpoints.MOBILE})`]: {
         minHeight: 'unset',

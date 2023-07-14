@@ -1,7 +1,6 @@
-import {
-    SectionTitle,
-    StrikeZoneSectionContainer,
-} from '@pages/GameDetailPage/components/StrikeZoneSection/StrikeZoneSection.styles';
+import { SectionTitle } from '@components/Layout/Layout.styles';
+
+import { StrikeZoneSectionContainer } from '@pages/GameDetailPage/components/StrikeZoneSection/StrikeZoneSection.styles';
 import { ZoneType } from '@pages/GameDetailPage/components/ZoneType/ZoneType';
 
 interface StrikeZoneSectionProps {

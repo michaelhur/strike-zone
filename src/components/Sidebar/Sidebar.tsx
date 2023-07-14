@@ -1,4 +1,4 @@
-import { sidebarMenu } from '@constants/menu';
+import { menu } from '@constants/menu';
 import { useRecoilValue } from 'recoil';
 
 import { IconWrap } from '@components/@shared/Icon/Icon.styles';
@@ -24,7 +24,7 @@ export const Sidebar = () => {
                 <LogoSectionComponent />
                 <MenuSection>
                     <MenuList>
-                        {sidebarMenu.map((menu) => {
+                        {menu.map((menu) => {
                             return (
                                 <li key={menu.name}>
                                     <MenuItem to={menu.path}>

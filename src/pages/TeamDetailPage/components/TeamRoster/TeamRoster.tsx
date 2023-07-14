@@ -11,8 +11,6 @@ import { usePlayerPositionType } from '@hooks/player/usePlayerPositionType';
 
 import { TeamRosterContainer } from '@pages/TeamDetailPage/components/TeamRoster/TeamRoster.styles';
 
-import { Player, PositionType } from '@typings/player';
-
 interface TeamRosterProps {
     teamId: number;
 }
@@ -20,7 +18,7 @@ interface TeamRosterProps {
 export const TeamRoster = ({ teamId }: TeamRosterProps) => {
     const navigate = useNavigate();
     const { isLoading, data } = useGetTeamRoster(teamId);
-    const [pitchers, infielders, outfielders, hitters, twp] =
+    const [pitchers, catchers, infielders, outfielders, hitters, twp] =
         isLoading || !data ? [[], []] : usePlayerPositionType(data);
 
     const onClickPlayerItem = (slug: string) => navigate(`${DYNAMIC_PATH.PLAYER_DETAIL(slug)}`);
@@ -33,13 +31,14 @@ export const TeamRoster = ({ teamId }: TeamRosterProps) => {
             ) : (
                 <>
                     <PlayerList players={pitchers} onClickItem={onClickPlayerItem} listTitle={'Pitcher'} />
+                    <PlayerList players={catchers} onClickItem={onClickPlayerItem} listTitle={'Catcher'} />
                     <PlayerList players={infielders} onClickItem={onClickPlayerItem} listTitle={'Infielder'} />
                     <PlayerList players={outfielders} onClickItem={onClickPlayerItem} listTitle={'Outfielder'} />
-                    <PlayerList players={hitters} onClickItem={onClickPlayerItem} listTitle={'DH'} />
-                    {twp.length ? (
+                    {hitters.length > 0 && (
+                        <PlayerList players={hitters} onClickItem={onClickPlayerItem} listTitle={'DH'} />
+                    )}
+                    {twp.length > 0 && (
                         <PlayerList players={twp} onClickItem={onClickPlayerItem} listTitle={'Two Way Player'} />
-                    ) : (
-                        <></>
                     )}
                 </>
             )}

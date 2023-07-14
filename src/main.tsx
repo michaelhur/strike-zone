@@ -6,14 +6,15 @@ import { RecoilRoot } from 'recoil';
 
 import { globalStyle } from '@styles/globalStyle';
 
-import { worker } from '../__mocks__/browser';
+// import { worker } from '../__mocks__/browser';
 import App from './App';
 
-if (import.meta.env.MODE === 'development') {
-    worker.start({
-        onUnhandledRequest: 'bypass',
-    });
-}
+//
+// if (import.meta.env.MODE === 'development') {
+//     worker.start({
+//         onUnhandledRequest: 'bypass',
+//     });
+// }
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <RecoilRoot>

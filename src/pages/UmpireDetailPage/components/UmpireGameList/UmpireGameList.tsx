@@ -1,7 +1,7 @@
 import { GameList } from '@components/GameListSection/components/GameList/GameList';
 import { Loading } from '@components/Loading/Loading';
 
-import { useGetGameListByUmpire } from '@hooks/@query/umpire/useGetGameListByUmpire';
+import { useGetLatestGameListByUmpire } from '@hooks/@query/umpire/useGetLatestGameListByUmpire';
 
 import { UmpireGameListContainer } from '@pages/UmpireDetailPage/components/UmpireGameList/UmpireGameList.styles';
 
@@ -10,7 +10,7 @@ interface UmpireGameListProps {
 }
 
 export const UmpireGameList = ({ id }: UmpireGameListProps) => {
-    const { isLoading, data: games } = useGetGameListByUmpire(id);
+    const { isLoading, data: games } = useGetLatestGameListByUmpire(id);
 
     return (
         <UmpireGameListContainer>

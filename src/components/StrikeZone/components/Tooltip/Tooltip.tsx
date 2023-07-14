@@ -43,8 +43,8 @@ export const Tooltip = ({ hoverData }: TooltipProps) => {
             <PlayerSection>
                 <PlayerImageSection>
                     <img
-                        src={isTopInning ? away.imageUrl : home.imageUrl}
-                        alt={isTopInning ? away.abbreviation : home.abbreviation}
+                        src={!isTopInning ? away.imageUrl : home.imageUrl}
+                        alt={!isTopInning ? away.abbreviation : home.abbreviation}
                     />
                 </PlayerImageSection>
                 <PlayerInfoSection>
@@ -57,8 +57,8 @@ export const Tooltip = ({ hoverData }: TooltipProps) => {
             <PlayerSection>
                 <PlayerImageSection>
                     <img
-                        src={isTopInning ? home.imageUrl : away.imageUrl}
-                        alt={isTopInning ? home.abbreviation : away.abbreviation}
+                        src={!isTopInning ? home.imageUrl : away.imageUrl}
+                        alt={!isTopInning ? home.abbreviation : away.abbreviation}
                     />
                 </PlayerImageSection>
                 <PlayerInfoSection>

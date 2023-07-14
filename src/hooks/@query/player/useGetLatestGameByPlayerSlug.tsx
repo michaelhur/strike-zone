@@ -4,16 +4,16 @@ import { AxiosError } from 'axios';
 import { Game } from '@typings/game';
 import { PositionType } from '@typings/player';
 
-import { requestGetGameByPlayerSlug } from '@src/apis/player';
+import { requestGetLatestGameByPlayerSlug } from '@src/apis/player';
 
-export const useGetGameByPlayerSlug = (
+export const useGetLatestGameByPlayerSlug = (
     slug: string,
     positionType: PositionType,
     options?: UseQueryOptions<Game[], AxiosError>,
 ) => {
     return useQuery<Game[], AxiosError>(
         ['GAMES', { playerSlug: slug }],
-        () => requestGetGameByPlayerSlug(slug, positionType),
+        () => requestGetLatestGameByPlayerSlug(slug, positionType),
         {
             ...options,
             onSuccess: () => {

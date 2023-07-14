@@ -10,34 +10,41 @@ import { useGetPlayer } from '@hooks/@query/player/useGetPlayer';
 import { PlayerStrikeZoneContainer } from '@pages/PlayerDetailPage/components/PlayerStrikeZone/PlayerStrikeZone.styles';
 import { PlayerZoneType } from '@pages/PlayerDetailPage/components/PlayerZoneType/PlayerZoneType';
 
+import { OutcomeType, PlotTypes } from '@typings/atbat';
+
 interface PlayerStrikeZoneProps {
     slug: string;
     latest: boolean;
 }
 
 const PlayerStrikeZone = ({ slug, latest }: PlayerStrikeZoneProps) => {
-    const [position, setPosition] = useState<string | null>(null);
     const { isLoading: isLoadingPlayer, data: player } = useGetPlayer(slug!);
+    const positionType = player?.positionType;
+
     const { isLoading: isLoadingAtbats, data: atbats } = latest
-        ? useGetLatestAtbatsByPlayerSlug(slug)
-        : useGetAtbatsByPlayerSlug(slug);
+        ? useGetLatestAtbatsByPlayerSlug(slug, positionType!, {
+              enabled: !!positionType,
+          })
+        : useGetAtbatsByPlayerSlug(slug, positionType!, {
+              enabled: !!positionType,
+          });
 
     const sectionTitle = latest ? 'Latest Games' : 'All Games';
-
-    useEffect(() => {
-        if (!isLoadingPlayer && player) {
-            const { positionType } = player;
-            setPosition(positionType);
-        }
-    }, [isLoadingPlayer, player]);
+    const plotType: PlotTypes = latest ? 'zone' : 'heatmap';
+    const outcomeType: OutcomeType = latest ? 'BallsAndStrikes' : 'CalledStrike';
 
     return (
         <PlayerStrikeZoneContainer>
             <SectionTitle>{sectionTitle}</SectionTitle>
-            {isLoadingPlayer || isLoadingAtbats ? (
+            {isLoadingAtbats || !atbats ? (
                 <Loading size={60} />
             ) : (
-                <PlayerZoneType atbats={atbats!} positionType={position!} />
+                <PlayerZoneType
+                    atbats={atbats}
+                    positionType={positionType!}
+                    plotType={plotType}
+                    outcomeType={outcomeType}
+                />
             )}
         </PlayerStrikeZoneContainer>
     );

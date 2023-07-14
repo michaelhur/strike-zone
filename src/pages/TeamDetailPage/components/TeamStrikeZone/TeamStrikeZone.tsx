@@ -9,6 +9,9 @@ import { useAtbatBySide } from '@hooks/pitch/useAtbatBySide';
 
 import { TeamStrikeZoneContainer } from '@pages/TeamDetailPage/components/TeamStrikeZone/TeamStrikeZone.styles';
 
+import { OutcomeType, PlotTypes } from '@typings/atbat';
+import { ZoneViewType } from '@typings/game';
+
 interface TeamStrikeZoneProps {
     teamId: number;
     latest: boolean;
@@ -17,6 +20,8 @@ interface TeamStrikeZoneProps {
 export const TeamStrikeZone = ({ teamId, latest }: TeamStrikeZoneProps) => {
     const { isLoading, data } = latest ? useGetLatestAtbatListByTeam(teamId) : useGetAtbatListByTeam(teamId);
     const [pitchingData, battingData] = isLoading || !data ? [[], []] : useAtbatBySide(data, teamId);
+    const plotType: PlotTypes = latest ? 'zone' : 'heatmap';
+    const outcomeType: OutcomeType = latest ? 'BallsAndStrikes' : 'CalledStrike';
     const sectionTitle = latest ? 'Latest Games' : 'Season';
 
     return (
@@ -30,36 +35,36 @@ export const TeamStrikeZone = ({ teamId, latest }: TeamStrikeZoneProps) => {
                         <StrikeZoneList>
                             <StrikeZone
                                 atbats={pitchingData!}
-                                plotType={'zone'}
+                                plotType={plotType}
                                 zoneLabel={'Pitching (LHP)'}
                                 radius={24}
-                                outcomeType={'BallsAndStrikes'}
+                                outcomeType={outcomeType}
                                 pitchHand={'L'}
                             />
                             <StrikeZone
                                 atbats={pitchingData!}
-                                plotType={'zone'}
+                                plotType={plotType}
                                 zoneLabel={'Pitching (RHP)'}
                                 radius={24}
-                                outcomeType={'BallsAndStrikes'}
+                                outcomeType={outcomeType}
                                 pitchHand={'R'}
                             />
                         </StrikeZoneList>
                         <StrikeZoneList>
                             <StrikeZone
                                 atbats={battingData!}
-                                plotType={'zone'}
+                                plotType={plotType}
                                 zoneLabel={'Batting (LHB)'}
                                 radius={24}
-                                outcomeType={'BallsAndStrikes'}
+                                outcomeType={outcomeType}
                                 batSide={'L'}
                             />
                             <StrikeZone
                                 atbats={battingData!}
-                                plotType={'zone'}
+                                plotType={plotType}
                                 zoneLabel={'Batting (RHB)'}
                                 radius={24}
-                                outcomeType={'BallsAndStrikes'}
+                                outcomeType={outcomeType}
                                 batSide={'R'}
                             />
                         </StrikeZoneList>

@@ -17,7 +17,7 @@ export const UmpireGameListContainer = styled(FlexColumnContainer)({
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
     gap: '1rem',
-    padding: '2rem',
+    padding: '2rem 1rem',
 
     width: 'max(40%, 350px)',
 
