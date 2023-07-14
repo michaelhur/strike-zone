@@ -15,10 +15,10 @@ interface PlayerGameListProps {
 
 export const PlayerGameList = ({ slug }: PlayerGameListProps) => {
     const { isLoading: isLoadingPlayer, data: player } = useGetPlayer(slug!);
-    const isPitcher = player?.positionType === 'Pitcher';
+    const positionType = player?.positionType;
 
-    const { isLoading: isLoadingGames, data: games } = useGetLatestGameByPlayerSlug(slug!, isPitcher, {
-        enabled: !!isPitcher,
+    const { isLoading: isLoadingGames, data: games } = useGetLatestGameByPlayerSlug(slug!, positionType!, {
+        enabled: !!positionType,
     });
 
     return (

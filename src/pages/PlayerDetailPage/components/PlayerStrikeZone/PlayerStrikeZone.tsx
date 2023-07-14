@@ -18,14 +18,13 @@ interface PlayerStrikeZoneProps {
 const PlayerStrikeZone = ({ slug, latest }: PlayerStrikeZoneProps) => {
     const { isLoading: isLoadingPlayer, data: player } = useGetPlayer(slug!);
     const positionType = player?.positionType;
-    const isPitcher = positionType === 'Pitcher';
 
     const { isLoading: isLoadingAtbats, data: atbats } = latest
-        ? useGetLatestAtbatsByPlayerSlug(slug, isPitcher, {
-              enabled: !!isPitcher,
+        ? useGetLatestAtbatsByPlayerSlug(slug, positionType!, {
+              enabled: !!positionType,
           })
-        : useGetAtbatsByPlayerSlug(slug, isPitcher, {
-              enabled: !!isPitcher,
+        : useGetAtbatsByPlayerSlug(slug, positionType!, {
+              enabled: !!positionType,
           });
 
     const sectionTitle = latest ? 'Latest Games' : 'All Games';

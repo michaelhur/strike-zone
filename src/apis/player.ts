@@ -39,8 +39,8 @@ export const requestGetPlayer = async (slug: string): Promise<Player> => {
     return response!.data[0];
 };
 
-export const requestGetGameByPlayerSlug = async (slug: string, isPitcher: boolean): Promise<Game[]> => {
-    const path = DYNAMIC_API_PATH.PLAYER_GAME_LIST(slug, isPitcher);
+export const requestGetGameByPlayerSlug = async (slug: string, positionType: PositionType): Promise<Game[]> => {
+    const path = DYNAMIC_API_PATH.PLAYER_GAME_LIST(slug, positionType);
     const response = await fetcher({ method: 'get', path });
     const data = response!.data;
     const games = data.map((item) => item.game);
@@ -49,20 +49,23 @@ export const requestGetGameByPlayerSlug = async (slug: string, isPitcher: boolea
     return uniqueGames;
 };
 
-export const requestGetLatestGameByPlayerSlug = async (slug: string, isPitcher: boolean): Promise<Game[]> => {
-    const gameData = await requestGetGameByPlayerSlug(slug, isPitcher);
+export const requestGetLatestGameByPlayerSlug = async (slug: string, positionType: PositionType): Promise<Game[]> => {
+    const gameData = await requestGetGameByPlayerSlug(slug, positionType);
     return gameData.slice(0, 5);
 };
 
-export const requestGetAtbatsByPlayerSlug = async (slug: string, isPitcher: boolean): Promise<AtBat[]> => {
-    const path = DYNAMIC_API_PATH.PLAYER_ATBAT_LIST(slug, isPitcher);
+export const requestGetAtbatsByPlayerSlug = async (slug: string, positionType: PositionType): Promise<AtBat[]> => {
+    const path = DYNAMIC_API_PATH.PLAYER_ATBAT_LIST(slug, positionType);
     const response = await fetcher({ method: 'get', path });
     return response!.data;
 };
 
-export const requestGetLatestAtbatsByPlayerSlug = async (slug: string, isPitcher: boolean): Promise<AtBat[]> => {
-    const atbatData = await requestGetAtbatsByPlayerSlug(slug, isPitcher);
-    const latestGameList = await requestGetLatestGameByPlayerSlug(slug, isPitcher);
+export const requestGetLatestAtbatsByPlayerSlug = async (
+    slug: string,
+    positionType: PositionType,
+): Promise<AtBat[]> => {
+    const atbatData = await requestGetAtbatsByPlayerSlug(slug, positionType);
+    const latestGameList = await requestGetLatestGameByPlayerSlug(slug, positionType);
     const latestGameIdList = latestGameList.map((game) => game.id);
     const filteredAtbatList = atbatData.filter((atbat) => latestGameIdList.includes(atbat.game.id));
 

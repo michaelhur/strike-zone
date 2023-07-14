@@ -4,10 +4,11 @@ import StrikeZone from '@components/StrikeZone/StrikeZone';
 import { StrikeZoneList } from '@components/StrikeZone/StrikeZone.styles';
 
 import { AtBat } from '@typings/atbat';
+import { PositionType } from '@typings/player';
 
 interface PlayerZoneTypeProps {
     atbats: AtBat[];
-    positionType: string;
+    positionType: PositionType;
 }
 
 export const PlayerZoneType = ({ atbats, positionType }: PlayerZoneTypeProps) => {

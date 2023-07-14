@@ -42,7 +42,7 @@ export interface Player {
     batSide: PlayerSide;
     pitchHand: PlayerSide;
     positionCode: string;
-    positionType: string;
+    positionType: PositionType;
     height: string;
     weight: number;
     slug: string;
