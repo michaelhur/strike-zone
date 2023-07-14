@@ -42,8 +42,8 @@ export const DYNAMIC_API_PATH = {
     ATBAT_DETAIL(slug: string): string {
         return `/atbat?select=id,date,atBatIndex,isTopInning,inning,home:homeId(*),away:awayId(*),batter:batterId(*),pitcher:pitcherId(*),game:gameId!inner(*),umpire:umpireId!inner(*),plays&gameId.slug=eq.${slug}`;
     },
-    GAME_LIST(): string {
-        return `/game?select=id,slug,date,season,home:homeId(*),away:awayId(*),umpire:umpireId(*),homeScore,awayScore,isFinal,isPostponed,initialDate`;
+    GAME_LIST(fixtureDate: string): string {
+        return `/game?select=id,slug,date,season,home:homeId(*),away:awayId(*),umpire:umpireId(*),homeScore,awayScore,isFinal,isPostponed,initialDate&date=eq.${fixtureDate}`;
     },
     GAME_DETAIL(slug: string): string {
         return `game?select=id,slug,date,season,home:homeId(*),away:awayId(*),umpire:umpireId(*),homeScore,awayScore,isFinal,isPostponed,initialDate&slug=eq.${slug}`;

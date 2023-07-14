@@ -30,9 +30,10 @@ export const GameListSection = ({ fixtureDate, sectionLabel, cardCount = 2 }: Ga
     const onClickLeague = (league: LeagueType) => setLeagueFilter(league);
     const onClickView = (type: itemViewType) => setViewType(type);
 
-    const { isLoading, data: gameList } = leagueFilter
-        ? useGetGameList(`date=${fixtureDate}&leagues=${leagueFilter}`)
-        : useGetGameList(`date=${fixtureDate}`);
+    const { isLoading, data: gameList } =
+        leagueFilter && leagueFilter !== 'ALL'
+            ? useGetGameList(fixtureDate, leagueFilter)
+            : useGetGameList(fixtureDate);
 
     return (
         <GameListSectionContainer>

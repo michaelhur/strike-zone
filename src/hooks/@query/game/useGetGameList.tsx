@@ -2,17 +2,31 @@ import { UseQueryOptions, useQuery } from '@tanstack/react-query';
 import { AxiosError } from 'axios';
 
 import { Game } from '@typings/game';
-
-import { parseParmsToObject } from '@utils/url';
+import { LeagueType } from '@typings/league';
 
 import { requestGetGameList } from '@src/apis/game';
 
-export const useGetGameList = (searchParams?: string, options?: UseQueryOptions<Array<Game>, AxiosError>) => {
-    const searchParamsObject = searchParams ? parseParmsToObject(searchParams) : {};
-    return useQuery<Array<Game>, AxiosError>(['GAMES', searchParamsObject], () => requestGetGameList(searchParams), {
-        ...options,
-        onSuccess: () => {
-            console.log('useGetGameList succeed');
+export const useGetGameList = (
+    fixtureDate: string,
+    leagueFilter?: LeagueType,
+    searchParams?: string,
+    options?: UseQueryOptions<Array<Game>, AxiosError>,
+) => {
+    return useQuery<Array<Game>, AxiosError>(
+        ['GAMES', { fixtureDate, leagueFilter }],
+        () => requestGetGameList(fixtureDate, searchParams),
+        {
+            ...options,
+            select: (games) => {
+                if (leagueFilter && leagueFilter !== 'ALL')
+                    return games.filter(
+                        (game) => game.home!.leagueId === leagueFilter || game.away!.leagueId === leagueFilter,
+                    );
+                return games;
+            },
+            onSuccess: () => {
+                console.log('useGetGameList succeed');
+            },
         },
-    });
+    );
 };

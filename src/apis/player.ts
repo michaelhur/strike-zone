@@ -33,21 +33,14 @@ export const requestGetPlayer = async (slug: string): Promise<Player> => {
 
 export const requestGetGameByPlayerSlug = async (slug: string): Promise<Game[]> => {
     const path = DYNAMIC_API_PATH.PLAYER_GAME_LIST(slug);
-    const response = await fetcher({ method: 'get', path });
-    const gameData = response.data;
+    const gameData = await fetcher({ method: 'get', path });
     const games = gameData.map((item) => item.game).sort((a, b) => b.date.localeCompare(a.date));
-
     return games;
 };
 
 export const requestGetLatestGameByPlayerSlug = async (slug: string): Promise<Game[]> => {
-    const path = DYNAMIC_API_PATH.PLAYER_GAME_LIST(slug);
-    const response = await fetcher({ method: 'get', path });
-    const gameData = response.data;
-    const games = gameData.map((item) => item.game).sort((a, b) => b.date.localeCompare(a.date));
-    const latestGames = games.slice(0, 5);
-
-    return latestGames;
+    const gameData = await requestGetGameByPlayerSlug(slug);
+    return gameData.slice(0, 5);
 };
 
 export const requestGetAtbatsByPlayerSlug = async (slug: string): Promise<AtBat[]> => {

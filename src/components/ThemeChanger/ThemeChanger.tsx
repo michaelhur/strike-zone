@@ -15,8 +15,6 @@ export const ThemeChanger = () => {
     const [storedThemeState, setStoredThemeState] = useLocalStorage(themeState, 'sz-theme', 'light');
     const [selected, setSelected] = useState<boolean>(storedThemeState === 'dark');
 
-    console.log(`storedThemeState: ${storedThemeState}`);
-
     const onClickThemeChanger = useCallback(() => {
         const newThemeState = storedThemeState === 'dark' ? 'light' : 'dark';
         setSelected(newThemeState === 'dark');
