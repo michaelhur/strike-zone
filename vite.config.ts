@@ -1,10 +1,14 @@
-/// <reference types="vitest" />
-
 import react from '@vitejs/plugin-react-swc';
 import path from 'path';
 import { defineConfig } from 'vite';
+import type { UserConfig } from 'vite';
 import viteCompression from 'vite-plugin-compression';
 import svgr from 'vite-plugin-svgr';
+import type { InlineConfig } from 'vitest';
+
+interface VitestConfigExport extends UserConfig {
+    test: InlineConfig;
+}
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -45,4 +49,4 @@ export default defineConfig({
             { find: '@typings', replacement: path.resolve(__dirname, '/src/typings') },
         ],
     },
-});
+} as VitestConfigExport);
