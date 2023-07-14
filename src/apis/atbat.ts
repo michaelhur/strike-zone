@@ -9,10 +9,12 @@ import { fetcher } from '@src/apis/fetcher';
 export const requestGetAtbatList = async (searchParams?: string): Promise<Array<AtBat>> => {
     const basePath = DYNAMIC_API_PATH.ATBAT_LIST();
     const path = searchParams ? `${basePath}${convertSearchParamsToPOSTREST(searchParams)}` : basePath;
-    return await fetcher({ method: 'get', path });
+    const response = await fetcher({ method: 'get', path });
+    return response!.data;
 };
 
 export const requestGetAtbat = async (slug: string): Promise<Array<AtBat>> => {
     const path = DYNAMIC_API_PATH.ATBAT_DETAIL(slug);
-    return await fetcher({ method: 'get', path });
+    const response = await fetcher({ method: 'get', path });
+    return response!.data;
 };

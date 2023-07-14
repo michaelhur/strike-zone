@@ -47,8 +47,7 @@ export const fetcher = async ({
 
         if (body) fetchOptions.data = JSON.stringify(body);
 
-        const res = await axios(fetchOptions);
-        if (res.status === 200) return res.data;
+        return await axios(fetchOptions);
     } catch (err) {
         console.log(err);
     }

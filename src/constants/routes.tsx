@@ -1,3 +1,5 @@
+import { PositionType } from '@typings/player';
+
 export const PATH = {
     HOME: '/',
     LOGIN: '/login',
@@ -51,9 +53,11 @@ export const DYNAMIC_API_PATH = {
     GAME_LATEST(): string {
         return `/latest_games?select=id,slug,date,season,home:homeId(*),away:awayId(*),umpire:umpireId(*),homeScore,awayScore,isFinal,isPostponed,initialDate&order=slug.desc`;
     },
-    PLAYER_LIST(lastName?: string): string {
+    PLAYER_LIST(lastName?: string, positionType?: PositionType): string {
         const basePath = `/player?order=lastName.asc&select=id,name,lastName,batSide,pitchHand,positionCode,positionType,height,weight,playerNumber,slug,team:teamId(*)`;
-        return lastName ? `${basePath}&lastName=like.${lastName}*` : basePath;
+        const namePath = lastName ? `&lastName=like.${lastName}*` : '';
+        const positionPath = positionType && positionType !== 'ALL' ? `&positionType=${positionType}` : '';
+        return `${basePath}${namePath}${positionPath}`;
     },
     PLAYER_DETAIL(slug: string): string {
         return `/player?order=lastName.asc&select=id,name,lastName,batSide,pitchHand,positionCode,positionType,height,weight,playerNumber,slug,team:teamId(*)&slug=eq.${slug}`;

@@ -25,8 +25,9 @@ const PlayerListPage = () => {
     const [positionTypeFilter, setPositionTypeFilter] = useState<PositionType>('ALL');
     const [page, setPage] = useState<number>(1);
     const [name, setName] = useState<string>('A');
-    const [searchParams, setSearchParams] = useState<string>(`positionType=All&name=A`);
     const isSidebarOpen = useRecoilValue(sidebarCollapseState);
+
+    const { isLoading, data } = useGetPlayerList(page, name, positionTypeFilter);
 
     const onClickPlayerItem = (slug: string) => {
         sessionStorage.setItem('playerList_positionType', JSON.stringify(positionTypeFilter));
@@ -48,8 +49,6 @@ const PlayerListPage = () => {
     };
 
     const onClickPage = (page: number) => setPage(page);
-
-    const { isLoading, data } = useGetPlayerList(page, searchParams);
 
     useEffect(() => {
         const handlePopState = () => {
@@ -75,11 +74,6 @@ const PlayerListPage = () => {
         handlePopState();
     }, []);
 
-    useEffect(() => {
-        if (!positionTypeFilter || positionTypeFilter === 'ALL') setSearchParams(`name=${name}`);
-        else setSearchParams(`positionType=${positionTypeFilter}&name=${name}`);
-    }, [positionTypeFilter, name]);
-
     return (
         <PlayerListContainer isSidebarOpen={isSidebarOpen}>
             <CategoryMenu<PositionType, any>
@@ -88,7 +82,11 @@ const PlayerListPage = () => {
                 categoryOptions={positionTypeTabOptions}
             />
             <NameFilter selected={name} onSelectName={onClickName} />
-            {isLoading ? <Loading size={60} /> : <PlayerList players={data!.players} onClickItem={onClickPlayerItem} />}
+            {isLoading || !data ? (
+                <Loading size={60} />
+            ) : (
+                <PlayerList players={data.players} onClickItem={onClickPlayerItem} />
+            )}
             {data && data.count > 10 && (
                 <Pagination currentPage={page} totalPage={Math.ceil(data.count / 10)} onClickPage={onClickPage} />
             )}

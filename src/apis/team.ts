@@ -15,17 +15,20 @@ export const requestGetTeamList = async (leagueId?: number, divisionId?: number)
         : leagueId
         ? `${basePath}&leagueId=eq.${leagueId}`
         : basePath;
-    return await fetcher({ method: 'get', path });
+    const response = await fetcher({ method: 'get', path });
+    return response!.data;
 };
 
 export const requestGetTeam = async (teamId: number): Promise<Team> => {
     const path = DYNAMIC_API_PATH.TEAM_DETAIL(teamId);
-    return await fetcher({ method: 'get', path });
+    const response = await fetcher({ method: 'get', path });
+    return response!.data;
 };
 
 export const requestGetGameListByTeam = async (teamId: number): Promise<Game[]> => {
     const path = DYNAMIC_API_PATH.TEAM_GAME_LIST(teamId);
-    return await fetcher({ method: 'get', path });
+    const response = await fetcher({ method: 'get', path });
+    return response!.data;
 };
 
 export const requestGetLatestGameListByTeam = async (teamId: number): Promise<Game[]> => {
@@ -35,7 +38,8 @@ export const requestGetLatestGameListByTeam = async (teamId: number): Promise<Ga
 
 export const requestGetAtbatListByTeam = async (teamId: number): Promise<AtBat[]> => {
     const path = DYNAMIC_API_PATH.TEAM_ATBAT_LIST(teamId);
-    return await fetcher({ method: 'get', path });
+    const response = await fetcher({ method: 'get', path });
+    return response!.data;
 };
 
 export const requestGetLatestAtbatListByTeam = async (teamId: number): Promise<AtBat[]> => {
@@ -49,7 +53,8 @@ export const requestGetLatestAtbatListByTeam = async (teamId: number): Promise<A
 export const requestGetTeamRoster = async (teamId: number, positionType?: PositionType): Promise<Player[]> => {
     const basePath = DYNAMIC_API_PATH.TEAM_ROSTER(teamId);
     const path = !positionType || positionType === 'ALL' ? basePath : `${basePath}&positionType=eq.${positionType}`;
-    return await fetcher({ method: 'get', path });
+    const response = await fetcher({ method: 'get', path });
+    return response!.data;
 };
 
 export const requestGetTeamStandings = async (

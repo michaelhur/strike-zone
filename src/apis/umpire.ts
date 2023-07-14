@@ -10,17 +10,22 @@ export const requestGetUmpireList = async (page: number, name?: string): Promise
     const range = `${(page - 1) * 10}-${page * 10 - 1}`;
     const basePath = DYNAMIC_API_PATH.UMPIRE_LIST();
     const path = name ? `${basePath}&name=eq.${name}` : basePath;
-    return await fetcher({ method: 'get', path, headers: { Range: range } });
+    const response = await fetcher({ method: 'get', path, headers: { Range: range, Prefer: 'count=exact' } });
+    const data = response!.data;
+    const count = response!.headers['content-range'].split('/')[1];
+    return { umpires: data, count };
 };
 
 export const requestGetUmpire = async (umpireId: number): Promise<Umpire> => {
     const path = DYNAMIC_API_PATH.UMPIRE_DETAIL(umpireId);
-    return await fetcher({ method: 'get', path });
+    const response = await fetcher({ method: 'get', path });
+    return response!.data;
 };
 
 export const requestGetGameListByUmpire = async (umpireId: number): Promise<Game[]> => {
     const path = DYNAMIC_API_PATH.UMPIRE_GAME_LIST(umpireId);
-    return await fetcher({ method: 'get', path });
+    const response = await fetcher({ method: 'get', path });
+    return response!.data;
 };
 
 export const requestGetLastestGameListByUmpire = async (umpireId: number): Promise<Game[]> => {
@@ -30,7 +35,8 @@ export const requestGetLastestGameListByUmpire = async (umpireId: number): Promi
 
 export const requestGetAtbatListByUmpire = async (umpireId: number): Promise<AtBat[]> => {
     const path = DYNAMIC_API_PATH.UMPIRE_ATBAT_LIST(umpireId);
-    return await fetcher({ method: 'get', path });
+    const response = await fetcher({ method: 'get', path });
+    return response!.data;
 };
 
 export const requestGetLatestAtbatListByUmpire = async (umpireId: number): Promise<AtBat[]> => {

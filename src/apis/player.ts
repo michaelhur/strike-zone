@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import { AtBat } from '@typings/atbat';
 import { Game } from '@typings/game';
-import { Player, PlayerStats } from '@typings/player';
+import { Player, PlayerStats, PositionType } from '@typings/player';
 
 import { convertSearchParamsToPOSTREST } from '@utils/url';
 
@@ -17,24 +17,33 @@ export interface GetPlayerListRequest {
 export const requestGetPlayerList = async (
     page: number,
     lastName?: string,
+    positionType?: PositionType,
     searchParams?: string,
 ): Promise<GetPlayerListRequest> => {
     const range = `${(page - 1) * 10}-${page * 10 - 1}`;
-
-    const basePath = DYNAMIC_API_PATH.PLAYER_LIST(lastName);
+    const basePath = DYNAMIC_API_PATH.PLAYER_LIST(lastName, positionType);
     const path = searchParams ? `${basePath}${convertSearchParamsToPOSTREST(searchParams)}` : basePath;
-    return await fetcher({ method: 'get', path, headers: { Range: range } });
+    const response = await fetcher({
+        method: 'get',
+        path,
+        headers: { Range: range, Prefer: 'count=exact' },
+    });
+    const data = response!.data;
+    const count = response!.headers['content-range'].split('/')[1];
+    return { players: data, count };
 };
 
 export const requestGetPlayer = async (slug: string): Promise<Player> => {
     const path = DYNAMIC_API_PATH.PLAYER_DETAIL(slug);
-    return await fetcher({ method: 'get', path });
+    const response = await fetcher({ method: 'get', path });
+    return response!.data;
 };
 
 export const requestGetGameByPlayerSlug = async (slug: string): Promise<Game[]> => {
     const path = DYNAMIC_API_PATH.PLAYER_GAME_LIST(slug);
-    const gameData = await fetcher({ method: 'get', path });
-    const games = gameData.map((item) => item.game).sort((a, b) => b.date.localeCompare(a.date));
+    const response = await fetcher({ method: 'get', path });
+    const data = response!.data;
+    const games = data.map((item) => item.game).sort((a, b) => b.date.localeCompare(a.date));
     return games;
 };
 
@@ -45,7 +54,8 @@ export const requestGetLatestGameByPlayerSlug = async (slug: string): Promise<Ga
 
 export const requestGetAtbatsByPlayerSlug = async (slug: string): Promise<AtBat[]> => {
     const path = DYNAMIC_API_PATH.PLAYER_ATBAT_LIST(slug);
-    return await fetcher({ method: 'get', path });
+    const response = await fetcher({ method: 'get', path });
+    return response!.data;
 };
 
 export const requestGetLatestAtbatsByPlayerSlug = async (slug: string): Promise<AtBat[]> => {
