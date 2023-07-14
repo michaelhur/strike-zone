@@ -75,11 +75,11 @@ export const DYNAMIC_API_PATH = {
     TEAM_GAME_LIST(id: number): string {
         return `/game?select=id,slug,date,season,home:homeId(*),away:awayId(*),umpire:umpireId(*),homeScore,awayScore,isFinal,isPostponed,initialDate&order=slug.desc&or=(homeId.eq.${id},awayId.eq.${id})`;
     },
-    TEAM_LATEST_GAME_LIST(id: number): string {
-        return `/latest_games?select=id,slug,date,season,home:homeId(*),away:awayId(*),umpire:umpireId(*),homeScore,awayScore,isFinal,isPostponed,initialDate&order=slug.desc&or=(homeId.eq.${id},awayId.eq.${id})&page=1`;
-    },
     TEAM_ATBAT_LIST(id: number): string {
         return `/atbat?select=id,date,atBatIndex,isTopInning,inning,home:homeId(*),away:awayId(*),batter:batterId(*),pitcher:pitcherId(*),game:gameId!inner(*),umpire:umpireId!inner(*),plays&order=gameId.asc&or=(homeId.eq.${id},awayId.eq.${id})`;
+    },
+    TEAM_ROSTER(id: number): string {
+        return `/player?order=lastName.asc&select=id,name,lastName,batSide,pitchHand,positionCode,positionType,height,weight,playerNumber,slug,team:teamId(*)&teamId=eq.${id}`;
     },
     UMPIRE_LIST(lastName?: string): string {
         const basePath = `/umpire?select=*&order=lastName.asc`;
@@ -90,9 +90,6 @@ export const DYNAMIC_API_PATH = {
     },
     UMPIRE_GAME_LIST(id: number): string {
         return `/game?select=id,slug,date,season,home:homeId(*),away:awayId(*),umpire:umpireId(*),homeScore,awayScore,isFinal,isPostponed,initialDate&order=slug.desc&umpireId=eq.${id}`;
-    },
-    UMPIRE_LATEST_GAME_LIST(id: number): string {
-        return `/latest_games?select=id,slug,date,season,home:homeId(*),away:awayId(*),umpire:umpireId(*),homeScore,awayScore,isFinal,isPostponed,initialDate&order=slug.desc&umpireId=eq.${id}&page=1`;
     },
     UMPIRE_ATBAT_LIST(id: number): string {
         return `/atbat?select=id,date,atBatIndex,isTopInning,inning,home:homeId(*),away:awayId(*),batter:batterId(*),pitcher:pitcherId(*),game:gameId!inner(*),umpire:umpireId!inner(*),plays&order=gameId.asc&umpireId=eq.${id}`;

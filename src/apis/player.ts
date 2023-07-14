@@ -1,8 +1,11 @@
+import { DYNAMIC_API_PATH } from '@constants/routes';
 import axios from 'axios';
 
 import { AtBat } from '@typings/atbat';
 import { Game } from '@typings/game';
 import { Player, PlayerStats } from '@typings/player';
+
+import { convertSearchParamsToPOSTREST } from '@utils/url';
 
 import { fetcher } from '@src/apis/fetcher';
 
@@ -11,34 +14,54 @@ export interface GetPlayerListRequest {
     count: number;
 }
 
-export const requestGetPlayerList = async (page: number, searchParams?: string): Promise<GetPlayerListRequest> => {
+export const requestGetPlayerList = async (
+    page: number,
+    lastName?: string,
+    searchParams?: string,
+): Promise<GetPlayerListRequest> => {
     const range = `${(page - 1) * 10}-${page * 10 - 1}`;
-    const path = searchParams ? `/api/players?page=${page}&${searchParams}` : `/api/players?page=${page}`;
-    const data = await fetcher({ method: 'get', path, headers: { Range: range } });
-    return data;
+
+    const basePath = DYNAMIC_API_PATH.PLAYER_LIST(lastName);
+    const path = searchParams ? `${basePath}${convertSearchParamsToPOSTREST(searchParams)}` : basePath;
+    return await fetcher({ method: 'get', path, headers: { Range: range } });
 };
 
 export const requestGetPlayer = async (slug: string): Promise<Player> => {
-    const data = await fetcher({ method: 'get', path: `/api/players/${slug}` });
-    return data;
+    const path = DYNAMIC_API_PATH.PLAYER_DETAIL(slug);
+    return await fetcher({ method: 'get', path });
 };
 
-export const requestGetGameByPlayerSlug = async (slug: string, page?: number): Promise<Game[]> => {
-    const path = page ? `/api/players/${slug}/games?page=${page}` : `/api/players/${slug}/games`;
-    const headers = page ? { Range: `${(page - 1) * 5}-${page * 5 - 1}` } : {};
-    const data = await fetcher({ method: 'get', path, headers });
-    return data;
+export const requestGetGameByPlayerSlug = async (slug: string): Promise<Game[]> => {
+    const path = DYNAMIC_API_PATH.PLAYER_GAME_LIST(slug);
+    const response = await fetcher({ method: 'get', path });
+    const gameData = response.data;
+    const games = gameData.map((item) => item.game).sort((a, b) => b.date.localeCompare(a.date));
+
+    return games;
+};
+
+export const requestGetLatestGameByPlayerSlug = async (slug: string): Promise<Game[]> => {
+    const path = DYNAMIC_API_PATH.PLAYER_GAME_LIST(slug);
+    const response = await fetcher({ method: 'get', path });
+    const gameData = response.data;
+    const games = gameData.map((item) => item.game).sort((a, b) => b.date.localeCompare(a.date));
+    const latestGames = games.slice(0, 5);
+
+    return latestGames;
 };
 
 export const requestGetAtbatsByPlayerSlug = async (slug: string): Promise<AtBat[]> => {
-    const data = await fetcher({ method: 'get', path: `/api/players/${slug}/atbats` });
-    return data;
+    const path = DYNAMIC_API_PATH.PLAYER_ATBAT_LIST(slug);
+    return await fetcher({ method: 'get', path });
 };
 
 export const requestGetLatestAtbatsByPlayerSlug = async (slug: string): Promise<AtBat[]> => {
-    const headers = { Range: `0 - 4` };
-    const data = await fetcher({ method: 'get', path: `/api/players/${slug}/atbats/latest`, headers });
-    return data;
+    const atbatData = await requestGetAtbatsByPlayerSlug(slug);
+    const latestGameList = await requestGetLatestGameByPlayerSlug(slug);
+    const latestGameIdList = latestGameList.map((game) => game.id);
+    const filteredAtbatList = atbatData.filter((atbat) => latestGameIdList.includes(atbat.game.id));
+
+    return filteredAtbatList;
 };
 
 export const requestGetPlayerStats = async (slug: string): Promise<PlayerStats> => {

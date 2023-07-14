@@ -1,6 +1,14 @@
 import axios, { AxiosRequestConfig } from 'axios';
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const API_BASE_URL = import.meta.env.VITE_SUPABASE_API_URL;
+const API_KEY = import.meta.env.VITE_SUPABASE_KEY;
+
+const supabaseHeader = {
+    'Access-Control-Allow-Origin': '*',
+    'Content-Type': 'application/json',
+    apikey: API_KEY,
+    Authorization: `Bearer ${API_KEY}`,
+};
 
 type AnyOBJ = { [key: string]: any };
 
@@ -28,17 +36,13 @@ export const fetcher = async ({
         const fetchOptions: AxiosRequestConfig = {
             method,
             url,
-            headers: {
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*',
-            },
+            headers: supabaseHeader,
         };
 
         if (headers)
             fetchOptions.headers = {
                 ...headers,
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*',
+                ...supabaseHeader,
             };
 
         if (body) fetchOptions.data = JSON.stringify(body);
