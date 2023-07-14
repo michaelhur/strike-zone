@@ -21,8 +21,12 @@ const PlayerStrikeZone = ({ slug, latest }: PlayerStrikeZoneProps) => {
     const isPitcher = positionType === 'Pitcher';
 
     const { isLoading: isLoadingAtbats, data: atbats } = latest
-        ? useGetLatestAtbatsByPlayerSlug(slug, isPitcher)
-        : useGetAtbatsByPlayerSlug(slug, isPitcher);
+        ? useGetLatestAtbatsByPlayerSlug(slug, isPitcher, {
+              enabled: !!isPitcher,
+          })
+        : useGetAtbatsByPlayerSlug(slug, isPitcher, {
+              enabled: !!isPitcher,
+          });
 
     const sectionTitle = latest ? 'Latest Games' : 'All Games';
 

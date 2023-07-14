@@ -12,7 +12,7 @@ export const useGetLatestGameByPlayerSlug = (
 ) => {
     return useQuery<Game[], AxiosError>(
         ['GAMES', { playerSlug: slug }],
-        () => requestGetLatestGameByPlayerSlug(slug, isPitcher!),
+        () => requestGetLatestGameByPlayerSlug(slug, isPitcher),
         {
             ...options,
             onSuccess: () => {

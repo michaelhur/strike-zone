@@ -17,7 +17,9 @@ export const PlayerGameList = ({ slug }: PlayerGameListProps) => {
     const { isLoading: isLoadingPlayer, data: player } = useGetPlayer(slug!);
     const isPitcher = player?.positionType === 'Pitcher';
 
-    const { isLoading: isLoadingGames, data: games } = useGetLatestGameByPlayerSlug(slug!, isPitcher);
+    const { isLoading: isLoadingGames, data: games } = useGetLatestGameByPlayerSlug(slug!, isPitcher, {
+        enabled: !!isPitcher,
+    });
 
     return (
         <PlayerGameListContainer>
