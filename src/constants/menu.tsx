@@ -6,12 +6,11 @@ import { ListViewIcon } from '@components/@shared/Icon/ListViewIcon';
 
 import { itemViewType } from '@recoils/fixture/atom';
 
-import { DivisionType } from '@typings/division';
 import { TabOptions, ViewTypeOptions } from '@typings/input';
 import { LeagueType } from '@typings/league';
 import { Menu } from '@typings/menu';
 
-export const sidebarMenu: Menu[] = [
+export const menu: Menu[] = [
     {
         name: 'Home',
         path: PATH.HOME,
