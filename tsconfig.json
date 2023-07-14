@@ -32,9 +32,10 @@
             "@utils/*": ["src/utils/*"],
             "@recoils/*": ["src/recoils/*"],
             "@styles/*": ["src/styles/*"],
-            "@typings/*": ["./src/typings/*"],
+            "@typings/*": ["./src/typings/*"]
         }
     },
     "include": ["src", "src/custom.d.ts"],
+    "exclude": ["__mocks__/data"],
     "references": [{ "path": "./tsconfig.node.json" }]
 }
