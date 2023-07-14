@@ -34,11 +34,11 @@ export const TeamRoster = ({ teamId }: TeamRosterProps) => {
                     <PlayerList players={catchers} onClickItem={onClickPlayerItem} listTitle={'Catcher'} />
                     <PlayerList players={infielders} onClickItem={onClickPlayerItem} listTitle={'Infielder'} />
                     <PlayerList players={outfielders} onClickItem={onClickPlayerItem} listTitle={'Outfielder'} />
-                    <PlayerList players={hitters} onClickItem={onClickPlayerItem} listTitle={'DH'} />
-                    {twp.length ? (
+                    {hitters.length > 0 && (
+                        <PlayerList players={hitters} onClickItem={onClickPlayerItem} listTitle={'DH'} />
+                    )}
+                    {twp.length > 0 && (
                         <PlayerList players={twp} onClickItem={onClickPlayerItem} listTitle={'Two Way Player'} />
-                    ) : (
-                        <></>
                     )}
                 </>
             )}
