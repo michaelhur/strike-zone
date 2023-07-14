@@ -5,12 +5,20 @@ import { AtBat } from '@typings/atbat';
 
 import { requestGetAtbatsByPlayerSlug } from '@src/apis/player';
 
-export const useGetAtbatsByPlayerSlug = (slug: string, options?: UseQueryOptions<AtBat[], AxiosError>) => {
-    return useQuery<AtBat[], AxiosError>(['ATBATS', { playerSlug: slug }], () => requestGetAtbatsByPlayerSlug(slug), {
-        ...options,
-        enabled: !!slug,
-        onSuccess: () => {
-            console.log('useGetAtbatsByPlayerSlug succeed');
+export const useGetAtbatsByPlayerSlug = (
+    slug: string,
+    isPitcher: boolean,
+    options?: UseQueryOptions<AtBat[], AxiosError>,
+) => {
+    return useQuery<AtBat[], AxiosError>(
+        ['ATBATS', { playerSlug: slug }],
+        () => requestGetAtbatsByPlayerSlug(slug, isPitcher),
+        {
+            ...options,
+            enabled: !!slug && isPitcher,
+            onSuccess: () => {
+                console.log('useGetAtbatsByPlayerSlug succeed');
+            },
         },
-    });
+    );
 };

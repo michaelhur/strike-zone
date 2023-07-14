@@ -3,6 +3,8 @@ import { SectionTitleWrapper } from '@components/Layout/Layout.styles';
 import { Loading } from '@components/Loading/Loading';
 
 import { useGetGameByPlayerSlug } from '@hooks/@query/player/useGetGameByPlayerSlug';
+import { useGetLatestGameByPlayerSlug } from '@hooks/@query/player/useGetLatestGameByPlayerSlug';
+import { useGetPlayerStats } from '@hooks/@query/player/useGetPlayerStats';
 
 import { PlayerGameListContainer } from '@pages/PlayerDetailPage/components/PlayerGameList/PlayerGameList.styles';
 
@@ -11,14 +13,20 @@ interface PlayerGameListProps {
 }
 
 export const PlayerGameList = ({ slug }: PlayerGameListProps) => {
-    const { isLoading: isLoadingGames, data: games } = useGetGameByPlayerSlug(slug!, 1);
+    const { isLoading, data } = useGetPlayerStats(slug!);
+    const isPitcher = data?.positionCode === 'P' || data?.positionCode === 'TWP';
+    const { isLoading: isLoadingGames, data: games } = useGetLatestGameByPlayerSlug(slug!, isPitcher!);
 
     return (
         <PlayerGameListContainer>
             <SectionTitleWrapper>
-                <h3>Last 5 Games</h3>
+                <h3>최근 5경기</h3>
             </SectionTitleWrapper>
-            {isLoadingGames ? <Loading size={60} /> : <GameList games={games!} itemViewType={'LIST'} cardCount={1} />}
+            {isLoading || isLoadingGames || !games ? (
+                <Loading size={60} />
+            ) : (
+                <GameList games={games!} itemViewType={'LIST'} cardCount={1} />
+            )}
         </PlayerGameListContainer>
     );
 };

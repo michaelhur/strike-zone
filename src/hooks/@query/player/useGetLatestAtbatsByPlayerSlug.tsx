@@ -5,13 +5,17 @@ import { AtBat } from '@typings/atbat';
 
 import { requestGetLatestAtbatsByPlayerSlug } from '@src/apis/player';
 
-export const useGetLatestAtbatsByPlayerSlug = (slug: string, options?: UseQueryOptions<AtBat[], AxiosError>) => {
+export const useGetLatestAtbatsByPlayerSlug = (
+    slug: string,
+    isPitcher: boolean,
+    options?: UseQueryOptions<AtBat[], AxiosError>,
+) => {
     return useQuery<AtBat[], AxiosError>(
         ['ATBATS', { playerSlug: slug, latest: true }],
-        () => requestGetLatestAtbatsByPlayerSlug(slug),
+        () => requestGetLatestAtbatsByPlayerSlug(slug, isPitcher),
         {
             ...options,
-            enabled: !!slug,
+            enabled: !!slug && isPitcher,
             onSuccess: () => {
                 console.log('useGetLatestAtbatsByPlayerSlug succeed');
             },

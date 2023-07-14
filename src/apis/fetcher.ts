@@ -33,17 +33,18 @@ export const fetcher = async ({
             url += '?' + searchParams.toString();
         }
 
+        const requestHeader = headers
+            ? {
+                  ...headers,
+                  ...supabaseHeader,
+              }
+            : supabaseHeader;
+
         const fetchOptions: AxiosRequestConfig = {
             method,
             url,
-            headers: supabaseHeader,
+            headers: requestHeader,
         };
-
-        if (headers)
-            fetchOptions.headers = {
-                ...headers,
-                ...supabaseHeader,
-            };
 
         if (body) fetchOptions.data = JSON.stringify(body);
 

@@ -18,7 +18,7 @@ export const ProfileTopSection = ({ slug }: { slug: string }) => {
 
     return (
         <ProfileTopSectionContainer>
-            {isLoadingPlayer ? (
+            {isLoadingPlayer || !player ? (
                 <Loading size={60} />
             ) : player ? (
                 <>

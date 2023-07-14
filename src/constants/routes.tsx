@@ -56,19 +56,19 @@ export const DYNAMIC_API_PATH = {
     PLAYER_LIST(lastName?: string, positionType?: PositionType): string {
         const basePath = `/player?order=lastName.asc&select=id,name,lastName,batSide,pitchHand,positionCode,positionType,height,weight,playerNumber,slug,team:teamId(*)`;
         const namePath = lastName ? `&lastName=like.${lastName}*` : '';
-        const positionPath = positionType && positionType !== 'ALL' ? `&positionType=${positionType}` : '';
+        const positionPath = positionType && positionType !== 'ALL' ? `&positionType=eq.${positionType}` : '';
         return `${basePath}${namePath}${positionPath}`;
     },
     PLAYER_DETAIL(slug: string): string {
         return `/player?order=lastName.asc&select=id,name,lastName,batSide,pitchHand,positionCode,positionType,height,weight,playerNumber,slug,team:teamId(*)&slug=eq.${slug}`;
     },
-    PLAYER_GAME_LIST(slug: string): string {
-        const [id] = slug.split('-').slice(-1);
-        return `/atbat?select=game:gameId!inner(*)&order=gameId.asc&or=(batterId.eq.${id},pitcherId.eq.${id})`;
+    PLAYER_GAME_LIST(slug: string, isPitcher: boolean): string {
+        const playerFilter = isPitcher ? `&pitcher.slug=eq.${slug}` : `&batter.slug=eq.${slug}`;
+        return `/atbat?select=game:gameId!inner(*)&order=gameId.asc${playerFilter}`;
     },
-    PLAYER_ATBAT_LIST(slug: string): string {
-        const [id] = slug.split('-').slice(-1);
-        return `/atbat?select=id,date,atBatIndex,isTopInning,inning,home:homeId(*),away:awayId(*),batter:batterId(*),pitcher:pitcherId(*),game:gameId!inner(*),umpire:umpireId!inner(*),plays&order=gameId.asc&or=(batterId.eq.${id},pitcherId.eq.${id})`;
+    PLAYER_ATBAT_LIST(slug: string, isPitcher: boolean): string {
+        const playerFilter = isPitcher ? `&pitcher.slug=eq.${slug}` : `&batter.slug=eq.${slug}`;
+        return `/atbat?select=id,date,atBatIndex,isTopInning,inning,home:homeId(*),away:awayId(*),batter:batterId(*),pitcher:pitcherId(*),game:gameId!inner(*),umpire:umpireId!inner(*),plays&order=gameId.asc${playerFilter}`;
     },
     TEAM_LIST(): string {
         return `/team?select=id,name,abbreviation,franchiseName,teamName,imageUrl,league:leagueId(*),division:divisionId(*),venue`;

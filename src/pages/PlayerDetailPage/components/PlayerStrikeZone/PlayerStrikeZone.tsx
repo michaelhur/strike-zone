@@ -17,10 +17,11 @@ interface PlayerStrikeZoneProps {
 
 const PlayerStrikeZone = ({ slug, latest }: PlayerStrikeZoneProps) => {
     const [position, setPosition] = useState<string | null>(null);
-    const { isLoading: isLoadingPlayer, data: player } = useGetPlayer(slug!);
+
+    const { isLoading: isLoadingPlayer, data: player } = useGetPlayer(slug);
     const { isLoading: isLoadingAtbats, data: atbats } = latest
-        ? useGetLatestAtbatsByPlayerSlug(slug)
-        : useGetAtbatsByPlayerSlug(slug);
+        ? useGetLatestAtbatsByPlayerSlug(slug, position === 'Pitcher')
+        : useGetAtbatsByPlayerSlug(slug, position === 'Pitcher');
 
     const sectionTitle = latest ? 'Latest Games' : 'All Games';
 
@@ -34,10 +35,10 @@ const PlayerStrikeZone = ({ slug, latest }: PlayerStrikeZoneProps) => {
     return (
         <PlayerStrikeZoneContainer>
             <SectionTitle>{sectionTitle}</SectionTitle>
-            {isLoadingPlayer || isLoadingAtbats ? (
+            {isLoadingAtbats || !atbats ? (
                 <Loading size={60} />
             ) : (
-                <PlayerZoneType atbats={atbats!} positionType={position!} />
+                <PlayerZoneType atbats={atbats} positionType={position!} />
             )}
         </PlayerStrikeZoneContainer>
     );
