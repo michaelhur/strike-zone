@@ -10,6 +10,8 @@ import { useGetPlayer } from '@hooks/@query/player/useGetPlayer';
 import { PlayerStrikeZoneContainer } from '@pages/PlayerDetailPage/components/PlayerStrikeZone/PlayerStrikeZone.styles';
 import { PlayerZoneType } from '@pages/PlayerDetailPage/components/PlayerZoneType/PlayerZoneType';
 
+import { OutcomeType, PlotTypes } from '@typings/atbat';
+
 interface PlayerStrikeZoneProps {
     slug: string;
     latest: boolean;
@@ -28,6 +30,8 @@ const PlayerStrikeZone = ({ slug, latest }: PlayerStrikeZoneProps) => {
           });
 
     const sectionTitle = latest ? 'Latest Games' : 'All Games';
+    const plotType: PlotTypes = latest ? 'zone' : 'heatmap';
+    const outcomeType: OutcomeType = latest ? 'BallsAndStrikes' : 'CalledStrike';
 
     return (
         <PlayerStrikeZoneContainer>
@@ -35,7 +39,12 @@ const PlayerStrikeZone = ({ slug, latest }: PlayerStrikeZoneProps) => {
             {isLoadingAtbats || !atbats ? (
                 <Loading size={60} />
             ) : (
-                <PlayerZoneType atbats={atbats} positionType={positionType!} />
+                <PlayerZoneType
+                    atbats={atbats}
+                    positionType={positionType!}
+                    plotType={plotType}
+                    outcomeType={outcomeType}
+                />
             )}
         </PlayerStrikeZoneContainer>
     );

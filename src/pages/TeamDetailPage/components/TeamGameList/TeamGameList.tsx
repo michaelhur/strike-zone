@@ -2,7 +2,7 @@ import { GameList } from '@components/GameListSection/components/GameList/GameLi
 import { SectionTitle } from '@components/Layout/Layout.styles';
 import { Loading } from '@components/Loading/Loading';
 
-import { useGetGameListByTeam } from '@hooks/@query/team/useGetGameListByTeam';
+import { useGetLatestGameListByTeam } from '@hooks/@query/team/useGetLatestGameListByTeam';
 
 import { TeamGameListContainer } from '@pages/TeamDetailPage/components/TeamGameList/TeamGameList.styles';
 
@@ -11,7 +11,7 @@ interface TeamLatestGameListProps {
 }
 
 export const TeamGameList = ({ teamId }: TeamLatestGameListProps) => {
-    const { isLoading, data } = useGetGameListByTeam(teamId);
+    const { isLoading, data } = useGetLatestGameListByTeam(teamId);
 
     return (
         <TeamGameListContainer>

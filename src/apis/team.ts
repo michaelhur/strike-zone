@@ -22,7 +22,8 @@ export const requestGetTeamList = async (leagueId?: number, divisionId?: number)
 export const requestGetTeam = async (teamId: number): Promise<Team> => {
     const path = DYNAMIC_API_PATH.TEAM_DETAIL(teamId);
     const response = await fetcher({ method: 'get', path });
-    return response!.data;
+    const teamData = response!.data;
+    return teamData[0];
 };
 
 export const requestGetGameListByTeam = async (teamId: number): Promise<Game[]> => {

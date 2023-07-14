@@ -3,15 +3,17 @@ import { BatterPlotValues, PitcherPlotValues } from '@constants/pitch';
 import StrikeZone from '@components/StrikeZone/StrikeZone';
 import { StrikeZoneList } from '@components/StrikeZone/StrikeZone.styles';
 
-import { AtBat } from '@typings/atbat';
+import { AtBat, OutcomeType, PlotTypes } from '@typings/atbat';
 import { PositionType } from '@typings/player';
 
 interface PlayerZoneTypeProps {
     atbats: AtBat[];
     positionType: PositionType;
+    plotType: PlotTypes;
+    outcomeType: OutcomeType;
 }
 
-export const PlayerZoneType = ({ atbats, positionType }: PlayerZoneTypeProps) => {
+export const PlayerZoneType = ({ atbats, positionType, plotType, outcomeType }: PlayerZoneTypeProps) => {
     switch (positionType) {
         case 'Pitcher':
             return (
@@ -21,8 +23,8 @@ export const PlayerZoneType = ({ atbats, positionType }: PlayerZoneTypeProps) =>
                             <StrikeZone
                                 key={index}
                                 atbats={atbats}
-                                outcomeType={'BallsAndStrikes'}
-                                plotType={'zone'}
+                                outcomeType={outcomeType}
+                                plotType={plotType}
                                 radius={24}
                                 {...props}
                             />
@@ -38,8 +40,8 @@ export const PlayerZoneType = ({ atbats, positionType }: PlayerZoneTypeProps) =>
                             <StrikeZone
                                 key={index}
                                 atbats={atbats}
-                                outcomeType={'BallsAndStrikes'}
-                                plotType={'zone'}
+                                outcomeType={outcomeType}
+                                plotType={plotType}
                                 radius={24}
                                 {...props}
                             />

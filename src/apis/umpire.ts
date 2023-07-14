@@ -19,7 +19,7 @@ export const requestGetUmpireList = async (page: number, name?: string): Promise
 export const requestGetUmpire = async (umpireId: number): Promise<Umpire> => {
     const path = DYNAMIC_API_PATH.UMPIRE_DETAIL(umpireId);
     const response = await fetcher({ method: 'get', path });
-    return response!.data;
+    return response!.data[0];
 };
 
 export const requestGetGameListByUmpire = async (umpireId: number): Promise<Game[]> => {
