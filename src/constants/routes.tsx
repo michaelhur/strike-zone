@@ -46,7 +46,7 @@ export const DYNAMIC_API_PATH = {
         return `/game?select=id,slug,date,season,home:homeId(*),away:awayId(*),umpire:umpireId(*),homeScore,awayScore,isFinal,isPostponed,initialDate&date=eq.${fixtureDate}`;
     },
     GAME_DETAIL(slug: string): string {
-        return `game?select=id,slug,date,season,home:homeId(*),away:awayId(*),umpire:umpireId(*),homeScore,awayScore,isFinal,isPostponed,initialDate&slug=eq.${slug}`;
+        return `/game?select=id,slug,date,season,home:homeId(*),away:awayId(*),umpire:umpireId(*),homeScore,awayScore,isFinal,isPostponed,initialDate&slug=eq.${slug}`;
     },
     GAME_LATEST(): string {
         return `/latest_games?select=id,slug,date,season,home:homeId(*),away:awayId(*),umpire:umpireId(*),homeScore,awayScore,isFinal,isPostponed,initialDate&order=slug.desc`;

@@ -73,8 +73,8 @@ export const GameDataSection = ({ slug }: GameDataSectionProps) => {
                     <Loading size={60} />
                 ) : (
                     <>
-                        <h2>{data!.date} Strike Zone</h2>
-                        <UmpireInfo>(Umpire: {data!.umpire!.name})</UmpireInfo>
+                        <h2>{data.date} Strike Zone</h2>
+                        <UmpireInfo>(Umpire: {data.umpire!.name})</UmpireInfo>
                     </>
                 )}
             </TopSectionContainer>
@@ -83,9 +83,9 @@ export const GameDataSection = ({ slug }: GameDataSectionProps) => {
                     <Loading size={60} />
                 ) : (
                     <>
-                        <TeamInfo team={data!.home!} isHome={true} />
-                        <ScoreLine homeScore={data!.homeScore!} awayScore={data!.awayScore!} />
-                        <TeamInfo team={data!.away!} isHome={false} />
+                        <TeamInfo team={data.home!} isHome={true} />
+                        <ScoreLine homeScore={data.homeScore!} awayScore={data.awayScore!} />
+                        <TeamInfo team={data.away!} isHome={false} />
                     </>
                 )}
             </MatchupSectionContainer>

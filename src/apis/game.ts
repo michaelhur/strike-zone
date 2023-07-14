@@ -11,13 +11,13 @@ import { dateString } from '@src/typings';
 export const requestGetGameList = async (fixtureDate: string, searchParams?: string): Promise<Array<Game>> => {
     const basePath = DYNAMIC_API_PATH.GAME_LIST(fixtureDate);
     const path = searchParams ? `${basePath}${convertSearchParamsToPOSTREST(searchParams)}` : basePath;
-    console.log(`path is: ${path}`);
     return await fetcher({ method: 'get', path });
 };
 
 export const requestGetGame = async (slug: string): Promise<Game> => {
     const path = DYNAMIC_API_PATH.GAME_DETAIL(slug);
-    return await fetcher({ method: 'get', path });
+    const data = await fetcher({ method: 'get', path });
+    return data[0];
 };
 
 export const requestGetLatestGameList = async (): Promise<Game[]> => {
