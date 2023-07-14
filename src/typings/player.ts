@@ -2,7 +2,7 @@ import { Team } from '@typings/team';
 
 export type PlayerSide = 'L' | 'R' | 'S';
 
-export type PositionType = 'ALL' | 'Pitcher' | 'Infielder' | 'Outfielder' | 'Hitter' | 'Two-Way Player';
+export type PositionType = 'ALL' | 'Pitcher' | 'Catcher' | 'Infielder' | 'Outfielder' | 'Hitter' | 'Two-Way Player';
 
 export enum PlayerSideEnum {
     'L' = 'Left',
