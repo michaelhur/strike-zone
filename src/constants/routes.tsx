@@ -74,7 +74,7 @@ export const DYNAMIC_API_PATH = {
         return `/atbat?select=id,date,atBatIndex,isTopInning,inning,home:homeId(*),away:awayId(*),batter:batterId(*),pitcher:pitcherId(*),game:gameId!inner(*),umpire:umpireId!inner(*),plays&order=gameId.asc${positionFilter}`;
     },
     TEAM_LIST(): string {
-        return `/team?select=id,name,abbreviation,franchiseName,teamName,imageUrl,league:leagueId(*),division:divisionId(*),venue`;
+        return `/team?select=id,name,abbreviation,franchiseName,teamName,imageUrl,league:leagueId(*),division:divisionId(*),venue&order=franchiseName.asc&id=not.eq.9999`;
     },
     TEAM_DETAIL(id: number): string {
         return `/team?select=id,name,abbreviation,franchiseName,teamName,imageUrl,league:leagueId(*),division:divisionId(*),venue&id=eq.${id}`;
