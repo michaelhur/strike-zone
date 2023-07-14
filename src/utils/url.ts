@@ -22,7 +22,7 @@ export const convertBaseAPIUri = (baseURI: string, id?: number, slug?: string): 
         case `/api/games/${slug}`:
             return `game?select=id,slug,date,season,home:homeId(*),away:awayId(*),umpire:umpireId(*),homeScore,awayScore,isFinal,isPostponed,initialDate&slug=eq.${slug}`;
         case `/api/games/@latest`:
-            return `/latest_games?select=id,slug,date,season,home:homeId(*),away:awayId(*),umpire:umpireId(*),homeScore,awayScore,isFinal,isPostponed,initialDate`;
+            return `/latest_games?select=id,slug,date,season,home:homeId(*),away:awayId(*),umpire:umpireId(*),homeScore,awayScore,isFinal,isPostponed,initialDate&order=slug.desc`;
         case `/api/players`:
             return `/player?order=lastName.asc&select=id,name,lastName,batSide,pitchHand,positionCode,positionType,height,weight,playerNumber,slug,team:teamId(*)`;
         case `/api/players/${slug}`:
@@ -41,6 +41,8 @@ export const convertBaseAPIUri = (baseURI: string, id?: number, slug?: string): 
             return `/team?select=id,name,abbreviation,franchiseName,teamName,imageUrl,league:leagueId(*),division:divisionId(*),venue&id=eq.${id}`;
         case `/api/teams/${id}/games`:
             return `/game?select=id,slug,date,season,home:homeId(*),away:awayId(*),umpire:umpireId(*),homeScore,awayScore,isFinal,isPostponed,initialDate&order=slug.desc&or=(homeId.eq.${id},awayId.eq.${id})`;
+        case `/api/teams/${id}/games/latest`:
+            return `/latest_games?select=id,slug,date,season,home:homeId(*),away:awayId(*),umpire:umpireId(*),homeScore,awayScore,isFinal,isPostponed,initialDate&order=slug.desc&or=(homeId.eq.${id},awayId.eq.${id})&page=1`;
         case `/api/teams/${id}/atbats`:
             return `/atbat?select=id,date,atBatIndex,isTopInning,inning,home:homeId(*),away:awayId(*),batter:batterId(*),pitcher:pitcherId(*),game:gameId!inner(*),umpire:umpireId!inner(*),plays&order=gameId.asc&or=(homeId.eq.${id},awayId.eq.${id})`;
         case `/api/umpires`:
@@ -49,6 +51,8 @@ export const convertBaseAPIUri = (baseURI: string, id?: number, slug?: string): 
             return `/umpire?id=eq.${id}`;
         case `/api/umpires/${id}/games`:
             return `/game?select=id,slug,date,season,home:homeId(*),away:awayId(*),umpire:umpireId(*),homeScore,awayScore,isFinal,isPostponed,initialDate&order=slug.desc&umpireId=eq.${id}`;
+        case `/api/umpires/${id}/games/latest`:
+            return `/latest_games?select=id,slug,date,season,home:homeId(*),away:awayId(*),umpire:umpireId(*),homeScore,awayScore,isFinal,isPostponed,initialDate&order=slug.desc&umpireId=eq.${id}&page=1`;
         case `/api/umpires/${id}/atbats`:
             return `/atbat?select=id,date,atBatIndex,isTopInning,inning,home:homeId(*),away:awayId(*),batter:batterId(*),pitcher:pitcherId(*),game:gameId!inner(*),umpire:umpireId!inner(*),plays&order=gameId.asc&umpireId=eq.${id}`;
         default:
@@ -65,7 +69,8 @@ export const convertSearchParamsToPOSTREST = (uri: string | undefined): string =
     let postrestUri = '';
 
     for (const [key, value] of searchParams.entries()) {
-        postrestUri += `&${key}=eq.${value}`;
+        if (key === 'lastName') postrestUri += `&${key}=like.${value}*`;
+        else postrestUri += `&${key}=eq.${value}`;
     }
 
     return postrestUri;
@@ -73,7 +78,5 @@ export const convertSearchParamsToPOSTREST = (uri: string | undefined): string =
 
 export const convertAPIUriToPOSTREST = (uri: string): string => {
     const [baseURI, searchParams] = uri.split('?');
-    const convertedURI = `${convertBaseAPIUri(baseURI)}${convertSearchParamsToPOSTREST(searchParams)}`;
-
-    return convertedURI;
+    return `${convertBaseAPIUri(baseURI)}${convertSearchParamsToPOSTREST(searchParams)}`;
 };
