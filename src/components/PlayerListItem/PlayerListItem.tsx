@@ -13,8 +13,6 @@ export const PlayerListItem = ({ player, onClickPlayerItem }: PlayerListItemProp
     const { name, batSide, pitchHand, positionCode, slug, team } = player;
     const isMobile = !useResponsive(600);
 
-    console.log(`isMobile: ${isMobile}`);
-
     return (
         <PlayerListItemContainer onClick={() => onClickPlayerItem(slug)}>
             <StyledNameCell>{name}</StyledNameCell>

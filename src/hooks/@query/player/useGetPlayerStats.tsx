@@ -8,7 +8,6 @@ import { requestGetPlayerStats } from '@src/apis/player';
 export const useGetPlayerStats = (slug: string, options?: UseQueryOptions<PlayerStats, AxiosError>) => {
     return useQuery<PlayerStats, AxiosError>(['PLAYER_STAT', { playerSlug: slug }], () => requestGetPlayerStats(slug), {
         ...options,
-        enabled: !!slug,
         onSuccess: () => {
             console.log('useGetPlayerStats succeed');
         },

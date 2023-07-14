@@ -15,7 +15,6 @@ export const useGetGameByPlayerSlug = (
         () => requestGetGameByPlayerSlug(slug, isPitcher),
         {
             ...options,
-            enabled: !!slug && isPitcher,
             onSuccess: () => {
                 console.log('useGetGameByPlayerSlug succeed');
             },

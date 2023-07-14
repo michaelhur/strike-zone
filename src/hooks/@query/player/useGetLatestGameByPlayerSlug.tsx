@@ -7,7 +7,7 @@ import { requestGetLatestGameByPlayerSlug } from '@src/apis/player';
 
 export const useGetLatestGameByPlayerSlug = (
     slug: string,
-    isPitcher: boolean | null,
+    isPitcher: boolean,
     options?: UseQueryOptions<Game[], AxiosError>,
 ) => {
     return useQuery<Game[], AxiosError>(
@@ -15,9 +15,7 @@ export const useGetLatestGameByPlayerSlug = (
         () => requestGetLatestGameByPlayerSlug(slug, isPitcher!),
         {
             ...options,
-            enabled: !!slug && !!isPitcher,
-            onSuccess: (data) => {
-                console.log(`data`, data);
+            onSuccess: () => {
                 console.log('useGetGameByPlayerSlug succeed');
             },
         },

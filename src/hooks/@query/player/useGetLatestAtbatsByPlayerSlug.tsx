@@ -15,7 +15,6 @@ export const useGetLatestAtbatsByPlayerSlug = (
         () => requestGetLatestAtbatsByPlayerSlug(slug, isPitcher),
         {
             ...options,
-            enabled: !!slug && isPitcher,
             onSuccess: () => {
                 console.log('useGetLatestAtbatsByPlayerSlug succeed');
             },

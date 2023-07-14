@@ -6,7 +6,6 @@ export const extractPlayerStats = (data: AnyOBJ) => {
     const stats = person.stats;
 
     const pitchingData = stats.find((stat) => stat.group.displayName === 'pitching');
-    console.log(pitchingData);
     const pitchingSplits = pitchingData.splits[0];
     const pitchingStats = pitchingSplits.stat;
     const {

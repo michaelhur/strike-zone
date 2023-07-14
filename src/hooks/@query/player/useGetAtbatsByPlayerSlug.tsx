@@ -15,7 +15,6 @@ export const useGetAtbatsByPlayerSlug = (
         () => requestGetAtbatsByPlayerSlug(slug, isPitcher),
         {
             ...options,
-            enabled: !!slug && isPitcher,
             onSuccess: () => {
                 console.log('useGetAtbatsByPlayerSlug succeed');
             },

@@ -14,14 +14,10 @@ interface PlayerGameListProps {
 }
 
 export const PlayerGameList = ({ slug }: PlayerGameListProps) => {
-    const [isPitcher, setIsPitcher] = useState<boolean | null>(null);
-
     const { isLoading: isLoadingPlayer, data: player } = useGetPlayer(slug!);
-    const { isLoading: isLoadingGames, data: games } = useGetLatestGameByPlayerSlug(slug!, isPitcher);
+    const isPitcher = player?.positionType === 'Pitcher';
 
-    useEffect(() => {
-        if (!isLoadingPlayer && player) setIsPitcher(player.positionType === 'Pitcher');
-    }, [isLoadingPlayer, player]);
+    const { isLoading: isLoadingGames, data: games } = useGetLatestGameByPlayerSlug(slug!, isPitcher);
 
     return (
         <PlayerGameListContainer>
