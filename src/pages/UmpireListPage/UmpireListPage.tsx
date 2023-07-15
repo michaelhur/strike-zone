@@ -4,6 +4,7 @@ import { SectionTitleWrapper } from '@components/Layout/Layout.styles';
 
 import { UmpireListPageContainer } from '@pages/UmpireListPage/UmpireListPage.styles';
 import { UmpireList } from '@pages/UmpireListPage/components/UmpireList/UmpireList';
+import { UmpireListMeta } from '@pages/UmpireListPage/components/UmpireListMeta/UmpireListMeta';
 
 import { sidebarCollapseState } from '@recoils/sidebar/atom';
 
@@ -12,6 +13,7 @@ const UmpireListPage = () => {
 
     return (
         <UmpireListPageContainer isSidebarOpen={isSidebarOpen}>
+            <UmpireListMeta />
             <SectionTitleWrapper>
                 <h2>Umpire</h2>
             </SectionTitleWrapper>

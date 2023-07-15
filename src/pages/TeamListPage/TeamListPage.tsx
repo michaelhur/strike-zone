@@ -12,6 +12,7 @@ import { useGetTeamList } from '@hooks/@query/team/useGetTeamList';
 
 import { TeamListPageContainer } from '@pages/TeamListPage/TeamListPage.styles';
 import { TeamList } from '@pages/TeamListPage/components/TeamList/TeamList';
+import { TeamListMeta } from '@pages/TeamListPage/components/TeamListMeta/TeamListMeta';
 
 import { sidebarCollapseState } from '@recoils/sidebar/atom';
 
@@ -46,6 +47,7 @@ const TeamListPage = () => {
 
     return (
         <TeamListPageContainer isSidebarOpen={isSidebarOpen}>
+            <TeamListMeta />
             <CategoryMenu<LeagueType, unknown>
                 selectedCategory={leagueId}
                 setSelectedCategory={onSelectLeagueId}

@@ -7,6 +7,7 @@ import {
     TeamDetailPageContainer,
     TeamStrikeZoneSection,
 } from '@pages/TeamDetailPage/TeamDetailPage.styles';
+import { TeamDetailHelmet } from '@pages/TeamDetailPage/components/TeamDetailHelmet/TeamDetailHelmet';
 import { TeamGameList } from '@pages/TeamDetailPage/components/TeamGameList/TeamGameList';
 import { TeamProfile } from '@pages/TeamDetailPage/components/TeamProfile/TeamProfile';
 import { TeamRoster } from '@pages/TeamDetailPage/components/TeamRoster/TeamRoster';
@@ -21,6 +22,7 @@ const TeamDetailPage = () => {
 
     return (
         <TeamDetailPageContainer isSidebarOpen={isSidebarOpen}>
+            <TeamDetailHelmet teamId={teamId} />
             <TeamProfile teamId={teamId} />
             <MidSection>
                 <TeamGameList teamId={teamId} />

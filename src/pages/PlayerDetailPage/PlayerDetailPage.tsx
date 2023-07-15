@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 
 import { LeftSection, PlayerDetailPageContainer, RightSection } from '@pages/PlayerDetailPage/PlayerDetailPage.styles';
+import { PlayerDetailMeta } from '@pages/PlayerDetailPage/components/PlayerDetailMeta/PlayerDetailMeta';
 import { PlayerGameList } from '@pages/PlayerDetailPage/components/PlayerGameList/PlayerGameList';
 import { PlayerProfileCard } from '@pages/PlayerDetailPage/components/PlayerProfileCard/PlayerProfileCard';
 import PlayerStrikeZone from '@pages/PlayerDetailPage/components/PlayerStrikeZone/PlayerStrikeZone';
@@ -16,6 +17,7 @@ const PlayerDetailPage = () => {
 
     return (
         <PlayerDetailPageContainer isSidebarOpen={isSidebarOpen}>
+            <PlayerDetailMeta slug={slug!} />
             <LeftSection>
                 <PlayerProfileCard slug={slug!} />
                 <PlayerGameList slug={slug!} />

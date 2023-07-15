@@ -1,6 +1,7 @@
+import { Helmet } from 'react-helmet-async';
 import { useNavigate, useParams } from 'react-router-dom';
 
-import { DYNAMIC_PATH } from '@constants/routes';
+import { DYNAMIC_PATH, PATH } from '@constants/routes';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 
 import { GameListSection } from '@components/GameListSection/GameListSection';
@@ -9,12 +10,13 @@ import { SingleCalendarSection } from '@components/SingleCalendarSection/SingleC
 
 import { useResponsive } from '@hooks/common/useResponsive';
 
+import { FixtureMeta } from '@pages/FixtureByDatePage/components/FixtureMeta/FixtureMeta';
 import { FixturePageContainer } from '@pages/FixturePage/FixturePage.styles';
 
 import { latestGameDateState, popupCalendarState } from '@recoils/fixture/atom';
 import { sidebarCollapseState } from '@recoils/sidebar/atom';
 
-import { YYYYMMDD_to_date, date_to_YYYYMMDD } from '@utils/date';
+import { YYYYMMDD_to_date, YYYYMMDD_to_locale, date_to_YYYYMMDD } from '@utils/date';
 
 const FixtureByDatePage = () => {
     const { date: fixtureDate } = useParams();
@@ -23,6 +25,7 @@ const FixtureByDatePage = () => {
     const isSidebarOpen = useRecoilValue(sidebarCollapseState);
     const setIsPopupOpen = useSetRecoilState(popupCalendarState);
 
+    const gameDateStr_locale = YYYYMMDD_to_locale(fixtureDate);
     const isTablet = useResponsive(768);
     const isDesktop = useResponsive(1200);
 
@@ -40,6 +43,7 @@ const FixtureByDatePage = () => {
 
     return (
         <FixturePageContainer isSidebarOpen={isSidebarOpen}>
+            <FixtureMeta dateStr={gameDateStr_locale} />
             {isTablet ? (
                 <SingleCalendarSection
                     fixtureDate={YYYYMMDD_to_date(fixtureDate!)}
