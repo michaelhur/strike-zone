@@ -12,6 +12,7 @@ import { PlayerList } from '@components/PlayerList/PlayerList';
 import { useGetPlayerList } from '@hooks/@query/player/useGetPlayerList';
 
 import { PlayerListContainer } from '@pages/PlayerListPage/PlayerListPage.styles';
+import { PlayerListMeta } from '@pages/PlayerListPage/components/PlayerListMeta/PlayerListMeta';
 
 import { sidebarCollapseState } from '@recoils/sidebar/atom';
 
@@ -76,6 +77,7 @@ const PlayerListPage = () => {
 
     return (
         <PlayerListContainer isSidebarOpen={isSidebarOpen}>
+            <PlayerListMeta positionType={positionTypeFilter} />
             <CategoryMenu<PositionType, any>
                 selectedCategory={positionTypeFilter}
                 setSelectedCategory={onClickPositionTab}

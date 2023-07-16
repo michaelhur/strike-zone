@@ -4,6 +4,16 @@ export type PlayerSide = 'L' | 'R' | 'S';
 
 export type PositionType = 'ALL' | 'Pitcher' | 'Catcher' | 'Infielder' | 'Outfielder' | 'Hitter' | 'Two-Way Player';
 
+export enum PositionTypeEnum {
+    ALL = '전체',
+    Pitcher = '투수',
+    Catcher = '포수',
+    Infielder = '내야수',
+    Outfielder = '외야수',
+    Hitter = '지명타자',
+    'Two-Way Player' = '오타니',
+}
+
 export enum PlayerSideEnum {
     'L' = 'Left',
     'R' = 'Right',

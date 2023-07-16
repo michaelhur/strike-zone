@@ -64,3 +64,11 @@ export const YYYYMMDD_to_locale = (dateStr: string | undefined): string => {
     const [year, month, day] = dateStr.split('-');
     return `${year}년 ${month}월 ${day}일`;
 };
+
+export const YYMMDD_to_locale = (dateStr: string | undefined): string => {
+    if (!dateStr) return '';
+    const year = Number(dateStr.slice(0, 2));
+    const month = Number(dateStr.slice(2, 4));
+    const day = Number(dateStr.slice(4, 6));
+    return `20${year}년 ${month}월 ${day}일`;
+};

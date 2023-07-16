@@ -1,4 +1,7 @@
+import { Helmet } from 'react-helmet-async';
+
 import { gameTapOptions } from '@constants/pitch';
+import { PATH } from '@constants/routes';
 import { useRecoilState } from 'recoil';
 
 import { CategoryMenu } from '@components/CategoryMenu/CategoryMenu';
