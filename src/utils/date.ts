@@ -61,7 +61,7 @@ export const YYYYMMDD_to_date = (str: string): Date => {
 
 export const YYYYMMDD_to_locale = (dateStr: string | undefined): string => {
     if (!dateStr) return '';
-    const [year, month, day] = dateStr.split('-');
+    const [year, month, day] = dateStr.split('-').map((item) => Number(item));
     return `${year}년 ${month}월 ${day}일`;
 };
 

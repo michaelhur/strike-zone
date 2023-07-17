@@ -21,7 +21,7 @@ const ListViewScoreSection = ({
     homeScore: number | null;
     awayScore: number | null;
 }) => {
-    const gameStatus = isFinal ? 'Final' : 'Postponed';
+    const gameStatus = isFinal ? '종료' : '우천취소';
 
     return (
         <ListViewScoreSectionContainer>

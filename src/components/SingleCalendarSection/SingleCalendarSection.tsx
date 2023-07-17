@@ -1,3 +1,5 @@
+import { ko } from 'date-fns/locale';
+
 import { Button } from '@components/@shared/Button/Button';
 import { Calendar } from '@components/@shared/Calendar/Calendar';
 import { SingleCalendarSectionContainer } from '@components/SingleCalendarSection/SingleCalendarSection.styles';
@@ -16,6 +18,7 @@ export const SingleCalendarSection = ({ fixtureDate, onChangeFixtureDate, onClic
                 defaultMonth={fixtureDate}
                 selected={fixtureDate}
                 onSelect={onChangeFixtureDate}
+                locale={ko}
                 footer={
                     <Button size={'Medium'} buttonTheme={'fill'} buttonType={'button'} onClickHandler={onClickButton}>
                         최신 경기 보기

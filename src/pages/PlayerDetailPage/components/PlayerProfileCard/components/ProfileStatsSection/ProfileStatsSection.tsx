@@ -26,18 +26,18 @@ const StatsItem = ({ label, value }: { label: string; value: number | string }) 
 };
 
 const PitchingStatsSection = ({ pitchingStats }: { pitchingStats: PitchingStats }) => {
-    const { baseOnBalls, balls, era, gamesPlayed, inningsPitched, losses, strikes, strikeOuts, wins } = pitchingStats;
+    const { baseOnBalls, era, gamesPlayed, inningsPitched, losses, strikeOuts, wins } = pitchingStats;
     return (
         <>
             <StatsRow>
-                <StatsItem label="Games" value={gamesPlayed} />
-                <StatsItem label="W-L" value={`${wins}-${losses}`} />
-                <StatsItem label="Innings" value={inningsPitched} />
+                <StatsItem label="경기" value={gamesPlayed} />
+                <StatsItem label="승-패" value={`${wins}-${losses}`} />
+                <StatsItem label="이닝" value={inningsPitched} />
             </StatsRow>
             <StatsRow>
-                <StatsItem label="SO" value={strikeOuts} />
-                <StatsItem label="BB" value={baseOnBalls} />
-                <StatsItem label="ERA" value={era} />
+                <StatsItem label="삼진" value={strikeOuts} />
+                <StatsItem label="볼넷" value={baseOnBalls} />
+                <StatsItem label="평균자책점" value={era} />
             </StatsRow>
         </>
     );
@@ -48,14 +48,14 @@ const BattingStatsSection = ({ battingStats }: { battingStats: BattingStats }) =
     return (
         <>
             <StatsRow>
-                <StatsItem label="Games" value={gamesPlayed} />
-                <StatsItem label="Avg" value={avg} />
-                <StatsItem label="Hits" value={hits} />
+                <StatsItem label="경기" value={gamesPlayed} />
+                <StatsItem label="타율" value={avg} />
+                <StatsItem label="안타" value={hits} />
             </StatsRow>
             <StatsRow>
-                <StatsItem label="SO" value={strikeOuts} />
-                <StatsItem label="BB" value={baseOnBalls} />
-                <StatsItem label="HR" value={homeRuns} />
+                <StatsItem label="삼진" value={strikeOuts} />
+                <StatsItem label="볼넷" value={baseOnBalls} />
+                <StatsItem label="홈런" value={homeRuns} />
             </StatsRow>
         </>
     );
@@ -68,7 +68,7 @@ export const ProfileStatsSection = ({ slug }: ProfileStatsSectionProps) => {
     return (
         <ProfileStatsSectionContainer>
             <StatsSectionTitleWrap>
-                <h4>2023 Season</h4>
+                <h4>2023 시즌</h4>
             </StatsSectionTitleWrap>
             <StatsSectionDetailWrap>
                 {isLoading ? (

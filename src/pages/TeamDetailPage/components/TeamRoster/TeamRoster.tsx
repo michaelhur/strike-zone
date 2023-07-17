@@ -25,20 +25,20 @@ export const TeamRoster = ({ teamId }: TeamRosterProps) => {
 
     return (
         <TeamRosterContainer>
-            <SectionTitle>Roster</SectionTitle>
+            <SectionTitle>팀 로스터</SectionTitle>
             {isLoading || !data ? (
                 <Loading size={60} />
             ) : (
                 <>
-                    <PlayerList players={pitchers} onClickItem={onClickPlayerItem} listTitle={'Pitcher'} />
-                    <PlayerList players={catchers} onClickItem={onClickPlayerItem} listTitle={'Catcher'} />
-                    <PlayerList players={infielders} onClickItem={onClickPlayerItem} listTitle={'Infielder'} />
-                    <PlayerList players={outfielders} onClickItem={onClickPlayerItem} listTitle={'Outfielder'} />
+                    <PlayerList players={pitchers} onClickItem={onClickPlayerItem} listTitle={'투수'} />
+                    <PlayerList players={catchers} onClickItem={onClickPlayerItem} listTitle={'포수'} />
+                    <PlayerList players={infielders} onClickItem={onClickPlayerItem} listTitle={'내야수'} />
+                    <PlayerList players={outfielders} onClickItem={onClickPlayerItem} listTitle={'외야수'} />
                     {hitters.length > 0 && (
-                        <PlayerList players={hitters} onClickItem={onClickPlayerItem} listTitle={'DH'} />
+                        <PlayerList players={hitters} onClickItem={onClickPlayerItem} listTitle={'지명타자'} />
                     )}
                     {twp.length > 0 && (
-                        <PlayerList players={twp} onClickItem={onClickPlayerItem} listTitle={'Two Way Player'} />
+                        <PlayerList players={twp} onClickItem={onClickPlayerItem} listTitle={'이도류'} />
                     )}
                 </>
             )}

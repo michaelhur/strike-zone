@@ -1,6 +1,4 @@
-import { useEffect, useState } from 'react';
-
-import { SectionTitle } from '@components/Layout/Layout.styles';
+import { SectionTitleWrapper } from '@components/Layout/Layout.styles';
 import { Loading } from '@components/Loading/Loading';
 
 import { useGetAtbatsByPlayerSlug } from '@hooks/@query/player/useGetAtbatsByPlayerSlug';
@@ -29,13 +27,15 @@ const PlayerStrikeZone = ({ slug, latest }: PlayerStrikeZoneProps) => {
               enabled: !!positionType,
           });
 
-    const sectionTitle = latest ? 'Latest Games' : 'All Games';
+    const sectionTitle = latest ? '최근 5경기' : '시즌 전체';
     const plotType: PlotTypes = latest ? 'zone' : 'heatmap';
     const outcomeType: OutcomeType = latest ? 'BallsAndStrikes' : 'CalledStrike';
 
     return (
         <PlayerStrikeZoneContainer>
-            <SectionTitle>{sectionTitle}</SectionTitle>
+            <SectionTitleWrapper>
+                <h2>{sectionTitle}</h2>
+            </SectionTitleWrapper>
             {isLoadingAtbats || !atbats ? (
                 <Loading size={60} />
             ) : (

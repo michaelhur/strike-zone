@@ -19,7 +19,7 @@ const InningPlot = ({ atbats, inning }: InningPlotProps) => {
                     <StrikeZone
                         atbats={atbats}
                         plotType={'zone'}
-                        zoneLabel={'홈 투구 - 스트라이크'}
+                        zoneLabel={'홈 투구: 스트라이크'}
                         radius={24}
                         outcomeType={'CalledStrike'}
                         sideType={'Home'}
@@ -28,7 +28,7 @@ const InningPlot = ({ atbats, inning }: InningPlotProps) => {
                     <StrikeZone
                         atbats={atbats}
                         plotType={'zone'}
-                        zoneLabel={'원 투구 - 스트라이크'}
+                        zoneLabel={'원정 투구: 스트라이크'}
                         radius={24}
                         outcomeType={'CalledStrike'}
                         sideType={'Away'}
@@ -39,7 +39,7 @@ const InningPlot = ({ atbats, inning }: InningPlotProps) => {
                     <StrikeZone
                         atbats={atbats}
                         plotType={'zone'}
-                        zoneLabel={'홈 투구 - 볼'}
+                        zoneLabel={'홈 투구: 볼'}
                         radius={24}
                         outcomeType={'Ball'}
                         sideType={'Home'}
@@ -48,7 +48,7 @@ const InningPlot = ({ atbats, inning }: InningPlotProps) => {
                     <StrikeZone
                         atbats={atbats}
                         plotType={'zone'}
-                        zoneLabel={'원 투구 - 볼'}
+                        zoneLabel={'원정 투구: 볼'}
                         radius={24}
                         outcomeType={'Ball'}
                         sideType={'Away'}

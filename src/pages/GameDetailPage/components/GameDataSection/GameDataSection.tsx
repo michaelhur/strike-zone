@@ -27,6 +27,8 @@ import { zoneViewTypeState } from '@recoils/game/atom';
 import { ZoneViewType } from '@typings/game';
 import { Team } from '@typings/team';
 
+import { YYYYMMDD_to_locale } from '@utils/date';
+
 interface GameDataSectionProps {
     slug: string;
 }
@@ -49,7 +51,7 @@ const TeamInfo = ({ team, isHome }: TeamInfoProps) => {
             </TeamImageWrapper>
             <TeamDetailWrapper>
                 <TeamName>{team!.name}</TeamName>
-                <HomeAway>{isHome ? 'Home' : 'Away'}</HomeAway>
+                <HomeAway>{isHome ? '홈' : '원정'}</HomeAway>
             </TeamDetailWrapper>
         </TeamInformation>
     );
@@ -76,8 +78,8 @@ export const GameDataSection = ({ slug }: GameDataSectionProps) => {
                     <Loading size={60} />
                 ) : (
                     <>
-                        <h2>{data.date} Strike Zone</h2>
-                        <UmpireInfo>(Umpire: {data.umpire!.name})</UmpireInfo>
+                        <h2>{YYYYMMDD_to_locale(data!.date)} 스트라이크 존</h2>
+                        <UmpireInfo>(주심: {data.umpire!.name})</UmpireInfo>
                     </>
                 )}
             </TopSectionContainer>

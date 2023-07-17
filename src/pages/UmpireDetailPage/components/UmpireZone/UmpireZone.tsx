@@ -16,7 +16,7 @@ interface UmpireZoneProps {
 
 export const UmpireZone = ({ id, latest }: UmpireZoneProps) => {
     const { isLoading, data } = latest ? useGetLatestAtbatListByUmpire(id) : useGetAtbatListByUmpire(id);
-    const sectionTitle = latest ? 'Latest Games' : 'Season';
+    const sectionTitle = latest ? '최근 5경기' : '시즌 전체';
 
     return (
         <UmpireZoneContainer>

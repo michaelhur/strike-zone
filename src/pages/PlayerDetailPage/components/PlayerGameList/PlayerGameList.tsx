@@ -1,5 +1,3 @@
-import { useEffect, useState } from 'react';
-
 import { GameList } from '@components/GameListSection/components/GameList/GameList';
 import { SectionTitleWrapper } from '@components/Layout/Layout.styles';
 import { Loading } from '@components/Loading/Loading';
@@ -24,7 +22,7 @@ export const PlayerGameList = ({ slug }: PlayerGameListProps) => {
     return (
         <PlayerGameListContainer>
             <SectionTitleWrapper>
-                <h3>최근 5경기</h3>
+                <h2>최근 5경기</h2>
             </SectionTitleWrapper>
             {isLoadingPlayer || isLoadingGames || !games ? (
                 <Loading size={60} />

@@ -76,44 +76,44 @@ export const SidePlotValues: SidePlotValueProps[] = [
     {
         pitchHand: 'L',
         batSide: 'L',
-        zoneLabel: 'LHP vs LHB',
+        zoneLabel: '좌완 vs 좌타',
     },
     {
         pitchHand: 'L',
         batSide: 'R',
-        zoneLabel: 'LHP vs RHB',
+        zoneLabel: '좌완 vs 우타',
     },
     {
         pitchHand: 'R',
         batSide: 'L',
-        zoneLabel: 'RHP vs LHB',
+        zoneLabel: '우완 vs 좌타',
     },
     {
         pitchHand: 'R',
         batSide: 'R',
-        zoneLabel: 'RHP vs RHB',
+        zoneLabel: '우완 vs 우타',
     },
 ];
 
 export const PitcherPlotValues: PitcherPlotValueProps[] = [
     {
         batSide: 'L',
-        zoneLabel: 'vs LHB',
+        zoneLabel: 'vs 좌타',
     },
     {
         batSide: 'R',
-        zoneLabel: 'vs RHB',
+        zoneLabel: 'vs 우타',
     },
 ];
 
 export const BatterPlotValues: BatterPlotValueProps[] = [
     {
         pitchHand: 'L',
-        zoneLabel: 'vs LHP',
+        zoneLabel: 'vs 좌완',
     },
     {
         pitchHand: 'R',
-        zoneLabel: 'vs RHP',
+        zoneLabel: 'vs 우완',
     },
 ];
 

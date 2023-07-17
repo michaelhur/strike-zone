@@ -1,4 +1,5 @@
 import { GameList } from '@components/GameListSection/components/GameList/GameList';
+import { SectionTitle } from '@components/Layout/Layout.styles';
 import { Loading } from '@components/Loading/Loading';
 
 import { useGetLatestGameListByUmpire } from '@hooks/@query/umpire/useGetLatestGameListByUmpire';
@@ -14,6 +15,7 @@ export const UmpireGameList = ({ id }: UmpireGameListProps) => {
 
     return (
         <UmpireGameListContainer>
+            <SectionTitle>최근 5경기</SectionTitle>
             {isLoading || !games ? (
                 <Loading size={60} />
             ) : (

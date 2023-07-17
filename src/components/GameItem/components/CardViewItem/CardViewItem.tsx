@@ -15,17 +15,20 @@ import {
 
 import { Team } from '@typings/team';
 
+import { YYYYMMDD_to_locale } from '@utils/date';
+
 const CardViewTeamSection = ({ team, homeOrAway }: { team: Team; homeOrAway: 'Home' | 'Away' }) => {
     const { franchiseName, teamName, abbreviation, imageUrl } = team;
+    const side = homeOrAway === 'Home' ? '홈' : '원정';
 
     return (
         <CardViewTeamSectionContainer>
             <CardViewTeamImage>
-                <img src={imageUrl} alt={abbreviation} loading="lazy" />
+                <img src={imageUrl} alt={abbreviation} />
             </CardViewTeamImage>
             <CardViewTeamName>{franchiseName}</CardViewTeamName>
             <CardViewTeamName>{teamName}</CardViewTeamName>
-            <CardViewHomeOrAway>{homeOrAway}</CardViewHomeOrAway>
+            <CardViewHomeOrAway>{side}</CardViewHomeOrAway>
         </CardViewTeamSectionContainer>
     );
 };
@@ -39,7 +42,7 @@ const CardViewScoreSection = ({
     homeScore: number | null;
     awayScore: number | null;
 }) => {
-    const gameStatus = isFinal ? 'Final' : 'Postponed';
+    const gameStatus = isFinal ? '종료' : '우천취소';
 
     return (
         <CardViewScoreSectionContainer>
@@ -57,12 +60,13 @@ const CardViewScoreSection = ({
 
 export const CardViewItem = ({ game, onClickItem, cardCount }: ViewItemProps) => {
     const { id, date, home, away, isFinal, homeScore, awayScore } = game;
+    const dateStr = YYYYMMDD_to_locale(date);
 
     return (
         <CardViewContainer key={id} onClick={onClickItem} cardCount={cardCount}>
             <CardViewTopSection>
                 <h3>{home!.venue}</h3>
-                <span>{date}</span>
+                <span>{dateStr}</span>
             </CardViewTopSection>
             <CardViewMatchupSection>
                 <CardViewTeamSection team={home!} homeOrAway={'Home'} />

@@ -10,6 +10,8 @@ import { HomeMeta } from '@pages/HomePage/components/HomeMeta/HomeMeta';
 
 import { sidebarCollapseState } from '@recoils/sidebar/atom';
 
+import { YYYYMMDD_to_locale } from '@utils/date';
+
 const HomePage = () => {
     const isSidebarOpen = useRecoilValue(sidebarCollapseState);
     const { isLoading, data: dateObject } = useGetLatestGameDate();
@@ -22,7 +24,7 @@ const HomePage = () => {
             ) : (
                 <GameListSection
                     fixtureDate={dateObject!.date}
-                    sectionLabel={`최신 경기 (${dateObject!.date} 경기)`}
+                    sectionLabel={`최신 경기 (${YYYYMMDD_to_locale(dateObject!.date)})`}
                     cardCount={3}
                 />
             )}
