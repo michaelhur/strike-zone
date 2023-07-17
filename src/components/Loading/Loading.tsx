@@ -10,7 +10,7 @@ export interface LoadingProps {
 
 export const Loading = ({ size = '60' }: LoadingProps) => {
     return (
-        <FlexRowContainer css={css({ justifyContent: 'center', alignItems: 'center', width: '100%' })}>
+        <FlexRowContainer css={css({ justifyContent: 'center', alignItems: 'center', height: '100%', width: '100%' })}>
             <ThreeCircles
                 height={size}
                 width={size}

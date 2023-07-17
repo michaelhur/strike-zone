@@ -27,13 +27,13 @@ export const PlayerList = ({ players, onClickItem, listTitle }: PlayerListProps)
             <PlayerListTable>
                 <PlayerListHeader>
                     <tr>
-                        <StyledNameHeaderCell>Name</StyledNameHeaderCell>
-                        <StyledHeaderCell>Team</StyledHeaderCell>
-                        <StyledHeaderCell>Position</StyledHeaderCell>
+                        <StyledNameHeaderCell>이름</StyledNameHeaderCell>
+                        <StyledHeaderCell>팀</StyledHeaderCell>
+                        <StyledHeaderCell>포지션</StyledHeaderCell>
                         {!isMobile && (
                             <>
-                                <StyledHeaderCell>Batting Side</StyledHeaderCell>
-                                <StyledHeaderCell>Pitching Hand</StyledHeaderCell>
+                                <StyledHeaderCell>타격 방향</StyledHeaderCell>
+                                <StyledHeaderCell>투구 방향</StyledHeaderCell>
                             </>
                         )}
                     </tr>

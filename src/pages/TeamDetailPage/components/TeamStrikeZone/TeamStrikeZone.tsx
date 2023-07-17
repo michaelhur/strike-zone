@@ -1,4 +1,4 @@
-import { SectionTitle } from '@components/Layout/Layout.styles';
+import { SectionTitle, SectionTitleWrapper } from '@components/Layout/Layout.styles';
 import { Loading } from '@components/Loading/Loading';
 import StrikeZone from '@components/StrikeZone/StrikeZone';
 import { StrikeZoneList, StrikeZoneRow } from '@components/StrikeZone/StrikeZone.styles';
@@ -10,7 +10,6 @@ import { useAtbatBySide } from '@hooks/pitch/useAtbatBySide';
 import { TeamStrikeZoneContainer } from '@pages/TeamDetailPage/components/TeamStrikeZone/TeamStrikeZone.styles';
 
 import { OutcomeType, PlotTypes } from '@typings/atbat';
-import { ZoneViewType } from '@typings/game';
 
 interface TeamStrikeZoneProps {
     teamId: number;
@@ -22,7 +21,7 @@ export const TeamStrikeZone = ({ teamId, latest }: TeamStrikeZoneProps) => {
     const [pitchingData, battingData] = isLoading || !data ? [[], []] : useAtbatBySide(data, teamId);
     const plotType: PlotTypes = latest ? 'zone' : 'heatmap';
     const outcomeType: OutcomeType = latest ? 'BallsAndStrikes' : 'CalledStrike';
-    const sectionTitle = latest ? 'Latest Games' : 'Season';
+    const sectionTitle = latest ? '최근 5경기' : '시즌 전체';
 
     return (
         <TeamStrikeZoneContainer>
@@ -36,7 +35,7 @@ export const TeamStrikeZone = ({ teamId, latest }: TeamStrikeZoneProps) => {
                             <StrikeZone
                                 atbats={pitchingData!}
                                 plotType={plotType}
-                                zoneLabel={'Pitching (LHP)'}
+                                zoneLabel={'투구 (좌완)'}
                                 radius={24}
                                 outcomeType={outcomeType}
                                 pitchHand={'L'}
@@ -44,7 +43,7 @@ export const TeamStrikeZone = ({ teamId, latest }: TeamStrikeZoneProps) => {
                             <StrikeZone
                                 atbats={pitchingData!}
                                 plotType={plotType}
-                                zoneLabel={'Pitching (RHP)'}
+                                zoneLabel={'투구 (우완)'}
                                 radius={24}
                                 outcomeType={outcomeType}
                                 pitchHand={'R'}
@@ -54,7 +53,7 @@ export const TeamStrikeZone = ({ teamId, latest }: TeamStrikeZoneProps) => {
                             <StrikeZone
                                 atbats={battingData!}
                                 plotType={plotType}
-                                zoneLabel={'Batting (LHB)'}
+                                zoneLabel={'타격 (좌타)'}
                                 radius={24}
                                 outcomeType={outcomeType}
                                 batSide={'L'}
@@ -62,7 +61,7 @@ export const TeamStrikeZone = ({ teamId, latest }: TeamStrikeZoneProps) => {
                             <StrikeZone
                                 atbats={battingData!}
                                 plotType={plotType}
-                                zoneLabel={'Batting (RHB)'}
+                                zoneLabel={'타격 (우타)'}
                                 radius={24}
                                 outcomeType={outcomeType}
                                 batSide={'R'}

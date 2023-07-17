@@ -3,31 +3,31 @@ import { PositionType } from '@typings/player';
 
 export const positionTypeTabOptions: TabOptions<PositionType>[] = [
     {
-        label: 'ALL',
+        label: '전체',
         value: 'ALL',
     },
     {
-        label: 'Pitcher',
+        label: '투수',
         value: 'Pitcher',
     },
     {
-        label: 'Catcher',
+        label: '포수',
         value: 'Catcher',
     },
     {
-        label: 'Infielder',
+        label: '내야수',
         value: 'Infielder',
     },
     {
-        label: 'Outfielder',
+        label: '외야수',
         value: 'Outfielder',
     },
     {
-        label: 'DH',
+        label: '지명타자',
         value: 'Hitter',
     },
     {
-        label: 'TWP',
+        label: '오타니',
         value: 'Two-Way Player',
     },
 ];

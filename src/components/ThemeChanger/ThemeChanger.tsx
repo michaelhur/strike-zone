@@ -27,8 +27,8 @@ export const ThemeChanger = () => {
                 <RadioButton
                     selected={selected}
                     onClickRadioButton={onClickThemeChanger}
-                    leftButtonLabel={'Light'}
-                    rightButtonLabel={'Dark'}
+                    leftButtonLabel={'라이트'}
+                    rightButtonLabel={'다크'}
                     leftIconComponent={<LightIcon color={!selected ? 'var(--grey900)' : 'var(--grey500)'} />}
                     rightIconComponent={<DarkIcon color={selected ? 'var(--grey900)' : 'var(--grey500)'} />}
                 />

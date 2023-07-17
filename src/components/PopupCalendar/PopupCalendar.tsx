@@ -1,3 +1,4 @@
+import { ko } from 'date-fns/locale';
 import { useRecoilState } from 'recoil';
 
 import { Button } from '@components/@shared/Button/Button';
@@ -29,6 +30,7 @@ export const PopupCalendar = ({ fixtureDate, onChangeFixtureDate, onClickButton 
                     defaultMonth={fixtureDate}
                     selected={fixtureDate}
                     onSelect={onChangeFixtureDate}
+                    locale={ko}
                     footer={
                         <Button
                             size={'Medium'}

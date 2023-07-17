@@ -15,34 +15,34 @@ export enum PositionTypeEnum {
 }
 
 export enum PlayerSideEnum {
-    'L' = 'Left',
-    'R' = 'Right',
-    'S' = 'Switch',
+    'L' = '좌',
+    'R' = '우',
+    'S' = '스위치',
 }
 
 export enum PitchHandEnum {
-    'L' = 'LHP',
-    'R' = 'RHP',
+    'L' = '좌완',
+    'R' = '우완',
 }
 
 export enum BatSideEnum {
-    'L' = 'LHB',
-    'R' = 'RHB',
-    'S' = 'Switch Hitter',
+    'L' = '좌타',
+    'R' = '우타',
+    'S' = '스위치',
 }
 
 export enum PositionEnum {
-    'P' = 'Pitcher',
-    'C' = 'Catcher',
-    '1B' = 'First Baseman',
-    '2B' = 'Second Baseman',
-    '3B' = 'Third Baseman',
-    'SS' = 'Shortstop',
-    'LF' = 'Left Fielder',
-    'CF' = 'Center Fielder',
-    'RF' = 'Right Fielder',
-    'DH' = 'Designated Hitter',
-    'Y' = 'Two-Way Player',
+    'P' = '투수',
+    'C' = '포수',
+    '1B' = '1루수',
+    '2B' = '2루수',
+    '3B' = '3루수',
+    'SS' = '유격수',
+    'LF' = '좌익수',
+    'CF' = '중견수',
+    'RF' = '우익수',
+    'DH' = '지명타자',
+    'Y' = '이도류',
 }
 
 export interface Player {

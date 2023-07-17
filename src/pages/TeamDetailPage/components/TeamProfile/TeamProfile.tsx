@@ -5,6 +5,7 @@ import { useGetTeamStandings } from '@hooks/@query/team/useGetTeamStandings';
 
 import {
     DetailSection,
+    Divider,
     LogoSection,
     ProfileContainer,
     StandingSection,
@@ -37,12 +38,12 @@ export const TeamProfile = ({ teamId }: TeamProfileProps) => {
                     <TeamName>{team.name}</TeamName>
                     <StandingSection>
                         <span>
-                            W-L: {standings[0].wins}-{standings[0].losses}
+                            {standings[0].wins}승 {standings[0].losses}패
                         </span>
-                        <span>|</span>
-                        <span>
-                            #{standings[0].divisionRank} in {team.division!.shortName}
-                        </span>
+                        <Divider></Divider>
+                        <span>리그 {standings[0].divisionRank} 위</span>
+                        <Divider></Divider>
+                        <span>{team.division!.shortName}</span>
                     </StandingSection>
                 </DetailSection>
             )}

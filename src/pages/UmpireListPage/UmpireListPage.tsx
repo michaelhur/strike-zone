@@ -15,7 +15,7 @@ const UmpireListPage = () => {
         <UmpireListPageContainer isSidebarOpen={isSidebarOpen}>
             <UmpireListMeta />
             <SectionTitleWrapper>
-                <h2>Umpire</h2>
+                <h2>심판 리스트</h2>
             </SectionTitleWrapper>
             <UmpireList />
         </UmpireListPageContainer>

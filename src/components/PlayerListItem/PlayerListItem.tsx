@@ -2,7 +2,7 @@ import { PlayerListItemContainer, StyledCell, StyledNameCell } from '@components
 
 import { useResponsive } from '@hooks/common/useResponsive';
 
-import { Player, PlayerSideEnum } from '@typings/player';
+import { BatSideEnum, PitchHandEnum, Player } from '@typings/player';
 
 interface PlayerListItemProps {
     player: Player;
@@ -20,8 +20,8 @@ export const PlayerListItem = ({ player, onClickPlayerItem }: PlayerListItemProp
             <StyledCell>{positionCode}</StyledCell>
             {!isMobile && (
                 <>
-                    <StyledCell>{PlayerSideEnum[batSide]}</StyledCell>
-                    <StyledCell>{PlayerSideEnum[pitchHand]}</StyledCell>
+                    <StyledCell>{BatSideEnum[batSide]}</StyledCell>
+                    <StyledCell>{PitchHandEnum[pitchHand]}</StyledCell>
                 </>
             )}
         </PlayerListItemContainer>

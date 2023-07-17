@@ -12,27 +12,27 @@ import { Menu } from '@typings/menu';
 
 export const menu: Menu[] = [
     {
-        name: 'Home',
+        name: '홈',
         path: PATH.HOME,
         iconComponent: <HomeIcon />,
     },
     {
-        name: 'Fixture',
+        name: '일정',
         path: PATH.FIXTURE,
         iconComponent: <CalendarIcon />,
     },
     {
-        name: 'Player',
+        name: '선수',
         path: PATH.PLAYER_LIST,
         iconComponent: <PersonIcon />,
     },
     {
-        name: 'Team',
+        name: '팀',
         path: PATH.TEAM_LIST,
         iconComponent: <TeamIcon />,
     },
     {
-        name: 'Umpire',
+        name: '심판',
         path: PATH.UMPIRE_LIST,
         iconComponent: <UmpireIcon />,
     },
@@ -40,22 +40,22 @@ export const menu: Menu[] = [
 
 export const leagueSubMenu = (date?: string): Menu[] => [
     {
-        name: 'ALL',
+        name: '전체',
         path: date ? `${DYNAMIC_PATH.FIXTURE_BY_DATE(date)}` : PATH.FIXTURE,
     },
     {
-        name: 'American League',
+        name: '아메리칸 리그',
         path: date ? `${DYNAMIC_PATH.FIXTURE_BY_DATE(date)}?leagues=103` : `${PATH.FIXTURE}?leagues=103`,
     },
     {
-        name: 'National League',
+        name: '네셔널 리그',
         path: date ? `${DYNAMIC_PATH.FIXTURE_BY_DATE(date)}?leagues=104` : `${PATH.FIXTURE}?leagues=104`,
     },
 ];
 
 export const leagueTabOptions: TabOptions<LeagueType>[] = [
     {
-        label: 'ALL',
+        label: '전체',
         value: 'ALL',
     },
     {

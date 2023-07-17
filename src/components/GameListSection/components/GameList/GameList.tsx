@@ -19,7 +19,7 @@ export const GameList = ({ games, itemViewType, cardCount }: GameListProps) => {
                     return <GameItem key={game.id} game={game} itemViewType={itemViewType} cardCount={cardCount} />;
                 })
             ) : (
-                <NoGameAlert>No Games Played</NoGameAlert>
+                <NoGameAlert>경기가 없습니다.</NoGameAlert>
             )}
         </GameListContainer>
     );

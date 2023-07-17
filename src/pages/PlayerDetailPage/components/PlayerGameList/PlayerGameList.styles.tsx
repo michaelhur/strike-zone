@@ -4,7 +4,7 @@ import { FlexColumnContainer } from '@components/Layout/Layout.styles';
 
 export const PlayerGameListContainer = styled(FlexColumnContainer)({
     gap: '1rem',
-    padding: '2rem 1rem',
+    padding: '1rem',
 
     width: '100%',
 
