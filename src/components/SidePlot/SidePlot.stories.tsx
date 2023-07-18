@@ -14,8 +14,16 @@ const Template: Story<typeof SidePlot> = (args) => {
 
 const sampleAtbat = atBatList;
 
-export const Default = Template.bind({});
-Default.args = {
+export const Zone = Template.bind({});
+Zone.args = {
     atbats: sampleAtbat,
     outcomeType: 'CalledStrike',
+    latest: true,
+};
+
+export const Heatmap = Template.bind({});
+Heatmap.args = {
+    atbats: sampleAtbat,
+    outcomeType: 'CalledStrike',
+    latest: false,
 };

@@ -21,7 +21,7 @@ export const TeamStrikeZone = ({ teamId, latest }: TeamStrikeZoneProps) => {
     const [pitchingData, battingData] = isLoading || !data ? [[], []] : useAtbatBySide(data, teamId);
     const plotType: PlotTypes = latest ? 'zone' : 'heatmap';
     const outcomeType: OutcomeType = latest ? 'BallsAndStrikes' : 'CalledStrike';
-    const sectionTitle = latest ? '최근 5경기' : '시즌 전체';
+    const sectionTitle = latest ? '최근 5 경기' : '시즌 전체';
 
     return (
         <TeamStrikeZoneContainer>

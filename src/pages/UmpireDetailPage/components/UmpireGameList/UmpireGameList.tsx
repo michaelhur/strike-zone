@@ -15,7 +15,7 @@ export const UmpireGameList = ({ id }: UmpireGameListProps) => {
 
     return (
         <UmpireGameListContainer>
-            <SectionTitle>최근 5경기</SectionTitle>
+            <SectionTitle>최근 10 경기</SectionTitle>
             {isLoading || !games ? (
                 <Loading size={60} />
             ) : (

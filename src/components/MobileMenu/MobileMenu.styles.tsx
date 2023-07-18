@@ -30,6 +30,7 @@ export const MobileMenuList = styled.ul({
     justifyContent: 'space-between',
     alignItems: 'center',
     width: '100%',
+    height: '4rem',
 
     '& li': {
         width: '20%',
@@ -43,17 +44,19 @@ export const MenuItem = styled(NavLink)({
     alignItems: 'center',
     gap: '0.25rem',
     width: '100%',
+    height: '4rem',
 
     '& span': {
         fontSize: '12px',
     },
 
     '&:hover, &:active, &.active': {
-        backgroundColor: 'var(--grey300)',
-        borderRadius: '0.5rem',
-
-        '& svg, & svg path': {
-            fill: 'var(--grey1000)',
+        '& svg, & svg path, & svg g': {
+            fill: 'var(--primary500)',
+            strokeWidth: '2',
+        },
+        '& span': {
+            color: 'var(--primary500)',
         },
     },
 });

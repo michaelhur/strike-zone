@@ -22,7 +22,7 @@ export const PlayerGameList = ({ slug }: PlayerGameListProps) => {
     return (
         <PlayerGameListContainer>
             <SectionTitleWrapper>
-                <h2>최근 5경기</h2>
+                <h2>최근 5 경기</h2>
             </SectionTitleWrapper>
             {isLoadingPlayer || isLoadingGames || !games ? (
                 <Loading size={60} />

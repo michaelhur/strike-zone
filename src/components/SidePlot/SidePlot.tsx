@@ -11,10 +11,12 @@ interface SidePlotProps {
     atbats: AtBat[];
     outcomeType: OutcomeType;
     hasTitle: boolean;
+    latest: boolean;
 }
 
-const SidePlot = ({ atbats, outcomeType, hasTitle = true }: SidePlotProps) => {
+const SidePlot = ({ atbats, outcomeType, hasTitle = true, latest = true }: SidePlotProps) => {
     const sectionTitle = outcomeType === 'All' ? '전체' : outcomeType == 'CalledStrike' ? '스트라이크' : '볼';
+    const plotType = latest ? 'zone' : 'heatmap';
 
     return (
         <SidePlotContainer>
@@ -27,7 +29,7 @@ const SidePlot = ({ atbats, outcomeType, hasTitle = true }: SidePlotProps) => {
                                 key={index}
                                 atbats={atbats}
                                 outcomeType={outcomeType}
-                                plotType={'zone'}
+                                plotType={plotType}
                                 radius={24}
                                 {...props}
                             />
@@ -41,7 +43,7 @@ const SidePlot = ({ atbats, outcomeType, hasTitle = true }: SidePlotProps) => {
                                 key={index}
                                 atbats={atbats}
                                 outcomeType={outcomeType}
-                                plotType={'zone'}
+                                plotType={plotType}
                                 radius={24}
                                 {...props}
                             />

@@ -27,7 +27,7 @@ const PlayerStrikeZone = ({ slug, latest }: PlayerStrikeZoneProps) => {
               enabled: !!positionType,
           });
 
-    const sectionTitle = latest ? '최근 5경기' : '시즌 전체';
+    const sectionTitle = latest ? '최근 5 경기' : '시즌 전체';
     const plotType: PlotTypes = latest ? 'zone' : 'heatmap';
     const outcomeType: OutcomeType = latest ? 'BallsAndStrikes' : 'CalledStrike';
 
