@@ -5,8 +5,8 @@ import styled from '@emotion/styled';
 import { FlexRowContainer } from '@components/Layout/Layout.styles';
 
 export const MobileHeaderContainer = styled(FlexRowContainer)({
-    justifyContent: 'flex-start',
-    alignItems: 'flex-start',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     padding: '1rem',
     width: '100vw',
 
