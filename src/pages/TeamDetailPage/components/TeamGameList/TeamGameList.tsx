@@ -15,7 +15,7 @@ export const TeamGameList = ({ teamId }: TeamLatestGameListProps) => {
 
     return (
         <TeamGameListContainer>
-            <SectionTitle>최근 5경기</SectionTitle>
+            <SectionTitle>최근 5 경기</SectionTitle>
             {isLoading ? <Loading size={60} /> : <GameList games={data!} itemViewType={'LIST'} cardCount={1} />}
         </TeamGameListContainer>
     );

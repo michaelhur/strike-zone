@@ -10,6 +10,6 @@ export const PlayerListContainer = styled(ColumnPageContainer)({
     padding: '2rem',
 
     [`@media (max-width: ${breakpoints.MOBILE})`]: {
-        padding: '1rem',
+        padding: '0rem',
     },
 });

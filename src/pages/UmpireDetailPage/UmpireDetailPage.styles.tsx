@@ -15,4 +15,6 @@ export const UmpireDetailPageContainer = styled(ColumnPageContainer)({
 
 export const UmpireStrikeZoneSection = styled(FlexColumnContainer)({
     gap: '1rem',
+
+    flex: '1',
 });

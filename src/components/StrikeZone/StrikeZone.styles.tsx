@@ -2,6 +2,8 @@ import styled from '@emotion/styled';
 
 import { FlexRowContainer } from '@components/Layout/Layout.styles';
 
+import { breakpoints } from '@styles/theme';
+
 export const StrikeZoneRow = styled(FlexRowContainer)({
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
@@ -18,6 +20,10 @@ export const StrikeZoneList = styled.ul({
     gap: '1rem',
 
     flexWrap: 'wrap',
+
+    [`@media (max-width: ${breakpoints.MOBILE})`]: {
+        justifyContent: 'center',
+    },
 });
 
 export const StrikeZoneContainer = styled.article({

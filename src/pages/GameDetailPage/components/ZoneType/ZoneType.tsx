@@ -28,9 +28,9 @@ export const ZoneType = ({ slug }: ZoneTypeProps) => {
                         <Loading size={60} />
                     ) : (
                         <>
-                            <SidePlot atbats={data!} outcomeType={'All'} hasTitle={true} />
-                            <SidePlot atbats={data!} outcomeType={'CalledStrike'} hasTitle={true} />
-                            <SidePlot atbats={data!} outcomeType={'Ball'} hasTitle={true} />
+                            <SidePlot atbats={data!} outcomeType={'All'} hasTitle={true} latest={true} />
+                            <SidePlot atbats={data!} outcomeType={'CalledStrike'} hasTitle={true} latest={true} />
+                            <SidePlot atbats={data!} outcomeType={'Ball'} hasTitle={true} latest={true} />
                         </>
                     )}
                 </PlotContainer>

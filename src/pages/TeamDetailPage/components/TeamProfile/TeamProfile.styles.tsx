@@ -18,8 +18,8 @@ export const LogoSection = styled(FlexColumnContainer)({
     alignItems: 'center',
 
     '& img': {
-        height: '8rem',
-        width: '8rem',
+        height: '5rem',
+        width: '5rem',
         borderRadius: '50%',
     },
 });

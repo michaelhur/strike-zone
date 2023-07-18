@@ -10,6 +10,7 @@ import { Pagination } from '@components/Pagination/Pagination';
 import { PlayerList } from '@components/PlayerList/PlayerList';
 
 import { useGetPlayerList } from '@hooks/@query/player/useGetPlayerList';
+import { useResponsive } from '@hooks/common/useResponsive';
 
 import { PlayerListContainer } from '@pages/PlayerListPage/PlayerListPage.styles';
 import { PlayerListMeta } from '@pages/PlayerListPage/components/PlayerListMeta/PlayerListMeta';
@@ -27,6 +28,8 @@ const PlayerListPage = () => {
     const [page, setPage] = useState<number>(1);
     const [name, setName] = useState<string>('A');
     const isSidebarOpen = useRecoilValue(sidebarCollapseState);
+    const isMobile = !useResponsive(600);
+    const tabSize = isMobile ? 'small' : 'large';
 
     const { isLoading, data } = useGetPlayerList(page, name, positionTypeFilter);
 
@@ -82,6 +85,7 @@ const PlayerListPage = () => {
                 selectedCategory={positionTypeFilter}
                 setSelectedCategory={onClickPositionTab}
                 categoryOptions={positionTypeTabOptions}
+                size={tabSize}
             />
             <NameFilter selected={name} onSelectName={onClickName} />
             {isLoading || !data ? (

@@ -2,6 +2,8 @@ import styled from '@emotion/styled';
 
 import { FlexColumnContainer, FlexRowContainer } from '@components/Layout/Layout.styles';
 
+import { breakpoints } from '@styles/theme';
+
 export const TabInputWrapper = styled(FlexColumnContainer)({
     justifyContent: 'center',
     alignItems: 'center',
@@ -16,6 +18,10 @@ export const TabInputList = styled(FlexRowContainer)({
     width: '100%',
 
     cursor: 'pointer',
+
+    [`@media (max-width: ${breakpoints.MOBILE})`]: {
+        overflowX: 'scroll',
+    },
 });
 
 interface StyledTabProps {
@@ -45,7 +51,7 @@ export const StyledTab = styled(FlexRowContainer)(
     },
     ({ size }: StyledTabProps) => ({
         fontSize: size === 'large' ? '16px' : '12px',
-        padding: size === 'large' ? '24px 16px' : '16px 8px',
+        padding: size === 'large' ? '24px 16px' : '16px 12px',
 
         '& svg': {
             width: size === 'large' ? '24px' : '16px',
@@ -53,7 +59,7 @@ export const StyledTab = styled(FlexRowContainer)(
         },
 
         '&.active, :hover, :active': {
-            padding: size === 'large' ? '24px 16px 22px' : '16px 8px 14px',
+            padding: size === 'large' ? '24px 16px 22px' : '16px 12px 14px',
         },
     }),
 );

@@ -11,6 +11,7 @@ export const NameFilterContainer = styled(FlexRowContainer)({
 });
 
 export const NameFilterWrapper = styled(FlexRowContainer)({
+    justifyContent: 'center',
     alignItems: 'center',
     padding: '1rem',
     gap: '0.5rem',

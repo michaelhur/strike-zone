@@ -30,7 +30,7 @@ export const requestGetGameListByUmpire = async (umpireId: number): Promise<Game
 
 export const requestGetLastestGameListByUmpire = async (umpireId: number): Promise<Game[]> => {
     const gameList = await requestGetGameListByUmpire(umpireId);
-    return gameList.slice(0, 5);
+    return gameList.slice(0, 10);
 };
 
 export const requestGetAtbatListByUmpire = async (umpireId: number): Promise<AtBat[]> => {
