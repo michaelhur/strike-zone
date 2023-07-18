@@ -11,9 +11,6 @@ export const useGetLatestAtbatListByTeam = (teamId: number, options?: UseQueryOp
         () => requestGetLatestAtbatListByTeam(teamId),
         {
             ...options,
-            onSuccess: () => {
-                console.log('useGetLatestAtbatListByTeam succeed');
-            },
         },
     );
 };

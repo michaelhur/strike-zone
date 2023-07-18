@@ -13,8 +13,5 @@ export const useGetTeamList = (
     const queryKey = !leagueId && !divisionId ? ['Teams'] : ['Teams', { leagueId, divisionId }];
     return useQuery<Team[], AxiosError>(queryKey, () => requestGetTeamList(leagueId, divisionId), {
         ...options,
-        onSuccess: () => {
-            console.log('useGetTeamList succeed');
-        },
     });
 };

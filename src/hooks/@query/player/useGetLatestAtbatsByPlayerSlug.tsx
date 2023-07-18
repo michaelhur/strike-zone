@@ -16,9 +16,6 @@ export const useGetLatestAtbatsByPlayerSlug = (
         () => requestGetLatestAtbatsByPlayerSlug(slug, positionType),
         {
             ...options,
-            onSuccess: () => {
-                console.log('useGetLatestAtbatsByPlayerSlug succeed');
-            },
         },
     );
 };

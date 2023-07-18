@@ -8,8 +8,5 @@ import { requestGetLastestGameListByUmpire } from '@src/apis/umpire';
 export const useGetLatestGameListByUmpire = (umpireId: number, options?: UseQueryOptions<Game[], AxiosError>) => {
     return useQuery<Game[], AxiosError>(['Games', { umpireId }], () => requestGetLastestGameListByUmpire(umpireId), {
         ...options,
-        onSuccess: () => {
-            console.log('useGetLatestGameListByUmpire succeed');
-        },
     });
 };

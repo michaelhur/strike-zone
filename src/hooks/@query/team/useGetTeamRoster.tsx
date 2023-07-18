@@ -12,8 +12,5 @@ export const useGetTeamRoster = (
 ) => {
     return useQuery<Player[], AxiosError>(['PLAYERS', { teamId, positionType }], () => requestGetTeamRoster(teamId), {
         ...options,
-        onSuccess: () => {
-            console.log('useGetTeamRoster succeed');
-        },
     });
 };

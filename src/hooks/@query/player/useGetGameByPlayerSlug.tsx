@@ -16,9 +16,6 @@ export const useGetGameByPlayerSlug = (
         () => requestGetGameByPlayerSlug(slug, positionType),
         {
             ...options,
-            onSuccess: () => {
-                console.log('useGetGameByPlayerSlug succeed');
-            },
         },
     );
 };

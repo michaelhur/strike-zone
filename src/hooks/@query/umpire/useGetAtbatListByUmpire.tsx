@@ -8,8 +8,5 @@ import { requestGetAtbatListByUmpire } from '@src/apis/umpire';
 export const useGetAtbatListByUmpire = (umpireId: number, options?: UseQueryOptions<AtBat[], AxiosError>) => {
     return useQuery<AtBat[], AxiosError>(['Atbats', { umpireId }], () => requestGetAtbatListByUmpire(umpireId), {
         ...options,
-        onSuccess: () => {
-            console.log('useGetAtbatListByUmpire succeed');
-        },
     });
 };

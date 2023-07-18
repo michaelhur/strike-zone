@@ -11,9 +11,6 @@ export const useGetLatestGameListByTeam = (teamId: number, options?: UseQueryOpt
         () => requestGetLatestGameListByTeam(teamId),
         {
             ...options,
-            onSuccess: () => {
-                console.log('requestGetLatestGameListByTeam succeed');
-            },
         },
     );
 };
