@@ -16,9 +16,6 @@ export const useGetTeamStandings = (
         () => requestGetTeamStandings(teamId, leagueId, divisionId),
         {
             ...options,
-            onSuccess: () => {
-                console.log('useGetTeamStandings succeed');
-            },
         },
     );
 };

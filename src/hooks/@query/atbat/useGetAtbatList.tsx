@@ -14,7 +14,6 @@ export const useGetAtbatList = (searchParams?: string, options?: UseQueryOptions
         () => requestGetAtbatList(searchParams),
         {
             ...options,
-            onSuccess: () => console.log('useGetAtBatList'),
         },
     );
 };

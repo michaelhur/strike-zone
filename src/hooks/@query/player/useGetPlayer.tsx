@@ -8,8 +8,5 @@ import { requestGetPlayer } from '@src/apis/player';
 export const useGetPlayer = (slug: string, options?: UseQueryOptions<Player, AxiosError>) => {
     return useQuery<Player, AxiosError>(['PLAYER', { slug }], () => requestGetPlayer(slug), {
         ...options,
-        onSuccess: () => {
-            console.log('useGetGame succeed');
-        },
     });
 };

@@ -24,9 +24,6 @@ export const useGetGameList = (
                     );
                 return games;
             },
-            onSuccess: () => {
-                console.log('useGetGameList succeed');
-            },
         },
     );
 };

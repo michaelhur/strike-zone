@@ -16,9 +16,6 @@ export const useGetAtbatsByPlayerSlug = (
         () => requestGetAtbatsByPlayerSlug(slug, positionType),
         {
             ...options,
-            onSuccess: () => {
-                console.log('useGetAtbatsByPlayerSlug succeed');
-            },
         },
     );
 };

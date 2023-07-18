@@ -20,9 +20,6 @@ export const useGetPlayerList = (
         () => requestGetPlayerList(page, lastName, positionType, searchParams),
         {
             ...options,
-            onSuccess: () => {
-                console.log('useGetPlayerList succeed');
-            },
         },
     );
 };

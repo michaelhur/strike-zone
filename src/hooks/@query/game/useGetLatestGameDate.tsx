@@ -18,7 +18,6 @@ export const useGetLatestGameDate = (options?: UseQueryOptions<dateString, Axios
             const dateString = data.date;
             const date = YYYYMMDD_to_date(dateString);
             setLatestGameDate(date);
-            console.log('useGetGameList succeed');
         },
     });
 };

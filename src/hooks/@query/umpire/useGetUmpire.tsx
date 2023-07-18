@@ -8,8 +8,5 @@ import { requestGetUmpire } from '@src/apis/umpire';
 export const useGetUmpire = (umpireId: number, options?: UseQueryOptions<Umpire, AxiosError>) => {
     return useQuery<Umpire, AxiosError>(['UMPIRES', { umpireId }], () => requestGetUmpire(umpireId), {
         ...options,
-        onSuccess: () => {
-            console.log('useGetUmpire Succeed');
-        },
     });
 };

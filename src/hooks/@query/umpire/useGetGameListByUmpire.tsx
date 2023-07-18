@@ -8,8 +8,5 @@ import { requestGetGameListByUmpire } from '@src/apis/umpire';
 export const useGetGameListByUmpire = (umpireId: number, options?: UseQueryOptions<Game[], AxiosError>) => {
     return useQuery<Game[], AxiosError>(['Games', { umpireId }], () => requestGetGameListByUmpire(umpireId), {
         ...options,
-        onSuccess: () => {
-            console.log('useGetGameListByUmpire succeed');
-        },
     });
 };

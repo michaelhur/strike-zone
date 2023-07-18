@@ -15,9 +15,6 @@ export const useGetUmpireList = (
         () => requestGetUmpireList(page, name),
         {
             ...options,
-            onSuccess: () => {
-                console.log('useGetUmpireList succeed');
-            },
         },
     );
 };

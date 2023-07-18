@@ -25,6 +25,7 @@ export default defineConfig({
         }),
         viteCompression(),
     ],
+    appType: 'spa',
     test: {
         globals: true,
         environment: 'jsdom',

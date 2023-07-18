@@ -8,8 +8,5 @@ import { requestGetAtbatListByTeam } from '@src/apis/team';
 export const useGetAtbatListByTeam = (teamId: number, options?: UseQueryOptions<AtBat[], AxiosError>) => {
     return useQuery<AtBat[], AxiosError>(['Atbats', { teamId }], () => requestGetAtbatListByTeam(teamId), {
         ...options,
-        onSuccess: () => {
-            console.log('useGetAtbatListByTeam succeed');
-        },
     });
 };

@@ -14,7 +14,6 @@ export const useGetLatestGameList = (options?: UseQueryOptions<Array<Game>, Axio
         onSuccess: (data) => {
             const date = data[0].date;
             queryClient.setQueryData(['GAMES', { date }], data);
-            console.log('useGetGameList succeed');
         },
     });
 };
