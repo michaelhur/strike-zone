@@ -42,7 +42,7 @@ const CardViewScoreSection = ({
     homeScore: number | null;
     awayScore: number | null;
 }) => {
-    const gameStatus = isFinal ? '종료' : '우천취소';
+    const gameStatus = isFinal ? '종료' : '취소';
 
     return (
         <CardViewScoreSectionContainer>
