@@ -116,7 +116,12 @@ export const ListViewScore = styled.h1({
     padding: '0.25rem',
 });
 
-export const ListViewGameStatus = styled.h4({
+export const ListViewDate = styled.span({
     fontSize: '0.75rem',
+    color: 'var(--grey600)',
+});
+
+export const ListViewGameStatus = styled.h4({
+    fontSize: '1rem',
     color: 'var(--grey700)',
 });
