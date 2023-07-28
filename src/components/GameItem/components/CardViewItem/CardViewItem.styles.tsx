@@ -83,7 +83,8 @@ export const CardViewTeamSectionContainer = styled.section({
     gap: '0.25rem',
     // padding: '1rem',
 
-    width: '9rem',
+    // width: '9rem',
+    width: '30%',
 });
 
 export const CardViewTeamImage = styled.div({
@@ -123,6 +124,7 @@ export const CardViewScoreSectionContainer = styled.section({
     alignItems: 'center',
 
     gap: '0.25rem',
+    flex: '1',
     // padding: '1rem',
 });
 
